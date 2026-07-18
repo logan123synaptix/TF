@@ -1,0 +1,2516 @@
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cckQCMsg.s 			page 1
+
+
+   1              		.cpu cortex-m33
+   2              		.arch armv8-m.main
+   3              		.fpu fpv5-sp-d16
+   4              		.arch_extension dsp
+   5              		.eabi_attribute 27, 1
+   6              		.eabi_attribute 28, 1
+   7              		.eabi_attribute 20, 1
+   8              		.eabi_attribute 21, 1
+   9              		.eabi_attribute 23, 3
+  10              		.eabi_attribute 24, 1
+  11              		.eabi_attribute 25, 1
+  12              		.eabi_attribute 26, 1
+  13              		.eabi_attribute 30, 1
+  14              		.eabi_attribute 34, 1
+  15              		.eabi_attribute 18, 4
+  16              		.file	"sx_W25Q128.c"
+  17              		.text
+  18              	.Ltext0:
+  19              		.cfi_sections	.debug_frame
+  20              		.file 1 "SynaptiX_FDK/components/external_flash/sx_W25Q128.c"
+  21              		.section	.text.sx_gpio_write,"ax",%progbits
+  22              		.align	1
+  23              		.syntax unified
+  24              		.thumb
+  25              		.thumb_func
+  27              	sx_gpio_write:
+  28              	.LVL0:
+  29              	.LFB1:
+  30              		.file 2 "SynaptiX_FDK/components/gpio/sx_gpio.h"
+   1:SynaptiX_FDK/components/gpio/sx_gpio.h **** #ifndef SX_GPIO_H
+   2:SynaptiX_FDK/components/gpio/sx_gpio.h **** #define SX_GPIO_H
+   3:SynaptiX_FDK/components/gpio/sx_gpio.h **** #ifdef __cplusplus
+   4:SynaptiX_FDK/components/gpio/sx_gpio.h **** extern "C" {
+   5:SynaptiX_FDK/components/gpio/sx_gpio.h **** #endif
+   6:SynaptiX_FDK/components/gpio/sx_gpio.h **** 
+   7:SynaptiX_FDK/components/gpio/sx_gpio.h **** #include <stdint.h>
+   8:SynaptiX_FDK/components/gpio/sx_gpio.h **** 
+   9:SynaptiX_FDK/components/gpio/sx_gpio.h **** typedef enum SX_GPIO_VALUE{
+  10:SynaptiX_FDK/components/gpio/sx_gpio.h ****     SX_GPIO_LOW = 0,
+  11:SynaptiX_FDK/components/gpio/sx_gpio.h ****     SX_GPIO_HIGH = 1
+  12:SynaptiX_FDK/components/gpio/sx_gpio.h **** } SX_GPIO_VALUE;
+  13:SynaptiX_FDK/components/gpio/sx_gpio.h **** 
+  14:SynaptiX_FDK/components/gpio/sx_gpio.h **** typedef struct sx_gpio sx_gpio_t;
+  15:SynaptiX_FDK/components/gpio/sx_gpio.h **** 
+  16:SynaptiX_FDK/components/gpio/sx_gpio.h **** typedef struct {
+  17:SynaptiX_FDK/components/gpio/sx_gpio.h ****     void    *port;
+  18:SynaptiX_FDK/components/gpio/sx_gpio.h ****     uint16_t pin;
+  19:SynaptiX_FDK/components/gpio/sx_gpio.h **** } sx_gpio_pin_t;
+  20:SynaptiX_FDK/components/gpio/sx_gpio.h **** 
+  21:SynaptiX_FDK/components/gpio/sx_gpio.h **** typedef struct sx_gpio_ops{
+  22:SynaptiX_FDK/components/gpio/sx_gpio.h ****     int (*write)(sx_gpio_t *gpio, SX_GPIO_VALUE value);
+  23:SynaptiX_FDK/components/gpio/sx_gpio.h ****     int (*read)(sx_gpio_t *gpio, SX_GPIO_VALUE *value);
+  24:SynaptiX_FDK/components/gpio/sx_gpio.h ****     int (*toggle)(sx_gpio_t *gpio);
+  25:SynaptiX_FDK/components/gpio/sx_gpio.h **** } sx_gpio_ops_t;
+  26:SynaptiX_FDK/components/gpio/sx_gpio.h **** 
+  27:SynaptiX_FDK/components/gpio/sx_gpio.h **** typedef struct sx_gpio{
+  28:SynaptiX_FDK/components/gpio/sx_gpio.h ****     sx_gpio_ops_t *ops;
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cckQCMsg.s 			page 2
+
+
+  29:SynaptiX_FDK/components/gpio/sx_gpio.h ****     void *pDriver;
+  30:SynaptiX_FDK/components/gpio/sx_gpio.h ****     SX_GPIO_VALUE value;
+  31:SynaptiX_FDK/components/gpio/sx_gpio.h **** } sx_gpio_t;
+  32:SynaptiX_FDK/components/gpio/sx_gpio.h **** 
+  33:SynaptiX_FDK/components/gpio/sx_gpio.h **** static inline void sx_gpio_init(sx_gpio_t *gpio, sx_gpio_ops_t *ops, void *pDriver){
+  34:SynaptiX_FDK/components/gpio/sx_gpio.h ****     gpio->ops = ops;
+  35:SynaptiX_FDK/components/gpio/sx_gpio.h ****     gpio->pDriver = pDriver;
+  36:SynaptiX_FDK/components/gpio/sx_gpio.h ****     gpio->value = SX_GPIO_LOW;
+  37:SynaptiX_FDK/components/gpio/sx_gpio.h **** }
+  38:SynaptiX_FDK/components/gpio/sx_gpio.h **** 
+  39:SynaptiX_FDK/components/gpio/sx_gpio.h **** static inline int sx_gpio_write(sx_gpio_t *gpio, SX_GPIO_VALUE value){
+  31              		.loc 2 39 70 view -0
+  32              		.cfi_startproc
+  33              		@ args = 0, pretend = 0, frame = 0
+  34              		@ frame_needed = 0, uses_anonymous_args = 0
+  35              		.loc 2 39 70 is_stmt 0 view .LVU1
+  36 0000 38B5     		push	{r3, r4, r5, lr}
+  37              	.LCFI0:
+  38              		.cfi_def_cfa_offset 16
+  39              		.cfi_offset 3, -16
+  40              		.cfi_offset 4, -12
+  41              		.cfi_offset 5, -8
+  42              		.cfi_offset 14, -4
+  40:SynaptiX_FDK/components/gpio/sx_gpio.h ****     if(gpio->ops && gpio->ops->write){
+  43              		.loc 2 40 5 is_stmt 1 view .LVU2
+  44              		.loc 2 40 12 is_stmt 0 view .LVU3
+  45 0002 0368     		ldr	r3, [r0]
+  46              		.loc 2 40 7 view .LVU4
+  47 0004 3BB1     		cbz	r3, .L4
+  48 0006 0446     		mov	r4, r0
+  49 0008 0D46     		mov	r5, r1
+  50              		.loc 2 40 30 discriminator 1 view .LVU5
+  51 000a 1B68     		ldr	r3, [r3]
+  52              		.loc 2 40 18 discriminator 1 view .LVU6
+  53 000c 33B1     		cbz	r3, .L5
+  54              	.LBB4:
+  41:SynaptiX_FDK/components/gpio/sx_gpio.h ****         int ret = gpio->ops->write(gpio, value);
+  55              		.loc 2 41 9 is_stmt 1 view .LVU7
+  56              		.loc 2 41 19 is_stmt 0 view .LVU8
+  57 000e 9847     		blx	r3
+  58              	.LVL1:
+  42:SynaptiX_FDK/components/gpio/sx_gpio.h ****         if(ret == 0){
+  59              		.loc 2 42 9 is_stmt 1 view .LVU9
+  60              		.loc 2 42 11 is_stmt 0 view .LVU10
+  61 0010 00B9     		cbnz	r0, .L1
+  43:SynaptiX_FDK/components/gpio/sx_gpio.h ****             gpio->value = value;
+  62              		.loc 2 43 13 is_stmt 1 view .LVU11
+  63              		.loc 2 43 25 is_stmt 0 view .LVU12
+  64 0012 2572     		strb	r5, [r4, #8]
+  44:SynaptiX_FDK/components/gpio/sx_gpio.h ****         }
+  45:SynaptiX_FDK/components/gpio/sx_gpio.h ****         return ret;
+  65              		.loc 2 45 9 is_stmt 1 view .LVU13
+  66              	.LVL2:
+  67              	.L1:
+  68              		.loc 2 45 9 is_stmt 0 view .LVU14
+  69              	.LBE4:
+  46:SynaptiX_FDK/components/gpio/sx_gpio.h ****     }
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cckQCMsg.s 			page 3
+
+
+  47:SynaptiX_FDK/components/gpio/sx_gpio.h ****     return -1;
+  48:SynaptiX_FDK/components/gpio/sx_gpio.h **** }
+  70              		.loc 2 48 1 view .LVU15
+  71 0014 38BD     		pop	{r3, r4, r5, pc}
+  72              	.LVL3:
+  73              	.L4:
+  47:SynaptiX_FDK/components/gpio/sx_gpio.h **** }
+  74              		.loc 2 47 12 view .LVU16
+  75 0016 4FF0FF30 		mov	r0, #-1
+  76              	.LVL4:
+  47:SynaptiX_FDK/components/gpio/sx_gpio.h **** }
+  77              		.loc 2 47 12 view .LVU17
+  78 001a FBE7     		b	.L1
+  79              	.LVL5:
+  80              	.L5:
+  47:SynaptiX_FDK/components/gpio/sx_gpio.h **** }
+  81              		.loc 2 47 12 view .LVU18
+  82 001c 4FF0FF30 		mov	r0, #-1
+  83              	.LVL6:
+  47:SynaptiX_FDK/components/gpio/sx_gpio.h **** }
+  84              		.loc 2 47 12 view .LVU19
+  85 0020 F8E7     		b	.L1
+  86              		.cfi_endproc
+  87              	.LFE1:
+  89              		.section	.text.sx_spi_write,"ax",%progbits
+  90              		.align	1
+  91              		.syntax unified
+  92              		.thumb
+  93              		.thumb_func
+  95              	sx_spi_write:
+  96              	.LVL7:
+  97              	.LFB10:
+  98              		.file 3 "SynaptiX_FDK/components/spi/sx_spi.h"
+   1:SynaptiX_FDK/components/spi/sx_spi.h **** #ifndef SX_SPI_H
+   2:SynaptiX_FDK/components/spi/sx_spi.h **** #define SX_SPI_H
+   3:SynaptiX_FDK/components/spi/sx_spi.h **** #ifdef __cplusplus
+   4:SynaptiX_FDK/components/spi/sx_spi.h **** extern "C" {
+   5:SynaptiX_FDK/components/spi/sx_spi.h **** #endif
+   6:SynaptiX_FDK/components/spi/sx_spi.h **** 
+   7:SynaptiX_FDK/components/spi/sx_spi.h **** #include <stdint.h>
+   8:SynaptiX_FDK/components/spi/sx_spi.h **** #include "sx_gpio.h"
+   9:SynaptiX_FDK/components/spi/sx_spi.h **** 
+  10:SynaptiX_FDK/components/spi/sx_spi.h **** typedef struct sx_spi sx_spi_t;
+  11:SynaptiX_FDK/components/spi/sx_spi.h **** 
+  12:SynaptiX_FDK/components/spi/sx_spi.h **** typedef struct sx_spi_ops{
+  13:SynaptiX_FDK/components/spi/sx_spi.h ****     int (*write)(sx_spi_t *spi, const uint8_t *data, uint32_t len);
+  14:SynaptiX_FDK/components/spi/sx_spi.h ****     int (*read)(sx_spi_t *spi, uint8_t *data, uint32_t len);
+  15:SynaptiX_FDK/components/spi/sx_spi.h ****     int (*write_read)(sx_spi_t *spi, const uint8_t *tx_buf, uint8_t *rx_buf, uint32_t len);
+  16:SynaptiX_FDK/components/spi/sx_spi.h **** } sx_spi_ops_t;
+  17:SynaptiX_FDK/components/spi/sx_spi.h **** 
+  18:SynaptiX_FDK/components/spi/sx_spi.h **** struct sx_spi
+  19:SynaptiX_FDK/components/spi/sx_spi.h **** {
+  20:SynaptiX_FDK/components/spi/sx_spi.h ****     /* data */
+  21:SynaptiX_FDK/components/spi/sx_spi.h ****     sx_spi_ops_t *ops;
+  22:SynaptiX_FDK/components/spi/sx_spi.h ****     void *pDriver;
+  23:SynaptiX_FDK/components/spi/sx_spi.h ****     sx_gpio_t *cs;
+  24:SynaptiX_FDK/components/spi/sx_spi.h **** };
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cckQCMsg.s 			page 4
+
+
+  25:SynaptiX_FDK/components/spi/sx_spi.h **** 
+  26:SynaptiX_FDK/components/spi/sx_spi.h **** static inline void sx_spi_init(sx_spi_t *spi, sx_spi_ops_t *ops, void *pDriver, sx_gpio_t *cs){
+  27:SynaptiX_FDK/components/spi/sx_spi.h ****     spi->ops = ops;
+  28:SynaptiX_FDK/components/spi/sx_spi.h ****     spi->pDriver = pDriver;
+  29:SynaptiX_FDK/components/spi/sx_spi.h ****     spi->cs = cs;
+  30:SynaptiX_FDK/components/spi/sx_spi.h **** }
+  31:SynaptiX_FDK/components/spi/sx_spi.h **** 
+  32:SynaptiX_FDK/components/spi/sx_spi.h **** static inline int sx_spi_write(sx_spi_t *spi, const uint8_t *data, uint32_t len){
+  99              		.loc 3 32 81 is_stmt 1 view -0
+ 100              		.cfi_startproc
+ 101              		@ args = 0, pretend = 0, frame = 0
+ 102              		@ frame_needed = 0, uses_anonymous_args = 0
+ 103              		.loc 3 32 81 is_stmt 0 view .LVU21
+ 104 0000 08B5     		push	{r3, lr}
+ 105              	.LCFI1:
+ 106              		.cfi_def_cfa_offset 8
+ 107              		.cfi_offset 3, -8
+ 108              		.cfi_offset 14, -4
+  33:SynaptiX_FDK/components/spi/sx_spi.h ****     if(spi->ops && spi->ops->write){
+ 109              		.loc 3 33 5 is_stmt 1 view .LVU22
+ 110              		.loc 3 33 11 is_stmt 0 view .LVU23
+ 111 0002 0368     		ldr	r3, [r0]
+ 112              		.loc 3 33 7 view .LVU24
+ 113 0004 1BB1     		cbz	r3, .L9
+ 114              		.loc 3 33 28 discriminator 1 view .LVU25
+ 115 0006 1B68     		ldr	r3, [r3]
+ 116              		.loc 3 33 17 discriminator 1 view .LVU26
+ 117 0008 23B1     		cbz	r3, .L10
+  34:SynaptiX_FDK/components/spi/sx_spi.h ****         return spi->ops->write(spi, data, len);
+ 118              		.loc 3 34 9 is_stmt 1 view .LVU27
+ 119              		.loc 3 34 16 is_stmt 0 view .LVU28
+ 120 000a 9847     		blx	r3
+ 121              	.LVL8:
+ 122              	.L7:
+  35:SynaptiX_FDK/components/spi/sx_spi.h ****     }
+  36:SynaptiX_FDK/components/spi/sx_spi.h ****     return -1;
+  37:SynaptiX_FDK/components/spi/sx_spi.h **** }
+ 123              		.loc 3 37 1 view .LVU29
+ 124 000c 08BD     		pop	{r3, pc}
+ 125              	.LVL9:
+ 126              	.L9:
+  36:SynaptiX_FDK/components/spi/sx_spi.h **** }
+ 127              		.loc 3 36 12 view .LVU30
+ 128 000e 4FF0FF30 		mov	r0, #-1
+ 129              	.LVL10:
+  36:SynaptiX_FDK/components/spi/sx_spi.h **** }
+ 130              		.loc 3 36 12 view .LVU31
+ 131 0012 FBE7     		b	.L7
+ 132              	.LVL11:
+ 133              	.L10:
+  36:SynaptiX_FDK/components/spi/sx_spi.h **** }
+ 134              		.loc 3 36 12 view .LVU32
+ 135 0014 4FF0FF30 		mov	r0, #-1
+ 136              	.LVL12:
+  36:SynaptiX_FDK/components/spi/sx_spi.h **** }
+ 137              		.loc 3 36 12 view .LVU33
+ 138 0018 F8E7     		b	.L7
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cckQCMsg.s 			page 5
+
+
+ 139              		.cfi_endproc
+ 140              	.LFE10:
+ 142              		.section	.text.sx_spi_write_read,"ax",%progbits
+ 143              		.align	1
+ 144              		.syntax unified
+ 145              		.thumb
+ 146              		.thumb_func
+ 148              	sx_spi_write_read:
+ 149              	.LVL13:
+ 150              	.LFB12:
+  38:SynaptiX_FDK/components/spi/sx_spi.h **** 
+  39:SynaptiX_FDK/components/spi/sx_spi.h **** static inline int sx_spi_read(sx_spi_t *spi, uint8_t *data, uint32_t len){
+  40:SynaptiX_FDK/components/spi/sx_spi.h ****     if(spi->ops && spi->ops->read){
+  41:SynaptiX_FDK/components/spi/sx_spi.h ****         return spi->ops->read(spi, data, len);
+  42:SynaptiX_FDK/components/spi/sx_spi.h ****     }
+  43:SynaptiX_FDK/components/spi/sx_spi.h ****     return -1;
+  44:SynaptiX_FDK/components/spi/sx_spi.h **** }
+  45:SynaptiX_FDK/components/spi/sx_spi.h **** 
+  46:SynaptiX_FDK/components/spi/sx_spi.h **** static inline int sx_spi_write_read(sx_spi_t *spi, const uint8_t *tx_buf, uint8_t *rx_buf, uint32_t
+ 151              		.loc 3 46 105 is_stmt 1 view -0
+ 152              		.cfi_startproc
+ 153              		@ args = 0, pretend = 0, frame = 0
+ 154              		@ frame_needed = 0, uses_anonymous_args = 0
+ 155              		.loc 3 46 105 is_stmt 0 view .LVU35
+ 156 0000 10B5     		push	{r4, lr}
+ 157              	.LCFI2:
+ 158              		.cfi_def_cfa_offset 8
+ 159              		.cfi_offset 4, -8
+ 160              		.cfi_offset 14, -4
+  47:SynaptiX_FDK/components/spi/sx_spi.h ****     if(spi->ops && spi->ops->write_read){
+ 161              		.loc 3 47 5 is_stmt 1 view .LVU36
+ 162              		.loc 3 47 11 is_stmt 0 view .LVU37
+ 163 0002 0468     		ldr	r4, [r0]
+ 164              		.loc 3 47 7 view .LVU38
+ 165 0004 1CB1     		cbz	r4, .L14
+ 166              		.loc 3 47 28 discriminator 1 view .LVU39
+ 167 0006 A468     		ldr	r4, [r4, #8]
+ 168              		.loc 3 47 17 discriminator 1 view .LVU40
+ 169 0008 24B1     		cbz	r4, .L15
+  48:SynaptiX_FDK/components/spi/sx_spi.h ****         return spi->ops->write_read(spi, tx_buf, rx_buf, len);
+ 170              		.loc 3 48 9 is_stmt 1 view .LVU41
+ 171              		.loc 3 48 16 is_stmt 0 view .LVU42
+ 172 000a A047     		blx	r4
+ 173              	.LVL14:
+ 174              	.L12:
+  49:SynaptiX_FDK/components/spi/sx_spi.h ****     }
+  50:SynaptiX_FDK/components/spi/sx_spi.h ****     return -1;
+  51:SynaptiX_FDK/components/spi/sx_spi.h **** }
+ 175              		.loc 3 51 1 view .LVU43
+ 176 000c 10BD     		pop	{r4, pc}
+ 177              	.LVL15:
+ 178              	.L14:
+  50:SynaptiX_FDK/components/spi/sx_spi.h **** }
+ 179              		.loc 3 50 12 view .LVU44
+ 180 000e 4FF0FF30 		mov	r0, #-1
+ 181              	.LVL16:
+  50:SynaptiX_FDK/components/spi/sx_spi.h **** }
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cckQCMsg.s 			page 6
+
+
+ 182              		.loc 3 50 12 view .LVU45
+ 183 0012 FBE7     		b	.L12
+ 184              	.LVL17:
+ 185              	.L15:
+  50:SynaptiX_FDK/components/spi/sx_spi.h **** }
+ 186              		.loc 3 50 12 view .LVU46
+ 187 0014 4FF0FF30 		mov	r0, #-1
+ 188              	.LVL18:
+  50:SynaptiX_FDK/components/spi/sx_spi.h **** }
+ 189              		.loc 3 50 12 view .LVU47
+ 190 0018 F8E7     		b	.L12
+ 191              		.cfi_endproc
+ 192              	.LFE12:
+ 194              		.section	.text.w25q_write_enable,"ax",%progbits
+ 195              		.align	1
+ 196              		.syntax unified
+ 197              		.thumb
+ 198              		.thumb_func
+ 200              	w25q_write_enable:
+ 201              	.LFB18:
+   1:SynaptiX_FDK/components/external_flash/sx_W25Q128.c **** #include "sx_external_flash.h"
+   2:SynaptiX_FDK/components/external_flash/sx_W25Q128.c **** #include "sx_W25Q128.h"
+   3:SynaptiX_FDK/components/external_flash/sx_W25Q128.c **** #include "sx_spi.h"
+   4:SynaptiX_FDK/components/external_flash/sx_W25Q128.c **** #include "logger.h"
+   5:SynaptiX_FDK/components/external_flash/sx_W25Q128.c **** #include "string.h"
+   6:SynaptiX_FDK/components/external_flash/sx_W25Q128.c **** #include "sx_delay.h"
+   7:SynaptiX_FDK/components/external_flash/sx_W25Q128.c **** 
+   8:SynaptiX_FDK/components/external_flash/sx_W25Q128.c **** #define W25Q128_MAX_READ_LEN  256U
+   9:SynaptiX_FDK/components/external_flash/sx_W25Q128.c **** 
+  10:SynaptiX_FDK/components/external_flash/sx_W25Q128.c **** static const char *TAG = "W25Q128";
+  11:SynaptiX_FDK/components/external_flash/sx_W25Q128.c **** static sx_W25Q128_t *s_dev = NULL;
+  12:SynaptiX_FDK/components/external_flash/sx_W25Q128.c **** 
+  13:SynaptiX_FDK/components/external_flash/sx_W25Q128.c **** sx_ext_flash_ops_t sx_W25Q128_ops = {
+  14:SynaptiX_FDK/components/external_flash/sx_W25Q128.c ****     .read         = sx_W25Q128_read,
+  15:SynaptiX_FDK/components/external_flash/sx_W25Q128.c ****     .write        = sx_W25Q128_write,
+  16:SynaptiX_FDK/components/external_flash/sx_W25Q128.c ****     .erase_sector = sx_W25Q128_erase_sector,
+  17:SynaptiX_FDK/components/external_flash/sx_W25Q128.c ****     .is_busy      = sx_W25Q128_is_busy,
+  18:SynaptiX_FDK/components/external_flash/sx_W25Q128.c **** };
+  19:SynaptiX_FDK/components/external_flash/sx_W25Q128.c **** 
+  20:SynaptiX_FDK/components/external_flash/sx_W25Q128.c **** sx_ext_flash_info_t sx_W25Q128_info = {
+  21:SynaptiX_FDK/components/external_flash/sx_W25Q128.c ****     .page_size   = W25Q128_PAGE_SIZE,
+  22:SynaptiX_FDK/components/external_flash/sx_W25Q128.c ****     .sector_size = W25Q128_SECTOR_SIZE,
+  23:SynaptiX_FDK/components/external_flash/sx_W25Q128.c ****     .block_size  = W25Q128_BLOCK_SIZE,
+  24:SynaptiX_FDK/components/external_flash/sx_W25Q128.c ****     .total_bytes = W25Q128_TOTAL_BYTES,
+  25:SynaptiX_FDK/components/external_flash/sx_W25Q128.c **** };
+  26:SynaptiX_FDK/components/external_flash/sx_W25Q128.c **** 
+  27:SynaptiX_FDK/components/external_flash/sx_W25Q128.c **** static bool w25q_write_enable(void)
+  28:SynaptiX_FDK/components/external_flash/sx_W25Q128.c **** {
+ 202              		.loc 1 28 1 is_stmt 1 view -0
+ 203              		.cfi_startproc
+ 204              		@ args = 0, pretend = 0, frame = 8
+ 205              		@ frame_needed = 0, uses_anonymous_args = 0
+ 206 0000 00B5     		push	{lr}
+ 207              	.LCFI3:
+ 208              		.cfi_def_cfa_offset 4
+ 209              		.cfi_offset 14, -4
+ 210 0002 83B0     		sub	sp, sp, #12
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cckQCMsg.s 			page 7
+
+
+ 211              	.LCFI4:
+ 212              		.cfi_def_cfa_offset 16
+  29:SynaptiX_FDK/components/external_flash/sx_W25Q128.c ****     uint8_t cmd = W25Q128_CMD_WRITE_ENABLE;
+ 213              		.loc 1 29 5 view .LVU49
+ 214              		.loc 1 29 13 is_stmt 0 view .LVU50
+ 215 0004 0623     		movs	r3, #6
+ 216 0006 8DF80730 		strb	r3, [sp, #7]
+  30:SynaptiX_FDK/components/external_flash/sx_W25Q128.c ****     return (sx_spi_write(s_dev->spi, &cmd, 1) == 0);
+ 217              		.loc 1 30 5 is_stmt 1 view .LVU51
+ 218              		.loc 1 30 31 is_stmt 0 view .LVU52
+ 219 000a 074B     		ldr	r3, .L19
+ 220 000c 1B68     		ldr	r3, [r3]
+ 221              		.loc 1 30 13 view .LVU53
+ 222 000e 0122     		movs	r2, #1
+ 223 0010 0DF10701 		add	r1, sp, #7
+ 224 0014 1868     		ldr	r0, [r3]
+ 225 0016 FFF7FEFF 		bl	sx_spi_write
+ 226              	.LVL19:
+  31:SynaptiX_FDK/components/external_flash/sx_W25Q128.c **** }
+ 227              		.loc 1 31 1 view .LVU54
+ 228 001a B0FA80F0 		clz	r0, r0
+ 229 001e 4009     		lsrs	r0, r0, #5
+ 230 0020 03B0     		add	sp, sp, #12
+ 231              	.LCFI5:
+ 232              		.cfi_def_cfa_offset 4
+ 233              		@ sp needed
+ 234 0022 5DF804FB 		ldr	pc, [sp], #4
+ 235              	.L20:
+ 236 0026 00BF     		.align	2
+ 237              	.L19:
+ 238 0028 00000000 		.word	s_dev
+ 239              		.cfi_endproc
+ 240              	.LFE18:
+ 242              		.section	.text.sx_W25Q128_is_busy,"ax",%progbits
+ 243              		.align	1
+ 244              		.global	sx_W25Q128_is_busy
+ 245              		.syntax unified
+ 246              		.thumb
+ 247              		.thumb_func
+ 249              	sx_W25Q128_is_busy:
+ 250              	.LFB22:
+  32:SynaptiX_FDK/components/external_flash/sx_W25Q128.c **** 
+  33:SynaptiX_FDK/components/external_flash/sx_W25Q128.c **** static void w25q_wait_busy(void)
+  34:SynaptiX_FDK/components/external_flash/sx_W25Q128.c **** {
+  35:SynaptiX_FDK/components/external_flash/sx_W25Q128.c ****     uint8_t tx[2] = { W25Q128_CMD_READ_STATUS1, 0xFF };
+  36:SynaptiX_FDK/components/external_flash/sx_W25Q128.c ****     uint8_t rx[2];
+  37:SynaptiX_FDK/components/external_flash/sx_W25Q128.c ****     uint32_t timeout = 500;
+  38:SynaptiX_FDK/components/external_flash/sx_W25Q128.c ****     do {
+  39:SynaptiX_FDK/components/external_flash/sx_W25Q128.c ****         sx_delay_ms(5);
+  40:SynaptiX_FDK/components/external_flash/sx_W25Q128.c ****         sx_spi_write_read(s_dev->spi, tx, rx, 2);
+  41:SynaptiX_FDK/components/external_flash/sx_W25Q128.c ****         if (--timeout == 0) {
+  42:SynaptiX_FDK/components/external_flash/sx_W25Q128.c ****             log_error("W25Q128", "wait_busy TIMEOUT STATUS=0x%02X", rx[1]);
+  43:SynaptiX_FDK/components/external_flash/sx_W25Q128.c ****             return;
+  44:SynaptiX_FDK/components/external_flash/sx_W25Q128.c ****         }
+  45:SynaptiX_FDK/components/external_flash/sx_W25Q128.c ****     } while (rx[1] & W25Q128_STATUS1_BUSY);
+  46:SynaptiX_FDK/components/external_flash/sx_W25Q128.c **** 
+  47:SynaptiX_FDK/components/external_flash/sx_W25Q128.c ****     // Read it twice :)) - DONT EDIT IT!!!!!!
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cckQCMsg.s 			page 8
+
+
+  48:SynaptiX_FDK/components/external_flash/sx_W25Q128.c ****     sx_delay_ms(1);
+  49:SynaptiX_FDK/components/external_flash/sx_W25Q128.c ****     sx_spi_write_read(s_dev->spi, tx, rx, 2);
+  50:SynaptiX_FDK/components/external_flash/sx_W25Q128.c ****     if (rx[1] & W25Q128_STATUS1_BUSY) {
+  51:SynaptiX_FDK/components/external_flash/sx_W25Q128.c ****         log_error("W25Q128", "still BUSY after confirm, STATUS=0x%02X", rx[1]);
+  52:SynaptiX_FDK/components/external_flash/sx_W25Q128.c ****         timeout = 500;
+  53:SynaptiX_FDK/components/external_flash/sx_W25Q128.c ****         do {
+  54:SynaptiX_FDK/components/external_flash/sx_W25Q128.c ****             sx_delay_ms(5);
+  55:SynaptiX_FDK/components/external_flash/sx_W25Q128.c ****             sx_spi_write_read(s_dev->spi, tx, rx, 2);
+  56:SynaptiX_FDK/components/external_flash/sx_W25Q128.c ****             if (--timeout == 0) {
+  57:SynaptiX_FDK/components/external_flash/sx_W25Q128.c ****                 log_error("W25Q128", "wait_busy TIMEOUT2 STATUS=0x%02X", rx[1]);
+  58:SynaptiX_FDK/components/external_flash/sx_W25Q128.c ****                 return;
+  59:SynaptiX_FDK/components/external_flash/sx_W25Q128.c ****             }
+  60:SynaptiX_FDK/components/external_flash/sx_W25Q128.c ****         } while (rx[1] & W25Q128_STATUS1_BUSY);
+  61:SynaptiX_FDK/components/external_flash/sx_W25Q128.c ****     }
+  62:SynaptiX_FDK/components/external_flash/sx_W25Q128.c **** }
+  63:SynaptiX_FDK/components/external_flash/sx_W25Q128.c **** 
+  64:SynaptiX_FDK/components/external_flash/sx_W25Q128.c **** static void w25q_wait_busy_long(uint32_t timeout_ms)
+  65:SynaptiX_FDK/components/external_flash/sx_W25Q128.c **** {
+  66:SynaptiX_FDK/components/external_flash/sx_W25Q128.c ****     uint8_t tx[2] = { W25Q128_CMD_READ_STATUS1, 0xFF };
+  67:SynaptiX_FDK/components/external_flash/sx_W25Q128.c ****     uint8_t rx[2];
+  68:SynaptiX_FDK/components/external_flash/sx_W25Q128.c ****     uint32_t elapsed = 0;
+  69:SynaptiX_FDK/components/external_flash/sx_W25Q128.c **** 
+  70:SynaptiX_FDK/components/external_flash/sx_W25Q128.c ****     do {
+  71:SynaptiX_FDK/components/external_flash/sx_W25Q128.c ****         sx_delay_ms(100);           
+  72:SynaptiX_FDK/components/external_flash/sx_W25Q128.c ****         elapsed += 100;
+  73:SynaptiX_FDK/components/external_flash/sx_W25Q128.c ****         sx_spi_write_read(s_dev->spi, tx, rx, 2);
+  74:SynaptiX_FDK/components/external_flash/sx_W25Q128.c ****         if (elapsed >= timeout_ms) {
+  75:SynaptiX_FDK/components/external_flash/sx_W25Q128.c ****             log_error("W25Q128", "wait_busy_long TIMEOUT STATUS=0x%02X", rx[1]);
+  76:SynaptiX_FDK/components/external_flash/sx_W25Q128.c ****             return;
+  77:SynaptiX_FDK/components/external_flash/sx_W25Q128.c ****         }
+  78:SynaptiX_FDK/components/external_flash/sx_W25Q128.c ****     } while (rx[1] & W25Q128_STATUS1_BUSY);
+  79:SynaptiX_FDK/components/external_flash/sx_W25Q128.c **** 
+  80:SynaptiX_FDK/components/external_flash/sx_W25Q128.c ****     log_info("W25Q128", "wait_busy_long done in %lu ms", (unsigned long)elapsed);
+  81:SynaptiX_FDK/components/external_flash/sx_W25Q128.c **** }
+  82:SynaptiX_FDK/components/external_flash/sx_W25Q128.c **** 
+  83:SynaptiX_FDK/components/external_flash/sx_W25Q128.c **** /*API*/
+  84:SynaptiX_FDK/components/external_flash/sx_W25Q128.c **** 
+  85:SynaptiX_FDK/components/external_flash/sx_W25Q128.c **** bool sx_W25Q128_init(sx_W25Q128_t *dev, sx_spi_t *spi, sx_gpio_ops_t *pwr_ops, sx_gpio_pin_t *pwr_p
+  86:SynaptiX_FDK/components/external_flash/sx_W25Q128.c **** {
+  87:SynaptiX_FDK/components/external_flash/sx_W25Q128.c ****     dev->spi         = spi;
+  88:SynaptiX_FDK/components/external_flash/sx_W25Q128.c ****     dev->initialized = false;
+  89:SynaptiX_FDK/components/external_flash/sx_W25Q128.c ****     s_dev            = dev;
+  90:SynaptiX_FDK/components/external_flash/sx_W25Q128.c **** 
+  91:SynaptiX_FDK/components/external_flash/sx_W25Q128.c ****     sx_gpio_init(&dev->power, pwr_ops, pwr_pin);
+  92:SynaptiX_FDK/components/external_flash/sx_W25Q128.c ****     sx_gpio_write(&dev->power, SX_GPIO_LOW);  
+  93:SynaptiX_FDK/components/external_flash/sx_W25Q128.c ****     sx_delay_ms(10);   
+  94:SynaptiX_FDK/components/external_flash/sx_W25Q128.c **** 
+  95:SynaptiX_FDK/components/external_flash/sx_W25Q128.c ****     /* Wake from power-down — 1 byte write, 1 lan CS */
+  96:SynaptiX_FDK/components/external_flash/sx_W25Q128.c ****     uint8_t wake = W25Q128_CMD_RELEASE_POWER_DOWN;
+  97:SynaptiX_FDK/components/external_flash/sx_W25Q128.c ****     sx_spi_write(dev->spi, &wake, 1);
+  98:SynaptiX_FDK/components/external_flash/sx_W25Q128.c ****     sx_delay_ms(1);
+  99:SynaptiX_FDK/components/external_flash/sx_W25Q128.c ****     w25q_wait_busy();
+ 100:SynaptiX_FDK/components/external_flash/sx_W25Q128.c **** 
+ 101:SynaptiX_FDK/components/external_flash/sx_W25Q128.c ****     uint8_t tx[4] = { W25Q128_CMD_JEDEC_ID, 0x00, 0x00, 0x00 };
+ 102:SynaptiX_FDK/components/external_flash/sx_W25Q128.c ****     uint8_t rx[4] = { 0 };
+ 103:SynaptiX_FDK/components/external_flash/sx_W25Q128.c ****     sx_spi_write_read(dev->spi, tx, rx, 4);
+ 104:SynaptiX_FDK/components/external_flash/sx_W25Q128.c **** 
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cckQCMsg.s 			page 9
+
+
+ 105:SynaptiX_FDK/components/external_flash/sx_W25Q128.c ****     if (rx[1] != 0xEF || rx[2] != 0x40 || rx[3] != 0x18) {
+ 106:SynaptiX_FDK/components/external_flash/sx_W25Q128.c ****         log_error(TAG, "JEDEC ID mismatch: %02X %02X %02X", rx[1], rx[2], rx[3]);
+ 107:SynaptiX_FDK/components/external_flash/sx_W25Q128.c ****         return false;
+ 108:SynaptiX_FDK/components/external_flash/sx_W25Q128.c ****     }
+ 109:SynaptiX_FDK/components/external_flash/sx_W25Q128.c **** 
+ 110:SynaptiX_FDK/components/external_flash/sx_W25Q128.c ****     dev->initialized = true;
+ 111:SynaptiX_FDK/components/external_flash/sx_W25Q128.c ****     log_info(TAG, "W25Q128 OK (16MB)");
+ 112:SynaptiX_FDK/components/external_flash/sx_W25Q128.c ****     return true;
+ 113:SynaptiX_FDK/components/external_flash/sx_W25Q128.c **** }
+ 114:SynaptiX_FDK/components/external_flash/sx_W25Q128.c **** 
+ 115:SynaptiX_FDK/components/external_flash/sx_W25Q128.c **** bool sx_W25Q128_is_busy(void)
+ 116:SynaptiX_FDK/components/external_flash/sx_W25Q128.c **** {
+ 251              		.loc 1 116 1 is_stmt 1 view -0
+ 252              		.cfi_startproc
+ 253              		@ args = 0, pretend = 0, frame = 8
+ 254              		@ frame_needed = 0, uses_anonymous_args = 0
+ 255 0000 10B5     		push	{r4, lr}
+ 256              	.LCFI6:
+ 257              		.cfi_def_cfa_offset 8
+ 258              		.cfi_offset 4, -8
+ 259              		.cfi_offset 14, -4
+ 260 0002 82B0     		sub	sp, sp, #8
+ 261              	.LCFI7:
+ 262              		.cfi_def_cfa_offset 16
+ 117:SynaptiX_FDK/components/external_flash/sx_W25Q128.c ****     if (!s_dev || !s_dev->initialized) return false;
+ 263              		.loc 1 117 5 view .LVU56
+ 264              		.loc 1 117 9 is_stmt 0 view .LVU57
+ 265 0004 0C4B     		ldr	r3, .L26
+ 266 0006 1C68     		ldr	r4, [r3]
+ 267              		.loc 1 117 8 view .LVU58
+ 268 0008 A4B1     		cbz	r4, .L23
+ 269              		.loc 1 117 25 discriminator 2 view .LVU59
+ 270 000a 2079     		ldrb	r0, [r4, #4]	@ zero_extendqisi2
+ 271              		.loc 1 117 16 discriminator 2 view .LVU60
+ 272 000c 08B9     		cbnz	r0, .L25
+ 273              	.L22:
+ 118:SynaptiX_FDK/components/external_flash/sx_W25Q128.c ****     uint8_t tx[2] = { W25Q128_CMD_READ_STATUS1, 0x00 };
+ 119:SynaptiX_FDK/components/external_flash/sx_W25Q128.c ****     uint8_t rx[2] = { 0 };
+ 120:SynaptiX_FDK/components/external_flash/sx_W25Q128.c ****     sx_spi_write_read(s_dev->spi, tx, rx, 2);
+ 121:SynaptiX_FDK/components/external_flash/sx_W25Q128.c ****     return (rx[1] & W25Q128_STATUS1_BUSY) != 0;
+ 122:SynaptiX_FDK/components/external_flash/sx_W25Q128.c **** }
+ 274              		.loc 1 122 1 view .LVU61
+ 275 000e 02B0     		add	sp, sp, #8
+ 276              	.LCFI8:
+ 277              		.cfi_remember_state
+ 278              		.cfi_def_cfa_offset 8
+ 279              		@ sp needed
+ 280 0010 10BD     		pop	{r4, pc}
+ 281              	.L25:
+ 282              	.LCFI9:
+ 283              		.cfi_restore_state
+ 118:SynaptiX_FDK/components/external_flash/sx_W25Q128.c ****     uint8_t tx[2] = { W25Q128_CMD_READ_STATUS1, 0x00 };
+ 284              		.loc 1 118 5 is_stmt 1 view .LVU62
+ 118:SynaptiX_FDK/components/external_flash/sx_W25Q128.c ****     uint8_t tx[2] = { W25Q128_CMD_READ_STATUS1, 0x00 };
+ 285              		.loc 1 118 13 is_stmt 0 view .LVU63
+ 286 0012 0523     		movs	r3, #5
+ 287 0014 ADF80430 		strh	r3, [sp, #4]	@ movhi
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cckQCMsg.s 			page 10
+
+
+ 119:SynaptiX_FDK/components/external_flash/sx_W25Q128.c ****     sx_spi_write_read(s_dev->spi, tx, rx, 2);
+ 288              		.loc 1 119 5 is_stmt 1 view .LVU64
+ 119:SynaptiX_FDK/components/external_flash/sx_W25Q128.c ****     sx_spi_write_read(s_dev->spi, tx, rx, 2);
+ 289              		.loc 1 119 13 is_stmt 0 view .LVU65
+ 290 0018 0023     		movs	r3, #0
+ 291 001a ADF80030 		strh	r3, [sp]	@ movhi
+ 120:SynaptiX_FDK/components/external_flash/sx_W25Q128.c ****     return (rx[1] & W25Q128_STATUS1_BUSY) != 0;
+ 292              		.loc 1 120 5 is_stmt 1 view .LVU66
+ 293 001e 0223     		movs	r3, #2
+ 294 0020 6A46     		mov	r2, sp
+ 295 0022 01A9     		add	r1, sp, #4
+ 296 0024 2068     		ldr	r0, [r4]
+ 297 0026 FFF7FEFF 		bl	sx_spi_write_read
+ 298              	.LVL20:
+ 121:SynaptiX_FDK/components/external_flash/sx_W25Q128.c **** }
+ 299              		.loc 1 121 5 view .LVU67
+ 121:SynaptiX_FDK/components/external_flash/sx_W25Q128.c **** }
+ 300              		.loc 1 121 15 is_stmt 0 view .LVU68
+ 301 002a 9DF80100 		ldrb	r0, [sp, #1]	@ zero_extendqisi2
+ 121:SynaptiX_FDK/components/external_flash/sx_W25Q128.c **** }
+ 302              		.loc 1 121 43 view .LVU69
+ 303 002e 00F00100 		and	r0, r0, #1
+ 304 0032 ECE7     		b	.L22
+ 305              	.L23:
+ 117:SynaptiX_FDK/components/external_flash/sx_W25Q128.c ****     uint8_t tx[2] = { W25Q128_CMD_READ_STATUS1, 0x00 };
+ 306              		.loc 1 117 47 discriminator 3 view .LVU70
+ 307 0034 0020     		movs	r0, #0
+ 308 0036 EAE7     		b	.L22
+ 309              	.L27:
+ 310              		.align	2
+ 311              	.L26:
+ 312 0038 00000000 		.word	s_dev
+ 313              		.cfi_endproc
+ 314              	.LFE22:
+ 316              		.section	.rodata.w25q_wait_busy.str1.4,"aMS",%progbits,1
+ 317              		.align	2
+ 318              	.LC0:
+ 319 0000 77616974 		.ascii	"wait_busy TIMEOUT STATUS=0x%02X\000"
+ 319      5F627573 
+ 319      79205449 
+ 319      4D454F55 
+ 319      54205354 
+ 320              		.align	2
+ 321              	.LC1:
+ 322 0020 57323551 		.ascii	"W25Q128\000"
+ 322      31323800 
+ 323              		.align	2
+ 324              	.LC2:
+ 325 0028 7374696C 		.ascii	"still BUSY after confirm, STATUS=0x%02X\000"
+ 325      6C204255 
+ 325      53592061 
+ 325      66746572 
+ 325      20636F6E 
+ 326              		.align	2
+ 327              	.LC3:
+ 328 0050 77616974 		.ascii	"wait_busy TIMEOUT2 STATUS=0x%02X\000"
+ 328      5F627573 
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cckQCMsg.s 			page 11
+
+
+ 328      79205449 
+ 328      4D454F55 
+ 328      54322053 
+ 329              		.section	.text.w25q_wait_busy,"ax",%progbits
+ 330              		.align	1
+ 331              		.syntax unified
+ 332              		.thumb
+ 333              		.thumb_func
+ 335              	w25q_wait_busy:
+ 336              	.LFB19:
+  34:SynaptiX_FDK/components/external_flash/sx_W25Q128.c ****     uint8_t tx[2] = { W25Q128_CMD_READ_STATUS1, 0xFF };
+ 337              		.loc 1 34 1 is_stmt 1 view -0
+ 338              		.cfi_startproc
+ 339              		@ args = 0, pretend = 0, frame = 8
+ 340              		@ frame_needed = 0, uses_anonymous_args = 0
+ 341 0000 10B5     		push	{r4, lr}
+ 342              	.LCFI10:
+ 343              		.cfi_def_cfa_offset 8
+ 344              		.cfi_offset 4, -8
+ 345              		.cfi_offset 14, -4
+ 346 0002 82B0     		sub	sp, sp, #8
+ 347              	.LCFI11:
+ 348              		.cfi_def_cfa_offset 16
+  35:SynaptiX_FDK/components/external_flash/sx_W25Q128.c ****     uint8_t rx[2];
+ 349              		.loc 1 35 5 view .LVU72
+  35:SynaptiX_FDK/components/external_flash/sx_W25Q128.c ****     uint8_t rx[2];
+ 350              		.loc 1 35 13 is_stmt 0 view .LVU73
+ 351 0004 4FF60573 		movw	r3, #65285
+ 352 0008 ADF80430 		strh	r3, [sp, #4]	@ movhi
+  36:SynaptiX_FDK/components/external_flash/sx_W25Q128.c ****     uint32_t timeout = 500;
+ 353              		.loc 1 36 5 is_stmt 1 view .LVU74
+  37:SynaptiX_FDK/components/external_flash/sx_W25Q128.c ****     do {
+ 354              		.loc 1 37 5 view .LVU75
+ 355              	.LVL21:
+  37:SynaptiX_FDK/components/external_flash/sx_W25Q128.c ****     do {
+ 356              		.loc 1 37 14 is_stmt 0 view .LVU76
+ 357 000c 4FF4FA74 		mov	r4, #500
+ 358              	.LVL22:
+ 359              	.L31:
+  38:SynaptiX_FDK/components/external_flash/sx_W25Q128.c ****         sx_delay_ms(5);
+ 360              		.loc 1 38 5 is_stmt 1 view .LVU77
+  39:SynaptiX_FDK/components/external_flash/sx_W25Q128.c ****         sx_spi_write_read(s_dev->spi, tx, rx, 2);
+ 361              		.loc 1 39 9 view .LVU78
+ 362 0010 0520     		movs	r0, #5
+ 363 0012 FFF7FEFF 		bl	sx_delay_ms
+ 364              	.LVL23:
+  40:SynaptiX_FDK/components/external_flash/sx_W25Q128.c ****         if (--timeout == 0) {
+ 365              		.loc 1 40 9 view .LVU79
+  40:SynaptiX_FDK/components/external_flash/sx_W25Q128.c ****         if (--timeout == 0) {
+ 366              		.loc 1 40 32 is_stmt 0 view .LVU80
+ 367 0016 254B     		ldr	r3, .L40
+ 368 0018 1868     		ldr	r0, [r3]
+  40:SynaptiX_FDK/components/external_flash/sx_W25Q128.c ****         if (--timeout == 0) {
+ 369              		.loc 1 40 9 view .LVU81
+ 370 001a 0223     		movs	r3, #2
+ 371 001c 6A46     		mov	r2, sp
+ 372 001e 01A9     		add	r1, sp, #4
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cckQCMsg.s 			page 12
+
+
+ 373 0020 0068     		ldr	r0, [r0]
+ 374 0022 FFF7FEFF 		bl	sx_spi_write_read
+ 375              	.LVL24:
+  41:SynaptiX_FDK/components/external_flash/sx_W25Q128.c ****             log_error("W25Q128", "wait_busy TIMEOUT STATUS=0x%02X", rx[1]);
+ 376              		.loc 1 41 9 is_stmt 1 view .LVU82
+  41:SynaptiX_FDK/components/external_flash/sx_W25Q128.c ****             log_error("W25Q128", "wait_busy TIMEOUT STATUS=0x%02X", rx[1]);
+ 377              		.loc 1 41 12 is_stmt 0 view .LVU83
+ 378 0026 013C     		subs	r4, r4, #1
+ 379              	.LVL25:
+  41:SynaptiX_FDK/components/external_flash/sx_W25Q128.c ****             log_error("W25Q128", "wait_busy TIMEOUT STATUS=0x%02X", rx[1]);
+ 380              		.loc 1 41 12 view .LVU84
+ 381 0028 16D0     		beq	.L37
+  45:SynaptiX_FDK/components/external_flash/sx_W25Q128.c **** 
+ 382              		.loc 1 45 14 is_stmt 1 view .LVU85
+  45:SynaptiX_FDK/components/external_flash/sx_W25Q128.c **** 
+ 383              		.loc 1 45 16 is_stmt 0 view .LVU86
+ 384 002a 9DF80130 		ldrb	r3, [sp, #1]	@ zero_extendqisi2
+  45:SynaptiX_FDK/components/external_flash/sx_W25Q128.c **** 
+ 385              		.loc 1 45 14 view .LVU87
+ 386 002e 13F0010F 		tst	r3, #1
+ 387 0032 EDD1     		bne	.L31
+  48:SynaptiX_FDK/components/external_flash/sx_W25Q128.c ****     sx_spi_write_read(s_dev->spi, tx, rx, 2);
+ 388              		.loc 1 48 5 is_stmt 1 view .LVU88
+ 389 0034 0120     		movs	r0, #1
+ 390 0036 FFF7FEFF 		bl	sx_delay_ms
+ 391              	.LVL26:
+  49:SynaptiX_FDK/components/external_flash/sx_W25Q128.c ****     if (rx[1] & W25Q128_STATUS1_BUSY) {
+ 392              		.loc 1 49 5 view .LVU89
+  49:SynaptiX_FDK/components/external_flash/sx_W25Q128.c ****     if (rx[1] & W25Q128_STATUS1_BUSY) {
+ 393              		.loc 1 49 28 is_stmt 0 view .LVU90
+ 394 003a 1C4B     		ldr	r3, .L40
+ 395 003c 1868     		ldr	r0, [r3]
+  49:SynaptiX_FDK/components/external_flash/sx_W25Q128.c ****     if (rx[1] & W25Q128_STATUS1_BUSY) {
+ 396              		.loc 1 49 5 view .LVU91
+ 397 003e 0223     		movs	r3, #2
+ 398 0040 6A46     		mov	r2, sp
+ 399 0042 01A9     		add	r1, sp, #4
+ 400 0044 0068     		ldr	r0, [r0]
+ 401 0046 FFF7FEFF 		bl	sx_spi_write_read
+ 402              	.LVL27:
+  50:SynaptiX_FDK/components/external_flash/sx_W25Q128.c ****         log_error("W25Q128", "still BUSY after confirm, STATUS=0x%02X", rx[1]);
+ 403              		.loc 1 50 5 is_stmt 1 view .LVU92
+  50:SynaptiX_FDK/components/external_flash/sx_W25Q128.c ****         log_error("W25Q128", "still BUSY after confirm, STATUS=0x%02X", rx[1]);
+ 404              		.loc 1 50 11 is_stmt 0 view .LVU93
+ 405 004a 9DF80130 		ldrb	r3, [sp, #1]	@ zero_extendqisi2
+  50:SynaptiX_FDK/components/external_flash/sx_W25Q128.c ****         log_error("W25Q128", "still BUSY after confirm, STATUS=0x%02X", rx[1]);
+ 406              		.loc 1 50 8 view .LVU94
+ 407 004e 13F0010F 		tst	r3, #1
+ 408 0052 09D1     		bne	.L38
+ 409              	.L28:
+  62:SynaptiX_FDK/components/external_flash/sx_W25Q128.c **** 
+ 410              		.loc 1 62 1 view .LVU95
+ 411 0054 02B0     		add	sp, sp, #8
+ 412              	.LCFI12:
+ 413              		.cfi_remember_state
+ 414              		.cfi_def_cfa_offset 8
+ 415              		@ sp needed
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cckQCMsg.s 			page 13
+
+
+ 416 0056 10BD     		pop	{r4, pc}
+ 417              	.LVL28:
+ 418              	.L37:
+ 419              	.LCFI13:
+ 420              		.cfi_restore_state
+  42:SynaptiX_FDK/components/external_flash/sx_W25Q128.c ****             return;
+ 421              		.loc 1 42 13 is_stmt 1 view .LVU96
+ 422 0058 9DF80130 		ldrb	r3, [sp, #1]	@ zero_extendqisi2
+ 423 005c 144A     		ldr	r2, .L40+4
+ 424 005e 1549     		ldr	r1, .L40+8
+ 425 0060 0120     		movs	r0, #1
+ 426 0062 FFF7FEFF 		bl	log_func
+ 427              	.LVL29:
+  43:SynaptiX_FDK/components/external_flash/sx_W25Q128.c ****         }
+ 428              		.loc 1 43 13 view .LVU97
+ 429 0066 F5E7     		b	.L28
+ 430              	.L38:
+  51:SynaptiX_FDK/components/external_flash/sx_W25Q128.c ****         timeout = 500;
+ 431              		.loc 1 51 9 view .LVU98
+ 432 0068 134A     		ldr	r2, .L40+12
+ 433 006a 1249     		ldr	r1, .L40+8
+ 434 006c 0120     		movs	r0, #1
+ 435 006e FFF7FEFF 		bl	log_func
+ 436              	.LVL30:
+  52:SynaptiX_FDK/components/external_flash/sx_W25Q128.c ****         do {
+ 437              		.loc 1 52 9 view .LVU99
+  52:SynaptiX_FDK/components/external_flash/sx_W25Q128.c ****         do {
+ 438              		.loc 1 52 17 is_stmt 0 view .LVU100
+ 439 0072 4FF4FA74 		mov	r4, #500
+ 440              	.LVL31:
+ 441              	.L34:
+  53:SynaptiX_FDK/components/external_flash/sx_W25Q128.c ****             sx_delay_ms(5);
+ 442              		.loc 1 53 9 is_stmt 1 view .LVU101
+  54:SynaptiX_FDK/components/external_flash/sx_W25Q128.c ****             sx_spi_write_read(s_dev->spi, tx, rx, 2);
+ 443              		.loc 1 54 13 view .LVU102
+ 444 0076 0520     		movs	r0, #5
+ 445 0078 FFF7FEFF 		bl	sx_delay_ms
+ 446              	.LVL32:
+  55:SynaptiX_FDK/components/external_flash/sx_W25Q128.c ****             if (--timeout == 0) {
+ 447              		.loc 1 55 13 view .LVU103
+  55:SynaptiX_FDK/components/external_flash/sx_W25Q128.c ****             if (--timeout == 0) {
+ 448              		.loc 1 55 36 is_stmt 0 view .LVU104
+ 449 007c 0B4B     		ldr	r3, .L40
+ 450 007e 1868     		ldr	r0, [r3]
+  55:SynaptiX_FDK/components/external_flash/sx_W25Q128.c ****             if (--timeout == 0) {
+ 451              		.loc 1 55 13 view .LVU105
+ 452 0080 0223     		movs	r3, #2
+ 453 0082 6A46     		mov	r2, sp
+ 454 0084 01A9     		add	r1, sp, #4
+ 455 0086 0068     		ldr	r0, [r0]
+ 456 0088 FFF7FEFF 		bl	sx_spi_write_read
+ 457              	.LVL33:
+  56:SynaptiX_FDK/components/external_flash/sx_W25Q128.c ****                 log_error("W25Q128", "wait_busy TIMEOUT2 STATUS=0x%02X", rx[1]);
+ 458              		.loc 1 56 13 is_stmt 1 view .LVU106
+  56:SynaptiX_FDK/components/external_flash/sx_W25Q128.c ****                 log_error("W25Q128", "wait_busy TIMEOUT2 STATUS=0x%02X", rx[1]);
+ 459              		.loc 1 56 16 is_stmt 0 view .LVU107
+ 460 008c 013C     		subs	r4, r4, #1
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cckQCMsg.s 			page 14
+
+
+ 461              	.LVL34:
+  56:SynaptiX_FDK/components/external_flash/sx_W25Q128.c ****                 log_error("W25Q128", "wait_busy TIMEOUT2 STATUS=0x%02X", rx[1]);
+ 462              		.loc 1 56 16 view .LVU108
+ 463 008e 05D0     		beq	.L39
+  60:SynaptiX_FDK/components/external_flash/sx_W25Q128.c ****     }
+ 464              		.loc 1 60 18 is_stmt 1 view .LVU109
+  60:SynaptiX_FDK/components/external_flash/sx_W25Q128.c ****     }
+ 465              		.loc 1 60 20 is_stmt 0 view .LVU110
+ 466 0090 9DF80130 		ldrb	r3, [sp, #1]	@ zero_extendqisi2
+  60:SynaptiX_FDK/components/external_flash/sx_W25Q128.c ****     }
+ 467              		.loc 1 60 18 view .LVU111
+ 468 0094 13F0010F 		tst	r3, #1
+ 469 0098 EDD1     		bne	.L34
+ 470 009a DBE7     		b	.L28
+ 471              	.L39:
+  57:SynaptiX_FDK/components/external_flash/sx_W25Q128.c ****                 return;
+ 472              		.loc 1 57 17 is_stmt 1 view .LVU112
+ 473 009c 9DF80130 		ldrb	r3, [sp, #1]	@ zero_extendqisi2
+ 474 00a0 064A     		ldr	r2, .L40+16
+ 475 00a2 0449     		ldr	r1, .L40+8
+ 476 00a4 0120     		movs	r0, #1
+ 477 00a6 FFF7FEFF 		bl	log_func
+ 478              	.LVL35:
+  58:SynaptiX_FDK/components/external_flash/sx_W25Q128.c ****             }
+ 479              		.loc 1 58 17 view .LVU113
+ 480 00aa D3E7     		b	.L28
+ 481              	.L41:
+ 482              		.align	2
+ 483              	.L40:
+ 484 00ac 00000000 		.word	s_dev
+ 485 00b0 00000000 		.word	.LC0
+ 486 00b4 20000000 		.word	.LC1
+ 487 00b8 28000000 		.word	.LC2
+ 488 00bc 50000000 		.word	.LC3
+ 489              		.cfi_endproc
+ 490              	.LFE19:
+ 492              		.section	.rodata.sx_W25Q128_erase_sector.str1.4,"aMS",%progbits,1
+ 493              		.align	2
+ 494              	.LC4:
+ 495 0000 53656374 		.ascii	"Sector erased at 0x%06lX\000"
+ 495      6F722065 
+ 495      72617365 
+ 495      64206174 
+ 495      20307825 
+ 496              		.section	.text.sx_W25Q128_erase_sector,"ax",%progbits
+ 497              		.align	1
+ 498              		.global	sx_W25Q128_erase_sector
+ 499              		.syntax unified
+ 500              		.thumb
+ 501              		.thumb_func
+ 503              	sx_W25Q128_erase_sector:
+ 504              	.LVL36:
+ 505              	.LFB25:
+ 123:SynaptiX_FDK/components/external_flash/sx_W25Q128.c **** 
+ 124:SynaptiX_FDK/components/external_flash/sx_W25Q128.c **** int sx_W25Q128_read(uint32_t addr, uint8_t *buf, uint32_t len)
+ 125:SynaptiX_FDK/components/external_flash/sx_W25Q128.c **** {
+ 126:SynaptiX_FDK/components/external_flash/sx_W25Q128.c ****     if (!s_dev || !s_dev->initialized) return -1;
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cckQCMsg.s 			page 15
+
+
+ 127:SynaptiX_FDK/components/external_flash/sx_W25Q128.c ****     if (buf == NULL || len == 0)        return -1;
+ 128:SynaptiX_FDK/components/external_flash/sx_W25Q128.c **** 
+ 129:SynaptiX_FDK/components/external_flash/sx_W25Q128.c ****     uint32_t offset = 0;
+ 130:SynaptiX_FDK/components/external_flash/sx_W25Q128.c ****     while (offset < len) {
+ 131:SynaptiX_FDK/components/external_flash/sx_W25Q128.c ****         uint32_t chunk = len - offset;
+ 132:SynaptiX_FDK/components/external_flash/sx_W25Q128.c ****         if (chunk > W25Q128_MAX_READ_LEN) chunk = W25Q128_MAX_READ_LEN;
+ 133:SynaptiX_FDK/components/external_flash/sx_W25Q128.c **** 
+ 134:SynaptiX_FDK/components/external_flash/sx_W25Q128.c ****         uint8_t tx[4 + W25Q128_MAX_READ_LEN];
+ 135:SynaptiX_FDK/components/external_flash/sx_W25Q128.c ****         uint8_t rx[4 + W25Q128_MAX_READ_LEN];
+ 136:SynaptiX_FDK/components/external_flash/sx_W25Q128.c **** 
+ 137:SynaptiX_FDK/components/external_flash/sx_W25Q128.c ****         uint32_t cur_addr = addr + offset;
+ 138:SynaptiX_FDK/components/external_flash/sx_W25Q128.c ****         tx[0] = W25Q128_CMD_READ_DATA;
+ 139:SynaptiX_FDK/components/external_flash/sx_W25Q128.c ****         tx[1] = (uint8_t)(cur_addr >> 16);
+ 140:SynaptiX_FDK/components/external_flash/sx_W25Q128.c ****         tx[2] = (uint8_t)(cur_addr >>  8);
+ 141:SynaptiX_FDK/components/external_flash/sx_W25Q128.c ****         tx[3] = (uint8_t)(cur_addr >>  0);
+ 142:SynaptiX_FDK/components/external_flash/sx_W25Q128.c ****         memset(tx + 4, 0x00, chunk);
+ 143:SynaptiX_FDK/components/external_flash/sx_W25Q128.c **** 
+ 144:SynaptiX_FDK/components/external_flash/sx_W25Q128.c ****         if (sx_spi_write_read(s_dev->spi, tx, rx, 4 + chunk) != 0) {
+ 145:SynaptiX_FDK/components/external_flash/sx_W25Q128.c ****             log_error(TAG, "spi_write_read failed at addr=0x%06lX chunk=%lu",
+ 146:SynaptiX_FDK/components/external_flash/sx_W25Q128.c ****               (unsigned long)cur_addr, (unsigned long)chunk);
+ 147:SynaptiX_FDK/components/external_flash/sx_W25Q128.c ****             return -1;
+ 148:SynaptiX_FDK/components/external_flash/sx_W25Q128.c ****         }
+ 149:SynaptiX_FDK/components/external_flash/sx_W25Q128.c ****         memcpy(buf + offset, rx + 4, chunk);
+ 150:SynaptiX_FDK/components/external_flash/sx_W25Q128.c **** 
+ 151:SynaptiX_FDK/components/external_flash/sx_W25Q128.c ****         offset += chunk;
+ 152:SynaptiX_FDK/components/external_flash/sx_W25Q128.c ****     }
+ 153:SynaptiX_FDK/components/external_flash/sx_W25Q128.c ****     return 0;
+ 154:SynaptiX_FDK/components/external_flash/sx_W25Q128.c **** }
+ 155:SynaptiX_FDK/components/external_flash/sx_W25Q128.c **** 
+ 156:SynaptiX_FDK/components/external_flash/sx_W25Q128.c **** int sx_W25Q128_write(uint32_t addr, const uint8_t *buf, uint32_t len)
+ 157:SynaptiX_FDK/components/external_flash/sx_W25Q128.c **** {
+ 158:SynaptiX_FDK/components/external_flash/sx_W25Q128.c ****     if (!s_dev || !s_dev->initialized)   return -1;
+ 159:SynaptiX_FDK/components/external_flash/sx_W25Q128.c ****     if (buf == NULL || len == 0)          return -1;
+ 160:SynaptiX_FDK/components/external_flash/sx_W25Q128.c ****     uint32_t offset = 0;
+ 161:SynaptiX_FDK/components/external_flash/sx_W25Q128.c ****     while (offset < len) {
+ 162:SynaptiX_FDK/components/external_flash/sx_W25Q128.c ****         uint32_t page_offset = (addr + offset) % W25Q128_PAGE_SIZE;
+ 163:SynaptiX_FDK/components/external_flash/sx_W25Q128.c ****         uint32_t chunk = W25Q128_PAGE_SIZE - page_offset;
+ 164:SynaptiX_FDK/components/external_flash/sx_W25Q128.c ****         if (chunk > (len - offset)) chunk = len - offset;
+ 165:SynaptiX_FDK/components/external_flash/sx_W25Q128.c **** 
+ 166:SynaptiX_FDK/components/external_flash/sx_W25Q128.c ****         if (!w25q_write_enable()) {
+ 167:SynaptiX_FDK/components/external_flash/sx_W25Q128.c ****             log_error(TAG, "write_enable FAILED");
+ 168:SynaptiX_FDK/components/external_flash/sx_W25Q128.c ****             return -1;
+ 169:SynaptiX_FDK/components/external_flash/sx_W25Q128.c ****         }
+ 170:SynaptiX_FDK/components/external_flash/sx_W25Q128.c **** 
+ 171:SynaptiX_FDK/components/external_flash/sx_W25Q128.c ****         uint8_t stx[2] = { W25Q128_CMD_READ_STATUS1, 0x00 };
+ 172:SynaptiX_FDK/components/external_flash/sx_W25Q128.c ****         uint8_t srx[2] = { 0 };
+ 173:SynaptiX_FDK/components/external_flash/sx_W25Q128.c ****         sx_spi_write_read(s_dev->spi, stx, srx, 2);
+ 174:SynaptiX_FDK/components/external_flash/sx_W25Q128.c ****         log_info(TAG, "STATUS1 before write addr=0x%06lX: 0x%02X (WEL=%d)", (unsigned long)(addr + 
+ 175:SynaptiX_FDK/components/external_flash/sx_W25Q128.c **** 
+ 176:SynaptiX_FDK/components/external_flash/sx_W25Q128.c ****         uint8_t tx[4 + W25Q128_PAGE_SIZE];
+ 177:SynaptiX_FDK/components/external_flash/sx_W25Q128.c ****         uint32_t cur_addr = addr + offset;
+ 178:SynaptiX_FDK/components/external_flash/sx_W25Q128.c ****         tx[0] = W25Q128_CMD_PAGE_PROGRAM;
+ 179:SynaptiX_FDK/components/external_flash/sx_W25Q128.c ****         tx[1] = (uint8_t)(cur_addr >> 16);
+ 180:SynaptiX_FDK/components/external_flash/sx_W25Q128.c ****         tx[2] = (uint8_t)(cur_addr >>  8);
+ 181:SynaptiX_FDK/components/external_flash/sx_W25Q128.c ****         tx[3] = (uint8_t)(cur_addr >>  0);
+ 182:SynaptiX_FDK/components/external_flash/sx_W25Q128.c ****         memcpy(tx + 4, buf + offset, chunk);
+ 183:SynaptiX_FDK/components/external_flash/sx_W25Q128.c **** 
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cckQCMsg.s 			page 16
+
+
+ 184:SynaptiX_FDK/components/external_flash/sx_W25Q128.c ****         uint8_t stx2[2] = { W25Q128_CMD_READ_STATUS1, 0x00 };
+ 185:SynaptiX_FDK/components/external_flash/sx_W25Q128.c ****         uint8_t srx2[2] = { 0 };
+ 186:SynaptiX_FDK/components/external_flash/sx_W25Q128.c ****         sx_spi_write_read(s_dev->spi, stx2, srx2, 2);
+ 187:SynaptiX_FDK/components/external_flash/sx_W25Q128.c ****         log_info(TAG, "STATUS1 JUST BEFORE page_program: 0x%02X", srx2[1]);
+ 188:SynaptiX_FDK/components/external_flash/sx_W25Q128.c **** 
+ 189:SynaptiX_FDK/components/external_flash/sx_W25Q128.c ****         if (sx_spi_write(s_dev->spi, tx, 4 + chunk) != 0) {
+ 190:SynaptiX_FDK/components/external_flash/sx_W25Q128.c ****             log_error(TAG, "spi_write FAILED");
+ 191:SynaptiX_FDK/components/external_flash/sx_W25Q128.c ****             return -1;
+ 192:SynaptiX_FDK/components/external_flash/sx_W25Q128.c ****         }
+ 193:SynaptiX_FDK/components/external_flash/sx_W25Q128.c **** 
+ 194:SynaptiX_FDK/components/external_flash/sx_W25Q128.c ****         w25q_wait_busy();
+ 195:SynaptiX_FDK/components/external_flash/sx_W25Q128.c ****         offset += chunk;
+ 196:SynaptiX_FDK/components/external_flash/sx_W25Q128.c ****     }
+ 197:SynaptiX_FDK/components/external_flash/sx_W25Q128.c ****     return 0;
+ 198:SynaptiX_FDK/components/external_flash/sx_W25Q128.c **** }
+ 199:SynaptiX_FDK/components/external_flash/sx_W25Q128.c **** 
+ 200:SynaptiX_FDK/components/external_flash/sx_W25Q128.c **** int sx_W25Q128_erase_sector(uint32_t addr)
+ 201:SynaptiX_FDK/components/external_flash/sx_W25Q128.c **** {
+ 506              		.loc 1 201 1 view -0
+ 507              		.cfi_startproc
+ 508              		@ args = 0, pretend = 0, frame = 8
+ 509              		@ frame_needed = 0, uses_anonymous_args = 0
+ 510              		.loc 1 201 1 is_stmt 0 view .LVU115
+ 511 0000 30B5     		push	{r4, r5, lr}
+ 512              	.LCFI14:
+ 513              		.cfi_def_cfa_offset 12
+ 514              		.cfi_offset 4, -12
+ 515              		.cfi_offset 5, -8
+ 516              		.cfi_offset 14, -4
+ 517 0002 83B0     		sub	sp, sp, #12
+ 518              	.LCFI15:
+ 519              		.cfi_def_cfa_offset 24
+ 202:SynaptiX_FDK/components/external_flash/sx_W25Q128.c ****     if (!s_dev || !s_dev->initialized) return -1;
+ 520              		.loc 1 202 5 is_stmt 1 view .LVU116
+ 521              		.loc 1 202 9 is_stmt 0 view .LVU117
+ 522 0004 1E4B     		ldr	r3, .L49
+ 523 0006 1B68     		ldr	r3, [r3]
+ 524              		.loc 1 202 8 view .LVU118
+ 525 0008 6BB3     		cbz	r3, .L44
+ 526              		.loc 1 202 25 discriminator 2 view .LVU119
+ 527 000a 1B79     		ldrb	r3, [r3, #4]	@ zero_extendqisi2
+ 528              		.loc 1 202 16 discriminator 2 view .LVU120
+ 529 000c 73B3     		cbz	r3, .L45
+ 203:SynaptiX_FDK/components/external_flash/sx_W25Q128.c **** 
+ 204:SynaptiX_FDK/components/external_flash/sx_W25Q128.c ****     addr &= ~(W25Q128_SECTOR_SIZE - 1U);
+ 530              		.loc 1 204 5 is_stmt 1 view .LVU121
+ 531              		.loc 1 204 10 is_stmt 0 view .LVU122
+ 532 000e 20F47F64 		bic	r4, r0, #4080
+ 533 0012 24F00F04 		bic	r4, r4, #15
+ 534              	.LVL37:
+ 205:SynaptiX_FDK/components/external_flash/sx_W25Q128.c **** 
+ 206:SynaptiX_FDK/components/external_flash/sx_W25Q128.c ****     if (!w25q_write_enable()) return -1;
+ 535              		.loc 1 206 5 is_stmt 1 view .LVU123
+ 536              		.loc 1 206 10 is_stmt 0 view .LVU124
+ 537 0016 FFF7FEFF 		bl	w25q_write_enable
+ 538              	.LVL38:
+ 539              		.loc 1 206 8 discriminator 1 view .LVU125
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cckQCMsg.s 			page 17
+
+
+ 540 001a 50B3     		cbz	r0, .L46
+ 207:SynaptiX_FDK/components/external_flash/sx_W25Q128.c **** 
+ 208:SynaptiX_FDK/components/external_flash/sx_W25Q128.c ****     uint8_t cmd[4] = {
+ 541              		.loc 1 208 5 is_stmt 1 view .LVU126
+ 542              		.loc 1 208 13 is_stmt 0 view .LVU127
+ 543 001c 2023     		movs	r3, #32
+ 544 001e 8DF80430 		strb	r3, [sp, #4]
+ 209:SynaptiX_FDK/components/external_flash/sx_W25Q128.c ****         W25Q128_CMD_SECTOR_ERASE_4K,
+ 210:SynaptiX_FDK/components/external_flash/sx_W25Q128.c ****         (uint8_t)(addr >> 16),
+ 545              		.loc 1 210 9 view .LVU128
+ 546 0022 C4F30743 		ubfx	r3, r4, #16, #8
+ 208:SynaptiX_FDK/components/external_flash/sx_W25Q128.c ****         W25Q128_CMD_SECTOR_ERASE_4K,
+ 547              		.loc 1 208 13 view .LVU129
+ 548 0026 8DF80530 		strb	r3, [sp, #5]
+ 211:SynaptiX_FDK/components/external_flash/sx_W25Q128.c ****         (uint8_t)(addr >>  8),
+ 549              		.loc 1 211 24 view .LVU130
+ 550 002a 230A     		lsrs	r3, r4, #8
+ 208:SynaptiX_FDK/components/external_flash/sx_W25Q128.c ****         W25Q128_CMD_SECTOR_ERASE_4K,
+ 551              		.loc 1 208 13 view .LVU131
+ 552 002c 8DF80630 		strb	r3, [sp, #6]
+ 212:SynaptiX_FDK/components/external_flash/sx_W25Q128.c ****         (uint8_t)(addr >>  0),
+ 553              		.loc 1 212 9 view .LVU132
+ 554 0030 E3B2     		uxtb	r3, r4
+ 208:SynaptiX_FDK/components/external_flash/sx_W25Q128.c ****         W25Q128_CMD_SECTOR_ERASE_4K,
+ 555              		.loc 1 208 13 view .LVU133
+ 556 0032 8DF80730 		strb	r3, [sp, #7]
+ 213:SynaptiX_FDK/components/external_flash/sx_W25Q128.c ****     };
+ 214:SynaptiX_FDK/components/external_flash/sx_W25Q128.c **** 
+ 215:SynaptiX_FDK/components/external_flash/sx_W25Q128.c ****     if (sx_spi_write(s_dev->spi, cmd, 4) != 0) return -1;
+ 557              		.loc 1 215 5 is_stmt 1 view .LVU134
+ 558              		.loc 1 215 27 is_stmt 0 view .LVU135
+ 559 0036 124B     		ldr	r3, .L49
+ 560 0038 1B68     		ldr	r3, [r3]
+ 561              		.loc 1 215 9 view .LVU136
+ 562 003a 0422     		movs	r2, #4
+ 563 003c 0DEB0201 		add	r1, sp, r2
+ 564 0040 1868     		ldr	r0, [r3]
+ 565 0042 FFF7FEFF 		bl	sx_spi_write
+ 566              	.LVL39:
+ 567              		.loc 1 215 8 discriminator 1 view .LVU137
+ 568 0046 0546     		mov	r5, r0
+ 569 0048 B0B9     		cbnz	r0, .L47
+ 216:SynaptiX_FDK/components/external_flash/sx_W25Q128.c **** 
+ 217:SynaptiX_FDK/components/external_flash/sx_W25Q128.c ****     w25q_wait_busy();
+ 570              		.loc 1 217 5 is_stmt 1 view .LVU138
+ 571 004a FFF7FEFF 		bl	w25q_wait_busy
+ 572              	.LVL40:
+ 218:SynaptiX_FDK/components/external_flash/sx_W25Q128.c ****     sx_delay_ms(5);
+ 573              		.loc 1 218 5 view .LVU139
+ 574 004e 0520     		movs	r0, #5
+ 575 0050 FFF7FEFF 		bl	sx_delay_ms
+ 576              	.LVL41:
+ 219:SynaptiX_FDK/components/external_flash/sx_W25Q128.c ****     log_info(TAG, "Sector erased at 0x%06lX", (unsigned long)addr);
+ 577              		.loc 1 219 5 view .LVU140
+ 578 0054 2346     		mov	r3, r4
+ 579 0056 0B4A     		ldr	r2, .L49+4
+ 580 0058 0B49     		ldr	r1, .L49+8
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cckQCMsg.s 			page 18
+
+
+ 581 005a 0320     		movs	r0, #3
+ 582 005c FFF7FEFF 		bl	log_func
+ 583              	.LVL42:
+ 220:SynaptiX_FDK/components/external_flash/sx_W25Q128.c ****     return 0;
+ 584              		.loc 1 220 5 view .LVU141
+ 585              	.L42:
+ 221:SynaptiX_FDK/components/external_flash/sx_W25Q128.c **** }
+ 586              		.loc 1 221 1 is_stmt 0 view .LVU142
+ 587 0060 2846     		mov	r0, r5
+ 588 0062 03B0     		add	sp, sp, #12
+ 589              	.LCFI16:
+ 590              		.cfi_remember_state
+ 591              		.cfi_def_cfa_offset 12
+ 592              		@ sp needed
+ 593 0064 30BD     		pop	{r4, r5, pc}
+ 594              	.LVL43:
+ 595              	.L44:
+ 596              	.LCFI17:
+ 597              		.cfi_restore_state
+ 202:SynaptiX_FDK/components/external_flash/sx_W25Q128.c **** 
+ 598              		.loc 1 202 47 discriminator 3 view .LVU143
+ 599 0066 4FF0FF35 		mov	r5, #-1
+ 600 006a F9E7     		b	.L42
+ 601              	.L45:
+ 602 006c 4FF0FF35 		mov	r5, #-1
+ 603 0070 F6E7     		b	.L42
+ 604              	.LVL44:
+ 605              	.L46:
+ 206:SynaptiX_FDK/components/external_flash/sx_W25Q128.c **** 
+ 606              		.loc 1 206 38 discriminator 1 view .LVU144
+ 607 0072 4FF0FF35 		mov	r5, #-1
+ 608 0076 F3E7     		b	.L42
+ 609              	.L47:
+ 215:SynaptiX_FDK/components/external_flash/sx_W25Q128.c **** 
+ 610              		.loc 1 215 55 discriminator 1 view .LVU145
+ 611 0078 4FF0FF35 		mov	r5, #-1
+ 612 007c F0E7     		b	.L42
+ 613              	.L50:
+ 614 007e 00BF     		.align	2
+ 615              	.L49:
+ 616 0080 00000000 		.word	s_dev
+ 617 0084 00000000 		.word	.LC4
+ 618 0088 20000000 		.word	.LC1
+ 619              		.cfi_endproc
+ 620              	.LFE25:
+ 622              		.section	.rodata.w25q_wait_busy_long.str1.4,"aMS",%progbits,1
+ 623              		.align	2
+ 624              	.LC5:
+ 625 0000 77616974 		.ascii	"wait_busy_long TIMEOUT STATUS=0x%02X\000"
+ 625      5F627573 
+ 625      795F6C6F 
+ 625      6E672054 
+ 625      494D454F 
+ 626 0025 000000   		.align	2
+ 627              	.LC6:
+ 628 0028 77616974 		.ascii	"wait_busy_long done in %lu ms\000"
+ 628      5F627573 
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cckQCMsg.s 			page 19
+
+
+ 628      795F6C6F 
+ 628      6E672064 
+ 628      6F6E6520 
+ 629              		.section	.text.w25q_wait_busy_long,"ax",%progbits
+ 630              		.align	1
+ 631              		.syntax unified
+ 632              		.thumb
+ 633              		.thumb_func
+ 635              	w25q_wait_busy_long:
+ 636              	.LVL45:
+ 637              	.LFB20:
+  65:SynaptiX_FDK/components/external_flash/sx_W25Q128.c ****     uint8_t tx[2] = { W25Q128_CMD_READ_STATUS1, 0xFF };
+ 638              		.loc 1 65 1 is_stmt 1 view -0
+ 639              		.cfi_startproc
+ 640              		@ args = 0, pretend = 0, frame = 8
+ 641              		@ frame_needed = 0, uses_anonymous_args = 0
+  65:SynaptiX_FDK/components/external_flash/sx_W25Q128.c ****     uint8_t tx[2] = { W25Q128_CMD_READ_STATUS1, 0xFF };
+ 642              		.loc 1 65 1 is_stmt 0 view .LVU147
+ 643 0000 70B5     		push	{r4, r5, r6, lr}
+ 644              	.LCFI18:
+ 645              		.cfi_def_cfa_offset 16
+ 646              		.cfi_offset 4, -16
+ 647              		.cfi_offset 5, -12
+ 648              		.cfi_offset 6, -8
+ 649              		.cfi_offset 14, -4
+ 650 0002 82B0     		sub	sp, sp, #8
+ 651              	.LCFI19:
+ 652              		.cfi_def_cfa_offset 24
+ 653 0004 0646     		mov	r6, r0
+  66:SynaptiX_FDK/components/external_flash/sx_W25Q128.c ****     uint8_t rx[2];
+ 654              		.loc 1 66 5 is_stmt 1 view .LVU148
+  66:SynaptiX_FDK/components/external_flash/sx_W25Q128.c ****     uint8_t rx[2];
+ 655              		.loc 1 66 13 is_stmt 0 view .LVU149
+ 656 0006 4FF60573 		movw	r3, #65285
+ 657 000a ADF80430 		strh	r3, [sp, #4]	@ movhi
+  67:SynaptiX_FDK/components/external_flash/sx_W25Q128.c ****     uint32_t elapsed = 0;
+ 658              		.loc 1 67 5 is_stmt 1 view .LVU150
+  68:SynaptiX_FDK/components/external_flash/sx_W25Q128.c **** 
+ 659              		.loc 1 68 5 view .LVU151
+ 660              	.LVL46:
+  68:SynaptiX_FDK/components/external_flash/sx_W25Q128.c **** 
+ 661              		.loc 1 68 14 is_stmt 0 view .LVU152
+ 662 000e 0024     		movs	r4, #0
+ 663              	.LVL47:
+ 664              	.L54:
+  70:SynaptiX_FDK/components/external_flash/sx_W25Q128.c ****         sx_delay_ms(100);           
+ 665              		.loc 1 70 5 is_stmt 1 view .LVU153
+  71:SynaptiX_FDK/components/external_flash/sx_W25Q128.c ****         elapsed += 100;
+ 666              		.loc 1 71 9 view .LVU154
+ 667 0010 6420     		movs	r0, #100
+ 668 0012 FFF7FEFF 		bl	sx_delay_ms
+ 669              	.LVL48:
+  72:SynaptiX_FDK/components/external_flash/sx_W25Q128.c ****         sx_spi_write_read(s_dev->spi, tx, rx, 2);
+ 670              		.loc 1 72 9 view .LVU155
+  72:SynaptiX_FDK/components/external_flash/sx_W25Q128.c ****         sx_spi_write_read(s_dev->spi, tx, rx, 2);
+ 671              		.loc 1 72 17 is_stmt 0 view .LVU156
+ 672 0016 6434     		adds	r4, r4, #100
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cckQCMsg.s 			page 20
+
+
+ 673              	.LVL49:
+  73:SynaptiX_FDK/components/external_flash/sx_W25Q128.c ****         if (elapsed >= timeout_ms) {
+ 674              		.loc 1 73 9 is_stmt 1 view .LVU157
+  73:SynaptiX_FDK/components/external_flash/sx_W25Q128.c ****         if (elapsed >= timeout_ms) {
+ 675              		.loc 1 73 32 is_stmt 0 view .LVU158
+ 676 0018 0F4B     		ldr	r3, .L57
+ 677 001a 1D68     		ldr	r5, [r3]
+  73:SynaptiX_FDK/components/external_flash/sx_W25Q128.c ****         if (elapsed >= timeout_ms) {
+ 678              		.loc 1 73 9 view .LVU159
+ 679 001c 0223     		movs	r3, #2
+ 680 001e 6A46     		mov	r2, sp
+ 681 0020 01A9     		add	r1, sp, #4
+ 682 0022 2868     		ldr	r0, [r5]
+ 683 0024 FFF7FEFF 		bl	sx_spi_write_read
+ 684              	.LVL50:
+  74:SynaptiX_FDK/components/external_flash/sx_W25Q128.c ****             log_error("W25Q128", "wait_busy_long TIMEOUT STATUS=0x%02X", rx[1]);
+ 685              		.loc 1 74 9 is_stmt 1 view .LVU160
+  74:SynaptiX_FDK/components/external_flash/sx_W25Q128.c ****             log_error("W25Q128", "wait_busy_long TIMEOUT STATUS=0x%02X", rx[1]);
+ 686              		.loc 1 74 12 is_stmt 0 view .LVU161
+ 687 0028 B442     		cmp	r4, r6
+ 688 002a 0BD2     		bcs	.L56
+  78:SynaptiX_FDK/components/external_flash/sx_W25Q128.c **** 
+ 689              		.loc 1 78 14 is_stmt 1 view .LVU162
+  78:SynaptiX_FDK/components/external_flash/sx_W25Q128.c **** 
+ 690              		.loc 1 78 16 is_stmt 0 view .LVU163
+ 691 002c 9DF80130 		ldrb	r3, [sp, #1]	@ zero_extendqisi2
+  78:SynaptiX_FDK/components/external_flash/sx_W25Q128.c **** 
+ 692              		.loc 1 78 14 view .LVU164
+ 693 0030 13F0010F 		tst	r3, #1
+ 694 0034 ECD1     		bne	.L54
+  80:SynaptiX_FDK/components/external_flash/sx_W25Q128.c **** }
+ 695              		.loc 1 80 5 is_stmt 1 view .LVU165
+ 696 0036 2346     		mov	r3, r4
+ 697 0038 084A     		ldr	r2, .L57+4
+ 698 003a 0949     		ldr	r1, .L57+8
+ 699 003c 0320     		movs	r0, #3
+ 700 003e FFF7FEFF 		bl	log_func
+ 701              	.LVL51:
+ 702 0042 06E0     		b	.L51
+ 703              	.L56:
+  75:SynaptiX_FDK/components/external_flash/sx_W25Q128.c ****             return;
+ 704              		.loc 1 75 13 view .LVU166
+ 705 0044 9DF80130 		ldrb	r3, [sp, #1]	@ zero_extendqisi2
+ 706 0048 064A     		ldr	r2, .L57+12
+ 707 004a 0549     		ldr	r1, .L57+8
+ 708 004c 0120     		movs	r0, #1
+ 709 004e FFF7FEFF 		bl	log_func
+ 710              	.LVL52:
+  76:SynaptiX_FDK/components/external_flash/sx_W25Q128.c ****         }
+ 711              		.loc 1 76 13 view .LVU167
+ 712              	.L51:
+  81:SynaptiX_FDK/components/external_flash/sx_W25Q128.c **** 
+ 713              		.loc 1 81 1 is_stmt 0 view .LVU168
+ 714 0052 02B0     		add	sp, sp, #8
+ 715              	.LCFI20:
+ 716              		.cfi_def_cfa_offset 16
+ 717              		@ sp needed
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cckQCMsg.s 			page 21
+
+
+ 718 0054 70BD     		pop	{r4, r5, r6, pc}
+ 719              	.LVL53:
+ 720              	.L58:
+  81:SynaptiX_FDK/components/external_flash/sx_W25Q128.c **** 
+ 721              		.loc 1 81 1 view .LVU169
+ 722 0056 00BF     		.align	2
+ 723              	.L57:
+ 724 0058 00000000 		.word	s_dev
+ 725 005c 28000000 		.word	.LC6
+ 726 0060 20000000 		.word	.LC1
+ 727 0064 00000000 		.word	.LC5
+ 728              		.cfi_endproc
+ 729              	.LFE20:
+ 731              		.section	.rodata.sx_W25Q128_read.str1.4,"aMS",%progbits,1
+ 732              		.align	2
+ 733              	.LC7:
+ 734 0000 7370695F 		.ascii	"spi_write_read failed at addr=0x%06lX chunk=%lu\000"
+ 734      77726974 
+ 734      655F7265 
+ 734      61642066 
+ 734      61696C65 
+ 735              		.section	.text.sx_W25Q128_read,"ax",%progbits
+ 736              		.align	1
+ 737              		.global	sx_W25Q128_read
+ 738              		.syntax unified
+ 739              		.thumb
+ 740              		.thumb_func
+ 742              	sx_W25Q128_read:
+ 743              	.LVL54:
+ 744              	.LFB23:
+ 125:SynaptiX_FDK/components/external_flash/sx_W25Q128.c ****     if (!s_dev || !s_dev->initialized) return -1;
+ 745              		.loc 1 125 1 is_stmt 1 view -0
+ 746              		.cfi_startproc
+ 747              		@ args = 0, pretend = 0, frame = 520
+ 748              		@ frame_needed = 0, uses_anonymous_args = 0
+ 126:SynaptiX_FDK/components/external_flash/sx_W25Q128.c ****     if (buf == NULL || len == 0)        return -1;
+ 749              		.loc 1 126 5 view .LVU171
+ 126:SynaptiX_FDK/components/external_flash/sx_W25Q128.c ****     if (buf == NULL || len == 0)        return -1;
+ 750              		.loc 1 126 9 is_stmt 0 view .LVU172
+ 751 0000 2D4B     		ldr	r3, .L76
+ 752 0002 1B68     		ldr	r3, [r3]
+ 126:SynaptiX_FDK/components/external_flash/sx_W25Q128.c ****     if (buf == NULL || len == 0)        return -1;
+ 753              		.loc 1 126 8 view .LVU173
+ 754 0004 002B     		cmp	r3, #0
+ 755 0006 4BD0     		beq	.L65
+ 125:SynaptiX_FDK/components/external_flash/sx_W25Q128.c ****     if (!s_dev || !s_dev->initialized) return -1;
+ 756              		.loc 1 125 1 view .LVU174
+ 757 0008 2DE9F043 		push	{r4, r5, r6, r7, r8, r9, lr}
+ 758              	.LCFI21:
+ 759              		.cfi_def_cfa_offset 28
+ 760              		.cfi_offset 4, -28
+ 761              		.cfi_offset 5, -24
+ 762              		.cfi_offset 6, -20
+ 763              		.cfi_offset 7, -16
+ 764              		.cfi_offset 8, -12
+ 765              		.cfi_offset 9, -8
+ 766              		.cfi_offset 14, -4
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cckQCMsg.s 			page 22
+
+
+ 767 000c ADF5057D 		sub	sp, sp, #532
+ 768              	.LCFI22:
+ 769              		.cfi_def_cfa_offset 560
+ 770 0010 8146     		mov	r9, r0
+ 771 0012 8846     		mov	r8, r1
+ 772 0014 1746     		mov	r7, r2
+ 126:SynaptiX_FDK/components/external_flash/sx_W25Q128.c ****     if (buf == NULL || len == 0)        return -1;
+ 773              		.loc 1 126 25 discriminator 2 view .LVU175
+ 774 0016 1B79     		ldrb	r3, [r3, #4]	@ zero_extendqisi2
+ 126:SynaptiX_FDK/components/external_flash/sx_W25Q128.c ****     if (buf == NULL || len == 0)        return -1;
+ 775              		.loc 1 126 16 discriminator 2 view .LVU176
+ 776 0018 002B     		cmp	r3, #0
+ 777 001a 44D0     		beq	.L66
+ 127:SynaptiX_FDK/components/external_flash/sx_W25Q128.c **** 
+ 778              		.loc 1 127 5 is_stmt 1 view .LVU177
+ 127:SynaptiX_FDK/components/external_flash/sx_W25Q128.c **** 
+ 779              		.loc 1 127 8 is_stmt 0 view .LVU178
+ 780 001c 0029     		cmp	r1, #0
+ 781 001e 45D0     		beq	.L67
+ 127:SynaptiX_FDK/components/external_flash/sx_W25Q128.c **** 
+ 782              		.loc 1 127 21 discriminator 2 view .LVU179
+ 783 0020 002A     		cmp	r2, #0
+ 784 0022 46D0     		beq	.L68
+ 129:SynaptiX_FDK/components/external_flash/sx_W25Q128.c ****     while (offset < len) {
+ 785              		.loc 1 129 14 view .LVU180
+ 786 0024 0025     		movs	r5, #0
+ 787 0026 23E0     		b	.L61
+ 788              	.LVL55:
+ 789              	.L62:
+ 790              	.LBB5:
+ 134:SynaptiX_FDK/components/external_flash/sx_W25Q128.c ****         uint8_t rx[4 + W25Q128_MAX_READ_LEN];
+ 791              		.loc 1 134 9 is_stmt 1 view .LVU181
+ 135:SynaptiX_FDK/components/external_flash/sx_W25Q128.c **** 
+ 792              		.loc 1 135 9 view .LVU182
+ 137:SynaptiX_FDK/components/external_flash/sx_W25Q128.c ****         tx[0] = W25Q128_CMD_READ_DATA;
+ 793              		.loc 1 137 9 view .LVU183
+ 137:SynaptiX_FDK/components/external_flash/sx_W25Q128.c ****         tx[0] = W25Q128_CMD_READ_DATA;
+ 794              		.loc 1 137 18 is_stmt 0 view .LVU184
+ 795 0028 05EB0906 		add	r6, r5, r9
+ 796              	.LVL56:
+ 138:SynaptiX_FDK/components/external_flash/sx_W25Q128.c ****         tx[1] = (uint8_t)(cur_addr >> 16);
+ 797              		.loc 1 138 9 is_stmt 1 view .LVU185
+ 138:SynaptiX_FDK/components/external_flash/sx_W25Q128.c ****         tx[1] = (uint8_t)(cur_addr >> 16);
+ 798              		.loc 1 138 15 is_stmt 0 view .LVU186
+ 799 002c 0323     		movs	r3, #3
+ 800 002e 8DF80830 		strb	r3, [sp, #8]
+ 139:SynaptiX_FDK/components/external_flash/sx_W25Q128.c ****         tx[2] = (uint8_t)(cur_addr >>  8);
+ 801              		.loc 1 139 9 is_stmt 1 view .LVU187
+ 139:SynaptiX_FDK/components/external_flash/sx_W25Q128.c ****         tx[2] = (uint8_t)(cur_addr >>  8);
+ 802              		.loc 1 139 17 is_stmt 0 view .LVU188
+ 803 0032 C6F30743 		ubfx	r3, r6, #16, #8
+ 139:SynaptiX_FDK/components/external_flash/sx_W25Q128.c ****         tx[2] = (uint8_t)(cur_addr >>  8);
+ 804              		.loc 1 139 15 view .LVU189
+ 805 0036 8DF80930 		strb	r3, [sp, #9]
+ 140:SynaptiX_FDK/components/external_flash/sx_W25Q128.c ****         tx[3] = (uint8_t)(cur_addr >>  0);
+ 806              		.loc 1 140 9 is_stmt 1 view .LVU190
+ 140:SynaptiX_FDK/components/external_flash/sx_W25Q128.c ****         tx[3] = (uint8_t)(cur_addr >>  0);
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cckQCMsg.s 			page 23
+
+
+ 807              		.loc 1 140 17 is_stmt 0 view .LVU191
+ 808 003a C6F30723 		ubfx	r3, r6, #8, #8
+ 140:SynaptiX_FDK/components/external_flash/sx_W25Q128.c ****         tx[3] = (uint8_t)(cur_addr >>  0);
+ 809              		.loc 1 140 15 view .LVU192
+ 810 003e 8DF80A30 		strb	r3, [sp, #10]
+ 141:SynaptiX_FDK/components/external_flash/sx_W25Q128.c ****         memset(tx + 4, 0x00, chunk);
+ 811              		.loc 1 141 9 is_stmt 1 view .LVU193
+ 141:SynaptiX_FDK/components/external_flash/sx_W25Q128.c ****         memset(tx + 4, 0x00, chunk);
+ 812              		.loc 1 141 15 is_stmt 0 view .LVU194
+ 813 0042 8DF80B60 		strb	r6, [sp, #11]
+ 142:SynaptiX_FDK/components/external_flash/sx_W25Q128.c **** 
+ 814              		.loc 1 142 9 is_stmt 1 view .LVU195
+ 815 0046 2246     		mov	r2, r4
+ 816 0048 0021     		movs	r1, #0
+ 817 004a 03A8     		add	r0, sp, #12
+ 818 004c FFF7FEFF 		bl	memset
+ 819              	.LVL57:
+ 144:SynaptiX_FDK/components/external_flash/sx_W25Q128.c ****             log_error(TAG, "spi_write_read failed at addr=0x%06lX chunk=%lu",
+ 820              		.loc 1 144 9 view .LVU196
+ 144:SynaptiX_FDK/components/external_flash/sx_W25Q128.c ****             log_error(TAG, "spi_write_read failed at addr=0x%06lX chunk=%lu",
+ 821              		.loc 1 144 36 is_stmt 0 view .LVU197
+ 822 0050 194B     		ldr	r3, .L76
+ 823 0052 1868     		ldr	r0, [r3]
+ 144:SynaptiX_FDK/components/external_flash/sx_W25Q128.c ****             log_error(TAG, "spi_write_read failed at addr=0x%06lX chunk=%lu",
+ 824              		.loc 1 144 13 view .LVU198
+ 825 0054 231D     		adds	r3, r4, #4
+ 826 0056 43AA     		add	r2, sp, #268
+ 827 0058 02A9     		add	r1, sp, #8
+ 828 005a 0068     		ldr	r0, [r0]
+ 829 005c FFF7FEFF 		bl	sx_spi_write_read
+ 830              	.LVL58:
+ 144:SynaptiX_FDK/components/external_flash/sx_W25Q128.c ****             log_error(TAG, "spi_write_read failed at addr=0x%06lX chunk=%lu",
+ 831              		.loc 1 144 12 discriminator 1 view .LVU199
+ 832 0060 78B9     		cbnz	r0, .L74
+ 149:SynaptiX_FDK/components/external_flash/sx_W25Q128.c **** 
+ 833              		.loc 1 149 9 is_stmt 1 view .LVU200
+ 834 0062 2246     		mov	r2, r4
+ 835 0064 44A9     		add	r1, sp, #272
+ 836 0066 08EB0500 		add	r0, r8, r5
+ 837 006a FFF7FEFF 		bl	memcpy
+ 838              	.LVL59:
+ 151:SynaptiX_FDK/components/external_flash/sx_W25Q128.c ****     }
+ 839              		.loc 1 151 9 view .LVU201
+ 151:SynaptiX_FDK/components/external_flash/sx_W25Q128.c ****     }
+ 840              		.loc 1 151 16 is_stmt 0 view .LVU202
+ 841 006e 2544     		add	r5, r5, r4
+ 842              	.LVL60:
+ 843              	.L61:
+ 151:SynaptiX_FDK/components/external_flash/sx_W25Q128.c ****     }
+ 844              		.loc 1 151 16 view .LVU203
+ 845              	.LBE5:
+ 130:SynaptiX_FDK/components/external_flash/sx_W25Q128.c ****         uint32_t chunk = len - offset;
+ 846              		.loc 1 130 19 is_stmt 1 view .LVU204
+ 847 0070 BD42     		cmp	r5, r7
+ 848 0072 10D2     		bcs	.L75
+ 849              	.LBB6:
+ 131:SynaptiX_FDK/components/external_flash/sx_W25Q128.c ****         if (chunk > W25Q128_MAX_READ_LEN) chunk = W25Q128_MAX_READ_LEN;
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cckQCMsg.s 			page 24
+
+
+ 850              		.loc 1 131 9 view .LVU205
+ 131:SynaptiX_FDK/components/external_flash/sx_W25Q128.c ****         if (chunk > W25Q128_MAX_READ_LEN) chunk = W25Q128_MAX_READ_LEN;
+ 851              		.loc 1 131 18 is_stmt 0 view .LVU206
+ 852 0074 7C1B     		subs	r4, r7, r5
+ 853              	.LVL61:
+ 132:SynaptiX_FDK/components/external_flash/sx_W25Q128.c **** 
+ 854              		.loc 1 132 9 is_stmt 1 view .LVU207
+ 132:SynaptiX_FDK/components/external_flash/sx_W25Q128.c **** 
+ 855              		.loc 1 132 12 is_stmt 0 view .LVU208
+ 856 0076 B4F5807F 		cmp	r4, #256
+ 857 007a D5D9     		bls	.L62
+ 132:SynaptiX_FDK/components/external_flash/sx_W25Q128.c **** 
+ 858              		.loc 1 132 49 discriminator 1 view .LVU209
+ 859 007c 4FF48074 		mov	r4, #256
+ 860              	.LVL62:
+ 132:SynaptiX_FDK/components/external_flash/sx_W25Q128.c **** 
+ 861              		.loc 1 132 49 discriminator 1 view .LVU210
+ 862 0080 D2E7     		b	.L62
+ 863              	.LVL63:
+ 864              	.L74:
+ 145:SynaptiX_FDK/components/external_flash/sx_W25Q128.c ****               (unsigned long)cur_addr, (unsigned long)chunk);
+ 865              		.loc 1 145 13 is_stmt 1 view .LVU211
+ 866 0082 0094     		str	r4, [sp]
+ 867 0084 3346     		mov	r3, r6
+ 868 0086 0D4A     		ldr	r2, .L76+4
+ 869 0088 0D49     		ldr	r1, .L76+8
+ 870 008a 0120     		movs	r0, #1
+ 871 008c FFF7FEFF 		bl	log_func
+ 872              	.LVL64:
+ 147:SynaptiX_FDK/components/external_flash/sx_W25Q128.c ****         }
+ 873              		.loc 1 147 13 view .LVU212
+ 147:SynaptiX_FDK/components/external_flash/sx_W25Q128.c ****         }
+ 874              		.loc 1 147 20 is_stmt 0 view .LVU213
+ 875 0090 4FF0FF30 		mov	r0, #-1
+ 876 0094 00E0     		b	.L59
+ 877              	.LVL65:
+ 878              	.L75:
+ 147:SynaptiX_FDK/components/external_flash/sx_W25Q128.c ****         }
+ 879              		.loc 1 147 20 view .LVU214
+ 880              	.LBE6:
+ 153:SynaptiX_FDK/components/external_flash/sx_W25Q128.c **** }
+ 881              		.loc 1 153 12 view .LVU215
+ 882 0096 0020     		movs	r0, #0
+ 883              	.LVL66:
+ 884              	.L59:
+ 154:SynaptiX_FDK/components/external_flash/sx_W25Q128.c **** 
+ 885              		.loc 1 154 1 view .LVU216
+ 886 0098 0DF5057D 		add	sp, sp, #532
+ 887              	.LCFI23:
+ 888              		.cfi_def_cfa_offset 28
+ 889              		@ sp needed
+ 890 009c BDE8F083 		pop	{r4, r5, r6, r7, r8, r9, pc}
+ 891              	.LVL67:
+ 892              	.L65:
+ 893              	.LCFI24:
+ 894              		.cfi_def_cfa_offset 0
+ 895              		.cfi_restore 4
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cckQCMsg.s 			page 25
+
+
+ 896              		.cfi_restore 5
+ 897              		.cfi_restore 6
+ 898              		.cfi_restore 7
+ 899              		.cfi_restore 8
+ 900              		.cfi_restore 9
+ 901              		.cfi_restore 14
+ 126:SynaptiX_FDK/components/external_flash/sx_W25Q128.c ****     if (buf == NULL || len == 0)        return -1;
+ 902              		.loc 1 126 47 discriminator 3 view .LVU217
+ 903 00a0 4FF0FF30 		mov	r0, #-1
+ 904              	.LVL68:
+ 154:SynaptiX_FDK/components/external_flash/sx_W25Q128.c **** 
+ 905              		.loc 1 154 1 view .LVU218
+ 906 00a4 7047     		bx	lr
+ 907              	.LVL69:
+ 908              	.L66:
+ 909              	.LCFI25:
+ 910              		.cfi_def_cfa_offset 560
+ 911              		.cfi_offset 4, -28
+ 912              		.cfi_offset 5, -24
+ 913              		.cfi_offset 6, -20
+ 914              		.cfi_offset 7, -16
+ 915              		.cfi_offset 8, -12
+ 916              		.cfi_offset 9, -8
+ 917              		.cfi_offset 14, -4
+ 126:SynaptiX_FDK/components/external_flash/sx_W25Q128.c ****     if (buf == NULL || len == 0)        return -1;
+ 918              		.loc 1 126 47 discriminator 3 view .LVU219
+ 919 00a6 4FF0FF30 		mov	r0, #-1
+ 920              	.LVL70:
+ 126:SynaptiX_FDK/components/external_flash/sx_W25Q128.c ****     if (buf == NULL || len == 0)        return -1;
+ 921              		.loc 1 126 47 discriminator 3 view .LVU220
+ 922 00aa F5E7     		b	.L59
+ 923              	.LVL71:
+ 924              	.L67:
+ 127:SynaptiX_FDK/components/external_flash/sx_W25Q128.c **** 
+ 925              		.loc 1 127 48 discriminator 3 view .LVU221
+ 926 00ac 4FF0FF30 		mov	r0, #-1
+ 927              	.LVL72:
+ 127:SynaptiX_FDK/components/external_flash/sx_W25Q128.c **** 
+ 928              		.loc 1 127 48 discriminator 3 view .LVU222
+ 929 00b0 F2E7     		b	.L59
+ 930              	.LVL73:
+ 931              	.L68:
+ 127:SynaptiX_FDK/components/external_flash/sx_W25Q128.c **** 
+ 932              		.loc 1 127 48 discriminator 3 view .LVU223
+ 933 00b2 4FF0FF30 		mov	r0, #-1
+ 934              	.LVL74:
+ 127:SynaptiX_FDK/components/external_flash/sx_W25Q128.c **** 
+ 935              		.loc 1 127 48 discriminator 3 view .LVU224
+ 936 00b6 EFE7     		b	.L59
+ 937              	.L77:
+ 938              		.align	2
+ 939              	.L76:
+ 940 00b8 00000000 		.word	s_dev
+ 941 00bc 00000000 		.word	.LC7
+ 942 00c0 20000000 		.word	.LC1
+ 943              		.cfi_endproc
+ 944              	.LFE23:
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cckQCMsg.s 			page 26
+
+
+ 946              		.section	.rodata.sx_W25Q128_write.str1.4,"aMS",%progbits,1
+ 947              		.align	2
+ 948              	.LC8:
+ 949 0000 77726974 		.ascii	"write_enable FAILED\000"
+ 949      655F656E 
+ 949      61626C65 
+ 949      20464149 
+ 949      4C454400 
+ 950              		.align	2
+ 951              	.LC9:
+ 952 0014 53544154 		.ascii	"STATUS1 before write addr=0x%06lX: 0x%02X (WEL=%d)\000"
+ 952      55533120 
+ 952      6265666F 
+ 952      72652077 
+ 952      72697465 
+ 953 0047 00       		.align	2
+ 954              	.LC10:
+ 955 0048 53544154 		.ascii	"STATUS1 JUST BEFORE page_program: 0x%02X\000"
+ 955      55533120 
+ 955      4A555354 
+ 955      20424546 
+ 955      4F524520 
+ 956 0071 000000   		.align	2
+ 957              	.LC11:
+ 958 0074 7370695F 		.ascii	"spi_write FAILED\000"
+ 958      77726974 
+ 958      65204641 
+ 958      494C4544 
+ 958      00
+ 959              		.section	.text.sx_W25Q128_write,"ax",%progbits
+ 960              		.align	1
+ 961              		.global	sx_W25Q128_write
+ 962              		.syntax unified
+ 963              		.thumb
+ 964              		.thumb_func
+ 966              	sx_W25Q128_write:
+ 967              	.LVL75:
+ 968              	.LFB24:
+ 157:SynaptiX_FDK/components/external_flash/sx_W25Q128.c ****     if (!s_dev || !s_dev->initialized)   return -1;
+ 969              		.loc 1 157 1 is_stmt 1 view -0
+ 970              		.cfi_startproc
+ 971              		@ args = 0, pretend = 0, frame = 288
+ 972              		@ frame_needed = 0, uses_anonymous_args = 0
+ 157:SynaptiX_FDK/components/external_flash/sx_W25Q128.c ****     if (!s_dev || !s_dev->initialized)   return -1;
+ 973              		.loc 1 157 1 is_stmt 0 view .LVU226
+ 974 0000 2DE9F04F 		push	{r4, r5, r6, r7, r8, r9, r10, fp, lr}
+ 975              	.LCFI26:
+ 976              		.cfi_def_cfa_offset 36
+ 977              		.cfi_offset 4, -36
+ 978              		.cfi_offset 5, -32
+ 979              		.cfi_offset 6, -28
+ 980              		.cfi_offset 7, -24
+ 981              		.cfi_offset 8, -20
+ 982              		.cfi_offset 9, -16
+ 983              		.cfi_offset 10, -12
+ 984              		.cfi_offset 11, -8
+ 985              		.cfi_offset 14, -4
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cckQCMsg.s 			page 27
+
+
+ 986 0004 CBB0     		sub	sp, sp, #300
+ 987              	.LCFI27:
+ 988              		.cfi_def_cfa_offset 336
+ 989 0006 0290     		str	r0, [sp, #8]
+ 158:SynaptiX_FDK/components/external_flash/sx_W25Q128.c ****     if (buf == NULL || len == 0)          return -1;
+ 990              		.loc 1 158 5 is_stmt 1 view .LVU227
+ 158:SynaptiX_FDK/components/external_flash/sx_W25Q128.c ****     if (buf == NULL || len == 0)          return -1;
+ 991              		.loc 1 158 9 is_stmt 0 view .LVU228
+ 992 0008 444B     		ldr	r3, .L94
+ 993 000a 1B68     		ldr	r3, [r3]
+ 158:SynaptiX_FDK/components/external_flash/sx_W25Q128.c ****     if (buf == NULL || len == 0)          return -1;
+ 994              		.loc 1 158 8 view .LVU229
+ 995 000c 002B     		cmp	r3, #0
+ 996 000e 79D0     		beq	.L86
+ 997 0010 9046     		mov	r8, r2
+ 158:SynaptiX_FDK/components/external_flash/sx_W25Q128.c ****     if (buf == NULL || len == 0)          return -1;
+ 998              		.loc 1 158 25 discriminator 2 view .LVU230
+ 999 0012 1B79     		ldrb	r3, [r3, #4]	@ zero_extendqisi2
+ 158:SynaptiX_FDK/components/external_flash/sx_W25Q128.c ****     if (buf == NULL || len == 0)          return -1;
+ 1000              		.loc 1 158 16 discriminator 2 view .LVU231
+ 1001 0014 002B     		cmp	r3, #0
+ 1002 0016 78D0     		beq	.L87
+ 159:SynaptiX_FDK/components/external_flash/sx_W25Q128.c ****     uint32_t offset = 0;
+ 1003              		.loc 1 159 5 is_stmt 1 view .LVU232
+ 159:SynaptiX_FDK/components/external_flash/sx_W25Q128.c ****     uint32_t offset = 0;
+ 1004              		.loc 1 159 8 is_stmt 0 view .LVU233
+ 1005 0018 0029     		cmp	r1, #0
+ 1006 001a 79D0     		beq	.L88
+ 159:SynaptiX_FDK/components/external_flash/sx_W25Q128.c ****     uint32_t offset = 0;
+ 1007              		.loc 1 159 21 discriminator 2 view .LVU234
+ 1008 001c 002A     		cmp	r2, #0
+ 1009 001e 7AD0     		beq	.L89
+ 160:SynaptiX_FDK/components/external_flash/sx_W25Q128.c ****     while (offset < len) {
+ 1010              		.loc 1 160 14 view .LVU235
+ 1011 0020 0024     		movs	r4, #0
+ 1012 0022 0391     		str	r1, [sp, #12]
+ 1013 0024 4FE0     		b	.L80
+ 1014              	.LVL76:
+ 1015              	.L81:
+ 1016              	.LBB7:
+ 166:SynaptiX_FDK/components/external_flash/sx_W25Q128.c ****             log_error(TAG, "write_enable FAILED");
+ 1017              		.loc 1 166 9 is_stmt 1 view .LVU236
+ 166:SynaptiX_FDK/components/external_flash/sx_W25Q128.c ****             log_error(TAG, "write_enable FAILED");
+ 1018              		.loc 1 166 14 is_stmt 0 view .LVU237
+ 1019 0026 FFF7FEFF 		bl	w25q_write_enable
+ 1020              	.LVL77:
+ 166:SynaptiX_FDK/components/external_flash/sx_W25Q128.c ****             log_error(TAG, "write_enable FAILED");
+ 1021              		.loc 1 166 12 discriminator 1 view .LVU238
+ 1022 002a 0028     		cmp	r0, #0
+ 1023 002c 58D0     		beq	.L91
+ 171:SynaptiX_FDK/components/external_flash/sx_W25Q128.c ****         uint8_t srx[2] = { 0 };
+ 1024              		.loc 1 171 9 is_stmt 1 view .LVU239
+ 171:SynaptiX_FDK/components/external_flash/sx_W25Q128.c ****         uint8_t srx[2] = { 0 };
+ 1025              		.loc 1 171 17 is_stmt 0 view .LVU240
+ 1026 002e 4FF0050B 		mov	fp, #5
+ 1027 0032 ADF814B0 		strh	fp, [sp, #20]	@ movhi
+ 172:SynaptiX_FDK/components/external_flash/sx_W25Q128.c ****         sx_spi_write_read(s_dev->spi, stx, srx, 2);
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cckQCMsg.s 			page 28
+
+
+ 1028              		.loc 1 172 9 is_stmt 1 view .LVU241
+ 172:SynaptiX_FDK/components/external_flash/sx_W25Q128.c ****         sx_spi_write_read(s_dev->spi, stx, srx, 2);
+ 1029              		.loc 1 172 17 is_stmt 0 view .LVU242
+ 1030 0036 4FF0000A 		mov	r10, #0
+ 1031 003a ADF818A0 		strh	r10, [sp, #24]	@ movhi
+ 173:SynaptiX_FDK/components/external_flash/sx_W25Q128.c ****         log_info(TAG, "STATUS1 before write addr=0x%06lX: 0x%02X (WEL=%d)", (unsigned long)(addr + 
+ 1032              		.loc 1 173 9 is_stmt 1 view .LVU243
+ 173:SynaptiX_FDK/components/external_flash/sx_W25Q128.c ****         log_info(TAG, "STATUS1 before write addr=0x%06lX: 0x%02X (WEL=%d)", (unsigned long)(addr + 
+ 1033              		.loc 1 173 32 is_stmt 0 view .LVU244
+ 1034 003e 374F     		ldr	r7, .L94
+ 1035 0040 3868     		ldr	r0, [r7]
+ 173:SynaptiX_FDK/components/external_flash/sx_W25Q128.c ****         log_info(TAG, "STATUS1 before write addr=0x%06lX: 0x%02X (WEL=%d)", (unsigned long)(addr + 
+ 1036              		.loc 1 173 9 view .LVU245
+ 1037 0042 0223     		movs	r3, #2
+ 1038 0044 06AA     		add	r2, sp, #24
+ 1039 0046 05A9     		add	r1, sp, #20
+ 1040 0048 0068     		ldr	r0, [r0]
+ 1041 004a FFF7FEFF 		bl	sx_spi_write_read
+ 1042              	.LVL78:
+ 174:SynaptiX_FDK/components/external_flash/sx_W25Q128.c **** 
+ 1043              		.loc 1 174 9 is_stmt 1 view .LVU246
+ 1044 004e 9DF81930 		ldrb	r3, [sp, #25]	@ zero_extendqisi2
+ 1045 0052 C3F34002 		ubfx	r2, r3, #1, #1
+ 1046 0056 0192     		str	r2, [sp, #4]
+ 1047 0058 0093     		str	r3, [sp]
+ 1048 005a 2B46     		mov	r3, r5
+ 1049 005c 304A     		ldr	r2, .L94+4
+ 1050 005e 3149     		ldr	r1, .L94+8
+ 1051 0060 0320     		movs	r0, #3
+ 1052 0062 FFF7FEFF 		bl	log_func
+ 1053              	.LVL79:
+ 176:SynaptiX_FDK/components/external_flash/sx_W25Q128.c ****         uint32_t cur_addr = addr + offset;
+ 1054              		.loc 1 176 9 view .LVU247
+ 177:SynaptiX_FDK/components/external_flash/sx_W25Q128.c ****         tx[0] = W25Q128_CMD_PAGE_PROGRAM;
+ 1055              		.loc 1 177 9 view .LVU248
+ 178:SynaptiX_FDK/components/external_flash/sx_W25Q128.c ****         tx[1] = (uint8_t)(cur_addr >> 16);
+ 1056              		.loc 1 178 9 view .LVU249
+ 178:SynaptiX_FDK/components/external_flash/sx_W25Q128.c ****         tx[1] = (uint8_t)(cur_addr >> 16);
+ 1057              		.loc 1 178 15 is_stmt 0 view .LVU250
+ 1058 0066 4FF00209 		mov	r9, #2
+ 1059 006a 8DF82490 		strb	r9, [sp, #36]
+ 179:SynaptiX_FDK/components/external_flash/sx_W25Q128.c ****         tx[2] = (uint8_t)(cur_addr >>  8);
+ 1060              		.loc 1 179 9 is_stmt 1 view .LVU251
+ 179:SynaptiX_FDK/components/external_flash/sx_W25Q128.c ****         tx[2] = (uint8_t)(cur_addr >>  8);
+ 1061              		.loc 1 179 17 is_stmt 0 view .LVU252
+ 1062 006e C5F30743 		ubfx	r3, r5, #16, #8
+ 179:SynaptiX_FDK/components/external_flash/sx_W25Q128.c ****         tx[2] = (uint8_t)(cur_addr >>  8);
+ 1063              		.loc 1 179 15 view .LVU253
+ 1064 0072 8DF82530 		strb	r3, [sp, #37]
+ 180:SynaptiX_FDK/components/external_flash/sx_W25Q128.c ****         tx[3] = (uint8_t)(cur_addr >>  0);
+ 1065              		.loc 1 180 9 is_stmt 1 view .LVU254
+ 180:SynaptiX_FDK/components/external_flash/sx_W25Q128.c ****         tx[3] = (uint8_t)(cur_addr >>  0);
+ 1066              		.loc 1 180 17 is_stmt 0 view .LVU255
+ 1067 0076 C5F30723 		ubfx	r3, r5, #8, #8
+ 180:SynaptiX_FDK/components/external_flash/sx_W25Q128.c ****         tx[3] = (uint8_t)(cur_addr >>  0);
+ 1068              		.loc 1 180 15 view .LVU256
+ 1069 007a 8DF82630 		strb	r3, [sp, #38]
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cckQCMsg.s 			page 29
+
+
+ 181:SynaptiX_FDK/components/external_flash/sx_W25Q128.c ****         memcpy(tx + 4, buf + offset, chunk);
+ 1070              		.loc 1 181 9 is_stmt 1 view .LVU257
+ 181:SynaptiX_FDK/components/external_flash/sx_W25Q128.c ****         memcpy(tx + 4, buf + offset, chunk);
+ 1071              		.loc 1 181 15 is_stmt 0 view .LVU258
+ 1072 007e 8DF82750 		strb	r5, [sp, #39]
+ 182:SynaptiX_FDK/components/external_flash/sx_W25Q128.c **** 
+ 1073              		.loc 1 182 9 is_stmt 1 view .LVU259
+ 1074 0082 3246     		mov	r2, r6
+ 1075 0084 039B     		ldr	r3, [sp, #12]
+ 1076 0086 1919     		adds	r1, r3, r4
+ 1077 0088 0AA8     		add	r0, sp, #40
+ 1078 008a FFF7FEFF 		bl	memcpy
+ 1079              	.LVL80:
+ 184:SynaptiX_FDK/components/external_flash/sx_W25Q128.c ****         uint8_t srx2[2] = { 0 };
+ 1080              		.loc 1 184 9 view .LVU260
+ 184:SynaptiX_FDK/components/external_flash/sx_W25Q128.c ****         uint8_t srx2[2] = { 0 };
+ 1081              		.loc 1 184 17 is_stmt 0 view .LVU261
+ 1082 008e ADF81CB0 		strh	fp, [sp, #28]	@ movhi
+ 185:SynaptiX_FDK/components/external_flash/sx_W25Q128.c ****         sx_spi_write_read(s_dev->spi, stx2, srx2, 2);
+ 1083              		.loc 1 185 9 is_stmt 1 view .LVU262
+ 185:SynaptiX_FDK/components/external_flash/sx_W25Q128.c ****         sx_spi_write_read(s_dev->spi, stx2, srx2, 2);
+ 1084              		.loc 1 185 17 is_stmt 0 view .LVU263
+ 1085 0092 ADF820A0 		strh	r10, [sp, #32]	@ movhi
+ 186:SynaptiX_FDK/components/external_flash/sx_W25Q128.c ****         log_info(TAG, "STATUS1 JUST BEFORE page_program: 0x%02X", srx2[1]);
+ 1086              		.loc 1 186 9 is_stmt 1 view .LVU264
+ 186:SynaptiX_FDK/components/external_flash/sx_W25Q128.c ****         log_info(TAG, "STATUS1 JUST BEFORE page_program: 0x%02X", srx2[1]);
+ 1087              		.loc 1 186 32 is_stmt 0 view .LVU265
+ 1088 0096 3868     		ldr	r0, [r7]
+ 186:SynaptiX_FDK/components/external_flash/sx_W25Q128.c ****         log_info(TAG, "STATUS1 JUST BEFORE page_program: 0x%02X", srx2[1]);
+ 1089              		.loc 1 186 9 view .LVU266
+ 1090 0098 4B46     		mov	r3, r9
+ 1091 009a 08AA     		add	r2, sp, #32
+ 1092 009c 07A9     		add	r1, sp, #28
+ 1093 009e 0068     		ldr	r0, [r0]
+ 1094 00a0 FFF7FEFF 		bl	sx_spi_write_read
+ 1095              	.LVL81:
+ 187:SynaptiX_FDK/components/external_flash/sx_W25Q128.c **** 
+ 1096              		.loc 1 187 9 is_stmt 1 view .LVU267
+ 1097 00a4 9DF82130 		ldrb	r3, [sp, #33]	@ zero_extendqisi2
+ 1098 00a8 1F4A     		ldr	r2, .L94+12
+ 1099 00aa 1E49     		ldr	r1, .L94+8
+ 1100 00ac 0320     		movs	r0, #3
+ 1101 00ae FFF7FEFF 		bl	log_func
+ 1102              	.LVL82:
+ 189:SynaptiX_FDK/components/external_flash/sx_W25Q128.c ****             log_error(TAG, "spi_write FAILED");
+ 1103              		.loc 1 189 9 view .LVU268
+ 189:SynaptiX_FDK/components/external_flash/sx_W25Q128.c ****             log_error(TAG, "spi_write FAILED");
+ 1104              		.loc 1 189 31 is_stmt 0 view .LVU269
+ 1105 00b2 3B68     		ldr	r3, [r7]
+ 189:SynaptiX_FDK/components/external_flash/sx_W25Q128.c ****             log_error(TAG, "spi_write FAILED");
+ 1106              		.loc 1 189 13 view .LVU270
+ 1107 00b4 321D     		adds	r2, r6, #4
+ 1108 00b6 09A9     		add	r1, sp, #36
+ 1109 00b8 1868     		ldr	r0, [r3]
+ 1110 00ba FFF7FEFF 		bl	sx_spi_write
+ 1111              	.LVL83:
+ 189:SynaptiX_FDK/components/external_flash/sx_W25Q128.c ****             log_error(TAG, "spi_write FAILED");
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cckQCMsg.s 			page 30
+
+
+ 1112              		.loc 1 189 12 discriminator 1 view .LVU271
+ 1113 00be C8B9     		cbnz	r0, .L92
+ 194:SynaptiX_FDK/components/external_flash/sx_W25Q128.c ****         offset += chunk;
+ 1114              		.loc 1 194 9 is_stmt 1 view .LVU272
+ 1115 00c0 FFF7FEFF 		bl	w25q_wait_busy
+ 1116              	.LVL84:
+ 195:SynaptiX_FDK/components/external_flash/sx_W25Q128.c ****     }
+ 1117              		.loc 1 195 9 view .LVU273
+ 195:SynaptiX_FDK/components/external_flash/sx_W25Q128.c ****     }
+ 1118              		.loc 1 195 16 is_stmt 0 view .LVU274
+ 1119 00c4 3444     		add	r4, r4, r6
+ 1120              	.LVL85:
+ 1121              	.L80:
+ 195:SynaptiX_FDK/components/external_flash/sx_W25Q128.c ****     }
+ 1122              		.loc 1 195 16 view .LVU275
+ 1123              	.LBE7:
+ 161:SynaptiX_FDK/components/external_flash/sx_W25Q128.c ****         uint32_t page_offset = (addr + offset) % W25Q128_PAGE_SIZE;
+ 1124              		.loc 1 161 19 is_stmt 1 view .LVU276
+ 1125 00c6 4445     		cmp	r4, r8
+ 1126 00c8 1AD2     		bcs	.L93
+ 1127              	.LBB8:
+ 162:SynaptiX_FDK/components/external_flash/sx_W25Q128.c ****         uint32_t chunk = W25Q128_PAGE_SIZE - page_offset;
+ 1128              		.loc 1 162 9 view .LVU277
+ 162:SynaptiX_FDK/components/external_flash/sx_W25Q128.c ****         uint32_t chunk = W25Q128_PAGE_SIZE - page_offset;
+ 1129              		.loc 1 162 38 is_stmt 0 view .LVU278
+ 1130 00ca 029B     		ldr	r3, [sp, #8]
+ 1131 00cc E518     		adds	r5, r4, r3
+ 162:SynaptiX_FDK/components/external_flash/sx_W25Q128.c ****         uint32_t chunk = W25Q128_PAGE_SIZE - page_offset;
+ 1132              		.loc 1 162 18 view .LVU279
+ 1133 00ce EBB2     		uxtb	r3, r5
+ 1134              	.LVL86:
+ 163:SynaptiX_FDK/components/external_flash/sx_W25Q128.c ****         if (chunk > (len - offset)) chunk = len - offset;
+ 1135              		.loc 1 163 9 is_stmt 1 view .LVU280
+ 163:SynaptiX_FDK/components/external_flash/sx_W25Q128.c ****         if (chunk > (len - offset)) chunk = len - offset;
+ 1136              		.loc 1 163 18 is_stmt 0 view .LVU281
+ 1137 00d0 C3F58073 		rsb	r3, r3, #256
+ 1138              	.LVL87:
+ 164:SynaptiX_FDK/components/external_flash/sx_W25Q128.c **** 
+ 1139              		.loc 1 164 9 is_stmt 1 view .LVU282
+ 164:SynaptiX_FDK/components/external_flash/sx_W25Q128.c **** 
+ 1140              		.loc 1 164 26 is_stmt 0 view .LVU283
+ 1141 00d4 A8EB0406 		sub	r6, r8, r4
+ 164:SynaptiX_FDK/components/external_flash/sx_W25Q128.c **** 
+ 1142              		.loc 1 164 12 view .LVU284
+ 1143 00d8 9E42     		cmp	r6, r3
+ 1144 00da A4D3     		bcc	.L81
+ 163:SynaptiX_FDK/components/external_flash/sx_W25Q128.c ****         if (chunk > (len - offset)) chunk = len - offset;
+ 1145              		.loc 1 163 18 view .LVU285
+ 1146 00dc 1E46     		mov	r6, r3
+ 1147 00de A2E7     		b	.L81
+ 1148              	.LVL88:
+ 1149              	.L91:
+ 167:SynaptiX_FDK/components/external_flash/sx_W25Q128.c ****             return -1;
+ 1150              		.loc 1 167 13 is_stmt 1 view .LVU286
+ 1151 00e0 124A     		ldr	r2, .L94+16
+ 1152 00e2 1049     		ldr	r1, .L94+8
+ 1153 00e4 0120     		movs	r0, #1
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cckQCMsg.s 			page 31
+
+
+ 1154 00e6 FFF7FEFF 		bl	log_func
+ 1155              	.LVL89:
+ 168:SynaptiX_FDK/components/external_flash/sx_W25Q128.c ****         }
+ 1156              		.loc 1 168 13 view .LVU287
+ 1157              	.L83:
+ 168:SynaptiX_FDK/components/external_flash/sx_W25Q128.c ****         }
+ 1158              		.loc 1 168 20 is_stmt 0 discriminator 1 view .LVU288
+ 1159 00ea 4FF0FF30 		mov	r0, #-1
+ 1160              	.LVL90:
+ 1161              	.L78:
+ 168:SynaptiX_FDK/components/external_flash/sx_W25Q128.c ****         }
+ 1162              		.loc 1 168 20 discriminator 1 view .LVU289
+ 1163              	.LBE8:
+ 198:SynaptiX_FDK/components/external_flash/sx_W25Q128.c **** 
+ 1164              		.loc 1 198 1 view .LVU290
+ 1165 00ee 4BB0     		add	sp, sp, #300
+ 1166              	.LCFI28:
+ 1167              		.cfi_remember_state
+ 1168              		.cfi_def_cfa_offset 36
+ 1169              		@ sp needed
+ 1170 00f0 BDE8F08F 		pop	{r4, r5, r6, r7, r8, r9, r10, fp, pc}
+ 1171              	.LVL91:
+ 1172              	.L92:
+ 1173              	.LCFI29:
+ 1174              		.cfi_restore_state
+ 1175              	.LBB9:
+ 190:SynaptiX_FDK/components/external_flash/sx_W25Q128.c ****             return -1;
+ 1176              		.loc 1 190 13 is_stmt 1 view .LVU291
+ 1177 00f4 0E4A     		ldr	r2, .L94+20
+ 1178 00f6 0B49     		ldr	r1, .L94+8
+ 1179 00f8 0120     		movs	r0, #1
+ 1180 00fa FFF7FEFF 		bl	log_func
+ 1181              	.LVL92:
+ 191:SynaptiX_FDK/components/external_flash/sx_W25Q128.c ****         }
+ 1182              		.loc 1 191 13 view .LVU292
+ 191:SynaptiX_FDK/components/external_flash/sx_W25Q128.c ****         }
+ 1183              		.loc 1 191 20 is_stmt 0 view .LVU293
+ 1184 00fe F4E7     		b	.L83
+ 1185              	.LVL93:
+ 1186              	.L93:
+ 191:SynaptiX_FDK/components/external_flash/sx_W25Q128.c ****         }
+ 1187              		.loc 1 191 20 view .LVU294
+ 1188              	.LBE9:
+ 197:SynaptiX_FDK/components/external_flash/sx_W25Q128.c **** }
+ 1189              		.loc 1 197 12 view .LVU295
+ 1190 0100 0020     		movs	r0, #0
+ 1191 0102 F4E7     		b	.L78
+ 1192              	.LVL94:
+ 1193              	.L86:
+ 158:SynaptiX_FDK/components/external_flash/sx_W25Q128.c ****     if (buf == NULL || len == 0)          return -1;
+ 1194              		.loc 1 158 49 discriminator 3 view .LVU296
+ 1195 0104 4FF0FF30 		mov	r0, #-1
+ 1196              	.LVL95:
+ 158:SynaptiX_FDK/components/external_flash/sx_W25Q128.c ****     if (buf == NULL || len == 0)          return -1;
+ 1197              		.loc 1 158 49 discriminator 3 view .LVU297
+ 1198 0108 F1E7     		b	.L78
+ 1199              	.LVL96:
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cckQCMsg.s 			page 32
+
+
+ 1200              	.L87:
+ 158:SynaptiX_FDK/components/external_flash/sx_W25Q128.c ****     if (buf == NULL || len == 0)          return -1;
+ 1201              		.loc 1 158 49 discriminator 3 view .LVU298
+ 1202 010a 4FF0FF30 		mov	r0, #-1
+ 1203              	.LVL97:
+ 158:SynaptiX_FDK/components/external_flash/sx_W25Q128.c ****     if (buf == NULL || len == 0)          return -1;
+ 1204              		.loc 1 158 49 discriminator 3 view .LVU299
+ 1205 010e EEE7     		b	.L78
+ 1206              	.LVL98:
+ 1207              	.L88:
+ 159:SynaptiX_FDK/components/external_flash/sx_W25Q128.c ****     uint32_t offset = 0;
+ 1208              		.loc 1 159 50 discriminator 3 view .LVU300
+ 1209 0110 4FF0FF30 		mov	r0, #-1
+ 1210              	.LVL99:
+ 159:SynaptiX_FDK/components/external_flash/sx_W25Q128.c ****     uint32_t offset = 0;
+ 1211              		.loc 1 159 50 discriminator 3 view .LVU301
+ 1212 0114 EBE7     		b	.L78
+ 1213              	.LVL100:
+ 1214              	.L89:
+ 159:SynaptiX_FDK/components/external_flash/sx_W25Q128.c ****     uint32_t offset = 0;
+ 1215              		.loc 1 159 50 discriminator 3 view .LVU302
+ 1216 0116 4FF0FF30 		mov	r0, #-1
+ 1217              	.LVL101:
+ 159:SynaptiX_FDK/components/external_flash/sx_W25Q128.c ****     uint32_t offset = 0;
+ 1218              		.loc 1 159 50 discriminator 3 view .LVU303
+ 1219 011a E8E7     		b	.L78
+ 1220              	.L95:
+ 1221              		.align	2
+ 1222              	.L94:
+ 1223 011c 00000000 		.word	s_dev
+ 1224 0120 14000000 		.word	.LC9
+ 1225 0124 20000000 		.word	.LC1
+ 1226 0128 48000000 		.word	.LC10
+ 1227 012c 00000000 		.word	.LC8
+ 1228 0130 74000000 		.word	.LC11
+ 1229              		.cfi_endproc
+ 1230              	.LFE24:
+ 1232              		.section	.rodata.sx_W25Q128_init.str1.4,"aMS",%progbits,1
+ 1233              		.align	2
+ 1234              	.LC12:
+ 1235 0000 4A454445 		.ascii	"JEDEC ID mismatch: %02X %02X %02X\000"
+ 1235      43204944 
+ 1235      206D6973 
+ 1235      6D617463 
+ 1235      683A2025 
+ 1236 0022 0000     		.align	2
+ 1237              	.LC13:
+ 1238 0024 57323551 		.ascii	"W25Q128 OK (16MB)\000"
+ 1238      31323820 
+ 1238      4F4B2028 
+ 1238      31364D42 
+ 1238      2900
+ 1239              		.section	.text.sx_W25Q128_init,"ax",%progbits
+ 1240              		.align	1
+ 1241              		.global	sx_W25Q128_init
+ 1242              		.syntax unified
+ 1243              		.thumb
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cckQCMsg.s 			page 33
+
+
+ 1244              		.thumb_func
+ 1246              	sx_W25Q128_init:
+ 1247              	.LVL102:
+ 1248              	.LFB21:
+  86:SynaptiX_FDK/components/external_flash/sx_W25Q128.c ****     dev->spi         = spi;
+ 1249              		.loc 1 86 1 is_stmt 1 view -0
+ 1250              		.cfi_startproc
+ 1251              		@ args = 0, pretend = 0, frame = 16
+ 1252              		@ frame_needed = 0, uses_anonymous_args = 0
+  86:SynaptiX_FDK/components/external_flash/sx_W25Q128.c ****     dev->spi         = spi;
+ 1253              		.loc 1 86 1 is_stmt 0 view .LVU305
+ 1254 0000 30B5     		push	{r4, r5, lr}
+ 1255              	.LCFI30:
+ 1256              		.cfi_def_cfa_offset 12
+ 1257              		.cfi_offset 4, -12
+ 1258              		.cfi_offset 5, -8
+ 1259              		.cfi_offset 14, -4
+ 1260 0002 87B0     		sub	sp, sp, #28
+ 1261              	.LCFI31:
+ 1262              		.cfi_def_cfa_offset 40
+ 1263 0004 0446     		mov	r4, r0
+  87:SynaptiX_FDK/components/external_flash/sx_W25Q128.c ****     dev->initialized = false;
+ 1264              		.loc 1 87 5 is_stmt 1 view .LVU306
+  87:SynaptiX_FDK/components/external_flash/sx_W25Q128.c ****     dev->initialized = false;
+ 1265              		.loc 1 87 22 is_stmt 0 view .LVU307
+ 1266 0006 0160     		str	r1, [r0]
+  88:SynaptiX_FDK/components/external_flash/sx_W25Q128.c ****     s_dev            = dev;
+ 1267              		.loc 1 88 5 is_stmt 1 view .LVU308
+  88:SynaptiX_FDK/components/external_flash/sx_W25Q128.c ****     s_dev            = dev;
+ 1268              		.loc 1 88 22 is_stmt 0 view .LVU309
+ 1269 0008 0025     		movs	r5, #0
+ 1270 000a 0571     		strb	r5, [r0, #4]
+  89:SynaptiX_FDK/components/external_flash/sx_W25Q128.c **** 
+ 1271              		.loc 1 89 5 is_stmt 1 view .LVU310
+  89:SynaptiX_FDK/components/external_flash/sx_W25Q128.c **** 
+ 1272              		.loc 1 89 22 is_stmt 0 view .LVU311
+ 1273 000c 2249     		ldr	r1, .L101
+ 1274              	.LVL103:
+  89:SynaptiX_FDK/components/external_flash/sx_W25Q128.c **** 
+ 1275              		.loc 1 89 22 view .LVU312
+ 1276 000e 0860     		str	r0, [r1]
+  91:SynaptiX_FDK/components/external_flash/sx_W25Q128.c ****     sx_gpio_write(&dev->power, SX_GPIO_LOW);  
+ 1277              		.loc 1 91 5 is_stmt 1 view .LVU313
+ 1278              	.LVL104:
+ 1279              	.LBB10:
+ 1280              	.LBI10:
+  33:SynaptiX_FDK/components/gpio/sx_gpio.h ****     gpio->ops = ops;
+ 1281              		.loc 2 33 20 view .LVU314
+ 1282              	.LBB11:
+  34:SynaptiX_FDK/components/gpio/sx_gpio.h ****     gpio->pDriver = pDriver;
+ 1283              		.loc 2 34 5 view .LVU315
+  34:SynaptiX_FDK/components/gpio/sx_gpio.h ****     gpio->pDriver = pDriver;
+ 1284              		.loc 2 34 15 is_stmt 0 view .LVU316
+ 1285 0010 8260     		str	r2, [r0, #8]
+  35:SynaptiX_FDK/components/gpio/sx_gpio.h ****     gpio->value = SX_GPIO_LOW;
+ 1286              		.loc 2 35 5 is_stmt 1 view .LVU317
+  35:SynaptiX_FDK/components/gpio/sx_gpio.h ****     gpio->value = SX_GPIO_LOW;
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cckQCMsg.s 			page 34
+
+
+ 1287              		.loc 2 35 19 is_stmt 0 view .LVU318
+ 1288 0012 C360     		str	r3, [r0, #12]
+  36:SynaptiX_FDK/components/gpio/sx_gpio.h **** }
+ 1289              		.loc 2 36 5 is_stmt 1 view .LVU319
+  36:SynaptiX_FDK/components/gpio/sx_gpio.h **** }
+ 1290              		.loc 2 36 17 is_stmt 0 view .LVU320
+ 1291 0014 0574     		strb	r5, [r0, #16]
+ 1292              	.LVL105:
+  36:SynaptiX_FDK/components/gpio/sx_gpio.h **** }
+ 1293              		.loc 2 36 17 view .LVU321
+ 1294              	.LBE11:
+ 1295              	.LBE10:
+  92:SynaptiX_FDK/components/external_flash/sx_W25Q128.c ****     sx_delay_ms(10);   
+ 1296              		.loc 1 92 5 is_stmt 1 view .LVU322
+ 1297 0016 2946     		mov	r1, r5
+ 1298 0018 0830     		adds	r0, r0, #8
+ 1299              	.LVL106:
+  92:SynaptiX_FDK/components/external_flash/sx_W25Q128.c ****     sx_delay_ms(10);   
+ 1300              		.loc 1 92 5 is_stmt 0 view .LVU323
+ 1301 001a FFF7FEFF 		bl	sx_gpio_write
+ 1302              	.LVL107:
+  93:SynaptiX_FDK/components/external_flash/sx_W25Q128.c **** 
+ 1303              		.loc 1 93 5 is_stmt 1 view .LVU324
+ 1304 001e 0A20     		movs	r0, #10
+ 1305 0020 FFF7FEFF 		bl	sx_delay_ms
+ 1306              	.LVL108:
+  96:SynaptiX_FDK/components/external_flash/sx_W25Q128.c ****     sx_spi_write(dev->spi, &wake, 1);
+ 1307              		.loc 1 96 5 view .LVU325
+  96:SynaptiX_FDK/components/external_flash/sx_W25Q128.c ****     sx_spi_write(dev->spi, &wake, 1);
+ 1308              		.loc 1 96 13 is_stmt 0 view .LVU326
+ 1309 0024 AB23     		movs	r3, #171
+ 1310 0026 8DF81730 		strb	r3, [sp, #23]
+  97:SynaptiX_FDK/components/external_flash/sx_W25Q128.c ****     sx_delay_ms(1);
+ 1311              		.loc 1 97 5 is_stmt 1 view .LVU327
+ 1312 002a 0122     		movs	r2, #1
+ 1313 002c 0DF11701 		add	r1, sp, #23
+ 1314 0030 2068     		ldr	r0, [r4]
+ 1315 0032 FFF7FEFF 		bl	sx_spi_write
+ 1316              	.LVL109:
+  98:SynaptiX_FDK/components/external_flash/sx_W25Q128.c ****     w25q_wait_busy();
+ 1317              		.loc 1 98 5 view .LVU328
+ 1318 0036 0120     		movs	r0, #1
+ 1319 0038 FFF7FEFF 		bl	sx_delay_ms
+ 1320              	.LVL110:
+  99:SynaptiX_FDK/components/external_flash/sx_W25Q128.c **** 
+ 1321              		.loc 1 99 5 view .LVU329
+ 1322 003c FFF7FEFF 		bl	w25q_wait_busy
+ 1323              	.LVL111:
+ 101:SynaptiX_FDK/components/external_flash/sx_W25Q128.c ****     uint8_t rx[4] = { 0 };
+ 1324              		.loc 1 101 5 view .LVU330
+ 101:SynaptiX_FDK/components/external_flash/sx_W25Q128.c ****     uint8_t rx[4] = { 0 };
+ 1325              		.loc 1 101 13 is_stmt 0 view .LVU331
+ 1326 0040 9F23     		movs	r3, #159
+ 1327 0042 0493     		str	r3, [sp, #16]
+ 102:SynaptiX_FDK/components/external_flash/sx_W25Q128.c ****     sx_spi_write_read(dev->spi, tx, rx, 4);
+ 1328              		.loc 1 102 5 is_stmt 1 view .LVU332
+ 102:SynaptiX_FDK/components/external_flash/sx_W25Q128.c ****     sx_spi_write_read(dev->spi, tx, rx, 4);
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cckQCMsg.s 			page 35
+
+
+ 1329              		.loc 1 102 13 is_stmt 0 view .LVU333
+ 1330 0044 0395     		str	r5, [sp, #12]
+ 103:SynaptiX_FDK/components/external_flash/sx_W25Q128.c **** 
+ 1331              		.loc 1 103 5 is_stmt 1 view .LVU334
+ 1332 0046 0423     		movs	r3, #4
+ 1333 0048 03AA     		add	r2, sp, #12
+ 1334 004a 04A9     		add	r1, sp, #16
+ 1335 004c 2068     		ldr	r0, [r4]
+ 1336 004e FFF7FEFF 		bl	sx_spi_write_read
+ 1337              	.LVL112:
+ 105:SynaptiX_FDK/components/external_flash/sx_W25Q128.c ****         log_error(TAG, "JEDEC ID mismatch: %02X %02X %02X", rx[1], rx[2], rx[3]);
+ 1338              		.loc 1 105 5 view .LVU335
+ 105:SynaptiX_FDK/components/external_flash/sx_W25Q128.c ****         log_error(TAG, "JEDEC ID mismatch: %02X %02X %02X", rx[1], rx[2], rx[3]);
+ 1339              		.loc 1 105 11 is_stmt 0 view .LVU336
+ 1340 0052 9DF80D30 		ldrb	r3, [sp, #13]	@ zero_extendqisi2
+ 105:SynaptiX_FDK/components/external_flash/sx_W25Q128.c ****         log_error(TAG, "JEDEC ID mismatch: %02X %02X %02X", rx[1], rx[2], rx[3]);
+ 1341              		.loc 1 105 8 view .LVU337
+ 1342 0056 EF2B     		cmp	r3, #239
+ 1343 0058 07D1     		bne	.L97
+ 105:SynaptiX_FDK/components/external_flash/sx_W25Q128.c ****         log_error(TAG, "JEDEC ID mismatch: %02X %02X %02X", rx[1], rx[2], rx[3]);
+ 1344              		.loc 1 105 28 discriminator 1 view .LVU338
+ 1345 005a 9DF80E20 		ldrb	r2, [sp, #14]	@ zero_extendqisi2
+ 105:SynaptiX_FDK/components/external_flash/sx_W25Q128.c ****         log_error(TAG, "JEDEC ID mismatch: %02X %02X %02X", rx[1], rx[2], rx[3]);
+ 1346              		.loc 1 105 23 discriminator 1 view .LVU339
+ 1347 005e 402A     		cmp	r2, #64
+ 1348 0060 03D1     		bne	.L97
+ 105:SynaptiX_FDK/components/external_flash/sx_W25Q128.c ****         log_error(TAG, "JEDEC ID mismatch: %02X %02X %02X", rx[1], rx[2], rx[3]);
+ 1349              		.loc 1 105 45 discriminator 2 view .LVU340
+ 1350 0062 9DF80F20 		ldrb	r2, [sp, #15]	@ zero_extendqisi2
+ 105:SynaptiX_FDK/components/external_flash/sx_W25Q128.c ****         log_error(TAG, "JEDEC ID mismatch: %02X %02X %02X", rx[1], rx[2], rx[3]);
+ 1351              		.loc 1 105 40 discriminator 2 view .LVU341
+ 1352 0066 182A     		cmp	r2, #24
+ 1353 0068 0DD0     		beq	.L98
+ 1354              	.L97:
+ 106:SynaptiX_FDK/components/external_flash/sx_W25Q128.c ****         return false;
+ 1355              		.loc 1 106 9 is_stmt 1 view .LVU342
+ 1356 006a 9DF80E20 		ldrb	r2, [sp, #14]	@ zero_extendqisi2
+ 1357 006e 9DF80F10 		ldrb	r1, [sp, #15]	@ zero_extendqisi2
+ 1358 0072 0191     		str	r1, [sp, #4]
+ 1359 0074 0092     		str	r2, [sp]
+ 1360 0076 094A     		ldr	r2, .L101+4
+ 1361 0078 0949     		ldr	r1, .L101+8
+ 1362 007a 0120     		movs	r0, #1
+ 1363 007c FFF7FEFF 		bl	log_func
+ 1364              	.LVL113:
+ 107:SynaptiX_FDK/components/external_flash/sx_W25Q128.c ****     }
+ 1365              		.loc 1 107 9 view .LVU343
+ 107:SynaptiX_FDK/components/external_flash/sx_W25Q128.c ****     }
+ 1366              		.loc 1 107 16 is_stmt 0 view .LVU344
+ 1367 0080 0020     		movs	r0, #0
+ 1368              	.L99:
+ 113:SynaptiX_FDK/components/external_flash/sx_W25Q128.c **** 
+ 1369              		.loc 1 113 1 view .LVU345
+ 1370 0082 07B0     		add	sp, sp, #28
+ 1371              	.LCFI32:
+ 1372              		.cfi_remember_state
+ 1373              		.cfi_def_cfa_offset 12
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cckQCMsg.s 			page 36
+
+
+ 1374              		@ sp needed
+ 1375 0084 30BD     		pop	{r4, r5, pc}
+ 1376              	.LVL114:
+ 1377              	.L98:
+ 1378              	.LCFI33:
+ 1379              		.cfi_restore_state
+ 110:SynaptiX_FDK/components/external_flash/sx_W25Q128.c ****     log_info(TAG, "W25Q128 OK (16MB)");
+ 1380              		.loc 1 110 5 is_stmt 1 view .LVU346
+ 110:SynaptiX_FDK/components/external_flash/sx_W25Q128.c ****     log_info(TAG, "W25Q128 OK (16MB)");
+ 1381              		.loc 1 110 22 is_stmt 0 view .LVU347
+ 1382 0086 0125     		movs	r5, #1
+ 1383 0088 2571     		strb	r5, [r4, #4]
+ 111:SynaptiX_FDK/components/external_flash/sx_W25Q128.c ****     return true;
+ 1384              		.loc 1 111 5 is_stmt 1 view .LVU348
+ 1385 008a 064A     		ldr	r2, .L101+12
+ 1386 008c 0449     		ldr	r1, .L101+8
+ 1387 008e 0320     		movs	r0, #3
+ 1388 0090 FFF7FEFF 		bl	log_func
+ 1389              	.LVL115:
+ 112:SynaptiX_FDK/components/external_flash/sx_W25Q128.c **** }
+ 1390              		.loc 1 112 5 view .LVU349
+ 112:SynaptiX_FDK/components/external_flash/sx_W25Q128.c **** }
+ 1391              		.loc 1 112 12 is_stmt 0 view .LVU350
+ 1392 0094 2846     		mov	r0, r5
+ 1393 0096 F4E7     		b	.L99
+ 1394              	.L102:
+ 1395              		.align	2
+ 1396              	.L101:
+ 1397 0098 00000000 		.word	s_dev
+ 1398 009c 00000000 		.word	.LC12
+ 1399 00a0 20000000 		.word	.LC1
+ 1400 00a4 24000000 		.word	.LC13
+ 1401              		.cfi_endproc
+ 1402              	.LFE21:
+ 1404              		.section	.rodata.sx_W25Q128_chip_erase.str1.4,"aMS",%progbits,1
+ 1405              		.align	2
+ 1406              	.LC14:
+ 1407 0000 43686970 		.ascii	"Chip erase done\000"
+ 1407      20657261 
+ 1407      73652064 
+ 1407      6F6E6500 
+ 1408              		.section	.text.sx_W25Q128_chip_erase,"ax",%progbits
+ 1409              		.align	1
+ 1410              		.global	sx_W25Q128_chip_erase
+ 1411              		.syntax unified
+ 1412              		.thumb
+ 1413              		.thumb_func
+ 1415              	sx_W25Q128_chip_erase:
+ 1416              	.LVL116:
+ 1417              	.LFB26:
+ 222:SynaptiX_FDK/components/external_flash/sx_W25Q128.c **** 
+ 223:SynaptiX_FDK/components/external_flash/sx_W25Q128.c **** void sx_W25Q128_chip_erase(sx_W25Q128_t *dev)
+ 224:SynaptiX_FDK/components/external_flash/sx_W25Q128.c **** {
+ 1418              		.loc 1 224 1 is_stmt 1 view -0
+ 1419              		.cfi_startproc
+ 1420              		@ args = 0, pretend = 0, frame = 8
+ 1421              		@ frame_needed = 0, uses_anonymous_args = 0
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cckQCMsg.s 			page 37
+
+
+ 1422              		.loc 1 224 1 is_stmt 0 view .LVU352
+ 1423 0000 10B5     		push	{r4, lr}
+ 1424              	.LCFI34:
+ 1425              		.cfi_def_cfa_offset 8
+ 1426              		.cfi_offset 4, -8
+ 1427              		.cfi_offset 14, -4
+ 1428 0002 82B0     		sub	sp, sp, #8
+ 1429              	.LCFI35:
+ 1430              		.cfi_def_cfa_offset 16
+ 1431 0004 0446     		mov	r4, r0
+ 225:SynaptiX_FDK/components/external_flash/sx_W25Q128.c ****     s_dev = dev;
+ 1432              		.loc 1 225 5 is_stmt 1 view .LVU353
+ 1433              		.loc 1 225 11 is_stmt 0 view .LVU354
+ 1434 0006 0B4B     		ldr	r3, .L105
+ 1435 0008 1860     		str	r0, [r3]
+ 226:SynaptiX_FDK/components/external_flash/sx_W25Q128.c ****     w25q_write_enable();
+ 1436              		.loc 1 226 5 is_stmt 1 view .LVU355
+ 1437 000a FFF7FEFF 		bl	w25q_write_enable
+ 1438              	.LVL117:
+ 227:SynaptiX_FDK/components/external_flash/sx_W25Q128.c ****     uint8_t cmd = W25Q128_CMD_CHIP_ERASE;
+ 1439              		.loc 1 227 5 view .LVU356
+ 1440              		.loc 1 227 13 is_stmt 0 view .LVU357
+ 1441 000e C723     		movs	r3, #199
+ 1442 0010 8DF80730 		strb	r3, [sp, #7]
+ 228:SynaptiX_FDK/components/external_flash/sx_W25Q128.c ****     sx_spi_write(dev->spi, &cmd, 1);
+ 1443              		.loc 1 228 5 is_stmt 1 view .LVU358
+ 1444 0014 0122     		movs	r2, #1
+ 1445 0016 0DF10701 		add	r1, sp, #7
+ 1446 001a 2068     		ldr	r0, [r4]
+ 1447 001c FFF7FEFF 		bl	sx_spi_write
+ 1448              	.LVL118:
+ 229:SynaptiX_FDK/components/external_flash/sx_W25Q128.c ****     w25q_wait_busy_long(200000);    
+ 1449              		.loc 1 229 5 view .LVU359
+ 1450 0020 0548     		ldr	r0, .L105+4
+ 1451 0022 FFF7FEFF 		bl	w25q_wait_busy_long
+ 1452              	.LVL119:
+ 230:SynaptiX_FDK/components/external_flash/sx_W25Q128.c ****     log_info("W25Q128", "Chip erase done");
+ 1453              		.loc 1 230 5 view .LVU360
+ 1454 0026 054A     		ldr	r2, .L105+8
+ 1455 0028 0549     		ldr	r1, .L105+12
+ 1456 002a 0320     		movs	r0, #3
+ 1457 002c FFF7FEFF 		bl	log_func
+ 1458              	.LVL120:
+ 231:SynaptiX_FDK/components/external_flash/sx_W25Q128.c **** }
+ 1459              		.loc 1 231 1 is_stmt 0 view .LVU361
+ 1460 0030 02B0     		add	sp, sp, #8
+ 1461              	.LCFI36:
+ 1462              		.cfi_def_cfa_offset 8
+ 1463              		@ sp needed
+ 1464 0032 10BD     		pop	{r4, pc}
+ 1465              	.LVL121:
+ 1466              	.L106:
+ 1467              		.loc 1 231 1 view .LVU362
+ 1468              		.align	2
+ 1469              	.L105:
+ 1470 0034 00000000 		.word	s_dev
+ 1471 0038 400D0300 		.word	200000
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cckQCMsg.s 			page 38
+
+
+ 1472 003c 00000000 		.word	.LC14
+ 1473 0040 20000000 		.word	.LC1
+ 1474              		.cfi_endproc
+ 1475              	.LFE26:
+ 1477              		.section	.text.sx_W25Q128_power_down,"ax",%progbits
+ 1478              		.align	1
+ 1479              		.global	sx_W25Q128_power_down
+ 1480              		.syntax unified
+ 1481              		.thumb
+ 1482              		.thumb_func
+ 1484              	sx_W25Q128_power_down:
+ 1485              	.LVL122:
+ 1486              	.LFB27:
+ 232:SynaptiX_FDK/components/external_flash/sx_W25Q128.c **** 
+ 233:SynaptiX_FDK/components/external_flash/sx_W25Q128.c **** void sx_W25Q128_power_down(sx_W25Q128_t *dev){
+ 1487              		.loc 1 233 46 is_stmt 1 view -0
+ 1488              		.cfi_startproc
+ 1489              		@ args = 0, pretend = 0, frame = 0
+ 1490              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1491              		.loc 1 233 46 is_stmt 0 view .LVU364
+ 1492 0000 08B5     		push	{r3, lr}
+ 1493              	.LCFI37:
+ 1494              		.cfi_def_cfa_offset 8
+ 1495              		.cfi_offset 3, -8
+ 1496              		.cfi_offset 14, -4
+ 234:SynaptiX_FDK/components/external_flash/sx_W25Q128.c ****     sx_gpio_write(&dev->power, SX_GPIO_HIGH);
+ 1497              		.loc 1 234 5 is_stmt 1 view .LVU365
+ 1498 0002 0121     		movs	r1, #1
+ 1499 0004 0830     		adds	r0, r0, #8
+ 1500              	.LVL123:
+ 1501              		.loc 1 234 5 is_stmt 0 view .LVU366
+ 1502 0006 FFF7FEFF 		bl	sx_gpio_write
+ 1503              	.LVL124:
+ 235:SynaptiX_FDK/components/external_flash/sx_W25Q128.c **** }
+ 1504              		.loc 1 235 1 view .LVU367
+ 1505 000a 08BD     		pop	{r3, pc}
+ 1506              		.cfi_endproc
+ 1507              	.LFE27:
+ 1509              		.section	.text.sx_W25Q128_power_up,"ax",%progbits
+ 1510              		.align	1
+ 1511              		.global	sx_W25Q128_power_up
+ 1512              		.syntax unified
+ 1513              		.thumb
+ 1514              		.thumb_func
+ 1516              	sx_W25Q128_power_up:
+ 1517              	.LVL125:
+ 1518              	.LFB28:
+ 236:SynaptiX_FDK/components/external_flash/sx_W25Q128.c **** 
+ 237:SynaptiX_FDK/components/external_flash/sx_W25Q128.c **** void sx_W25Q128_power_up(sx_W25Q128_t *dev){
+ 1519              		.loc 1 237 44 is_stmt 1 view -0
+ 1520              		.cfi_startproc
+ 1521              		@ args = 0, pretend = 0, frame = 0
+ 1522              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1523              		.loc 1 237 44 is_stmt 0 view .LVU369
+ 1524 0000 08B5     		push	{r3, lr}
+ 1525              	.LCFI38:
+ 1526              		.cfi_def_cfa_offset 8
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cckQCMsg.s 			page 39
+
+
+ 1527              		.cfi_offset 3, -8
+ 1528              		.cfi_offset 14, -4
+ 238:SynaptiX_FDK/components/external_flash/sx_W25Q128.c ****     sx_gpio_write(&dev->power, SX_GPIO_LOW);
+ 1529              		.loc 1 238 5 is_stmt 1 view .LVU370
+ 1530 0002 0021     		movs	r1, #0
+ 1531 0004 0830     		adds	r0, r0, #8
+ 1532              	.LVL126:
+ 1533              		.loc 1 238 5 is_stmt 0 view .LVU371
+ 1534 0006 FFF7FEFF 		bl	sx_gpio_write
+ 1535              	.LVL127:
+ 239:SynaptiX_FDK/components/external_flash/sx_W25Q128.c **** }
+ 1536              		.loc 1 239 1 view .LVU372
+ 1537 000a 08BD     		pop	{r3, pc}
+ 1538              		.cfi_endproc
+ 1539              	.LFE28:
+ 1541              		.section	.text.sx_W25Q128_sleep_on,"ax",%progbits
+ 1542              		.align	1
+ 1543              		.global	sx_W25Q128_sleep_on
+ 1544              		.syntax unified
+ 1545              		.thumb
+ 1546              		.thumb_func
+ 1548              	sx_W25Q128_sleep_on:
+ 1549              	.LVL128:
+ 1550              	.LFB29:
+ 240:SynaptiX_FDK/components/external_flash/sx_W25Q128.c **** 
+ 241:SynaptiX_FDK/components/external_flash/sx_W25Q128.c **** void sx_W25Q128_sleep_on(sx_W25Q128_t *dev){
+ 1551              		.loc 1 241 44 is_stmt 1 view -0
+ 1552              		.cfi_startproc
+ 1553              		@ args = 0, pretend = 0, frame = 8
+ 1554              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1555              		.loc 1 241 44 is_stmt 0 view .LVU374
+ 1556 0000 10B5     		push	{r4, lr}
+ 1557              	.LCFI39:
+ 1558              		.cfi_def_cfa_offset 8
+ 1559              		.cfi_offset 4, -8
+ 1560              		.cfi_offset 14, -4
+ 1561 0002 82B0     		sub	sp, sp, #8
+ 1562              	.LCFI40:
+ 1563              		.cfi_def_cfa_offset 16
+ 1564 0004 0446     		mov	r4, r0
+ 242:SynaptiX_FDK/components/external_flash/sx_W25Q128.c ****     uint8_t cmd = W25Q128_CMD_POWER_DOWN;
+ 1565              		.loc 1 242 5 is_stmt 1 view .LVU375
+ 1566              		.loc 1 242 13 is_stmt 0 view .LVU376
+ 1567 0006 B923     		movs	r3, #185
+ 1568 0008 8DF80730 		strb	r3, [sp, #7]
+ 243:SynaptiX_FDK/components/external_flash/sx_W25Q128.c ****     sx_spi_write(dev->spi, &cmd, 1);
+ 1569              		.loc 1 243 5 is_stmt 1 view .LVU377
+ 1570 000c 0122     		movs	r2, #1
+ 1571 000e 0DF10701 		add	r1, sp, #7
+ 1572 0012 0068     		ldr	r0, [r0]
+ 1573              	.LVL129:
+ 1574              		.loc 1 243 5 is_stmt 0 view .LVU378
+ 1575 0014 FFF7FEFF 		bl	sx_spi_write
+ 1576              	.LVL130:
+ 244:SynaptiX_FDK/components/external_flash/sx_W25Q128.c ****     dev->initialized = false;
+ 1577              		.loc 1 244 5 is_stmt 1 view .LVU379
+ 1578              		.loc 1 244 22 is_stmt 0 view .LVU380
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cckQCMsg.s 			page 40
+
+
+ 1579 0018 0023     		movs	r3, #0
+ 1580 001a 2371     		strb	r3, [r4, #4]
+ 245:SynaptiX_FDK/components/external_flash/sx_W25Q128.c **** }
+ 1581              		.loc 1 245 1 view .LVU381
+ 1582 001c 02B0     		add	sp, sp, #8
+ 1583              	.LCFI41:
+ 1584              		.cfi_def_cfa_offset 8
+ 1585              		@ sp needed
+ 1586 001e 10BD     		pop	{r4, pc}
+ 1587              		.loc 1 245 1 view .LVU382
+ 1588              		.cfi_endproc
+ 1589              	.LFE29:
+ 1591              		.section	.text.sx_W25Q128_sleep_off,"ax",%progbits
+ 1592              		.align	1
+ 1593              		.global	sx_W25Q128_sleep_off
+ 1594              		.syntax unified
+ 1595              		.thumb
+ 1596              		.thumb_func
+ 1598              	sx_W25Q128_sleep_off:
+ 1599              	.LVL131:
+ 1600              	.LFB30:
+ 246:SynaptiX_FDK/components/external_flash/sx_W25Q128.c **** 
+ 247:SynaptiX_FDK/components/external_flash/sx_W25Q128.c **** void sx_W25Q128_sleep_off(sx_W25Q128_t *dev){
+ 1601              		.loc 1 247 45 is_stmt 1 view -0
+ 1602              		.cfi_startproc
+ 1603              		@ args = 0, pretend = 0, frame = 8
+ 1604              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1605              		.loc 1 247 45 is_stmt 0 view .LVU384
+ 1606 0000 10B5     		push	{r4, lr}
+ 1607              	.LCFI42:
+ 1608              		.cfi_def_cfa_offset 8
+ 1609              		.cfi_offset 4, -8
+ 1610              		.cfi_offset 14, -4
+ 1611 0002 82B0     		sub	sp, sp, #8
+ 1612              	.LCFI43:
+ 1613              		.cfi_def_cfa_offset 16
+ 1614 0004 0446     		mov	r4, r0
+ 248:SynaptiX_FDK/components/external_flash/sx_W25Q128.c ****     uint8_t cmd = W25Q128_CMD_RELEASE_POWER_DOWN;
+ 1615              		.loc 1 248 5 is_stmt 1 view .LVU385
+ 1616              		.loc 1 248 13 is_stmt 0 view .LVU386
+ 1617 0006 AB23     		movs	r3, #171
+ 1618 0008 8DF80730 		strb	r3, [sp, #7]
+ 249:SynaptiX_FDK/components/external_flash/sx_W25Q128.c ****     sx_spi_write(dev->spi, &cmd, 1);
+ 1619              		.loc 1 249 5 is_stmt 1 view .LVU387
+ 1620 000c 0122     		movs	r2, #1
+ 1621 000e 0DF10701 		add	r1, sp, #7
+ 1622 0012 0068     		ldr	r0, [r0]
+ 1623              	.LVL132:
+ 1624              		.loc 1 249 5 is_stmt 0 view .LVU388
+ 1625 0014 FFF7FEFF 		bl	sx_spi_write
+ 1626              	.LVL133:
+ 250:SynaptiX_FDK/components/external_flash/sx_W25Q128.c ****     sx_delay_ms(5);
+ 1627              		.loc 1 250 5 is_stmt 1 view .LVU389
+ 1628 0018 0520     		movs	r0, #5
+ 1629 001a FFF7FEFF 		bl	sx_delay_ms
+ 1630              	.LVL134:
+ 251:SynaptiX_FDK/components/external_flash/sx_W25Q128.c ****     dev->initialized = true;
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cckQCMsg.s 			page 41
+
+
+ 1631              		.loc 1 251 5 view .LVU390
+ 1632              		.loc 1 251 22 is_stmt 0 view .LVU391
+ 1633 001e 0123     		movs	r3, #1
+ 1634 0020 2371     		strb	r3, [r4, #4]
+ 252:SynaptiX_FDK/components/external_flash/sx_W25Q128.c **** }...
+ 1635              		.loc 1 252 1 view .LVU392
+ 1636 0022 02B0     		add	sp, sp, #8
+ 1637              	.LCFI44:
+ 1638              		.cfi_def_cfa_offset 8
+ 1639              		@ sp needed
+ 1640 0024 10BD     		pop	{r4, pc}
+ 1641              		.loc 1 252 1 view .LVU393
+ 1642              		.cfi_endproc
+ 1643              	.LFE30:
+ 1645              		.global	sx_W25Q128_info
+ 1646              		.section	.data.sx_W25Q128_info,"aw"
+ 1647              		.align	2
+ 1650              	sx_W25Q128_info:
+ 1651 0000 00010000 		.word	256
+ 1652 0004 00100000 		.word	4096
+ 1653 0008 00000100 		.word	65536
+ 1654 000c 00000001 		.word	16777216
+ 1655              		.global	sx_W25Q128_ops
+ 1656              		.section	.data.sx_W25Q128_ops,"aw"
+ 1657              		.align	2
+ 1660              	sx_W25Q128_ops:
+ 1661 0000 00000000 		.word	sx_W25Q128_read
+ 1662 0004 00000000 		.word	sx_W25Q128_write
+ 1663 0008 00000000 		.word	sx_W25Q128_erase_sector
+ 1664 000c 00000000 		.word	sx_W25Q128_is_busy
+ 1665              		.section	.bss.s_dev,"aw",%nobits
+ 1666              		.align	2
+ 1669              	s_dev:
+ 1670 0000 00000000 		.space	4
+ 1671              		.text
+ 1672              	.Letext0:
+ 1673              		.file 4 "C:\\ST\\STM32CubeCLT_1.20.0\\GNU-tools-for-STM32\\bin/../lib/gcc/arm-none-eabi/13.3.1/../
+ 1674              		.file 5 "C:\\ST\\STM32CubeCLT_1.20.0\\GNU-tools-for-STM32\\bin/../lib/gcc/arm-none-eabi/13.3.1/../
+ 1675              		.file 6 "SynaptiX_FDK/components/external_flash/sx_external_flash.h"
+ 1676              		.file 7 "C:\\ST\\STM32CubeCLT_1.20.0\\GNU-tools-for-STM32\\bin/../lib/gcc/arm-none-eabi/13.3.1/inc
+ 1677              		.file 8 "SynaptiX_FDK/components/external_flash/sx_W25Q128.h"
+ 1678              		.file 9 "SynaptiX_FDK/services/logger/logger.h"
+ 1679              		.file 10 "C:\\ST\\STM32CubeCLT_1.20.0\\GNU-tools-for-STM32\\bin/../lib/gcc/arm-none-eabi/13.3.1/..
+ 1680              		.file 11 "SynaptiX_FDK/utils/delay/sx_delay.h"
+ 1681              		.file 12 "<built-in>"
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cckQCMsg.s 			page 42
+
+
+DEFINED SYMBOLS
+                            *ABS*:00000000 sx_W25Q128.c
+C:\Users\LENOVO\AppData\Local\Temp\cckQCMsg.s:22     .text.sx_gpio_write:00000000 $t
+C:\Users\LENOVO\AppData\Local\Temp\cckQCMsg.s:27     .text.sx_gpio_write:00000000 sx_gpio_write
+C:\Users\LENOVO\AppData\Local\Temp\cckQCMsg.s:90     .text.sx_spi_write:00000000 $t
+C:\Users\LENOVO\AppData\Local\Temp\cckQCMsg.s:95     .text.sx_spi_write:00000000 sx_spi_write
+C:\Users\LENOVO\AppData\Local\Temp\cckQCMsg.s:143    .text.sx_spi_write_read:00000000 $t
+C:\Users\LENOVO\AppData\Local\Temp\cckQCMsg.s:148    .text.sx_spi_write_read:00000000 sx_spi_write_read
+C:\Users\LENOVO\AppData\Local\Temp\cckQCMsg.s:195    .text.w25q_write_enable:00000000 $t
+C:\Users\LENOVO\AppData\Local\Temp\cckQCMsg.s:200    .text.w25q_write_enable:00000000 w25q_write_enable
+C:\Users\LENOVO\AppData\Local\Temp\cckQCMsg.s:238    .text.w25q_write_enable:00000028 $d
+C:\Users\LENOVO\AppData\Local\Temp\cckQCMsg.s:1669   .bss.s_dev:00000000 s_dev
+C:\Users\LENOVO\AppData\Local\Temp\cckQCMsg.s:243    .text.sx_W25Q128_is_busy:00000000 $t
+C:\Users\LENOVO\AppData\Local\Temp\cckQCMsg.s:249    .text.sx_W25Q128_is_busy:00000000 sx_W25Q128_is_busy
+C:\Users\LENOVO\AppData\Local\Temp\cckQCMsg.s:312    .text.sx_W25Q128_is_busy:00000038 $d
+C:\Users\LENOVO\AppData\Local\Temp\cckQCMsg.s:317    .rodata.w25q_wait_busy.str1.4:00000000 $d
+C:\Users\LENOVO\AppData\Local\Temp\cckQCMsg.s:330    .text.w25q_wait_busy:00000000 $t
+C:\Users\LENOVO\AppData\Local\Temp\cckQCMsg.s:335    .text.w25q_wait_busy:00000000 w25q_wait_busy
+C:\Users\LENOVO\AppData\Local\Temp\cckQCMsg.s:484    .text.w25q_wait_busy:000000ac $d
+C:\Users\LENOVO\AppData\Local\Temp\cckQCMsg.s:493    .rodata.sx_W25Q128_erase_sector.str1.4:00000000 $d
+C:\Users\LENOVO\AppData\Local\Temp\cckQCMsg.s:497    .text.sx_W25Q128_erase_sector:00000000 $t
+C:\Users\LENOVO\AppData\Local\Temp\cckQCMsg.s:503    .text.sx_W25Q128_erase_sector:00000000 sx_W25Q128_erase_sector
+C:\Users\LENOVO\AppData\Local\Temp\cckQCMsg.s:616    .text.sx_W25Q128_erase_sector:00000080 $d
+C:\Users\LENOVO\AppData\Local\Temp\cckQCMsg.s:623    .rodata.w25q_wait_busy_long.str1.4:00000000 $d
+C:\Users\LENOVO\AppData\Local\Temp\cckQCMsg.s:630    .text.w25q_wait_busy_long:00000000 $t
+C:\Users\LENOVO\AppData\Local\Temp\cckQCMsg.s:635    .text.w25q_wait_busy_long:00000000 w25q_wait_busy_long
+C:\Users\LENOVO\AppData\Local\Temp\cckQCMsg.s:724    .text.w25q_wait_busy_long:00000058 $d
+C:\Users\LENOVO\AppData\Local\Temp\cckQCMsg.s:732    .rodata.sx_W25Q128_read.str1.4:00000000 $d
+C:\Users\LENOVO\AppData\Local\Temp\cckQCMsg.s:736    .text.sx_W25Q128_read:00000000 $t
+C:\Users\LENOVO\AppData\Local\Temp\cckQCMsg.s:742    .text.sx_W25Q128_read:00000000 sx_W25Q128_read
+C:\Users\LENOVO\AppData\Local\Temp\cckQCMsg.s:940    .text.sx_W25Q128_read:000000b8 $d
+C:\Users\LENOVO\AppData\Local\Temp\cckQCMsg.s:947    .rodata.sx_W25Q128_write.str1.4:00000000 $d
+C:\Users\LENOVO\AppData\Local\Temp\cckQCMsg.s:960    .text.sx_W25Q128_write:00000000 $t
+C:\Users\LENOVO\AppData\Local\Temp\cckQCMsg.s:966    .text.sx_W25Q128_write:00000000 sx_W25Q128_write
+C:\Users\LENOVO\AppData\Local\Temp\cckQCMsg.s:1223   .text.sx_W25Q128_write:0000011c $d
+C:\Users\LENOVO\AppData\Local\Temp\cckQCMsg.s:1233   .rodata.sx_W25Q128_init.str1.4:00000000 $d
+C:\Users\LENOVO\AppData\Local\Temp\cckQCMsg.s:1240   .text.sx_W25Q128_init:00000000 $t
+C:\Users\LENOVO\AppData\Local\Temp\cckQCMsg.s:1246   .text.sx_W25Q128_init:00000000 sx_W25Q128_init
+C:\Users\LENOVO\AppData\Local\Temp\cckQCMsg.s:1397   .text.sx_W25Q128_init:00000098 $d
+C:\Users\LENOVO\AppData\Local\Temp\cckQCMsg.s:1405   .rodata.sx_W25Q128_chip_erase.str1.4:00000000 $d
+C:\Users\LENOVO\AppData\Local\Temp\cckQCMsg.s:1409   .text.sx_W25Q128_chip_erase:00000000 $t
+C:\Users\LENOVO\AppData\Local\Temp\cckQCMsg.s:1415   .text.sx_W25Q128_chip_erase:00000000 sx_W25Q128_chip_erase
+C:\Users\LENOVO\AppData\Local\Temp\cckQCMsg.s:1470   .text.sx_W25Q128_chip_erase:00000034 $d
+C:\Users\LENOVO\AppData\Local\Temp\cckQCMsg.s:1478   .text.sx_W25Q128_power_down:00000000 $t
+C:\Users\LENOVO\AppData\Local\Temp\cckQCMsg.s:1484   .text.sx_W25Q128_power_down:00000000 sx_W25Q128_power_down
+C:\Users\LENOVO\AppData\Local\Temp\cckQCMsg.s:1510   .text.sx_W25Q128_power_up:00000000 $t
+C:\Users\LENOVO\AppData\Local\Temp\cckQCMsg.s:1516   .text.sx_W25Q128_power_up:00000000 sx_W25Q128_power_up
+C:\Users\LENOVO\AppData\Local\Temp\cckQCMsg.s:1542   .text.sx_W25Q128_sleep_on:00000000 $t
+C:\Users\LENOVO\AppData\Local\Temp\cckQCMsg.s:1548   .text.sx_W25Q128_sleep_on:00000000 sx_W25Q128_sleep_on
+C:\Users\LENOVO\AppData\Local\Temp\cckQCMsg.s:1592   .text.sx_W25Q128_sleep_off:00000000 $t
+C:\Users\LENOVO\AppData\Local\Temp\cckQCMsg.s:1598   .text.sx_W25Q128_sleep_off:00000000 sx_W25Q128_sleep_off
+C:\Users\LENOVO\AppData\Local\Temp\cckQCMsg.s:1650   .data.sx_W25Q128_info:00000000 sx_W25Q128_info
+C:\Users\LENOVO\AppData\Local\Temp\cckQCMsg.s:1647   .data.sx_W25Q128_info:00000000 $d
+C:\Users\LENOVO\AppData\Local\Temp\cckQCMsg.s:1660   .data.sx_W25Q128_ops:00000000 sx_W25Q128_ops
+C:\Users\LENOVO\AppData\Local\Temp\cckQCMsg.s:1657   .data.sx_W25Q128_ops:00000000 $d
+C:\Users\LENOVO\AppData\Local\Temp\cckQCMsg.s:1666   .bss.s_dev:00000000 $d
+
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cckQCMsg.s 			page 43
+
+
+UNDEFINED SYMBOLS
+sx_delay_ms
+log_func
+memset
+memcpy

@@ -1,0 +1,729 @@
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cc73II0u.s 			page 1
+
+
+   1              		.cpu cortex-m33
+   2              		.arch armv8-m.main
+   3              		.fpu fpv5-sp-d16
+   4              		.arch_extension dsp
+   5              		.eabi_attribute 27, 1
+   6              		.eabi_attribute 28, 1
+   7              		.eabi_attribute 20, 1
+   8              		.eabi_attribute 21, 1
+   9              		.eabi_attribute 23, 3
+  10              		.eabi_attribute 24, 1
+  11              		.eabi_attribute 25, 1
+  12              		.eabi_attribute 26, 1
+  13              		.eabi_attribute 30, 1
+  14              		.eabi_attribute 34, 1
+  15              		.eabi_attribute 18, 4
+  16              		.file	"modem.c"
+  17              		.text
+  18              	.Ltext0:
+  19              		.cfi_sections	.debug_frame
+  20              		.file 1 "SynaptiX_FDK/components/modem/modem.c"
+  21              		.section	.rodata.modem_init.str1.4,"aMS",%progbits,1
+  22              		.align	2
+  23              	.LC0:
+  24 0000 496E6974 		.ascii	"Initializing\000"
+  24      69616C69 
+  24      7A696E67 
+  24      00
+  25 000d 000000   		.align	2
+  26              	.LC1:
+  27 0010 4D4F4445 		.ascii	"MODEM\000"
+  27      4D00
+  28              		.section	.text.modem_init,"ax",%progbits
+  29              		.align	1
+  30              		.global	modem_init
+  31              		.syntax unified
+  32              		.thumb
+  33              		.thumb_func
+  35              	modem_init:
+  36              	.LVL0:
+  37              	.LFB9:
+   1:SynaptiX_FDK/components/modem/modem.c **** #include "modem.h"
+   2:SynaptiX_FDK/components/modem/modem.c **** #include "logger.h"
+   3:SynaptiX_FDK/components/modem/modem.c **** #include "sx_delay.h"
+   4:SynaptiX_FDK/components/modem/modem.c **** 
+   5:SynaptiX_FDK/components/modem/modem.c **** static const char *TAG = "MODEM";
+   6:SynaptiX_FDK/components/modem/modem.c **** 
+   7:SynaptiX_FDK/components/modem/modem.c **** void modem_init(modem_t *modem){
+  38              		.loc 1 7 32 view -0
+  39              		.cfi_startproc
+  40              		@ args = 0, pretend = 0, frame = 0
+  41              		@ frame_needed = 0, uses_anonymous_args = 0
+  42              		.loc 1 7 32 is_stmt 0 view .LVU1
+  43 0000 08B5     		push	{r3, lr}
+  44              	.LCFI0:
+  45              		.cfi_def_cfa_offset 8
+  46              		.cfi_offset 3, -8
+  47              		.cfi_offset 14, -4
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cc73II0u.s 			page 2
+
+
+   8:SynaptiX_FDK/components/modem/modem.c ****     modem->isBusy = 0;
+  48              		.loc 1 8 5 is_stmt 1 view .LVU2
+  49              		.loc 1 8 19 is_stmt 0 view .LVU3
+  50 0002 0023     		movs	r3, #0
+  51 0004 80F86032 		strb	r3, [r0, #608]
+   9:SynaptiX_FDK/components/modem/modem.c ****     modem->isReady = 0;
+  52              		.loc 1 9 5 is_stmt 1 view .LVU4
+  53              		.loc 1 9 20 is_stmt 0 view .LVU5
+  54 0008 80F86132 		strb	r3, [r0, #609]
+  10:SynaptiX_FDK/components/modem/modem.c ****     modem->resID = 0;
+  55              		.loc 1 10 5 is_stmt 1 view .LVU6
+  56              		.loc 1 10 18 is_stmt 0 view .LVU7
+  57 000c C0F86832 		str	r3, [r0, #616]
+  11:SynaptiX_FDK/components/modem/modem.c ****     modem->cmd = NULL;
+  58              		.loc 1 11 5 is_stmt 1 view .LVU8
+  59              		.loc 1 11 16 is_stmt 0 view .LVU9
+  60 0010 C0F86C32 		str	r3, [r0, #620]
+  12:SynaptiX_FDK/components/modem/modem.c ****     log_debug(TAG,"Initializing");
+  61              		.loc 1 12 5 is_stmt 1 view .LVU10
+  62 0014 024A     		ldr	r2, .L3
+  63 0016 0349     		ldr	r1, .L3+4
+  64 0018 0420     		movs	r0, #4
+  65              	.LVL1:
+  66              		.loc 1 12 5 is_stmt 0 view .LVU11
+  67 001a FFF7FEFF 		bl	log_func
+  68              	.LVL2:
+  13:SynaptiX_FDK/components/modem/modem.c **** 
+  14:SynaptiX_FDK/components/modem/modem.c **** }
+  69              		.loc 1 14 1 view .LVU12
+  70 001e 08BD     		pop	{r3, pc}
+  71              	.L4:
+  72              		.align	2
+  73              	.L3:
+  74 0020 00000000 		.word	.LC0
+  75 0024 10000000 		.word	.LC1
+  76              		.cfi_endproc
+  77              	.LFE9:
+  79              		.section	.rodata.modem_send_command.str1.4,"aMS",%progbits,1
+  80              		.align	2
+  81              	.LC2:
+  82 0000 53656E64 		.ascii	"Send command %s\000"
+  82      20636F6D 
+  82      6D616E64 
+  82      20257300 
+  83              		.section	.text.modem_send_command,"ax",%progbits
+  84              		.align	1
+  85              		.global	modem_send_command
+  86              		.syntax unified
+  87              		.thumb
+  88              		.thumb_func
+  90              	modem_send_command:
+  91              	.LVL3:
+  92              	.LFB10:
+  15:SynaptiX_FDK/components/modem/modem.c **** 
+  16:SynaptiX_FDK/components/modem/modem.c **** int modem_send_command(modem_t *modem, modem_command_t *cmd, uint32_t timeout){
+  93              		.loc 1 16 79 is_stmt 1 view -0
+  94              		.cfi_startproc
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cc73II0u.s 			page 3
+
+
+  95              		@ args = 0, pretend = 0, frame = 0
+  96              		@ frame_needed = 0, uses_anonymous_args = 0
+  97              		.loc 1 16 79 is_stmt 0 view .LVU14
+  98 0000 F8B5     		push	{r3, r4, r5, r6, r7, lr}
+  99              	.LCFI1:
+ 100              		.cfi_def_cfa_offset 24
+ 101              		.cfi_offset 3, -24
+ 102              		.cfi_offset 4, -20
+ 103              		.cfi_offset 5, -16
+ 104              		.cfi_offset 6, -12
+ 105              		.cfi_offset 7, -8
+ 106              		.cfi_offset 14, -4
+  17:SynaptiX_FDK/components/modem/modem.c ****     if(modem->isBusy) return -1;
+ 107              		.loc 1 17 5 is_stmt 1 view .LVU15
+ 108              		.loc 1 17 13 is_stmt 0 view .LVU16
+ 109 0002 90F86032 		ldrb	r3, [r0, #608]	@ zero_extendqisi2
+ 110              		.loc 1 17 7 view .LVU17
+ 111 0006 23BB     		cbnz	r3, .L7
+ 112 0008 0446     		mov	r4, r0
+ 113 000a 0D46     		mov	r5, r1
+ 114 000c 1746     		mov	r7, r2
+  18:SynaptiX_FDK/components/modem/modem.c ****     log_debug(TAG,"Send command %s",cmd->cmd);
+ 115              		.loc 1 18 5 is_stmt 1 view .LVU18
+ 116 000e 0B68     		ldr	r3, [r1]
+ 117 0010 114A     		ldr	r2, .L9
+ 118              	.LVL4:
+ 119              		.loc 1 18 5 is_stmt 0 view .LVU19
+ 120 0012 1249     		ldr	r1, .L9+4
+ 121              	.LVL5:
+ 122              		.loc 1 18 5 view .LVU20
+ 123 0014 0420     		movs	r0, #4
+ 124              	.LVL6:
+ 125              		.loc 1 18 5 view .LVU21
+ 126 0016 FFF7FEFF 		bl	log_func
+ 127              	.LVL7:
+  19:SynaptiX_FDK/components/modem/modem.c ****     modem->cmd = cmd;
+ 128              		.loc 1 19 5 is_stmt 1 view .LVU22
+ 129              		.loc 1 19 16 is_stmt 0 view .LVU23
+ 130 001a C4F86C52 		str	r5, [r4, #620]
+  20:SynaptiX_FDK/components/modem/modem.c ****     modem->resID = 0;
+ 131              		.loc 1 20 5 is_stmt 1 view .LVU24
+ 132              		.loc 1 20 18 is_stmt 0 view .LVU25
+ 133 001e 0026     		movs	r6, #0
+ 134 0020 C4F86862 		str	r6, [r4, #616]
+  21:SynaptiX_FDK/components/modem/modem.c ****     modem->isBusy = 1;
+ 135              		.loc 1 21 5 is_stmt 1 view .LVU26
+ 136              		.loc 1 21 19 is_stmt 0 view .LVU27
+ 137 0024 0123     		movs	r3, #1
+ 138 0026 84F86032 		strb	r3, [r4, #608]
+  22:SynaptiX_FDK/components/modem/modem.c ****     modem->timeOut = timeout;
+ 139              		.loc 1 22 5 is_stmt 1 view .LVU28
+ 140              		.loc 1 22 20 is_stmt 0 view .LVU29
+ 141 002a C4F86472 		str	r7, [r4, #612]
+  23:SynaptiX_FDK/components/modem/modem.c ****     modem->buff_id = 0;
+ 142              		.loc 1 23 5 is_stmt 1 view .LVU30
+ 143              		.loc 1 23 20 is_stmt 0 view .LVU31
+ 144 002e C4F80062 		str	r6, [r4, #512]
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cc73II0u.s 			page 4
+
+
+  24:SynaptiX_FDK/components/modem/modem.c ****     sx_uart_flush(&modem->uart);
+ 145              		.loc 1 24 5 is_stmt 1 view .LVU32
+ 146 0032 04F50174 		add	r4, r4, #516
+ 147              	.LVL8:
+ 148              		.loc 1 24 5 is_stmt 0 view .LVU33
+ 149 0036 2046     		mov	r0, r4
+ 150 0038 FFF7FEFF 		bl	sx_uart_flush
+ 151              	.LVL9:
+  25:SynaptiX_FDK/components/modem/modem.c ****     sx_uart_write(&modem->uart, (const uint8_t *)cmd->cmd, strlen(cmd->cmd));
+ 152              		.loc 1 25 5 is_stmt 1 view .LVU34
+ 153              		.loc 1 25 53 is_stmt 0 view .LVU35
+ 154 003c 2D68     		ldr	r5, [r5]
+ 155              	.LVL10:
+ 156              		.loc 1 25 60 view .LVU36
+ 157 003e 2846     		mov	r0, r5
+ 158 0040 FFF7FEFF 		bl	strlen
+ 159              	.LVL11:
+ 160 0044 0246     		mov	r2, r0
+ 161              		.loc 1 25 5 discriminator 1 view .LVU37
+ 162 0046 2946     		mov	r1, r5
+ 163 0048 2046     		mov	r0, r4
+ 164 004a FFF7FEFF 		bl	sx_uart_write
+ 165              	.LVL12:
+  26:SynaptiX_FDK/components/modem/modem.c ****     return 0;
+ 166              		.loc 1 26 5 is_stmt 1 view .LVU38
+ 167              		.loc 1 26 12 is_stmt 0 view .LVU39
+ 168 004e 3046     		mov	r0, r6
+ 169              	.LVL13:
+ 170              	.L5:
+  27:SynaptiX_FDK/components/modem/modem.c **** }
+ 171              		.loc 1 27 1 view .LVU40
+ 172 0050 F8BD     		pop	{r3, r4, r5, r6, r7, pc}
+ 173              	.LVL14:
+ 174              	.L7:
+  17:SynaptiX_FDK/components/modem/modem.c ****     log_debug(TAG,"Send command %s",cmd->cmd);
+ 175              		.loc 1 17 30 discriminator 1 view .LVU41
+ 176 0052 4FF0FF30 		mov	r0, #-1
+ 177              	.LVL15:
+  17:SynaptiX_FDK/components/modem/modem.c ****     log_debug(TAG,"Send command %s",cmd->cmd);
+ 178              		.loc 1 17 30 discriminator 1 view .LVU42
+ 179 0056 FBE7     		b	.L5
+ 180              	.L10:
+ 181              		.align	2
+ 182              	.L9:
+ 183 0058 00000000 		.word	.LC2
+ 184 005c 10000000 		.word	.LC1
+ 185              		.cfi_endproc
+ 186              	.LFE10:
+ 188              		.section	.rodata.modem_poll.str1.4,"aMS",%progbits,1
+ 189              		.align	2
+ 190              	.LC3:
+ 191 0000 4E554C4C 		.ascii	"NULL\000"
+ 191      00
+ 192 0005 000000   		.align	2
+ 193              	.LC4:
+ 194 0008 52656164 		.ascii	"Read : %d bytes\000"
+ 194      203A2025 
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cc73II0u.s 			page 5
+
+
+ 194      64206279 
+ 194      74657300 
+ 195              		.align	2
+ 196              	.LC5:
+ 197 0018 44617461 		.ascii	"Data : %s\000"
+ 197      203A2025 
+ 197      7300
+ 198 0022 0000     		.align	2
+ 199              	.LC6:
+ 200 0024 436F6D6D 		.ascii	"Command success: [%s]\000"
+ 200      616E6420 
+ 200      73756363 
+ 200      6573733A 
+ 200      205B2573 
+ 201 003a 0000     		.align	2
+ 202              	.LC7:
+ 203 003c 436F6D6D 		.ascii	"Command fail: [%s]\000"
+ 203      616E6420 
+ 203      6661696C 
+ 203      3A205B25 
+ 203      735D00
+ 204 004f 00       		.align	2
+ 205              	.LC8:
+ 206 0050 54494D45 		.ascii	"TIMEOUT response: [%s]\000"
+ 206      4F555420 
+ 206      72657370 
+ 206      6F6E7365 
+ 206      3A205B25 
+ 207              		.section	.text.modem_poll,"ax",%progbits
+ 208              		.align	1
+ 209              		.global	modem_poll
+ 210              		.syntax unified
+ 211              		.thumb
+ 212              		.thumb_func
+ 214              	modem_poll:
+ 215              	.LVL16:
+ 216              	.LFB11:
+  28:SynaptiX_FDK/components/modem/modem.c **** 
+  29:SynaptiX_FDK/components/modem/modem.c **** void modem_poll(modem_t *modem, uint32_t timeStamp){
+ 217              		.loc 1 29 52 is_stmt 1 view -0
+ 218              		.cfi_startproc
+ 219              		@ args = 0, pretend = 0, frame = 0
+ 220              		@ frame_needed = 0, uses_anonymous_args = 0
+ 221              		.loc 1 29 52 is_stmt 0 view .LVU44
+ 222 0000 F8B5     		push	{r3, r4, r5, r6, r7, lr}
+ 223              	.LCFI2:
+ 224              		.cfi_def_cfa_offset 24
+ 225              		.cfi_offset 3, -24
+ 226              		.cfi_offset 4, -20
+ 227              		.cfi_offset 5, -16
+ 228              		.cfi_offset 6, -12
+ 229              		.cfi_offset 7, -8
+ 230              		.cfi_offset 14, -4
+  30:SynaptiX_FDK/components/modem/modem.c ****     static uint32_t s_time = 0;
+ 231              		.loc 1 30 5 is_stmt 1 view .LVU45
+  31:SynaptiX_FDK/components/modem/modem.c ****     if (!modem->isBusy) return;
+ 232              		.loc 1 31 5 view .LVU46
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cc73II0u.s 			page 6
+
+
+ 233              		.loc 1 31 15 is_stmt 0 view .LVU47
+ 234 0002 90F86032 		ldrb	r3, [r0, #608]	@ zero_extendqisi2
+ 235              		.loc 1 31 8 view .LVU48
+ 236 0006 03B9     		cbnz	r3, .L20
+ 237              	.LVL17:
+ 238              	.L11:
+  32:SynaptiX_FDK/components/modem/modem.c **** 
+  33:SynaptiX_FDK/components/modem/modem.c ****     int available = sx_uart_available(&modem->uart);
+  34:SynaptiX_FDK/components/modem/modem.c ****     
+  35:SynaptiX_FDK/components/modem/modem.c ****     if(available > 0 && (modem->buff_id + available) < MODEM_RX_BUFFER_SIZE){
+  36:SynaptiX_FDK/components/modem/modem.c ****         
+  37:SynaptiX_FDK/components/modem/modem.c ****         int read = sx_uart_read(&modem->uart, (uint8_t *)modem->buff + modem->buff_id, available, 1
+  38:SynaptiX_FDK/components/modem/modem.c ****         if(read > 0){
+  39:SynaptiX_FDK/components/modem/modem.c ****             log_debug(TAG, "Read : %d bytes", read);
+  40:SynaptiX_FDK/components/modem/modem.c ****             log_debug(TAG,"Data : %s",modem->buff+modem->buff_id);
+  41:SynaptiX_FDK/components/modem/modem.c ****             log_print_hex(LOGGER_DEBUG,TAG,modem->buff+modem->buff_id,read);
+  42:SynaptiX_FDK/components/modem/modem.c ****             modem->buff_id += read;
+  43:SynaptiX_FDK/components/modem/modem.c ****             s_time = 0; 
+  44:SynaptiX_FDK/components/modem/modem.c **** 
+  45:SynaptiX_FDK/components/modem/modem.c ****             if(modem->cmd->res_success && strstr(modem->buff, modem->cmd->res_success)){
+  46:SynaptiX_FDK/components/modem/modem.c ****                 modem->isBusy = 0;
+  47:SynaptiX_FDK/components/modem/modem.c ****                 s_time = 0;
+  48:SynaptiX_FDK/components/modem/modem.c ****                 log_debug(TAG, "Command success: [%s]", modem->buff);
+  49:SynaptiX_FDK/components/modem/modem.c ****                 if(modem->cmd->callback)
+  50:SynaptiX_FDK/components/modem/modem.c ****                     modem->cmd->callback(modem, modem->buff, MODEM_RESPONSE_SUCCESS, modem->cmd->ar
+  51:SynaptiX_FDK/components/modem/modem.c ****                 return;
+  52:SynaptiX_FDK/components/modem/modem.c ****             }
+  53:SynaptiX_FDK/components/modem/modem.c ****             else if(modem->cmd->res_fail && strstr(modem->buff, modem->cmd->res_fail)){
+  54:SynaptiX_FDK/components/modem/modem.c ****                 modem->isBusy = 0;
+  55:SynaptiX_FDK/components/modem/modem.c ****                 s_time = 0;
+  56:SynaptiX_FDK/components/modem/modem.c ****                 log_debug(TAG, "Command fail: [%s]", modem->buff);
+  57:SynaptiX_FDK/components/modem/modem.c ****                 if(modem->cmd->callback)
+  58:SynaptiX_FDK/components/modem/modem.c ****                     modem->cmd->callback(modem, modem->buff, MODEM_RESPONSE_FAIL, modem->cmd->arg);
+  59:SynaptiX_FDK/components/modem/modem.c ****                 return;
+  60:SynaptiX_FDK/components/modem/modem.c ****             }
+  61:SynaptiX_FDK/components/modem/modem.c ****         }
+  62:SynaptiX_FDK/components/modem/modem.c ****     }
+  63:SynaptiX_FDK/components/modem/modem.c **** 
+  64:SynaptiX_FDK/components/modem/modem.c ****     s_time += timeStamp;
+  65:SynaptiX_FDK/components/modem/modem.c ****     if(s_time >= modem->timeOut){
+  66:SynaptiX_FDK/components/modem/modem.c ****         modem->isBusy = 0;
+  67:SynaptiX_FDK/components/modem/modem.c ****         s_time = 0;
+  68:SynaptiX_FDK/components/modem/modem.c ****         log_error(TAG, "TIMEOUT response: [%s]", (modem->buff_id > 0) ? modem->buff : "NULL");
+  69:SynaptiX_FDK/components/modem/modem.c ****         if(modem->cmd->callback)
+  70:SynaptiX_FDK/components/modem/modem.c ****             modem->cmd->callback(modem, NULL, MODEM_RESPONSE_TIMEOUT, modem->cmd->arg);
+  71:SynaptiX_FDK/components/modem/modem.c ****     }
+  72:SynaptiX_FDK/components/modem/modem.c **** }
+ 239              		.loc 1 72 1 view .LVU49
+ 240 0008 F8BD     		pop	{r3, r4, r5, r6, r7, pc}
+ 241              	.LVL18:
+ 242              	.L20:
+ 243              		.loc 1 72 1 view .LVU50
+ 244 000a 0446     		mov	r4, r0
+ 245 000c 0D46     		mov	r5, r1
+  33:SynaptiX_FDK/components/modem/modem.c ****     
+ 246              		.loc 1 33 5 is_stmt 1 view .LVU51
+  33:SynaptiX_FDK/components/modem/modem.c ****     
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cc73II0u.s 			page 7
+
+
+ 247              		.loc 1 33 21 is_stmt 0 view .LVU52
+ 248 000e 00F50176 		add	r6, r0, #516
+ 249 0012 3046     		mov	r0, r6
+ 250              	.LVL19:
+  33:SynaptiX_FDK/components/modem/modem.c ****     
+ 251              		.loc 1 33 21 view .LVU53
+ 252 0014 FFF7FEFF 		bl	sx_uart_available
+ 253              	.LVL20:
+  35:SynaptiX_FDK/components/modem/modem.c ****         
+ 254              		.loc 1 35 5 is_stmt 1 view .LVU54
+  35:SynaptiX_FDK/components/modem/modem.c ****         
+ 255              		.loc 1 35 7 is_stmt 0 view .LVU55
+ 256 0018 021E     		subs	r2, r0, #0
+ 257 001a 05DD     		ble	.L13
+  35:SynaptiX_FDK/components/modem/modem.c ****         
+ 258              		.loc 1 35 31 discriminator 1 view .LVU56
+ 259 001c D4F80012 		ldr	r1, [r4, #512]
+  35:SynaptiX_FDK/components/modem/modem.c ****         
+ 260              		.loc 1 35 41 discriminator 1 view .LVU57
+ 261 0020 5318     		adds	r3, r2, r1
+  35:SynaptiX_FDK/components/modem/modem.c ****         
+ 262              		.loc 1 35 22 discriminator 1 view .LVU58
+ 263 0022 B3F5007F 		cmp	r3, #512
+ 264 0026 21D3     		bcc	.L21
+ 265              	.LVL21:
+ 266              	.L13:
+  64:SynaptiX_FDK/components/modem/modem.c ****     if(s_time >= modem->timeOut){
+ 267              		.loc 1 64 5 is_stmt 1 view .LVU59
+  64:SynaptiX_FDK/components/modem/modem.c ****     if(s_time >= modem->timeOut){
+ 268              		.loc 1 64 12 is_stmt 0 view .LVU60
+ 269 0028 414B     		ldr	r3, .L23
+ 270 002a 1A68     		ldr	r2, [r3]
+ 271 002c 2A44     		add	r2, r2, r5
+ 272 002e 1A60     		str	r2, [r3]
+  65:SynaptiX_FDK/components/modem/modem.c ****         modem->isBusy = 0;
+ 273              		.loc 1 65 5 is_stmt 1 view .LVU61
+  65:SynaptiX_FDK/components/modem/modem.c ****         modem->isBusy = 0;
+ 274              		.loc 1 65 23 is_stmt 0 view .LVU62
+ 275 0030 D4F86432 		ldr	r3, [r4, #612]
+  65:SynaptiX_FDK/components/modem/modem.c ****         modem->isBusy = 0;
+ 276              		.loc 1 65 7 view .LVU63
+ 277 0034 9A42     		cmp	r2, r3
+ 278 0036 E7D3     		bcc	.L11
+  66:SynaptiX_FDK/components/modem/modem.c ****         s_time = 0;
+ 279              		.loc 1 66 9 is_stmt 1 view .LVU64
+  66:SynaptiX_FDK/components/modem/modem.c ****         s_time = 0;
+ 280              		.loc 1 66 23 is_stmt 0 view .LVU65
+ 281 0038 0023     		movs	r3, #0
+ 282 003a 84F86032 		strb	r3, [r4, #608]
+  67:SynaptiX_FDK/components/modem/modem.c ****         log_error(TAG, "TIMEOUT response: [%s]", (modem->buff_id > 0) ? modem->buff : "NULL");
+ 283              		.loc 1 67 9 is_stmt 1 view .LVU66
+  67:SynaptiX_FDK/components/modem/modem.c ****         log_error(TAG, "TIMEOUT response: [%s]", (modem->buff_id > 0) ? modem->buff : "NULL");
+ 284              		.loc 1 67 16 is_stmt 0 view .LVU67
+ 285 003e 3C4A     		ldr	r2, .L23
+ 286 0040 1360     		str	r3, [r2]
+  68:SynaptiX_FDK/components/modem/modem.c ****         if(modem->cmd->callback)
+ 287              		.loc 1 68 9 is_stmt 1 view .LVU68
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cc73II0u.s 			page 8
+
+
+ 288 0042 D4F80032 		ldr	r3, [r4, #512]
+ 289 0046 002B     		cmp	r3, #0
+ 290 0048 6FD0     		beq	.L18
+  68:SynaptiX_FDK/components/modem/modem.c ****         if(modem->cmd->callback)
+ 291              		.loc 1 68 9 is_stmt 0 discriminator 1 view .LVU69
+ 292 004a 2346     		mov	r3, r4
+ 293              	.L17:
+  68:SynaptiX_FDK/components/modem/modem.c ****         if(modem->cmd->callback)
+ 294              		.loc 1 68 9 discriminator 4 view .LVU70
+ 295 004c 394A     		ldr	r2, .L23+4
+ 296 004e 3A49     		ldr	r1, .L23+8
+ 297 0050 0120     		movs	r0, #1
+ 298 0052 FFF7FEFF 		bl	log_func
+ 299              	.LVL22:
+  69:SynaptiX_FDK/components/modem/modem.c ****             modem->cmd->callback(modem, NULL, MODEM_RESPONSE_TIMEOUT, modem->cmd->arg);
+ 300              		.loc 1 69 9 is_stmt 1 view .LVU71
+  69:SynaptiX_FDK/components/modem/modem.c ****             modem->cmd->callback(modem, NULL, MODEM_RESPONSE_TIMEOUT, modem->cmd->arg);
+ 301              		.loc 1 69 17 is_stmt 0 view .LVU72
+ 302 0056 D4F86C32 		ldr	r3, [r4, #620]
+  69:SynaptiX_FDK/components/modem/modem.c ****             modem->cmd->callback(modem, NULL, MODEM_RESPONSE_TIMEOUT, modem->cmd->arg);
+ 303              		.loc 1 69 22 view .LVU73
+ 304 005a DD68     		ldr	r5, [r3, #12]
+ 305              	.LVL23:
+  69:SynaptiX_FDK/components/modem/modem.c ****             modem->cmd->callback(modem, NULL, MODEM_RESPONSE_TIMEOUT, modem->cmd->arg);
+ 306              		.loc 1 69 11 view .LVU74
+ 307 005c 002D     		cmp	r5, #0
+ 308 005e D3D0     		beq	.L11
+  70:SynaptiX_FDK/components/modem/modem.c ****     }
+ 309              		.loc 1 70 13 is_stmt 1 view .LVU75
+ 310 0060 1B69     		ldr	r3, [r3, #16]
+ 311 0062 0222     		movs	r2, #2
+ 312 0064 0021     		movs	r1, #0
+ 313 0066 2046     		mov	r0, r4
+ 314 0068 A847     		blx	r5
+ 315              	.LVL24:
+ 316 006a CDE7     		b	.L11
+ 317              	.LVL25:
+ 318              	.L21:
+ 319              	.LBB2:
+  37:SynaptiX_FDK/components/modem/modem.c ****         if(read > 0){
+ 320              		.loc 1 37 9 view .LVU76
+  37:SynaptiX_FDK/components/modem/modem.c ****         if(read > 0){
+ 321              		.loc 1 37 20 is_stmt 0 view .LVU77
+ 322 006c 0A23     		movs	r3, #10
+ 323 006e 2144     		add	r1, r1, r4
+ 324 0070 3046     		mov	r0, r6
+ 325              	.LVL26:
+  37:SynaptiX_FDK/components/modem/modem.c ****         if(read > 0){
+ 326              		.loc 1 37 20 view .LVU78
+ 327 0072 FFF7FEFF 		bl	sx_uart_read
+ 328              	.LVL27:
+  38:SynaptiX_FDK/components/modem/modem.c ****             log_debug(TAG, "Read : %d bytes", read);
+ 329              		.loc 1 38 9 is_stmt 1 view .LVU79
+  38:SynaptiX_FDK/components/modem/modem.c ****             log_debug(TAG, "Read : %d bytes", read);
+ 330              		.loc 1 38 11 is_stmt 0 view .LVU80
+ 331 0076 061E     		subs	r6, r0, #0
+ 332 0078 D6DD     		ble	.L13
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cc73II0u.s 			page 9
+
+
+  39:SynaptiX_FDK/components/modem/modem.c ****             log_debug(TAG,"Data : %s",modem->buff+modem->buff_id);
+ 333              		.loc 1 39 13 is_stmt 1 view .LVU81
+ 334 007a 2F4F     		ldr	r7, .L23+8
+ 335 007c 3346     		mov	r3, r6
+ 336 007e 2F4A     		ldr	r2, .L23+12
+ 337 0080 3946     		mov	r1, r7
+ 338 0082 0420     		movs	r0, #4
+ 339              	.LVL28:
+  39:SynaptiX_FDK/components/modem/modem.c ****             log_debug(TAG,"Data : %s",modem->buff+modem->buff_id);
+ 340              		.loc 1 39 13 is_stmt 0 view .LVU82
+ 341 0084 FFF7FEFF 		bl	log_func
+ 342              	.LVL29:
+  40:SynaptiX_FDK/components/modem/modem.c ****             log_print_hex(LOGGER_DEBUG,TAG,modem->buff+modem->buff_id,read);
+ 343              		.loc 1 40 13 is_stmt 1 view .LVU83
+ 344 0088 D4F80032 		ldr	r3, [r4, #512]
+ 345 008c 2344     		add	r3, r3, r4
+ 346 008e 2C4A     		ldr	r2, .L23+16
+ 347 0090 3946     		mov	r1, r7
+ 348 0092 0420     		movs	r0, #4
+ 349 0094 FFF7FEFF 		bl	log_func
+ 350              	.LVL30:
+  41:SynaptiX_FDK/components/modem/modem.c ****             modem->buff_id += read;
+ 351              		.loc 1 41 13 view .LVU84
+  41:SynaptiX_FDK/components/modem/modem.c ****             modem->buff_id += read;
+ 352              		.loc 1 41 61 is_stmt 0 view .LVU85
+ 353 0098 D4F80022 		ldr	r2, [r4, #512]
+  41:SynaptiX_FDK/components/modem/modem.c ****             modem->buff_id += read;
+ 354              		.loc 1 41 13 view .LVU86
+ 355 009c B3B2     		uxth	r3, r6
+ 356 009e 2244     		add	r2, r2, r4
+ 357 00a0 3946     		mov	r1, r7
+ 358 00a2 0420     		movs	r0, #4
+ 359 00a4 FFF7FEFF 		bl	log_print_hex
+ 360              	.LVL31:
+  42:SynaptiX_FDK/components/modem/modem.c ****             s_time = 0; 
+ 361              		.loc 1 42 13 is_stmt 1 view .LVU87
+  42:SynaptiX_FDK/components/modem/modem.c ****             s_time = 0; 
+ 362              		.loc 1 42 18 is_stmt 0 view .LVU88
+ 363 00a8 D4F80032 		ldr	r3, [r4, #512]
+  42:SynaptiX_FDK/components/modem/modem.c ****             s_time = 0; 
+ 364              		.loc 1 42 28 view .LVU89
+ 365 00ac 3344     		add	r3, r3, r6
+ 366 00ae C4F80032 		str	r3, [r4, #512]
+  43:SynaptiX_FDK/components/modem/modem.c **** 
+ 367              		.loc 1 43 13 is_stmt 1 view .LVU90
+  43:SynaptiX_FDK/components/modem/modem.c **** 
+ 368              		.loc 1 43 20 is_stmt 0 view .LVU91
+ 369 00b2 1F4B     		ldr	r3, .L23
+ 370 00b4 0022     		movs	r2, #0
+ 371 00b6 1A60     		str	r2, [r3]
+  45:SynaptiX_FDK/components/modem/modem.c ****                 modem->isBusy = 0;
+ 372              		.loc 1 45 13 is_stmt 1 view .LVU92
+  45:SynaptiX_FDK/components/modem/modem.c ****                 modem->isBusy = 0;
+ 373              		.loc 1 45 21 is_stmt 0 view .LVU93
+ 374 00b8 D4F86C62 		ldr	r6, [r4, #620]
+ 375              	.LVL32:
+  45:SynaptiX_FDK/components/modem/modem.c ****                 modem->isBusy = 0;
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cc73II0u.s 			page 10
+
+
+ 376              		.loc 1 45 26 view .LVU94
+ 377 00bc 7168     		ldr	r1, [r6, #4]
+  45:SynaptiX_FDK/components/modem/modem.c ****                 modem->isBusy = 0;
+ 378              		.loc 1 45 15 view .LVU95
+ 379 00be 19B1     		cbz	r1, .L14
+  45:SynaptiX_FDK/components/modem/modem.c ****                 modem->isBusy = 0;
+ 380              		.loc 1 45 43 discriminator 1 view .LVU96
+ 381 00c0 2046     		mov	r0, r4
+ 382 00c2 FFF7FEFF 		bl	strstr
+ 383              	.LVL33:
+  45:SynaptiX_FDK/components/modem/modem.c ****                 modem->isBusy = 0;
+ 384              		.loc 1 45 40 discriminator 1 view .LVU97
+ 385 00c6 D8B9     		cbnz	r0, .L22
+ 386              	.L14:
+  53:SynaptiX_FDK/components/modem/modem.c ****                 modem->isBusy = 0;
+ 387              		.loc 1 53 18 is_stmt 1 view .LVU98
+  53:SynaptiX_FDK/components/modem/modem.c ****                 modem->isBusy = 0;
+ 388              		.loc 1 53 31 is_stmt 0 view .LVU99
+ 389 00c8 B168     		ldr	r1, [r6, #8]
+  53:SynaptiX_FDK/components/modem/modem.c ****                 modem->isBusy = 0;
+ 390              		.loc 1 53 20 view .LVU100
+ 391 00ca 0029     		cmp	r1, #0
+ 392 00cc ACD0     		beq	.L13
+  53:SynaptiX_FDK/components/modem/modem.c ****                 modem->isBusy = 0;
+ 393              		.loc 1 53 45 discriminator 1 view .LVU101
+ 394 00ce 2046     		mov	r0, r4
+ 395 00d0 FFF7FEFF 		bl	strstr
+ 396              	.LVL34:
+  53:SynaptiX_FDK/components/modem/modem.c ****                 modem->isBusy = 0;
+ 397              		.loc 1 53 42 discriminator 1 view .LVU102
+ 398 00d4 0028     		cmp	r0, #0
+ 399 00d6 A7D0     		beq	.L13
+  54:SynaptiX_FDK/components/modem/modem.c ****                 s_time = 0;
+ 400              		.loc 1 54 17 is_stmt 1 view .LVU103
+  54:SynaptiX_FDK/components/modem/modem.c ****                 s_time = 0;
+ 401              		.loc 1 54 31 is_stmt 0 view .LVU104
+ 402 00d8 0023     		movs	r3, #0
+ 403 00da 84F86032 		strb	r3, [r4, #608]
+  55:SynaptiX_FDK/components/modem/modem.c ****                 log_debug(TAG, "Command fail: [%s]", modem->buff);
+ 404              		.loc 1 55 17 is_stmt 1 view .LVU105
+  56:SynaptiX_FDK/components/modem/modem.c ****                 if(modem->cmd->callback)
+ 405              		.loc 1 56 17 view .LVU106
+ 406 00de 2346     		mov	r3, r4
+ 407 00e0 184A     		ldr	r2, .L23+20
+ 408 00e2 1549     		ldr	r1, .L23+8
+ 409 00e4 0420     		movs	r0, #4
+ 410 00e6 FFF7FEFF 		bl	log_func
+ 411              	.LVL35:
+  57:SynaptiX_FDK/components/modem/modem.c ****                     modem->cmd->callback(modem, modem->buff, MODEM_RESPONSE_FAIL, modem->cmd->arg);
+ 412              		.loc 1 57 17 view .LVU107
+  57:SynaptiX_FDK/components/modem/modem.c ****                     modem->cmd->callback(modem, modem->buff, MODEM_RESPONSE_FAIL, modem->cmd->arg);
+ 413              		.loc 1 57 25 is_stmt 0 view .LVU108
+ 414 00ea D4F86C32 		ldr	r3, [r4, #620]
+  57:SynaptiX_FDK/components/modem/modem.c ****                     modem->cmd->callback(modem, modem->buff, MODEM_RESPONSE_FAIL, modem->cmd->arg);
+ 415              		.loc 1 57 30 view .LVU109
+ 416 00ee DD68     		ldr	r5, [r3, #12]
+ 417              	.LVL36:
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cc73II0u.s 			page 11
+
+
+  57:SynaptiX_FDK/components/modem/modem.c ****                     modem->cmd->callback(modem, modem->buff, MODEM_RESPONSE_FAIL, modem->cmd->arg);
+ 418              		.loc 1 57 19 view .LVU110
+ 419 00f0 002D     		cmp	r5, #0
+ 420 00f2 89D0     		beq	.L11
+  58:SynaptiX_FDK/components/modem/modem.c ****                 return;
+ 421              		.loc 1 58 21 is_stmt 1 view .LVU111
+ 422 00f4 1B69     		ldr	r3, [r3, #16]
+ 423 00f6 0122     		movs	r2, #1
+ 424 00f8 2146     		mov	r1, r4
+ 425 00fa 2046     		mov	r0, r4
+ 426 00fc A847     		blx	r5
+ 427              	.LVL37:
+  59:SynaptiX_FDK/components/modem/modem.c ****             }
+ 428              		.loc 1 59 17 view .LVU112
+ 429 00fe 83E7     		b	.L11
+ 430              	.LVL38:
+ 431              	.L22:
+  46:SynaptiX_FDK/components/modem/modem.c ****                 s_time = 0;
+ 432              		.loc 1 46 17 view .LVU113
+  46:SynaptiX_FDK/components/modem/modem.c ****                 s_time = 0;
+ 433              		.loc 1 46 31 is_stmt 0 view .LVU114
+ 434 0100 0023     		movs	r3, #0
+ 435 0102 84F86032 		strb	r3, [r4, #608]
+  47:SynaptiX_FDK/components/modem/modem.c ****                 log_debug(TAG, "Command success: [%s]", modem->buff);
+ 436              		.loc 1 47 17 is_stmt 1 view .LVU115
+  48:SynaptiX_FDK/components/modem/modem.c ****                 if(modem->cmd->callback)
+ 437              		.loc 1 48 17 view .LVU116
+ 438 0106 2346     		mov	r3, r4
+ 439 0108 0F4A     		ldr	r2, .L23+24
+ 440 010a 3946     		mov	r1, r7
+ 441 010c 0420     		movs	r0, #4
+ 442 010e FFF7FEFF 		bl	log_func
+ 443              	.LVL39:
+  49:SynaptiX_FDK/components/modem/modem.c ****                     modem->cmd->callback(modem, modem->buff, MODEM_RESPONSE_SUCCESS, modem->cmd->ar
+ 444              		.loc 1 49 17 view .LVU117
+  49:SynaptiX_FDK/components/modem/modem.c ****                     modem->cmd->callback(modem, modem->buff, MODEM_RESPONSE_SUCCESS, modem->cmd->ar
+ 445              		.loc 1 49 25 is_stmt 0 view .LVU118
+ 446 0112 D4F86C32 		ldr	r3, [r4, #620]
+  49:SynaptiX_FDK/components/modem/modem.c ****                     modem->cmd->callback(modem, modem->buff, MODEM_RESPONSE_SUCCESS, modem->cmd->ar
+ 447              		.loc 1 49 30 view .LVU119
+ 448 0116 DD68     		ldr	r5, [r3, #12]
+ 449              	.LVL40:
+  49:SynaptiX_FDK/components/modem/modem.c ****                     modem->cmd->callback(modem, modem->buff, MODEM_RESPONSE_SUCCESS, modem->cmd->ar
+ 450              		.loc 1 49 19 view .LVU120
+ 451 0118 002D     		cmp	r5, #0
+ 452 011a 3FF475AF 		beq	.L11
+  50:SynaptiX_FDK/components/modem/modem.c ****                 return;
+ 453              		.loc 1 50 21 is_stmt 1 view .LVU121
+ 454 011e 1B69     		ldr	r3, [r3, #16]
+ 455 0120 0022     		movs	r2, #0
+ 456 0122 2146     		mov	r1, r4
+ 457 0124 2046     		mov	r0, r4
+ 458 0126 A847     		blx	r5
+ 459              	.LVL41:
+  51:SynaptiX_FDK/components/modem/modem.c ****             }
+ 460              		.loc 1 51 17 view .LVU122
+ 461 0128 6EE7     		b	.L11
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cc73II0u.s 			page 12
+
+
+ 462              	.LVL42:
+ 463              	.L18:
+  51:SynaptiX_FDK/components/modem/modem.c ****             }
+ 464              		.loc 1 51 17 is_stmt 0 view .LVU123
+ 465              	.LBE2:
+  68:SynaptiX_FDK/components/modem/modem.c ****         if(modem->cmd->callback)
+ 466              		.loc 1 68 9 discriminator 2 view .LVU124
+ 467 012a 084B     		ldr	r3, .L23+28
+ 468 012c 8EE7     		b	.L17
+ 469              	.L24:
+ 470 012e 00BF     		.align	2
+ 471              	.L23:
+ 472 0130 00000000 		.word	s_time.0
+ 473 0134 50000000 		.word	.LC8
+ 474 0138 10000000 		.word	.LC1
+ 475 013c 08000000 		.word	.LC4
+ 476 0140 18000000 		.word	.LC5
+ 477 0144 3C000000 		.word	.LC7
+ 478 0148 24000000 		.word	.LC6
+ 479 014c 00000000 		.word	.LC3
+ 480              		.cfi_endproc
+ 481              	.LFE11:
+ 483              		.section	.bss.s_time.0,"aw",%nobits
+ 484              		.align	2
+ 487              	s_time.0:
+ 488 0000 00000000 		.space	4
+ 489              		.text
+ 490              	.Letext0:
+ 491              		.file 2 "C:\\ST\\STM32CubeCLT_1.20.0\\GNU-tools-for-STM32\\bin/../lib/gcc/arm-none-eabi/13.3.1/../
+ 492              		.file 3 "C:\\ST\\STM32CubeCLT_1.20.0\\GNU-tools-for-STM32\\bin/../lib/gcc/arm-none-eabi/13.3.1/../
+ 493              		.file 4 "C:\\ST\\STM32CubeCLT_1.20.0\\GNU-tools-for-STM32\\bin/../lib/gcc/arm-none-eabi/13.3.1/inc
+ 494              		.file 5 "SynaptiX_FDK/utils/cqueue/cqueue.h"
+ 495              		.file 6 "SynaptiX_FDK/components/uart/sx_uart.h"
+ 496              		.file 7 "SynaptiX_FDK/components/gpio/sx_gpio.h"
+ 497              		.file 8 "SynaptiX_FDK/components/modem/modem.h"
+ 498              		.file 9 "SynaptiX_FDK/services/logger/logger.h"
+ 499              		.file 10 "C:\\ST\\STM32CubeCLT_1.20.0\\GNU-tools-for-STM32\\bin/../lib/gcc/arm-none-eabi/13.3.1/..
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cc73II0u.s 			page 13
+
+
+DEFINED SYMBOLS
+                            *ABS*:00000000 modem.c
+C:\Users\LENOVO\AppData\Local\Temp\cc73II0u.s:22     .rodata.modem_init.str1.4:00000000 $d
+C:\Users\LENOVO\AppData\Local\Temp\cc73II0u.s:29     .text.modem_init:00000000 $t
+C:\Users\LENOVO\AppData\Local\Temp\cc73II0u.s:35     .text.modem_init:00000000 modem_init
+C:\Users\LENOVO\AppData\Local\Temp\cc73II0u.s:74     .text.modem_init:00000020 $d
+C:\Users\LENOVO\AppData\Local\Temp\cc73II0u.s:80     .rodata.modem_send_command.str1.4:00000000 $d
+C:\Users\LENOVO\AppData\Local\Temp\cc73II0u.s:84     .text.modem_send_command:00000000 $t
+C:\Users\LENOVO\AppData\Local\Temp\cc73II0u.s:90     .text.modem_send_command:00000000 modem_send_command
+C:\Users\LENOVO\AppData\Local\Temp\cc73II0u.s:183    .text.modem_send_command:00000058 $d
+C:\Users\LENOVO\AppData\Local\Temp\cc73II0u.s:189    .rodata.modem_poll.str1.4:00000000 $d
+C:\Users\LENOVO\AppData\Local\Temp\cc73II0u.s:208    .text.modem_poll:00000000 $t
+C:\Users\LENOVO\AppData\Local\Temp\cc73II0u.s:214    .text.modem_poll:00000000 modem_poll
+C:\Users\LENOVO\AppData\Local\Temp\cc73II0u.s:472    .text.modem_poll:00000130 $d
+C:\Users\LENOVO\AppData\Local\Temp\cc73II0u.s:487    .bss.s_time.0:00000000 s_time.0
+C:\Users\LENOVO\AppData\Local\Temp\cc73II0u.s:484    .bss.s_time.0:00000000 $d
+
+UNDEFINED SYMBOLS
+log_func
+sx_uart_flush
+strlen
+sx_uart_write
+sx_uart_available
+sx_uart_read
+log_print_hex
+strstr

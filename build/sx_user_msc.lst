@@ -1,0 +1,1531 @@
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccfdZY8X.s 			page 1
+
+
+   1              		.cpu cortex-m33
+   2              		.arch armv8-m.main
+   3              		.fpu fpv5-sp-d16
+   4              		.arch_extension dsp
+   5              		.eabi_attribute 27, 1
+   6              		.eabi_attribute 28, 1
+   7              		.eabi_attribute 20, 1
+   8              		.eabi_attribute 21, 1
+   9              		.eabi_attribute 23, 3
+  10              		.eabi_attribute 24, 1
+  11              		.eabi_attribute 25, 1
+  12              		.eabi_attribute 26, 1
+  13              		.eabi_attribute 30, 1
+  14              		.eabi_attribute 34, 1
+  15              		.eabi_attribute 18, 4
+  16              		.file	"sx_user_msc.c"
+  17              		.text
+  18              	.Ltext0:
+  19              		.cfi_sections	.debug_frame
+  20              		.file 1 "SynaptiX_FDK/app/user/sx_msc/sx_user_msc.c"
+  21              		.section	.rodata._remount.str1.4,"aMS",%progbits,1
+  22              		.align	2
+  23              	.LC0:
+  24 0000 52656D6F 		.ascii	"Remounted\000"
+  24      756E7465 
+  24      6400
+  25 000a 0000     		.align	2
+  26              	.LC1:
+  27 000c 53585F55 		.ascii	"SX_USER_MSC\000"
+  27      5345525F 
+  27      4D534300 
+  28              		.section	.text._remount,"ax",%progbits
+  29              		.align	1
+  30              		.syntax unified
+  31              		.thumb
+  32              		.thumb_func
+  34              	_remount:
+  35              	.LFB0:
+   1:SynaptiX_FDK/app/user/sx_msc/sx_user_msc.c **** #include "sx_user_msc.h"
+   2:SynaptiX_FDK/app/user/sx_msc/sx_user_msc.c **** #include "sx_usb_tiny_msc.h"
+   3:SynaptiX_FDK/app/user/sx_msc/sx_user_msc.c **** #include "sx_fatfs.h"
+   4:SynaptiX_FDK/app/user/sx_msc/sx_user_msc.c **** #include "sx_delay.h"
+   5:SynaptiX_FDK/app/user/sx_msc/sx_user_msc.c **** #include "logger.h"
+   6:SynaptiX_FDK/app/user/sx_msc/sx_user_msc.c **** #include <string.h>
+   7:SynaptiX_FDK/app/user/sx_msc/sx_user_msc.c **** 
+   8:SynaptiX_FDK/app/user/sx_msc/sx_user_msc.c **** static const char *TAG = "SX_USER_MSC";
+   9:SynaptiX_FDK/app/user/sx_msc/sx_user_msc.c **** 
+  10:SynaptiX_FDK/app/user/sx_msc/sx_user_msc.c **** static sx_usb_tiny_msc_t s_msc;
+  11:SynaptiX_FDK/app/user/sx_msc/sx_user_msc.c **** static bool s_initialized = false;
+  12:SynaptiX_FDK/app/user/sx_msc/sx_user_msc.c **** 
+  13:SynaptiX_FDK/app/user/sx_msc/sx_user_msc.c **** /* ── Internal ──────────────────────────�
+  14:SynaptiX_FDK/app/user/sx_msc/sx_user_msc.c **** 
+  15:SynaptiX_FDK/app/user/sx_msc/sx_user_msc.c **** static sx_user_msc_err_t _remount(void)
+  16:SynaptiX_FDK/app/user/sx_msc/sx_user_msc.c **** {
+  36              		.loc 1 16 1 view -0
+  37              		.cfi_startproc
+  38              		@ args = 0, pretend = 0, frame = 0
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccfdZY8X.s 			page 2
+
+
+  39              		@ frame_needed = 0, uses_anonymous_args = 0
+  40 0000 08B5     		push	{r3, lr}
+  41              	.LCFI0:
+  42              		.cfi_def_cfa_offset 8
+  43              		.cfi_offset 3, -8
+  44              		.cfi_offset 14, -4
+  17:SynaptiX_FDK/app/user/sx_msc/sx_user_msc.c ****     sx_usb_tiny_msc_disconnect();
+  45              		.loc 1 17 5 view .LVU1
+  46 0002 FFF7FEFF 		bl	sx_usb_tiny_msc_disconnect
+  47              	.LVL0:
+  18:SynaptiX_FDK/app/user/sx_msc/sx_user_msc.c ****     sx_delay_ms(500);
+  48              		.loc 1 18 5 view .LVU2
+  49 0006 4FF4FA70 		mov	r0, #500
+  50 000a FFF7FEFF 		bl	sx_delay_ms
+  51              	.LVL1:
+  19:SynaptiX_FDK/app/user/sx_msc/sx_user_msc.c ****     sx_usb_tiny_msc_connect();
+  52              		.loc 1 19 5 view .LVU3
+  53 000e FFF7FEFF 		bl	sx_usb_tiny_msc_connect
+  54              	.LVL2:
+  20:SynaptiX_FDK/app/user/sx_msc/sx_user_msc.c ****     s_msc.media_changed = true;
+  55              		.loc 1 20 5 view .LVU4
+  56              		.loc 1 20 25 is_stmt 0 view .LVU5
+  57 0012 054B     		ldr	r3, .L3
+  58 0014 0122     		movs	r2, #1
+  59 0016 5A71     		strb	r2, [r3, #5]
+  21:SynaptiX_FDK/app/user/sx_msc/sx_user_msc.c ****     log_info(TAG, "Remounted");
+  60              		.loc 1 21 5 is_stmt 1 view .LVU6
+  61 0018 044A     		ldr	r2, .L3+4
+  62 001a 0549     		ldr	r1, .L3+8
+  63 001c 0320     		movs	r0, #3
+  64 001e FFF7FEFF 		bl	log_func
+  65              	.LVL3:
+  22:SynaptiX_FDK/app/user/sx_msc/sx_user_msc.c ****     return SX_USER_MSC_OK;
+  66              		.loc 1 22 5 view .LVU7
+  23:SynaptiX_FDK/app/user/sx_msc/sx_user_msc.c **** }
+  67              		.loc 1 23 1 is_stmt 0 view .LVU8
+  68 0022 0020     		movs	r0, #0
+  69 0024 08BD     		pop	{r3, pc}
+  70              	.L4:
+  71 0026 00BF     		.align	2
+  72              	.L3:
+  73 0028 00000000 		.word	s_msc
+  74 002c 00000000 		.word	.LC0
+  75 0030 0C000000 		.word	.LC1
+  76              		.cfi_endproc
+  77              	.LFE0:
+  79              		.section	.rodata.sx_user_msc_init.str1.4,"aMS",%progbits,1
+  80              		.align	2
+  81              	.LC2:
+  82 0000 55736572 		.ascii	"User MSC initialized\000"
+  82      204D5343 
+  82      20696E69 
+  82      7469616C 
+  82      697A6564 
+  83              		.section	.text.sx_user_msc_init,"ax",%progbits
+  84              		.align	1
+  85              		.global	sx_user_msc_init
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccfdZY8X.s 			page 3
+
+
+  86              		.syntax unified
+  87              		.thumb
+  88              		.thumb_func
+  90              	sx_user_msc_init:
+  91              	.LFB1:
+  24:SynaptiX_FDK/app/user/sx_msc/sx_user_msc.c **** 
+  25:SynaptiX_FDK/app/user/sx_msc/sx_user_msc.c **** /* ── API ────────────────────────────�
+  26:SynaptiX_FDK/app/user/sx_msc/sx_user_msc.c **** 
+  27:SynaptiX_FDK/app/user/sx_msc/sx_user_msc.c **** sx_user_msc_err_t sx_user_msc_init(void)
+  28:SynaptiX_FDK/app/user/sx_msc/sx_user_msc.c **** {
+  92              		.loc 1 28 1 is_stmt 1 view -0
+  93              		.cfi_startproc
+  94              		@ args = 0, pretend = 0, frame = 0
+  95              		@ frame_needed = 0, uses_anonymous_args = 0
+  96 0000 08B5     		push	{r3, lr}
+  97              	.LCFI1:
+  98              		.cfi_def_cfa_offset 8
+  99              		.cfi_offset 3, -8
+ 100              		.cfi_offset 14, -4
+  29:SynaptiX_FDK/app/user/sx_msc/sx_user_msc.c ****     sx_usb_tiny_msc_init(&s_msc);
+ 101              		.loc 1 29 5 view .LVU10
+ 102 0002 0648     		ldr	r0, .L7
+ 103 0004 FFF7FEFF 		bl	sx_usb_tiny_msc_init
+ 104              	.LVL4:
+  30:SynaptiX_FDK/app/user/sx_msc/sx_user_msc.c ****     s_initialized = true;
+ 105              		.loc 1 30 5 view .LVU11
+ 106              		.loc 1 30 19 is_stmt 0 view .LVU12
+ 107 0008 054B     		ldr	r3, .L7+4
+ 108 000a 0122     		movs	r2, #1
+ 109 000c 1A70     		strb	r2, [r3]
+  31:SynaptiX_FDK/app/user/sx_msc/sx_user_msc.c ****     log_info(TAG, "User MSC initialized");
+ 110              		.loc 1 31 5 is_stmt 1 view .LVU13
+ 111 000e 054A     		ldr	r2, .L7+8
+ 112 0010 0549     		ldr	r1, .L7+12
+ 113 0012 0320     		movs	r0, #3
+ 114 0014 FFF7FEFF 		bl	log_func
+ 115              	.LVL5:
+  32:SynaptiX_FDK/app/user/sx_msc/sx_user_msc.c ****     return SX_USER_MSC_OK;
+ 116              		.loc 1 32 5 view .LVU14
+  33:SynaptiX_FDK/app/user/sx_msc/sx_user_msc.c **** }
+ 117              		.loc 1 33 1 is_stmt 0 view .LVU15
+ 118 0018 0020     		movs	r0, #0
+ 119 001a 08BD     		pop	{r3, pc}
+ 120              	.L8:
+ 121              		.align	2
+ 122              	.L7:
+ 123 001c 00000000 		.word	s_msc
+ 124 0020 00000000 		.word	s_initialized
+ 125 0024 00000000 		.word	.LC2
+ 126 0028 0C000000 		.word	.LC1
+ 127              		.cfi_endproc
+ 128              	.LFE1:
+ 130              		.section	.rodata.sx_user_msc_create_disk.str1.4,"aMS",%progbits,1
+ 131              		.align	2
+ 132              	.LC3:
+ 133 0000 66617466 		.ascii	"fatfs mount failed: %d\000"
+ 133      73206D6F 
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccfdZY8X.s 			page 4
+
+
+ 133      756E7420 
+ 133      6661696C 
+ 133      65643A20 
+ 134 0017 00       		.align	2
+ 135              	.LC4:
+ 136 0018 665F7365 		.ascii	"f_setlabel failed: %d (non-critical)\000"
+ 136      746C6162 
+ 136      656C2066 
+ 136      61696C65 
+ 136      643A2025 
+ 137 003d 000000   		.align	2
+ 138              	.LC5:
+ 139 0040 4469736B 		.ascii	"Disk created: label=\"%s\" blocks=%lu\000"
+ 139      20637265 
+ 139      61746564 
+ 139      3A206C61 
+ 139      62656C3D 
+ 140              		.section	.text.sx_user_msc_create_disk,"ax",%progbits
+ 141              		.align	1
+ 142              		.global	sx_user_msc_create_disk
+ 143              		.syntax unified
+ 144              		.thumb
+ 145              		.thumb_func
+ 147              	sx_user_msc_create_disk:
+ 148              	.LVL6:
+ 149              	.LFB2:
+  34:SynaptiX_FDK/app/user/sx_msc/sx_user_msc.c **** 
+  35:SynaptiX_FDK/app/user/sx_msc/sx_user_msc.c **** sx_user_msc_err_t sx_user_msc_create_disk(const char *label)
+  36:SynaptiX_FDK/app/user/sx_msc/sx_user_msc.c **** {
+ 150              		.loc 1 36 1 is_stmt 1 view -0
+ 151              		.cfi_startproc
+ 152              		@ args = 0, pretend = 0, frame = 0
+ 153              		@ frame_needed = 0, uses_anonymous_args = 0
+  37:SynaptiX_FDK/app/user/sx_msc/sx_user_msc.c ****     if (!s_initialized) return SX_USER_MSC_ERR_INIT;
+ 154              		.loc 1 37 5 view .LVU17
+ 155              		.loc 1 37 9 is_stmt 0 view .LVU18
+ 156 0000 1C4B     		ldr	r3, .L21
+ 157 0002 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 158              		.loc 1 37 8 view .LVU19
+ 159 0004 83B3     		cbz	r3, .L13
+  36:SynaptiX_FDK/app/user/sx_msc/sx_user_msc.c ****     if (!s_initialized) return SX_USER_MSC_ERR_INIT;
+ 160              		.loc 1 36 1 view .LVU20
+ 161 0006 30B5     		push	{r4, r5, lr}
+ 162              	.LCFI2:
+ 163              		.cfi_def_cfa_offset 12
+ 164              		.cfi_offset 4, -12
+ 165              		.cfi_offset 5, -8
+ 166              		.cfi_offset 14, -4
+ 167 0008 83B0     		sub	sp, sp, #12
+ 168              	.LCFI3:
+ 169              		.cfi_def_cfa_offset 24
+ 170 000a 0446     		mov	r4, r0
+  38:SynaptiX_FDK/app/user/sx_msc/sx_user_msc.c ****     if (label == NULL)  return SX_USER_MSC_ERR_PARAM;
+ 171              		.loc 1 38 5 is_stmt 1 view .LVU21
+ 172              		.loc 1 38 8 is_stmt 0 view .LVU22
+ 173 000c 78B3     		cbz	r0, .L14
+  39:SynaptiX_FDK/app/user/sx_msc/sx_user_msc.c **** 
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccfdZY8X.s 			page 5
+
+
+  40:SynaptiX_FDK/app/user/sx_msc/sx_user_msc.c ****     /* Format flash FAT — mỗi lần cắm USB tạo mới hoàn toàn */
+  41:SynaptiX_FDK/app/user/sx_msc/sx_user_msc.c ****     int ret = sx_fatfs_mount();
+ 174              		.loc 1 41 5 is_stmt 1 view .LVU23
+ 175              		.loc 1 41 15 is_stmt 0 view .LVU24
+ 176 000e FFF7FEFF 		bl	sx_fatfs_mount
+ 177              	.LVL7:
+  42:SynaptiX_FDK/app/user/sx_msc/sx_user_msc.c ****     if (ret != 0) {
+ 178              		.loc 1 42 5 is_stmt 1 view .LVU25
+ 179              		.loc 1 42 8 is_stmt 0 view .LVU26
+ 180 0012 0346     		mov	r3, r0
+ 181 0014 D0B9     		cbnz	r0, .L19
+  43:SynaptiX_FDK/app/user/sx_msc/sx_user_msc.c ****         log_error(TAG, "fatfs mount failed: %d", ret);
+  44:SynaptiX_FDK/app/user/sx_msc/sx_user_msc.c ****         return SX_USER_MSC_ERR_DISK;
+  45:SynaptiX_FDK/app/user/sx_msc/sx_user_msc.c ****     }
+  46:SynaptiX_FDK/app/user/sx_msc/sx_user_msc.c **** 
+  47:SynaptiX_FDK/app/user/sx_msc/sx_user_msc.c ****     FRESULT res = f_setlabel(label);
+ 182              		.loc 1 47 5 is_stmt 1 view .LVU27
+ 183              		.loc 1 47 19 is_stmt 0 view .LVU28
+ 184 0016 2046     		mov	r0, r4
+ 185              	.LVL8:
+ 186              		.loc 1 47 19 view .LVU29
+ 187 0018 FFF7FEFF 		bl	f_setlabel
+ 188              	.LVL9:
+  48:SynaptiX_FDK/app/user/sx_msc/sx_user_msc.c ****     if (res != FR_OK) {
+ 189              		.loc 1 48 5 is_stmt 1 view .LVU30
+ 190              		.loc 1 48 8 is_stmt 0 view .LVU31
+ 191 001c 0346     		mov	r3, r0
+ 192 001e E8B9     		cbnz	r0, .L20
+ 193              	.LVL10:
+ 194              	.L12:
+  49:SynaptiX_FDK/app/user/sx_msc/sx_user_msc.c ****         log_warn(TAG, "f_setlabel failed: %d (non-critical)", res);
+  50:SynaptiX_FDK/app/user/sx_msc/sx_user_msc.c ****     }
+  51:SynaptiX_FDK/app/user/sx_msc/sx_user_msc.c **** 
+  52:SynaptiX_FDK/app/user/sx_msc/sx_user_msc.c ****     /* Flash backend: chỉ cần block_count, không cần pointer buffer */
+  53:SynaptiX_FDK/app/user/sx_msc/sx_user_msc.c ****     sx_usb_tiny_msc_load(&s_msc, sx_fatfs_get_block_count());
+ 195              		.loc 1 53 5 is_stmt 1 view .LVU32
+ 196 0020 FFF7FEFF 		bl	sx_fatfs_get_block_count
+ 197              	.LVL11:
+ 198 0024 0146     		mov	r1, r0
+ 199              		.loc 1 53 5 is_stmt 0 discriminator 1 view .LVU33
+ 200 0026 144D     		ldr	r5, .L21+4
+ 201 0028 2846     		mov	r0, r5
+ 202 002a FFF7FEFF 		bl	sx_usb_tiny_msc_load
+ 203              	.LVL12:
+  54:SynaptiX_FDK/app/user/sx_msc/sx_user_msc.c ****     sx_usb_tiny_msc_enter(&s_msc);
+ 204              		.loc 1 54 5 is_stmt 1 view .LVU34
+ 205 002e 2846     		mov	r0, r5
+ 206 0030 FFF7FEFF 		bl	sx_usb_tiny_msc_enter
+ 207              	.LVL13:
+  55:SynaptiX_FDK/app/user/sx_msc/sx_user_msc.c **** 
+  56:SynaptiX_FDK/app/user/sx_msc/sx_user_msc.c ****     log_info(TAG, "Disk created: label=\"%s\" blocks=%lu",
+ 208              		.loc 1 56 5 view .LVU35
+ 209 0034 FFF7FEFF 		bl	sx_fatfs_get_block_count
+ 210              	.LVL14:
+ 211              		.loc 1 56 5 is_stmt 0 discriminator 1 view .LVU36
+ 212 0038 0090     		str	r0, [sp]
+ 213 003a 2346     		mov	r3, r4
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccfdZY8X.s 			page 6
+
+
+ 214 003c 0F4A     		ldr	r2, .L21+8
+ 215 003e 1049     		ldr	r1, .L21+12
+ 216 0040 0320     		movs	r0, #3
+ 217 0042 FFF7FEFF 		bl	log_func
+ 218              	.LVL15:
+  57:SynaptiX_FDK/app/user/sx_msc/sx_user_msc.c ****              label, sx_fatfs_get_block_count());
+  58:SynaptiX_FDK/app/user/sx_msc/sx_user_msc.c ****     return SX_USER_MSC_OK;
+ 219              		.loc 1 58 5 is_stmt 1 view .LVU37
+ 220              		.loc 1 58 12 is_stmt 0 view .LVU38
+ 221 0046 0020     		movs	r0, #0
+ 222              	.LVL16:
+ 223              	.L10:
+  59:SynaptiX_FDK/app/user/sx_msc/sx_user_msc.c **** }
+ 224              		.loc 1 59 1 view .LVU39
+ 225 0048 03B0     		add	sp, sp, #12
+ 226              	.LCFI4:
+ 227              		.cfi_remember_state
+ 228              		.cfi_def_cfa_offset 12
+ 229              		@ sp needed
+ 230 004a 30BD     		pop	{r4, r5, pc}
+ 231              	.LVL17:
+ 232              	.L19:
+ 233              	.LCFI5:
+ 234              		.cfi_restore_state
+  43:SynaptiX_FDK/app/user/sx_msc/sx_user_msc.c ****         return SX_USER_MSC_ERR_DISK;
+ 235              		.loc 1 43 9 is_stmt 1 view .LVU40
+ 236 004c 0D4A     		ldr	r2, .L21+16
+ 237 004e 0C49     		ldr	r1, .L21+12
+ 238 0050 0120     		movs	r0, #1
+ 239              	.LVL18:
+  43:SynaptiX_FDK/app/user/sx_msc/sx_user_msc.c ****         return SX_USER_MSC_ERR_DISK;
+ 240              		.loc 1 43 9 is_stmt 0 view .LVU41
+ 241 0052 FFF7FEFF 		bl	log_func
+ 242              	.LVL19:
+  44:SynaptiX_FDK/app/user/sx_msc/sx_user_msc.c ****     }
+ 243              		.loc 1 44 9 is_stmt 1 view .LVU42
+  44:SynaptiX_FDK/app/user/sx_msc/sx_user_msc.c ****     }
+ 244              		.loc 1 44 16 is_stmt 0 view .LVU43
+ 245 0056 6FF00100 		mvn	r0, #1
+ 246 005a F5E7     		b	.L10
+ 247              	.LVL20:
+ 248              	.L20:
+  49:SynaptiX_FDK/app/user/sx_msc/sx_user_msc.c ****     }
+ 249              		.loc 1 49 9 is_stmt 1 view .LVU44
+ 250 005c 0A4A     		ldr	r2, .L21+20
+ 251 005e 0849     		ldr	r1, .L21+12
+ 252 0060 0220     		movs	r0, #2
+ 253              	.LVL21:
+  49:SynaptiX_FDK/app/user/sx_msc/sx_user_msc.c ****     }
+ 254              		.loc 1 49 9 is_stmt 0 view .LVU45
+ 255 0062 FFF7FEFF 		bl	log_func
+ 256              	.LVL22:
+  49:SynaptiX_FDK/app/user/sx_msc/sx_user_msc.c ****     }
+ 257              		.loc 1 49 9 view .LVU46
+ 258 0066 DBE7     		b	.L12
+ 259              	.LVL23:
+ 260              	.L13:
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccfdZY8X.s 			page 7
+
+
+ 261              	.LCFI6:
+ 262              		.cfi_def_cfa_offset 0
+ 263              		.cfi_restore 4
+ 264              		.cfi_restore 5
+ 265              		.cfi_restore 14
+  37:SynaptiX_FDK/app/user/sx_msc/sx_user_msc.c ****     if (label == NULL)  return SX_USER_MSC_ERR_PARAM;
+ 266              		.loc 1 37 32 discriminator 1 view .LVU47
+ 267 0068 4FF0FF30 		mov	r0, #-1
+ 268              	.LVL24:
+ 269              		.loc 1 59 1 view .LVU48
+ 270 006c 7047     		bx	lr
+ 271              	.LVL25:
+ 272              	.L14:
+ 273              	.LCFI7:
+ 274              		.cfi_def_cfa_offset 24
+ 275              		.cfi_offset 4, -12
+ 276              		.cfi_offset 5, -8
+ 277              		.cfi_offset 14, -4
+  38:SynaptiX_FDK/app/user/sx_msc/sx_user_msc.c **** 
+ 278              		.loc 1 38 32 discriminator 1 view .LVU49
+ 279 006e 6FF00400 		mvn	r0, #4
+ 280              	.LVL26:
+  38:SynaptiX_FDK/app/user/sx_msc/sx_user_msc.c **** 
+ 281              		.loc 1 38 32 discriminator 1 view .LVU50
+ 282 0072 E9E7     		b	.L10
+ 283              	.L22:
+ 284              		.align	2
+ 285              	.L21:
+ 286 0074 00000000 		.word	s_initialized
+ 287 0078 00000000 		.word	s_msc
+ 288 007c 40000000 		.word	.LC5
+ 289 0080 0C000000 		.word	.LC1
+ 290 0084 00000000 		.word	.LC3
+ 291 0088 18000000 		.word	.LC4
+ 292              		.cfi_endproc
+ 293              	.LFE2:
+ 295              		.section	.rodata.sx_user_msc_create_file.str1.4,"aMS",%progbits,1
+ 296              		.align	2
+ 297              	.LC6:
+ 298 0000 63726561 		.ascii	"create_file(%s) failed: %d\000"
+ 298      74655F66 
+ 298      696C6528 
+ 298      25732920 
+ 298      6661696C 
+ 299 001b 00       		.align	2
+ 300              	.LC7:
+ 301 001c 46696C65 		.ascii	"File created: %s\000"
+ 301      20637265 
+ 301      61746564 
+ 301      3A202573 
+ 301      00
+ 302              		.section	.text.sx_user_msc_create_file,"ax",%progbits
+ 303              		.align	1
+ 304              		.global	sx_user_msc_create_file
+ 305              		.syntax unified
+ 306              		.thumb
+ 307              		.thumb_func
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccfdZY8X.s 			page 8
+
+
+ 309              	sx_user_msc_create_file:
+ 310              	.LVL27:
+ 311              	.LFB3:
+  60:SynaptiX_FDK/app/user/sx_msc/sx_user_msc.c **** 
+  61:SynaptiX_FDK/app/user/sx_msc/sx_user_msc.c **** sx_user_msc_err_t sx_user_msc_create_file(const char *filename)
+  62:SynaptiX_FDK/app/user/sx_msc/sx_user_msc.c **** {
+ 312              		.loc 1 62 1 is_stmt 1 view -0
+ 313              		.cfi_startproc
+ 314              		@ args = 0, pretend = 0, frame = 552
+ 315              		@ frame_needed = 0, uses_anonymous_args = 0
+  63:SynaptiX_FDK/app/user/sx_msc/sx_user_msc.c ****     if (!s_initialized)   return SX_USER_MSC_ERR_INIT;
+ 316              		.loc 1 63 5 view .LVU52
+ 317              		.loc 1 63 9 is_stmt 0 view .LVU53
+ 318 0000 154B     		ldr	r3, .L33
+ 319 0002 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 320              		.loc 1 63 8 view .LVU54
+ 321 0004 0BB3     		cbz	r3, .L26
+  62:SynaptiX_FDK/app/user/sx_msc/sx_user_msc.c ****     if (!s_initialized)   return SX_USER_MSC_ERR_INIT;
+ 322              		.loc 1 62 1 view .LVU55
+ 323 0006 10B5     		push	{r4, lr}
+ 324              	.LCFI8:
+ 325              		.cfi_def_cfa_offset 8
+ 326              		.cfi_offset 4, -8
+ 327              		.cfi_offset 14, -4
+ 328 0008 ADF50C7D 		sub	sp, sp, #560
+ 329              	.LCFI9:
+ 330              		.cfi_def_cfa_offset 568
+ 331 000c 0446     		mov	r4, r0
+  64:SynaptiX_FDK/app/user/sx_msc/sx_user_msc.c ****     if (filename == NULL) return SX_USER_MSC_ERR_PARAM;
+ 332              		.loc 1 64 5 is_stmt 1 view .LVU56
+ 333              		.loc 1 64 8 is_stmt 0 view .LVU57
+ 334 000e F8B1     		cbz	r0, .L27
+  65:SynaptiX_FDK/app/user/sx_msc/sx_user_msc.c **** 
+  66:SynaptiX_FDK/app/user/sx_msc/sx_user_msc.c ****     FIL     f;
+ 335              		.loc 1 66 5 is_stmt 1 view .LVU58
+  67:SynaptiX_FDK/app/user/sx_msc/sx_user_msc.c ****     FRESULT res = f_open(&f, filename, FA_WRITE | FA_CREATE_ALWAYS);
+ 336              		.loc 1 67 5 view .LVU59
+ 337              		.loc 1 67 19 is_stmt 0 view .LVU60
+ 338 0010 0A22     		movs	r2, #10
+ 339 0012 0146     		mov	r1, r0
+ 340 0014 02A8     		add	r0, sp, #8
+ 341              	.LVL28:
+ 342              		.loc 1 67 19 view .LVU61
+ 343 0016 FFF7FEFF 		bl	f_open
+ 344              	.LVL29:
+  68:SynaptiX_FDK/app/user/sx_msc/sx_user_msc.c ****     if (res != FR_OK) {
+ 345              		.loc 1 68 5 is_stmt 1 view .LVU62
+ 346              		.loc 1 68 8 is_stmt 0 view .LVU63
+ 347 001a 60B9     		cbnz	r0, .L32
+  69:SynaptiX_FDK/app/user/sx_msc/sx_user_msc.c ****         log_error(TAG, "create_file(%s) failed: %d", filename, res);
+  70:SynaptiX_FDK/app/user/sx_msc/sx_user_msc.c ****         return SX_USER_MSC_ERR_FILE;
+  71:SynaptiX_FDK/app/user/sx_msc/sx_user_msc.c ****     }
+  72:SynaptiX_FDK/app/user/sx_msc/sx_user_msc.c ****     f_close(&f);
+ 348              		.loc 1 72 5 is_stmt 1 view .LVU64
+ 349 001c 02A8     		add	r0, sp, #8
+ 350              	.LVL30:
+ 351              		.loc 1 72 5 is_stmt 0 view .LVU65
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccfdZY8X.s 			page 9
+
+
+ 352 001e FFF7FEFF 		bl	f_close
+ 353              	.LVL31:
+  73:SynaptiX_FDK/app/user/sx_msc/sx_user_msc.c ****     log_info(TAG, "File created: %s", filename);
+ 354              		.loc 1 73 5 is_stmt 1 view .LVU66
+ 355 0022 2346     		mov	r3, r4
+ 356 0024 0D4A     		ldr	r2, .L33+4
+ 357 0026 0E49     		ldr	r1, .L33+8
+ 358 0028 0320     		movs	r0, #3
+ 359 002a FFF7FEFF 		bl	log_func
+ 360              	.LVL32:
+  74:SynaptiX_FDK/app/user/sx_msc/sx_user_msc.c ****     return SX_USER_MSC_OK;
+ 361              		.loc 1 74 5 view .LVU67
+ 362              		.loc 1 74 12 is_stmt 0 view .LVU68
+ 363 002e 0020     		movs	r0, #0
+ 364              	.LVL33:
+ 365              	.L24:
+  75:SynaptiX_FDK/app/user/sx_msc/sx_user_msc.c **** }
+ 366              		.loc 1 75 1 view .LVU69
+ 367 0030 0DF50C7D 		add	sp, sp, #560
+ 368              	.LCFI10:
+ 369              		.cfi_remember_state
+ 370              		.cfi_def_cfa_offset 8
+ 371              		@ sp needed
+ 372 0034 10BD     		pop	{r4, pc}
+ 373              	.LVL34:
+ 374              	.L32:
+ 375              	.LCFI11:
+ 376              		.cfi_restore_state
+  69:SynaptiX_FDK/app/user/sx_msc/sx_user_msc.c ****         return SX_USER_MSC_ERR_FILE;
+ 377              		.loc 1 69 9 is_stmt 1 view .LVU70
+ 378 0036 0090     		str	r0, [sp]
+ 379 0038 2346     		mov	r3, r4
+ 380 003a 0A4A     		ldr	r2, .L33+12
+ 381 003c 0849     		ldr	r1, .L33+8
+ 382 003e 0120     		movs	r0, #1
+ 383              	.LVL35:
+  69:SynaptiX_FDK/app/user/sx_msc/sx_user_msc.c ****         return SX_USER_MSC_ERR_FILE;
+ 384              		.loc 1 69 9 is_stmt 0 view .LVU71
+ 385 0040 FFF7FEFF 		bl	log_func
+ 386              	.LVL36:
+  70:SynaptiX_FDK/app/user/sx_msc/sx_user_msc.c ****     }
+ 387              		.loc 1 70 9 is_stmt 1 view .LVU72
+  70:SynaptiX_FDK/app/user/sx_msc/sx_user_msc.c ****     }
+ 388              		.loc 1 70 16 is_stmt 0 view .LVU73
+ 389 0044 6FF00200 		mvn	r0, #2
+ 390 0048 F2E7     		b	.L24
+ 391              	.LVL37:
+ 392              	.L26:
+ 393              	.LCFI12:
+ 394              		.cfi_def_cfa_offset 0
+ 395              		.cfi_restore 4
+ 396              		.cfi_restore 14
+  63:SynaptiX_FDK/app/user/sx_msc/sx_user_msc.c ****     if (filename == NULL) return SX_USER_MSC_ERR_PARAM;
+ 397              		.loc 1 63 34 discriminator 1 view .LVU74
+ 398 004a 4FF0FF30 		mov	r0, #-1
+ 399              	.LVL38:
+ 400              		.loc 1 75 1 view .LVU75
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccfdZY8X.s 			page 10
+
+
+ 401 004e 7047     		bx	lr
+ 402              	.LVL39:
+ 403              	.L27:
+ 404              	.LCFI13:
+ 405              		.cfi_def_cfa_offset 568
+ 406              		.cfi_offset 4, -8
+ 407              		.cfi_offset 14, -4
+  64:SynaptiX_FDK/app/user/sx_msc/sx_user_msc.c **** 
+ 408              		.loc 1 64 34 discriminator 1 view .LVU76
+ 409 0050 6FF00400 		mvn	r0, #4
+ 410              	.LVL40:
+  64:SynaptiX_FDK/app/user/sx_msc/sx_user_msc.c **** 
+ 411              		.loc 1 64 34 discriminator 1 view .LVU77
+ 412 0054 ECE7     		b	.L24
+ 413              	.L34:
+ 414 0056 00BF     		.align	2
+ 415              	.L33:
+ 416 0058 00000000 		.word	s_initialized
+ 417 005c 1C000000 		.word	.LC7
+ 418 0060 0C000000 		.word	.LC1
+ 419 0064 00000000 		.word	.LC6
+ 420              		.cfi_endproc
+ 421              	.LFE3:
+ 423              		.section	.rodata.sx_user_msc_write.str1.4,"aMS",%progbits,1
+ 424              		.align	2
+ 425              	.LC8:
+ 426 0000 77726974 		.ascii	"write(%s) failed: %d\000"
+ 426      65282573 
+ 426      29206661 
+ 426      696C6564 
+ 426      3A202564 
+ 427 0015 000000   		.align	2
+ 428              	.LC9:
+ 429 0018 77726974 		.ascii	"write(%s): %lu bytes\000"
+ 429      65282573 
+ 429      293A2025 
+ 429      6C752062 
+ 429      79746573 
+ 430              		.section	.text.sx_user_msc_write,"ax",%progbits
+ 431              		.align	1
+ 432              		.global	sx_user_msc_write
+ 433              		.syntax unified
+ 434              		.thumb
+ 435              		.thumb_func
+ 437              	sx_user_msc_write:
+ 438              	.LVL41:
+ 439              	.LFB4:
+  76:SynaptiX_FDK/app/user/sx_msc/sx_user_msc.c **** 
+  77:SynaptiX_FDK/app/user/sx_msc/sx_user_msc.c **** sx_user_msc_err_t sx_user_msc_write(const char *filename, const uint8_t *data, uint32_t len)
+  78:SynaptiX_FDK/app/user/sx_msc/sx_user_msc.c **** {
+ 440              		.loc 1 78 1 is_stmt 1 view -0
+ 441              		.cfi_startproc
+ 442              		@ args = 0, pretend = 0, frame = 0
+ 443              		@ frame_needed = 0, uses_anonymous_args = 0
+  79:SynaptiX_FDK/app/user/sx_msc/sx_user_msc.c ****     if (!s_initialized)                   return SX_USER_MSC_ERR_INIT;
+ 444              		.loc 1 79 5 view .LVU79
+ 445              		.loc 1 79 9 is_stmt 0 view .LVU80
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccfdZY8X.s 			page 11
+
+
+ 446 0000 164B     		ldr	r3, .L47
+ 447 0002 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 448              		.loc 1 79 8 view .LVU81
+ 449 0004 EBB1     		cbz	r3, .L38
+  78:SynaptiX_FDK/app/user/sx_msc/sx_user_msc.c ****     if (!s_initialized)                   return SX_USER_MSC_ERR_INIT;
+ 450              		.loc 1 78 1 view .LVU82
+ 451 0006 30B5     		push	{r4, r5, lr}
+ 452              	.LCFI14:
+ 453              		.cfi_def_cfa_offset 12
+ 454              		.cfi_offset 4, -12
+ 455              		.cfi_offset 5, -8
+ 456              		.cfi_offset 14, -4
+ 457 0008 83B0     		sub	sp, sp, #12
+ 458              	.LCFI15:
+ 459              		.cfi_def_cfa_offset 24
+ 460 000a 0446     		mov	r4, r0
+ 461 000c 1546     		mov	r5, r2
+  80:SynaptiX_FDK/app/user/sx_msc/sx_user_msc.c ****     if (filename == NULL || data == NULL) return SX_USER_MSC_ERR_PARAM;
+ 462              		.loc 1 80 5 is_stmt 1 view .LVU83
+ 463              		.loc 1 80 8 is_stmt 0 view .LVU84
+ 464 000e D8B1     		cbz	r0, .L39
+ 465              		.loc 1 80 26 discriminator 2 view .LVU85
+ 466 0010 E9B1     		cbz	r1, .L40
+  81:SynaptiX_FDK/app/user/sx_msc/sx_user_msc.c ****     if (len == 0)                         return SX_USER_MSC_ERR_PARAM;
+ 467              		.loc 1 81 5 is_stmt 1 view .LVU86
+ 468              		.loc 1 81 8 is_stmt 0 view .LVU87
+ 469 0012 FAB1     		cbz	r2, .L41
+  82:SynaptiX_FDK/app/user/sx_msc/sx_user_msc.c **** 
+  83:SynaptiX_FDK/app/user/sx_msc/sx_user_msc.c ****     int ret = sx_fatfs_write_file(filename, data, len);
+ 470              		.loc 1 83 5 is_stmt 1 view .LVU88
+ 471              		.loc 1 83 15 is_stmt 0 view .LVU89
+ 472 0014 FFF7FEFF 		bl	sx_fatfs_write_file
+ 473              	.LVL42:
+  84:SynaptiX_FDK/app/user/sx_msc/sx_user_msc.c ****     if (ret != 0) {
+ 474              		.loc 1 84 5 is_stmt 1 view .LVU90
+ 475              		.loc 1 84 8 is_stmt 0 view .LVU91
+ 476 0018 48B9     		cbnz	r0, .L46
+  85:SynaptiX_FDK/app/user/sx_msc/sx_user_msc.c ****         log_error(TAG, "write(%s) failed: %d", filename, ret);
+  86:SynaptiX_FDK/app/user/sx_msc/sx_user_msc.c ****         return SX_USER_MSC_ERR_IO;
+  87:SynaptiX_FDK/app/user/sx_msc/sx_user_msc.c ****     }
+  88:SynaptiX_FDK/app/user/sx_msc/sx_user_msc.c ****     log_info(TAG, "write(%s): %lu bytes", filename, len);
+ 477              		.loc 1 88 5 is_stmt 1 view .LVU92
+ 478 001a 0095     		str	r5, [sp]
+ 479 001c 2346     		mov	r3, r4
+ 480 001e 104A     		ldr	r2, .L47+4
+ 481 0020 1049     		ldr	r1, .L47+8
+ 482 0022 0320     		movs	r0, #3
+ 483              	.LVL43:
+ 484              		.loc 1 88 5 is_stmt 0 view .LVU93
+ 485 0024 FFF7FEFF 		bl	log_func
+ 486              	.LVL44:
+  89:SynaptiX_FDK/app/user/sx_msc/sx_user_msc.c ****     return SX_USER_MSC_OK;
+ 487              		.loc 1 89 5 is_stmt 1 view .LVU94
+ 488              		.loc 1 89 12 is_stmt 0 view .LVU95
+ 489 0028 0020     		movs	r0, #0
+ 490              	.LVL45:
+ 491              	.L36:
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccfdZY8X.s 			page 12
+
+
+  90:SynaptiX_FDK/app/user/sx_msc/sx_user_msc.c **** }
+ 492              		.loc 1 90 1 view .LVU96
+ 493 002a 03B0     		add	sp, sp, #12
+ 494              	.LCFI16:
+ 495              		.cfi_remember_state
+ 496              		.cfi_def_cfa_offset 12
+ 497              		@ sp needed
+ 498 002c 30BD     		pop	{r4, r5, pc}
+ 499              	.LVL46:
+ 500              	.L46:
+ 501              	.LCFI17:
+ 502              		.cfi_restore_state
+  85:SynaptiX_FDK/app/user/sx_msc/sx_user_msc.c ****         log_error(TAG, "write(%s) failed: %d", filename, ret);
+ 503              		.loc 1 85 9 is_stmt 1 view .LVU97
+ 504 002e 0090     		str	r0, [sp]
+ 505 0030 2346     		mov	r3, r4
+ 506 0032 0D4A     		ldr	r2, .L47+12
+ 507 0034 0B49     		ldr	r1, .L47+8
+ 508 0036 0120     		movs	r0, #1
+ 509              	.LVL47:
+  85:SynaptiX_FDK/app/user/sx_msc/sx_user_msc.c ****         log_error(TAG, "write(%s) failed: %d", filename, ret);
+ 510              		.loc 1 85 9 is_stmt 0 view .LVU98
+ 511 0038 FFF7FEFF 		bl	log_func
+ 512              	.LVL48:
+  86:SynaptiX_FDK/app/user/sx_msc/sx_user_msc.c ****     }
+ 513              		.loc 1 86 9 is_stmt 1 view .LVU99
+  86:SynaptiX_FDK/app/user/sx_msc/sx_user_msc.c ****     }
+ 514              		.loc 1 86 16 is_stmt 0 view .LVU100
+ 515 003c 6FF00300 		mvn	r0, #3
+ 516 0040 F3E7     		b	.L36
+ 517              	.LVL49:
+ 518              	.L38:
+ 519              	.LCFI18:
+ 520              		.cfi_def_cfa_offset 0
+ 521              		.cfi_restore 4
+ 522              		.cfi_restore 5
+ 523              		.cfi_restore 14
+  79:SynaptiX_FDK/app/user/sx_msc/sx_user_msc.c ****     if (filename == NULL || data == NULL) return SX_USER_MSC_ERR_PARAM;
+ 524              		.loc 1 79 50 discriminator 1 view .LVU101
+ 525 0042 4FF0FF30 		mov	r0, #-1
+ 526              	.LVL50:
+ 527              		.loc 1 90 1 view .LVU102
+ 528 0046 7047     		bx	lr
+ 529              	.LVL51:
+ 530              	.L39:
+ 531              	.LCFI19:
+ 532              		.cfi_def_cfa_offset 24
+ 533              		.cfi_offset 4, -12
+ 534              		.cfi_offset 5, -8
+ 535              		.cfi_offset 14, -4
+  80:SynaptiX_FDK/app/user/sx_msc/sx_user_msc.c ****     if (len == 0)                         return SX_USER_MSC_ERR_PARAM;
+ 536              		.loc 1 80 50 discriminator 3 view .LVU103
+ 537 0048 6FF00400 		mvn	r0, #4
+ 538              	.LVL52:
+  80:SynaptiX_FDK/app/user/sx_msc/sx_user_msc.c ****     if (len == 0)                         return SX_USER_MSC_ERR_PARAM;
+ 539              		.loc 1 80 50 discriminator 3 view .LVU104
+ 540 004c EDE7     		b	.L36
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccfdZY8X.s 			page 13
+
+
+ 541              	.LVL53:
+ 542              	.L40:
+  80:SynaptiX_FDK/app/user/sx_msc/sx_user_msc.c ****     if (len == 0)                         return SX_USER_MSC_ERR_PARAM;
+ 543              		.loc 1 80 50 discriminator 3 view .LVU105
+ 544 004e 6FF00400 		mvn	r0, #4
+ 545              	.LVL54:
+  80:SynaptiX_FDK/app/user/sx_msc/sx_user_msc.c ****     if (len == 0)                         return SX_USER_MSC_ERR_PARAM;
+ 546              		.loc 1 80 50 discriminator 3 view .LVU106
+ 547 0052 EAE7     		b	.L36
+ 548              	.LVL55:
+ 549              	.L41:
+  81:SynaptiX_FDK/app/user/sx_msc/sx_user_msc.c **** 
+ 550              		.loc 1 81 50 discriminator 1 view .LVU107
+ 551 0054 6FF00400 		mvn	r0, #4
+ 552              	.LVL56:
+  81:SynaptiX_FDK/app/user/sx_msc/sx_user_msc.c **** 
+ 553              		.loc 1 81 50 discriminator 1 view .LVU108
+ 554 0058 E7E7     		b	.L36
+ 555              	.L48:
+ 556 005a 00BF     		.align	2
+ 557              	.L47:
+ 558 005c 00000000 		.word	s_initialized
+ 559 0060 18000000 		.word	.LC9
+ 560 0064 0C000000 		.word	.LC1
+ 561 0068 00000000 		.word	.LC8
+ 562              		.cfi_endproc
+ 563              	.LFE4:
+ 565              		.section	.rodata.sx_user_msc_append.str1.4,"aMS",%progbits,1
+ 566              		.align	2
+ 567              	.LC10:
+ 568 0000 61707065 		.ascii	"append open(%s) failed: %d\000"
+ 568      6E64206F 
+ 568      70656E28 
+ 568      25732920 
+ 568      6661696C 
+ 569 001b 00       		.align	2
+ 570              	.LC11:
+ 571 001c 61707065 		.ascii	"append write(%s) failed: %d\000"
+ 571      6E642077 
+ 571      72697465 
+ 571      28257329 
+ 571      20666169 
+ 572              		.align	2
+ 573              	.LC12:
+ 574 0038 61707065 		.ascii	"append(%s): %lu bytes\000"
+ 574      6E642825 
+ 574      73293A20 
+ 574      256C7520 
+ 574      62797465 
+ 575              		.section	.text.sx_user_msc_append,"ax",%progbits
+ 576              		.align	1
+ 577              		.global	sx_user_msc_append
+ 578              		.syntax unified
+ 579              		.thumb
+ 580              		.thumb_func
+ 582              	sx_user_msc_append:
+ 583              	.LVL57:
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccfdZY8X.s 			page 14
+
+
+ 584              	.LFB5:
+  91:SynaptiX_FDK/app/user/sx_msc/sx_user_msc.c **** 
+  92:SynaptiX_FDK/app/user/sx_msc/sx_user_msc.c **** sx_user_msc_err_t sx_user_msc_append(const char *filename, const uint8_t *data, uint32_t len)
+  93:SynaptiX_FDK/app/user/sx_msc/sx_user_msc.c **** {
+ 585              		.loc 1 93 1 is_stmt 1 view -0
+ 586              		.cfi_startproc
+ 587              		@ args = 0, pretend = 0, frame = 560
+ 588              		@ frame_needed = 0, uses_anonymous_args = 0
+  94:SynaptiX_FDK/app/user/sx_msc/sx_user_msc.c ****     if (!s_initialized)                   return SX_USER_MSC_ERR_INIT;
+ 589              		.loc 1 94 5 view .LVU110
+ 590              		.loc 1 94 9 is_stmt 0 view .LVU111
+ 591 0000 284B     		ldr	r3, .L63
+ 592 0002 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 593              		.loc 1 94 8 view .LVU112
+ 594 0004 002B     		cmp	r3, #0
+ 595 0006 41D0     		beq	.L54
+  93:SynaptiX_FDK/app/user/sx_msc/sx_user_msc.c ****     if (!s_initialized)                   return SX_USER_MSC_ERR_INIT;
+ 596              		.loc 1 93 1 view .LVU113
+ 597 0008 70B5     		push	{r4, r5, r6, lr}
+ 598              	.LCFI20:
+ 599              		.cfi_def_cfa_offset 16
+ 600              		.cfi_offset 4, -16
+ 601              		.cfi_offset 5, -12
+ 602              		.cfi_offset 6, -8
+ 603              		.cfi_offset 14, -4
+ 604 000a ADF50E7D 		sub	sp, sp, #568
+ 605              	.LCFI21:
+ 606              		.cfi_def_cfa_offset 584
+ 607 000e 0546     		mov	r5, r0
+ 608 0010 0E46     		mov	r6, r1
+ 609 0012 1446     		mov	r4, r2
+  95:SynaptiX_FDK/app/user/sx_msc/sx_user_msc.c ****     if (filename == NULL || data == NULL) return SX_USER_MSC_ERR_PARAM;
+ 610              		.loc 1 95 5 is_stmt 1 view .LVU114
+ 611              		.loc 1 95 8 is_stmt 0 view .LVU115
+ 612 0014 0028     		cmp	r0, #0
+ 613 0016 3CD0     		beq	.L55
+ 614              		.loc 1 95 26 discriminator 2 view .LVU116
+ 615 0018 0029     		cmp	r1, #0
+ 616 001a 3DD0     		beq	.L56
+  96:SynaptiX_FDK/app/user/sx_msc/sx_user_msc.c ****     if (len == 0)                         return SX_USER_MSC_ERR_PARAM;
+ 617              		.loc 1 96 5 is_stmt 1 view .LVU117
+ 618              		.loc 1 96 8 is_stmt 0 view .LVU118
+ 619 001c 002A     		cmp	r2, #0
+ 620 001e 3ED0     		beq	.L57
+  97:SynaptiX_FDK/app/user/sx_msc/sx_user_msc.c **** 
+  98:SynaptiX_FDK/app/user/sx_msc/sx_user_msc.c ****     FIL     f;
+ 621              		.loc 1 98 5 is_stmt 1 view .LVU119
+  99:SynaptiX_FDK/app/user/sx_msc/sx_user_msc.c ****     UINT    bw;
+ 622              		.loc 1 99 5 view .LVU120
+ 100:SynaptiX_FDK/app/user/sx_msc/sx_user_msc.c ****     FRESULT res;
+ 623              		.loc 1 100 5 view .LVU121
+ 101:SynaptiX_FDK/app/user/sx_msc/sx_user_msc.c **** 
+ 102:SynaptiX_FDK/app/user/sx_msc/sx_user_msc.c ****     res = f_open(&f, filename, FA_WRITE | FA_OPEN_APPEND);
+ 624              		.loc 1 102 5 view .LVU122
+ 625              		.loc 1 102 11 is_stmt 0 view .LVU123
+ 626 0020 3222     		movs	r2, #50
+ 627              	.LVL58:
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccfdZY8X.s 			page 15
+
+
+ 628              		.loc 1 102 11 view .LVU124
+ 629 0022 0146     		mov	r1, r0
+ 630              	.LVL59:
+ 631              		.loc 1 102 11 view .LVU125
+ 632 0024 04A8     		add	r0, sp, #16
+ 633              	.LVL60:
+ 634              		.loc 1 102 11 view .LVU126
+ 635 0026 FFF7FEFF 		bl	f_open
+ 636              	.LVL61:
+ 103:SynaptiX_FDK/app/user/sx_msc/sx_user_msc.c ****     if (res != FR_OK) {
+ 637              		.loc 1 103 5 is_stmt 1 view .LVU127
+ 638              		.loc 1 103 8 is_stmt 0 view .LVU128
+ 639 002a D8B9     		cbnz	r0, .L62
+ 104:SynaptiX_FDK/app/user/sx_msc/sx_user_msc.c ****         log_error(TAG, "append open(%s) failed: %d", filename, res);
+ 105:SynaptiX_FDK/app/user/sx_msc/sx_user_msc.c ****         return SX_USER_MSC_ERR_FILE;
+ 106:SynaptiX_FDK/app/user/sx_msc/sx_user_msc.c ****     }
+ 107:SynaptiX_FDK/app/user/sx_msc/sx_user_msc.c **** 
+ 108:SynaptiX_FDK/app/user/sx_msc/sx_user_msc.c ****     res = f_write(&f, data, len, &bw);
+ 640              		.loc 1 108 5 is_stmt 1 view .LVU129
+ 641              		.loc 1 108 11 is_stmt 0 view .LVU130
+ 642 002c 03AB     		add	r3, sp, #12
+ 643 002e 2246     		mov	r2, r4
+ 644 0030 3146     		mov	r1, r6
+ 645 0032 04A8     		add	r0, sp, #16
+ 646              	.LVL62:
+ 647              		.loc 1 108 11 view .LVU131
+ 648 0034 FFF7FEFF 		bl	f_write
+ 649              	.LVL63:
+ 650 0038 0646     		mov	r6, r0
+ 651              	.LVL64:
+ 109:SynaptiX_FDK/app/user/sx_msc/sx_user_msc.c ****     f_sync(&f);
+ 652              		.loc 1 109 5 is_stmt 1 view .LVU132
+ 653 003a 04A8     		add	r0, sp, #16
+ 654 003c FFF7FEFF 		bl	f_sync
+ 655              	.LVL65:
+ 110:SynaptiX_FDK/app/user/sx_msc/sx_user_msc.c ****     f_close(&f);
+ 656              		.loc 1 110 5 view .LVU133
+ 657 0040 04A8     		add	r0, sp, #16
+ 658 0042 FFF7FEFF 		bl	f_close
+ 659              	.LVL66:
+ 111:SynaptiX_FDK/app/user/sx_msc/sx_user_msc.c **** 
+ 112:SynaptiX_FDK/app/user/sx_msc/sx_user_msc.c ****     if (res != FR_OK || bw != len) {
+ 660              		.loc 1 112 5 view .LVU134
+ 661              		.loc 1 112 8 is_stmt 0 view .LVU135
+ 662 0046 BEB9     		cbnz	r6, .L52
+ 663              		.loc 1 112 28 discriminator 1 view .LVU136
+ 664 0048 039B     		ldr	r3, [sp, #12]
+ 665              		.loc 1 112 22 discriminator 1 view .LVU137
+ 666 004a A342     		cmp	r3, r4
+ 667 004c 14D1     		bne	.L52
+ 113:SynaptiX_FDK/app/user/sx_msc/sx_user_msc.c ****         log_error(TAG, "append write(%s) failed: %d", filename, res);
+ 114:SynaptiX_FDK/app/user/sx_msc/sx_user_msc.c ****         return SX_USER_MSC_ERR_IO;
+ 115:SynaptiX_FDK/app/user/sx_msc/sx_user_msc.c ****     }
+ 116:SynaptiX_FDK/app/user/sx_msc/sx_user_msc.c ****     log_info(TAG, "append(%s): %lu bytes", filename, len);
+ 668              		.loc 1 116 5 is_stmt 1 view .LVU138
+ 669 004e 0094     		str	r4, [sp]
+ 670 0050 2B46     		mov	r3, r5
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccfdZY8X.s 			page 16
+
+
+ 671 0052 154A     		ldr	r2, .L63+4
+ 672 0054 1549     		ldr	r1, .L63+8
+ 673 0056 0320     		movs	r0, #3
+ 674 0058 FFF7FEFF 		bl	log_func
+ 675              	.LVL67:
+ 117:SynaptiX_FDK/app/user/sx_msc/sx_user_msc.c ****     return SX_USER_MSC_OK;
+ 676              		.loc 1 117 5 view .LVU139
+ 677              		.loc 1 117 12 is_stmt 0 view .LVU140
+ 678 005c 0020     		movs	r0, #0
+ 679              	.LVL68:
+ 680              	.L50:
+ 118:SynaptiX_FDK/app/user/sx_msc/sx_user_msc.c **** }
+ 681              		.loc 1 118 1 view .LVU141
+ 682 005e 0DF50E7D 		add	sp, sp, #568
+ 683              	.LCFI22:
+ 684              		.cfi_remember_state
+ 685              		.cfi_def_cfa_offset 16
+ 686              		@ sp needed
+ 687 0062 70BD     		pop	{r4, r5, r6, pc}
+ 688              	.LVL69:
+ 689              	.L62:
+ 690              	.LCFI23:
+ 691              		.cfi_restore_state
+ 104:SynaptiX_FDK/app/user/sx_msc/sx_user_msc.c ****         return SX_USER_MSC_ERR_FILE;
+ 692              		.loc 1 104 9 is_stmt 1 view .LVU142
+ 693 0064 0090     		str	r0, [sp]
+ 694 0066 2B46     		mov	r3, r5
+ 695 0068 114A     		ldr	r2, .L63+12
+ 696 006a 1049     		ldr	r1, .L63+8
+ 697 006c 0120     		movs	r0, #1
+ 698              	.LVL70:
+ 104:SynaptiX_FDK/app/user/sx_msc/sx_user_msc.c ****         return SX_USER_MSC_ERR_FILE;
+ 699              		.loc 1 104 9 is_stmt 0 view .LVU143
+ 700 006e FFF7FEFF 		bl	log_func
+ 701              	.LVL71:
+ 105:SynaptiX_FDK/app/user/sx_msc/sx_user_msc.c ****     }
+ 702              		.loc 1 105 9 is_stmt 1 view .LVU144
+ 105:SynaptiX_FDK/app/user/sx_msc/sx_user_msc.c ****     }
+ 703              		.loc 1 105 16 is_stmt 0 view .LVU145
+ 704 0072 6FF00200 		mvn	r0, #2
+ 705 0076 F2E7     		b	.L50
+ 706              	.LVL72:
+ 707              	.L52:
+ 113:SynaptiX_FDK/app/user/sx_msc/sx_user_msc.c ****         return SX_USER_MSC_ERR_IO;
+ 708              		.loc 1 113 9 is_stmt 1 view .LVU146
+ 709 0078 0096     		str	r6, [sp]
+ 710 007a 2B46     		mov	r3, r5
+ 711 007c 0D4A     		ldr	r2, .L63+16
+ 712 007e 0B49     		ldr	r1, .L63+8
+ 713 0080 0120     		movs	r0, #1
+ 714 0082 FFF7FEFF 		bl	log_func
+ 715              	.LVL73:
+ 114:SynaptiX_FDK/app/user/sx_msc/sx_user_msc.c ****     }
+ 716              		.loc 1 114 9 view .LVU147
+ 114:SynaptiX_FDK/app/user/sx_msc/sx_user_msc.c ****     }
+ 717              		.loc 1 114 16 is_stmt 0 view .LVU148
+ 718 0086 6FF00300 		mvn	r0, #3
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccfdZY8X.s 			page 17
+
+
+ 719 008a E8E7     		b	.L50
+ 720              	.LVL74:
+ 721              	.L54:
+ 722              	.LCFI24:
+ 723              		.cfi_def_cfa_offset 0
+ 724              		.cfi_restore 4
+ 725              		.cfi_restore 5
+ 726              		.cfi_restore 6
+ 727              		.cfi_restore 14
+  94:SynaptiX_FDK/app/user/sx_msc/sx_user_msc.c ****     if (filename == NULL || data == NULL) return SX_USER_MSC_ERR_PARAM;
+ 728              		.loc 1 94 50 discriminator 1 view .LVU149
+ 729 008c 4FF0FF30 		mov	r0, #-1
+ 730              	.LVL75:
+ 731              		.loc 1 118 1 view .LVU150
+ 732 0090 7047     		bx	lr
+ 733              	.LVL76:
+ 734              	.L55:
+ 735              	.LCFI25:
+ 736              		.cfi_def_cfa_offset 584
+ 737              		.cfi_offset 4, -16
+ 738              		.cfi_offset 5, -12
+ 739              		.cfi_offset 6, -8
+ 740              		.cfi_offset 14, -4
+  95:SynaptiX_FDK/app/user/sx_msc/sx_user_msc.c ****     if (len == 0)                         return SX_USER_MSC_ERR_PARAM;
+ 741              		.loc 1 95 50 discriminator 3 view .LVU151
+ 742 0092 6FF00400 		mvn	r0, #4
+ 743              	.LVL77:
+  95:SynaptiX_FDK/app/user/sx_msc/sx_user_msc.c ****     if (len == 0)                         return SX_USER_MSC_ERR_PARAM;
+ 744              		.loc 1 95 50 discriminator 3 view .LVU152
+ 745 0096 E2E7     		b	.L50
+ 746              	.LVL78:
+ 747              	.L56:
+  95:SynaptiX_FDK/app/user/sx_msc/sx_user_msc.c ****     if (len == 0)                         return SX_USER_MSC_ERR_PARAM;
+ 748              		.loc 1 95 50 discriminator 3 view .LVU153
+ 749 0098 6FF00400 		mvn	r0, #4
+ 750              	.LVL79:
+  95:SynaptiX_FDK/app/user/sx_msc/sx_user_msc.c ****     if (len == 0)                         return SX_USER_MSC_ERR_PARAM;
+ 751              		.loc 1 95 50 discriminator 3 view .LVU154
+ 752 009c DFE7     		b	.L50
+ 753              	.LVL80:
+ 754              	.L57:
+  96:SynaptiX_FDK/app/user/sx_msc/sx_user_msc.c **** 
+ 755              		.loc 1 96 50 discriminator 1 view .LVU155
+ 756 009e 6FF00400 		mvn	r0, #4
+ 757              	.LVL81:
+  96:SynaptiX_FDK/app/user/sx_msc/sx_user_msc.c **** 
+ 758              		.loc 1 96 50 discriminator 1 view .LVU156
+ 759 00a2 DCE7     		b	.L50
+ 760              	.L64:
+ 761              		.align	2
+ 762              	.L63:
+ 763 00a4 00000000 		.word	s_initialized
+ 764 00a8 38000000 		.word	.LC12
+ 765 00ac 0C000000 		.word	.LC1
+ 766 00b0 00000000 		.word	.LC10
+ 767 00b4 1C000000 		.word	.LC11
+ 768              		.cfi_endproc
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccfdZY8X.s 			page 18
+
+
+ 769              	.LFE5:
+ 771              		.section	.rodata.sx_user_msc_read.str1.4,"aMS",%progbits,1
+ 772              		.align	2
+ 773              	.LC13:
+ 774 0000 72656164 		.ascii	"read(%s) failed: %d\000"
+ 774      28257329 
+ 774      20666169 
+ 774      6C65643A 
+ 774      20256400 
+ 775              		.align	2
+ 776              	.LC14:
+ 777 0014 72656164 		.ascii	"read(%s): %lu bytes\000"
+ 777      28257329 
+ 777      3A20256C 
+ 777      75206279 
+ 777      74657300 
+ 778              		.section	.text.sx_user_msc_read,"ax",%progbits
+ 779              		.align	1
+ 780              		.global	sx_user_msc_read
+ 781              		.syntax unified
+ 782              		.thumb
+ 783              		.thumb_func
+ 785              	sx_user_msc_read:
+ 786              	.LVL82:
+ 787              	.LFB6:
+ 119:SynaptiX_FDK/app/user/sx_msc/sx_user_msc.c **** 
+ 120:SynaptiX_FDK/app/user/sx_msc/sx_user_msc.c **** sx_user_msc_err_t sx_user_msc_read(const char *filename, uint8_t *buf,
+ 121:SynaptiX_FDK/app/user/sx_msc/sx_user_msc.c ****                                     uint32_t buf_len, uint32_t *out_len)
+ 122:SynaptiX_FDK/app/user/sx_msc/sx_user_msc.c **** {
+ 788              		.loc 1 122 1 is_stmt 1 view -0
+ 789              		.cfi_startproc
+ 790              		@ args = 0, pretend = 0, frame = 0
+ 791              		@ frame_needed = 0, uses_anonymous_args = 0
+ 792              		.loc 1 122 1 is_stmt 0 view .LVU158
+ 793 0000 30B5     		push	{r4, r5, lr}
+ 794              	.LCFI26:
+ 795              		.cfi_def_cfa_offset 12
+ 796              		.cfi_offset 4, -12
+ 797              		.cfi_offset 5, -8
+ 798              		.cfi_offset 14, -4
+ 799 0002 83B0     		sub	sp, sp, #12
+ 800              	.LCFI27:
+ 801              		.cfi_def_cfa_offset 24
+ 802 0004 1D46     		mov	r5, r3
+ 123:SynaptiX_FDK/app/user/sx_msc/sx_user_msc.c ****     if (!s_initialized)                  return SX_USER_MSC_ERR_INIT;
+ 803              		.loc 1 123 5 is_stmt 1 view .LVU159
+ 804              		.loc 1 123 9 is_stmt 0 view .LVU160
+ 805 0006 174B     		ldr	r3, .L76
+ 806              	.LVL83:
+ 807              		.loc 1 123 9 view .LVU161
+ 808 0008 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 809              		.loc 1 123 8 view .LVU162
+ 810 000a FBB1     		cbz	r3, .L69
+ 811 000c 0446     		mov	r4, r0
+ 124:SynaptiX_FDK/app/user/sx_msc/sx_user_msc.c ****     if (filename == NULL || buf == NULL) return SX_USER_MSC_ERR_PARAM;
+ 812              		.loc 1 124 5 is_stmt 1 view .LVU163
+ 813              		.loc 1 124 8 is_stmt 0 view .LVU164
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccfdZY8X.s 			page 19
+
+
+ 814 000e 00B3     		cbz	r0, .L70
+ 815              		.loc 1 124 26 discriminator 2 view .LVU165
+ 816 0010 11B3     		cbz	r1, .L71
+ 125:SynaptiX_FDK/app/user/sx_msc/sx_user_msc.c ****     if (buf_len == 0)                    return SX_USER_MSC_ERR_PARAM;
+ 817              		.loc 1 125 5 is_stmt 1 view .LVU166
+ 818              		.loc 1 125 8 is_stmt 0 view .LVU167
+ 819 0012 22B3     		cbz	r2, .L72
+ 126:SynaptiX_FDK/app/user/sx_msc/sx_user_msc.c **** 
+ 127:SynaptiX_FDK/app/user/sx_msc/sx_user_msc.c ****     int ret = sx_fatfs_read_file(filename, buf, buf_len, out_len);
+ 820              		.loc 1 127 5 is_stmt 1 view .LVU168
+ 821              		.loc 1 127 15 is_stmt 0 view .LVU169
+ 822 0014 2B46     		mov	r3, r5
+ 823 0016 FFF7FEFF 		bl	sx_fatfs_read_file
+ 824              	.LVL84:
+ 128:SynaptiX_FDK/app/user/sx_msc/sx_user_msc.c ****     if (ret != 0) {
+ 825              		.loc 1 128 5 is_stmt 1 view .LVU170
+ 826              		.loc 1 128 8 is_stmt 0 view .LVU171
+ 827 001a 58B9     		cbnz	r0, .L75
+ 129:SynaptiX_FDK/app/user/sx_msc/sx_user_msc.c ****         log_error(TAG, "read(%s) failed: %d", filename, ret);
+ 130:SynaptiX_FDK/app/user/sx_msc/sx_user_msc.c ****         return SX_USER_MSC_ERR_IO;
+ 131:SynaptiX_FDK/app/user/sx_msc/sx_user_msc.c ****     }
+ 132:SynaptiX_FDK/app/user/sx_msc/sx_user_msc.c ****     log_info(TAG, "read(%s): %lu bytes", filename, out_len ? *out_len : 0);
+ 828              		.loc 1 132 5 is_stmt 1 view .LVU172
+ 829 001c A5B1     		cbz	r5, .L73
+ 830              		.loc 1 132 5 is_stmt 0 discriminator 1 view .LVU173
+ 831 001e 2B68     		ldr	r3, [r5]
+ 832              	.L68:
+ 833              		.loc 1 132 5 discriminator 4 view .LVU174
+ 834 0020 0093     		str	r3, [sp]
+ 835 0022 2346     		mov	r3, r4
+ 836 0024 104A     		ldr	r2, .L76+4
+ 837 0026 1149     		ldr	r1, .L76+8
+ 838 0028 0320     		movs	r0, #3
+ 839              	.LVL85:
+ 840              		.loc 1 132 5 discriminator 4 view .LVU175
+ 841 002a FFF7FEFF 		bl	log_func
+ 842              	.LVL86:
+ 133:SynaptiX_FDK/app/user/sx_msc/sx_user_msc.c ****     return SX_USER_MSC_OK;
+ 843              		.loc 1 133 5 is_stmt 1 view .LVU176
+ 844              		.loc 1 133 12 is_stmt 0 view .LVU177
+ 845 002e 0020     		movs	r0, #0
+ 846              	.LVL87:
+ 847              	.L66:
+ 134:SynaptiX_FDK/app/user/sx_msc/sx_user_msc.c **** }
+ 848              		.loc 1 134 1 view .LVU178
+ 849 0030 03B0     		add	sp, sp, #12
+ 850              	.LCFI28:
+ 851              		.cfi_remember_state
+ 852              		.cfi_def_cfa_offset 12
+ 853              		@ sp needed
+ 854 0032 30BD     		pop	{r4, r5, pc}
+ 855              	.LVL88:
+ 856              	.L75:
+ 857              	.LCFI29:
+ 858              		.cfi_restore_state
+ 129:SynaptiX_FDK/app/user/sx_msc/sx_user_msc.c ****         log_error(TAG, "read(%s) failed: %d", filename, ret);
+ 859              		.loc 1 129 9 is_stmt 1 view .LVU179
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccfdZY8X.s 			page 20
+
+
+ 860 0034 0090     		str	r0, [sp]
+ 861 0036 2346     		mov	r3, r4
+ 862 0038 0D4A     		ldr	r2, .L76+12
+ 863 003a 0C49     		ldr	r1, .L76+8
+ 864 003c 0120     		movs	r0, #1
+ 865              	.LVL89:
+ 129:SynaptiX_FDK/app/user/sx_msc/sx_user_msc.c ****         log_error(TAG, "read(%s) failed: %d", filename, ret);
+ 866              		.loc 1 129 9 is_stmt 0 view .LVU180
+ 867 003e FFF7FEFF 		bl	log_func
+ 868              	.LVL90:
+ 130:SynaptiX_FDK/app/user/sx_msc/sx_user_msc.c ****     }
+ 869              		.loc 1 130 9 is_stmt 1 view .LVU181
+ 130:SynaptiX_FDK/app/user/sx_msc/sx_user_msc.c ****     }
+ 870              		.loc 1 130 16 is_stmt 0 view .LVU182
+ 871 0042 6FF00300 		mvn	r0, #3
+ 872 0046 F3E7     		b	.L66
+ 873              	.LVL91:
+ 874              	.L73:
+ 132:SynaptiX_FDK/app/user/sx_msc/sx_user_msc.c ****     return SX_USER_MSC_OK;
+ 875              		.loc 1 132 5 discriminator 2 view .LVU183
+ 876 0048 0023     		movs	r3, #0
+ 877 004a E9E7     		b	.L68
+ 878              	.LVL92:
+ 879              	.L69:
+ 123:SynaptiX_FDK/app/user/sx_msc/sx_user_msc.c ****     if (filename == NULL || buf == NULL) return SX_USER_MSC_ERR_PARAM;
+ 880              		.loc 1 123 49 discriminator 1 view .LVU184
+ 881 004c 4FF0FF30 		mov	r0, #-1
+ 882              	.LVL93:
+ 123:SynaptiX_FDK/app/user/sx_msc/sx_user_msc.c ****     if (filename == NULL || buf == NULL) return SX_USER_MSC_ERR_PARAM;
+ 883              		.loc 1 123 49 discriminator 1 view .LVU185
+ 884 0050 EEE7     		b	.L66
+ 885              	.LVL94:
+ 886              	.L70:
+ 124:SynaptiX_FDK/app/user/sx_msc/sx_user_msc.c ****     if (buf_len == 0)                    return SX_USER_MSC_ERR_PARAM;
+ 887              		.loc 1 124 49 discriminator 3 view .LVU186
+ 888 0052 6FF00400 		mvn	r0, #4
+ 889              	.LVL95:
+ 124:SynaptiX_FDK/app/user/sx_msc/sx_user_msc.c ****     if (buf_len == 0)                    return SX_USER_MSC_ERR_PARAM;
+ 890              		.loc 1 124 49 discriminator 3 view .LVU187
+ 891 0056 EBE7     		b	.L66
+ 892              	.LVL96:
+ 893              	.L71:
+ 124:SynaptiX_FDK/app/user/sx_msc/sx_user_msc.c ****     if (buf_len == 0)                    return SX_USER_MSC_ERR_PARAM;
+ 894              		.loc 1 124 49 discriminator 3 view .LVU188
+ 895 0058 6FF00400 		mvn	r0, #4
+ 896              	.LVL97:
+ 124:SynaptiX_FDK/app/user/sx_msc/sx_user_msc.c ****     if (buf_len == 0)                    return SX_USER_MSC_ERR_PARAM;
+ 897              		.loc 1 124 49 discriminator 3 view .LVU189
+ 898 005c E8E7     		b	.L66
+ 899              	.LVL98:
+ 900              	.L72:
+ 125:SynaptiX_FDK/app/user/sx_msc/sx_user_msc.c **** 
+ 901              		.loc 1 125 49 discriminator 1 view .LVU190
+ 902 005e 6FF00400 		mvn	r0, #4
+ 903              	.LVL99:
+ 125:SynaptiX_FDK/app/user/sx_msc/sx_user_msc.c **** 
+ 904              		.loc 1 125 49 discriminator 1 view .LVU191
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccfdZY8X.s 			page 21
+
+
+ 905 0062 E5E7     		b	.L66
+ 906              	.L77:
+ 907              		.align	2
+ 908              	.L76:
+ 909 0064 00000000 		.word	s_initialized
+ 910 0068 14000000 		.word	.LC14
+ 911 006c 0C000000 		.word	.LC1
+ 912 0070 00000000 		.word	.LC13
+ 913              		.cfi_endproc
+ 914              	.LFE6:
+ 916              		.section	.text.sx_user_msc_update_file,"ax",%progbits
+ 917              		.align	1
+ 918              		.global	sx_user_msc_update_file
+ 919              		.syntax unified
+ 920              		.thumb
+ 921              		.thumb_func
+ 923              	sx_user_msc_update_file:
+ 924              	.LVL100:
+ 925              	.LFB7:
+ 135:SynaptiX_FDK/app/user/sx_msc/sx_user_msc.c **** 
+ 136:SynaptiX_FDK/app/user/sx_msc/sx_user_msc.c **** sx_user_msc_err_t sx_user_msc_update_file(const char *filename,
+ 137:SynaptiX_FDK/app/user/sx_msc/sx_user_msc.c ****                                            const uint8_t *data, uint32_t len)
+ 138:SynaptiX_FDK/app/user/sx_msc/sx_user_msc.c **** {
+ 926              		.loc 1 138 1 is_stmt 1 view -0
+ 927              		.cfi_startproc
+ 928              		@ args = 0, pretend = 0, frame = 0
+ 929              		@ frame_needed = 0, uses_anonymous_args = 0
+ 930              		.loc 1 138 1 is_stmt 0 view .LVU193
+ 931 0000 08B5     		push	{r3, lr}
+ 932              	.LCFI30:
+ 933              		.cfi_def_cfa_offset 8
+ 934              		.cfi_offset 3, -8
+ 935              		.cfi_offset 14, -4
+ 139:SynaptiX_FDK/app/user/sx_msc/sx_user_msc.c ****     if (!s_initialized)                   return SX_USER_MSC_ERR_INIT;
+ 936              		.loc 1 139 5 is_stmt 1 view .LVU194
+ 937              		.loc 1 139 9 is_stmt 0 view .LVU195
+ 938 0002 0C4B     		ldr	r3, .L86
+ 939 0004 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 940              		.loc 1 139 8 view .LVU196
+ 941 0006 4BB1     		cbz	r3, .L80
+ 140:SynaptiX_FDK/app/user/sx_msc/sx_user_msc.c ****     if (filename == NULL || data == NULL) return SX_USER_MSC_ERR_PARAM;
+ 942              		.loc 1 140 5 is_stmt 1 view .LVU197
+ 943              		.loc 1 140 8 is_stmt 0 view .LVU198
+ 944 0008 58B1     		cbz	r0, .L81
+ 945              		.loc 1 140 26 discriminator 2 view .LVU199
+ 946 000a 69B1     		cbz	r1, .L82
+ 141:SynaptiX_FDK/app/user/sx_msc/sx_user_msc.c ****     if (len == 0)                         return SX_USER_MSC_ERR_PARAM;
+ 947              		.loc 1 141 5 is_stmt 1 view .LVU200
+ 948              		.loc 1 141 8 is_stmt 0 view .LVU201
+ 949 000c 7AB1     		cbz	r2, .L83
+ 142:SynaptiX_FDK/app/user/sx_msc/sx_user_msc.c **** 
+ 143:SynaptiX_FDK/app/user/sx_msc/sx_user_msc.c ****     sx_user_msc_err_t ret = sx_user_msc_append(filename, data, len);
+ 950              		.loc 1 143 5 is_stmt 1 view .LVU202
+ 951              		.loc 1 143 29 is_stmt 0 view .LVU203
+ 952 000e FFF7FEFF 		bl	sx_user_msc_append
+ 953              	.LVL101:
+ 144:SynaptiX_FDK/app/user/sx_msc/sx_user_msc.c ****     if (ret != SX_USER_MSC_OK) return ret;
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccfdZY8X.s 			page 22
+
+
+ 954              		.loc 1 144 5 is_stmt 1 view .LVU204
+ 955              		.loc 1 144 8 is_stmt 0 view .LVU205
+ 956 0012 00B1     		cbz	r0, .L85
+ 957              	.LVL102:
+ 958              	.L79:
+ 145:SynaptiX_FDK/app/user/sx_msc/sx_user_msc.c **** 
+ 146:SynaptiX_FDK/app/user/sx_msc/sx_user_msc.c ****     return _remount();
+ 147:SynaptiX_FDK/app/user/sx_msc/sx_user_msc.c **** }
+ 959              		.loc 1 147 1 view .LVU206
+ 960 0014 08BD     		pop	{r3, pc}
+ 961              	.LVL103:
+ 962              	.L85:
+ 146:SynaptiX_FDK/app/user/sx_msc/sx_user_msc.c **** }
+ 963              		.loc 1 146 5 is_stmt 1 view .LVU207
+ 146:SynaptiX_FDK/app/user/sx_msc/sx_user_msc.c **** }
+ 964              		.loc 1 146 12 is_stmt 0 view .LVU208
+ 965 0016 FFF7FEFF 		bl	_remount
+ 966              	.LVL104:
+ 146:SynaptiX_FDK/app/user/sx_msc/sx_user_msc.c **** }
+ 967              		.loc 1 146 12 view .LVU209
+ 968 001a FBE7     		b	.L79
+ 969              	.LVL105:
+ 970              	.L80:
+ 139:SynaptiX_FDK/app/user/sx_msc/sx_user_msc.c ****     if (filename == NULL || data == NULL) return SX_USER_MSC_ERR_PARAM;
+ 971              		.loc 1 139 50 discriminator 1 view .LVU210
+ 972 001c 4FF0FF30 		mov	r0, #-1
+ 973              	.LVL106:
+ 139:SynaptiX_FDK/app/user/sx_msc/sx_user_msc.c ****     if (filename == NULL || data == NULL) return SX_USER_MSC_ERR_PARAM;
+ 974              		.loc 1 139 50 discriminator 1 view .LVU211
+ 975 0020 F8E7     		b	.L79
+ 976              	.LVL107:
+ 977              	.L81:
+ 140:SynaptiX_FDK/app/user/sx_msc/sx_user_msc.c ****     if (len == 0)                         return SX_USER_MSC_ERR_PARAM;
+ 978              		.loc 1 140 50 discriminator 3 view .LVU212
+ 979 0022 6FF00400 		mvn	r0, #4
+ 980              	.LVL108:
+ 140:SynaptiX_FDK/app/user/sx_msc/sx_user_msc.c ****     if (len == 0)                         return SX_USER_MSC_ERR_PARAM;
+ 981              		.loc 1 140 50 discriminator 3 view .LVU213
+ 982 0026 F5E7     		b	.L79
+ 983              	.LVL109:
+ 984              	.L82:
+ 140:SynaptiX_FDK/app/user/sx_msc/sx_user_msc.c ****     if (len == 0)                         return SX_USER_MSC_ERR_PARAM;
+ 985              		.loc 1 140 50 discriminator 3 view .LVU214
+ 986 0028 6FF00400 		mvn	r0, #4
+ 987              	.LVL110:
+ 140:SynaptiX_FDK/app/user/sx_msc/sx_user_msc.c ****     if (len == 0)                         return SX_USER_MSC_ERR_PARAM;
+ 988              		.loc 1 140 50 discriminator 3 view .LVU215
+ 989 002c F2E7     		b	.L79
+ 990              	.LVL111:
+ 991              	.L83:
+ 141:SynaptiX_FDK/app/user/sx_msc/sx_user_msc.c **** 
+ 992              		.loc 1 141 50 discriminator 1 view .LVU216
+ 993 002e 6FF00400 		mvn	r0, #4
+ 994              	.LVL112:
+ 141:SynaptiX_FDK/app/user/sx_msc/sx_user_msc.c **** 
+ 995              		.loc 1 141 50 discriminator 1 view .LVU217
+ 996 0032 EFE7     		b	.L79
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccfdZY8X.s 			page 23
+
+
+ 997              	.L87:
+ 998              		.align	2
+ 999              	.L86:
+ 1000 0034 00000000 		.word	s_initialized
+ 1001              		.cfi_endproc
+ 1002              	.LFE7:
+ 1004              		.section	.rodata.sx_user_msc_remount_disk.str1.4,"aMS",%progbits,1
+ 1005              		.align	2
+ 1006              	.LC15:
+ 1007 0000 4D534320 		.ascii	"MSC disk remounted\000"
+ 1007      6469736B 
+ 1007      2072656D 
+ 1007      6F756E74 
+ 1007      656400
+ 1008              		.section	.text.sx_user_msc_remount_disk,"ax",%progbits
+ 1009              		.align	1
+ 1010              		.global	sx_user_msc_remount_disk
+ 1011              		.syntax unified
+ 1012              		.thumb
+ 1013              		.thumb_func
+ 1015              	sx_user_msc_remount_disk:
+ 1016              	.LFB8:
+ 148:SynaptiX_FDK/app/user/sx_msc/sx_user_msc.c **** 
+ 149:SynaptiX_FDK/app/user/sx_msc/sx_user_msc.c **** sx_user_msc_err_t sx_user_msc_remount_disk(void)
+ 150:SynaptiX_FDK/app/user/sx_msc/sx_user_msc.c **** {
+ 1017              		.loc 1 150 1 is_stmt 1 view -0
+ 1018              		.cfi_startproc
+ 1019              		@ args = 0, pretend = 0, frame = 0
+ 1020              		@ frame_needed = 0, uses_anonymous_args = 0
+ 151:SynaptiX_FDK/app/user/sx_msc/sx_user_msc.c ****     if (!s_initialized) return SX_USER_MSC_ERR_INIT;
+ 1021              		.loc 1 151 5 view .LVU219
+ 1022              		.loc 1 151 9 is_stmt 0 view .LVU220
+ 1023 0000 0E4B     		ldr	r3, .L96
+ 1024 0002 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 1025              		.loc 1 151 8 view .LVU221
+ 1026 0004 A3B1     		cbz	r3, .L90
+ 150:SynaptiX_FDK/app/user/sx_msc/sx_user_msc.c ****     if (!s_initialized) return SX_USER_MSC_ERR_INIT;
+ 1027              		.loc 1 150 1 view .LVU222
+ 1028 0006 10B5     		push	{r4, lr}
+ 1029              	.LCFI31:
+ 1030              		.cfi_def_cfa_offset 8
+ 1031              		.cfi_offset 4, -8
+ 1032              		.cfi_offset 14, -4
+ 152:SynaptiX_FDK/app/user/sx_msc/sx_user_msc.c **** 
+ 153:SynaptiX_FDK/app/user/sx_msc/sx_user_msc.c ****     int ret = sx_fatfs_remount();
+ 1033              		.loc 1 153 5 is_stmt 1 view .LVU223
+ 1034              		.loc 1 153 15 is_stmt 0 view .LVU224
+ 1035 0008 FFF7FEFF 		bl	sx_fatfs_remount
+ 1036              	.LVL113:
+ 154:SynaptiX_FDK/app/user/sx_msc/sx_user_msc.c ****     if (ret != 0) return SX_USER_MSC_ERR_DISK;
+ 1037              		.loc 1 154 5 is_stmt 1 view .LVU225
+ 1038              		.loc 1 154 8 is_stmt 0 view .LVU226
+ 1039 000c 98B9     		cbnz	r0, .L91
+ 155:SynaptiX_FDK/app/user/sx_msc/sx_user_msc.c **** 
+ 156:SynaptiX_FDK/app/user/sx_msc/sx_user_msc.c ****     sx_usb_tiny_msc_load(&s_msc, sx_fatfs_get_block_count());
+ 1040              		.loc 1 156 5 is_stmt 1 view .LVU227
+ 1041 000e FFF7FEFF 		bl	sx_fatfs_get_block_count
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccfdZY8X.s 			page 24
+
+
+ 1042              	.LVL114:
+ 1043              		.loc 1 156 5 is_stmt 0 view .LVU228
+ 1044 0012 0146     		mov	r1, r0
+ 1045              		.loc 1 156 5 discriminator 1 view .LVU229
+ 1046 0014 0A4C     		ldr	r4, .L96+4
+ 1047 0016 2046     		mov	r0, r4
+ 1048 0018 FFF7FEFF 		bl	sx_usb_tiny_msc_load
+ 1049              	.LVL115:
+ 157:SynaptiX_FDK/app/user/sx_msc/sx_user_msc.c ****     sx_usb_tiny_msc_enter(&s_msc);
+ 1050              		.loc 1 157 5 is_stmt 1 view .LVU230
+ 1051 001c 2046     		mov	r0, r4
+ 1052 001e FFF7FEFF 		bl	sx_usb_tiny_msc_enter
+ 1053              	.LVL116:
+ 158:SynaptiX_FDK/app/user/sx_msc/sx_user_msc.c ****     log_info(TAG, "MSC disk remounted");
+ 1054              		.loc 1 158 5 view .LVU231
+ 1055 0022 084A     		ldr	r2, .L96+8
+ 1056 0024 0849     		ldr	r1, .L96+12
+ 1057 0026 0320     		movs	r0, #3
+ 1058 0028 FFF7FEFF 		bl	log_func
+ 1059              	.LVL117:
+ 159:SynaptiX_FDK/app/user/sx_msc/sx_user_msc.c ****     return SX_USER_MSC_OK;
+ 1060              		.loc 1 159 5 view .LVU232
+ 1061              		.loc 1 159 12 is_stmt 0 view .LVU233
+ 1062 002c 0020     		movs	r0, #0
+ 1063              	.L89:
+ 160:SynaptiX_FDK/app/user/sx_msc/sx_user_msc.c **** }...
+ 1064              		.loc 1 160 1 view .LVU234
+ 1065 002e 10BD     		pop	{r4, pc}
+ 1066              	.LVL118:
+ 1067              	.L90:
+ 1068              	.LCFI32:
+ 1069              		.cfi_def_cfa_offset 0
+ 1070              		.cfi_restore 4
+ 1071              		.cfi_restore 14
+ 151:SynaptiX_FDK/app/user/sx_msc/sx_user_msc.c ****     if (!s_initialized) return SX_USER_MSC_ERR_INIT;
+ 1072              		.loc 1 151 32 discriminator 1 view .LVU235
+ 1073 0030 4FF0FF30 		mov	r0, #-1
+ 1074              		.loc 1 160 1 view .LVU236
+ 1075 0034 7047     		bx	lr
+ 1076              	.LVL119:
+ 1077              	.L91:
+ 1078              	.LCFI33:
+ 1079              		.cfi_def_cfa_offset 8
+ 1080              		.cfi_offset 4, -8
+ 1081              		.cfi_offset 14, -4
+ 154:SynaptiX_FDK/app/user/sx_msc/sx_user_msc.c ****     if (ret != 0) return SX_USER_MSC_ERR_DISK;
+ 1082              		.loc 1 154 26 discriminator 1 view .LVU237
+ 1083 0036 6FF00100 		mvn	r0, #1
+ 1084              	.LVL120:
+ 154:SynaptiX_FDK/app/user/sx_msc/sx_user_msc.c ****     if (ret != 0) return SX_USER_MSC_ERR_DISK;
+ 1085              		.loc 1 154 26 discriminator 1 view .LVU238
+ 1086 003a F8E7     		b	.L89
+ 1087              	.L97:
+ 1088              		.align	2
+ 1089              	.L96:
+ 1090 003c 00000000 		.word	s_initialized
+ 1091 0040 00000000 		.word	s_msc
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccfdZY8X.s 			page 25
+
+
+ 1092 0044 00000000 		.word	.LC15
+ 1093 0048 0C000000 		.word	.LC1
+ 1094              		.cfi_endproc
+ 1095              	.LFE8:
+ 1097              		.section	.bss.s_initialized,"aw",%nobits
+ 1100              	s_initialized:
+ 1101 0000 00       		.space	1
+ 1102              		.section	.bss.s_msc,"aw",%nobits
+ 1103              		.align	2
+ 1106              	s_msc:
+ 1107 0000 00000000 		.space	8
+ 1107      00000000 
+ 1108              		.text
+ 1109              	.Letext0:
+ 1110              		.file 2 "C:\\ST\\STM32CubeCLT_1.20.0\\GNU-tools-for-STM32\\bin/../lib/gcc/arm-none-eabi/13.3.1/../
+ 1111              		.file 3 "C:\\ST\\STM32CubeCLT_1.20.0\\GNU-tools-for-STM32\\bin/../lib/gcc/arm-none-eabi/13.3.1/../
+ 1112              		.file 4 "SynaptiX_FDK/app/user/sx_msc/sx_user_msc.h"
+ 1113              		.file 5 "SynaptiX_FDK/components/usb_msc_tiny/sx_usb_tiny_msc.h"
+ 1114              		.file 6 "SynaptiX_FDK/services/fatfs/ff.h"
+ 1115              		.file 7 "SynaptiX_FDK/services/logger/logger.h"
+ 1116              		.file 8 "SynaptiX_FDK/services/sx_fatfs/sx_fatfs.h"
+ 1117              		.file 9 "SynaptiX_FDK/utils/delay/sx_delay.h"
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccfdZY8X.s 			page 26
+
+
+DEFINED SYMBOLS
+                            *ABS*:00000000 sx_user_msc.c
+C:\Users\LENOVO\AppData\Local\Temp\ccfdZY8X.s:22     .rodata._remount.str1.4:00000000 $d
+C:\Users\LENOVO\AppData\Local\Temp\ccfdZY8X.s:29     .text._remount:00000000 $t
+C:\Users\LENOVO\AppData\Local\Temp\ccfdZY8X.s:34     .text._remount:00000000 _remount
+C:\Users\LENOVO\AppData\Local\Temp\ccfdZY8X.s:73     .text._remount:00000028 $d
+C:\Users\LENOVO\AppData\Local\Temp\ccfdZY8X.s:1106   .bss.s_msc:00000000 s_msc
+C:\Users\LENOVO\AppData\Local\Temp\ccfdZY8X.s:80     .rodata.sx_user_msc_init.str1.4:00000000 $d
+C:\Users\LENOVO\AppData\Local\Temp\ccfdZY8X.s:84     .text.sx_user_msc_init:00000000 $t
+C:\Users\LENOVO\AppData\Local\Temp\ccfdZY8X.s:90     .text.sx_user_msc_init:00000000 sx_user_msc_init
+C:\Users\LENOVO\AppData\Local\Temp\ccfdZY8X.s:123    .text.sx_user_msc_init:0000001c $d
+C:\Users\LENOVO\AppData\Local\Temp\ccfdZY8X.s:1100   .bss.s_initialized:00000000 s_initialized
+C:\Users\LENOVO\AppData\Local\Temp\ccfdZY8X.s:131    .rodata.sx_user_msc_create_disk.str1.4:00000000 $d
+C:\Users\LENOVO\AppData\Local\Temp\ccfdZY8X.s:141    .text.sx_user_msc_create_disk:00000000 $t
+C:\Users\LENOVO\AppData\Local\Temp\ccfdZY8X.s:147    .text.sx_user_msc_create_disk:00000000 sx_user_msc_create_disk
+C:\Users\LENOVO\AppData\Local\Temp\ccfdZY8X.s:286    .text.sx_user_msc_create_disk:00000074 $d
+C:\Users\LENOVO\AppData\Local\Temp\ccfdZY8X.s:296    .rodata.sx_user_msc_create_file.str1.4:00000000 $d
+C:\Users\LENOVO\AppData\Local\Temp\ccfdZY8X.s:303    .text.sx_user_msc_create_file:00000000 $t
+C:\Users\LENOVO\AppData\Local\Temp\ccfdZY8X.s:309    .text.sx_user_msc_create_file:00000000 sx_user_msc_create_file
+C:\Users\LENOVO\AppData\Local\Temp\ccfdZY8X.s:416    .text.sx_user_msc_create_file:00000058 $d
+C:\Users\LENOVO\AppData\Local\Temp\ccfdZY8X.s:424    .rodata.sx_user_msc_write.str1.4:00000000 $d
+C:\Users\LENOVO\AppData\Local\Temp\ccfdZY8X.s:431    .text.sx_user_msc_write:00000000 $t
+C:\Users\LENOVO\AppData\Local\Temp\ccfdZY8X.s:437    .text.sx_user_msc_write:00000000 sx_user_msc_write
+C:\Users\LENOVO\AppData\Local\Temp\ccfdZY8X.s:558    .text.sx_user_msc_write:0000005c $d
+C:\Users\LENOVO\AppData\Local\Temp\ccfdZY8X.s:566    .rodata.sx_user_msc_append.str1.4:00000000 $d
+C:\Users\LENOVO\AppData\Local\Temp\ccfdZY8X.s:576    .text.sx_user_msc_append:00000000 $t
+C:\Users\LENOVO\AppData\Local\Temp\ccfdZY8X.s:582    .text.sx_user_msc_append:00000000 sx_user_msc_append
+C:\Users\LENOVO\AppData\Local\Temp\ccfdZY8X.s:763    .text.sx_user_msc_append:000000a4 $d
+C:\Users\LENOVO\AppData\Local\Temp\ccfdZY8X.s:772    .rodata.sx_user_msc_read.str1.4:00000000 $d
+C:\Users\LENOVO\AppData\Local\Temp\ccfdZY8X.s:779    .text.sx_user_msc_read:00000000 $t
+C:\Users\LENOVO\AppData\Local\Temp\ccfdZY8X.s:785    .text.sx_user_msc_read:00000000 sx_user_msc_read
+C:\Users\LENOVO\AppData\Local\Temp\ccfdZY8X.s:909    .text.sx_user_msc_read:00000064 $d
+C:\Users\LENOVO\AppData\Local\Temp\ccfdZY8X.s:917    .text.sx_user_msc_update_file:00000000 $t
+C:\Users\LENOVO\AppData\Local\Temp\ccfdZY8X.s:923    .text.sx_user_msc_update_file:00000000 sx_user_msc_update_file
+C:\Users\LENOVO\AppData\Local\Temp\ccfdZY8X.s:1000   .text.sx_user_msc_update_file:00000034 $d
+C:\Users\LENOVO\AppData\Local\Temp\ccfdZY8X.s:1005   .rodata.sx_user_msc_remount_disk.str1.4:00000000 $d
+C:\Users\LENOVO\AppData\Local\Temp\ccfdZY8X.s:1009   .text.sx_user_msc_remount_disk:00000000 $t
+C:\Users\LENOVO\AppData\Local\Temp\ccfdZY8X.s:1015   .text.sx_user_msc_remount_disk:00000000 sx_user_msc_remount_disk
+C:\Users\LENOVO\AppData\Local\Temp\ccfdZY8X.s:1090   .text.sx_user_msc_remount_disk:0000003c $d
+C:\Users\LENOVO\AppData\Local\Temp\ccfdZY8X.s:1101   .bss.s_initialized:00000000 $d
+C:\Users\LENOVO\AppData\Local\Temp\ccfdZY8X.s:1103   .bss.s_msc:00000000 $d
+
+UNDEFINED SYMBOLS
+sx_usb_tiny_msc_disconnect
+sx_delay_ms
+sx_usb_tiny_msc_connect
+log_func
+sx_usb_tiny_msc_init
+sx_fatfs_mount
+f_setlabel
+sx_fatfs_get_block_count
+sx_usb_tiny_msc_load
+sx_usb_tiny_msc_enter
+f_open
+f_close
+sx_fatfs_write_file
+f_write
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccfdZY8X.s 			page 27
+
+
+f_sync
+sx_fatfs_read_file
+sx_fatfs_remount

@@ -335,40 +335,6 @@ static void publish_gsm(char *mode)
     log_info(TAG, "GSM: %s", msg);
 }
 
-// static void publish_gps(char *mode)
-// {
-//     char msg[256];
-//     char topic[128];
-//     sx_gps_t *gps = &g_app.board->gps;
-//     set_time_exrtc(board.gps.tim.tm_sec, board.gps.tim.tm_min, board.gps.tim.tm_hour, (board.gps.tim.tm_mday / 7 +1), board.gps.tim.tm_mday,
-//                             board.gps.tim.tm_mon, board.gps.tim.tm_year - 100);
-    
-//     rx8130ce_get_time(&g_app.board->rtc, &g_app.time);
-
-//     snprintf(topic, sizeof(topic), "%s%s", MQTT_TOPIC_GPS, g_app.device_name);
-
-//     if (gps->latitude != 0.0f && gps->longtitude != 0.0f) {
-//         g_app.last_lat = gps->latitude;
-//         g_app.last_lon = gps->longtitude;
-//         snprintf(msg, sizeof(msg),
-//                  "{\"mode\":\"%s\",\"fix\":1,\"lat\":%.6f,\"lon\":%.6f,\"Vbat\":%f"
-//                  "\"time\":\"%02d:%02d:%02d\",\"date\":\"%02d/%02d/20%02d\"}",
-//                  mode, gps->latitude, gps->longtitude, g_app.board->voltage.v_bat,
-//                  g_app.time.hour, g_app.time.min, g_app.time.sec,
-//                  g_app.time.day, g_app.time.month+1, g_app.time.year);
-//     } else {
-//         read_last_gps();
-//         snprintf(msg, sizeof(msg),
-//                  "{\"mode\":\"%s\",\"fix\":0,\"lat\":%.6f,\"lon\":%.6f,\"Vbat\":%f"
-//                  "\"time\":\"%02d:%02d:%02d\",\"date\":\"%02d/%02d/20%02d\"}",
-//                  mode, g_app.last_lat, g_app.last_lon, g_app.board->voltage.v_bat,
-//                  g_app.time.hour, g_app.time.min, g_app.time.sec,
-//                  g_app.time.day, g_app.time.month+1, g_app.time.year);
-//     }
-//     sx_user_mqtt_publish(topic, msg);
-//     log_info(TAG, "GPS: %s", msg);
-// }
-
 static void publish_gps(char *mode)
 {
     char v_str[128];
@@ -404,7 +370,7 @@ static void publish_gps(char *mode)
     else
     {
         fix = 0;
-        read_last_gps();
+        // read_last_gps();
         lat = g_app.last_lat;
         lon = g_app.last_lon;
     }

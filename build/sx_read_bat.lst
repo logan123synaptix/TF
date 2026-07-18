@@ -1,0 +1,486 @@
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccGpxysI.s 			page 1
+
+
+   1              		.cpu cortex-m33
+   2              		.arch armv8-m.main
+   3              		.fpu fpv5-sp-d16
+   4              		.arch_extension dsp
+   5              		.eabi_attribute 27, 1
+   6              		.eabi_attribute 28, 1
+   7              		.eabi_attribute 20, 1
+   8              		.eabi_attribute 21, 1
+   9              		.eabi_attribute 23, 3
+  10              		.eabi_attribute 24, 1
+  11              		.eabi_attribute 25, 1
+  12              		.eabi_attribute 26, 1
+  13              		.eabi_attribute 30, 1
+  14              		.eabi_attribute 34, 1
+  15              		.eabi_attribute 18, 4
+  16              		.file	"sx_read_bat.c"
+  17              		.text
+  18              	.Ltext0:
+  19              		.cfi_sections	.debug_frame
+  20              		.file 1 "SynaptiX_FDK/services/read_bat/sx_read_bat.c"
+  21              		.section	.text.sx_adc_reader_init,"ax",%progbits
+  22              		.align	1
+  23              		.global	sx_adc_reader_init
+  24              		.syntax unified
+  25              		.thumb
+  26              		.thumb_func
+  28              	sx_adc_reader_init:
+  29              	.LVL0:
+  30              	.LFB542:
+   1:SynaptiX_FDK/services/read_bat/sx_read_bat.c **** #include "sx_read_bat.h"
+   2:SynaptiX_FDK/services/read_bat/sx_read_bat.c **** #include "logger.h"
+   3:SynaptiX_FDK/services/read_bat/sx_read_bat.c **** #include "sx_board.h"
+   4:SynaptiX_FDK/services/read_bat/sx_read_bat.c **** #include "app_config.h"
+   5:SynaptiX_FDK/services/read_bat/sx_read_bat.c **** 
+   6:SynaptiX_FDK/services/read_bat/sx_read_bat.c **** static const char *TAG = "READ_BAT";
+   7:SynaptiX_FDK/services/read_bat/sx_read_bat.c **** 
+   8:SynaptiX_FDK/services/read_bat/sx_read_bat.c **** // void sx_adc_reader_init(sx_adc_reader_t *reader)
+   9:SynaptiX_FDK/services/read_bat/sx_read_bat.c **** // {
+  10:SynaptiX_FDK/services/read_bat/sx_read_bat.c **** //     if (!reader) return;
+  11:SynaptiX_FDK/services/read_bat/sx_read_bat.c **** //     reader->v_bat_filtered    = 0.0f;
+  12:SynaptiX_FDK/services/read_bat/sx_read_bat.c **** //     reader->sample_elapsed_ms = 0;
+  13:SynaptiX_FDK/services/read_bat/sx_read_bat.c **** //     reader->log_elapsed_ms    = 0;
+  14:SynaptiX_FDK/services/read_bat/sx_read_bat.c **** //     kalman1d_init(&reader->kalman, VBAT_KALMAN_Q, VBAT_KALMAN_R, 0.0f);
+  15:SynaptiX_FDK/services/read_bat/sx_read_bat.c **** // }
+  16:SynaptiX_FDK/services/read_bat/sx_read_bat.c **** 
+  17:SynaptiX_FDK/services/read_bat/sx_read_bat.c **** void sx_adc_reader_init(sx_adc_reader_t *reader)
+  18:SynaptiX_FDK/services/read_bat/sx_read_bat.c **** {
+  31              		.loc 1 18 1 view -0
+  32              		.cfi_startproc
+  33              		@ args = 0, pretend = 0, frame = 0
+  34              		@ frame_needed = 0, uses_anonymous_args = 0
+  19:SynaptiX_FDK/services/read_bat/sx_read_bat.c ****     if (!reader) return;
+  35              		.loc 1 19 5 view .LVU1
+  36              		.loc 1 19 8 is_stmt 0 view .LVU2
+  37 0000 D8B1     		cbz	r0, .L4
+  18:SynaptiX_FDK/services/read_bat/sx_read_bat.c ****     if (!reader) return;
+  38              		.loc 1 18 1 view .LVU3
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccGpxysI.s 			page 2
+
+
+  39 0002 10B5     		push	{r4, lr}
+  40              	.LCFI0:
+  41              		.cfi_def_cfa_offset 8
+  42              		.cfi_offset 4, -8
+  43              		.cfi_offset 14, -4
+  44 0004 2DED028B 		vpush.64	{d8}
+  45              	.LCFI1:
+  46              		.cfi_def_cfa_offset 16
+  47              		.cfi_offset 80, -16
+  48              		.cfi_offset 81, -12
+  49 0008 0446     		mov	r4, r0
+  20:SynaptiX_FDK/services/read_bat/sx_read_bat.c ****     reader->v_bat_filtered    = 0.0f;
+  50              		.loc 1 20 5 is_stmt 1 view .LVU4
+  51              		.loc 1 20 31 is_stmt 0 view .LVU5
+  52 000a 9FED0C8A 		vldr.32	s16, .L7
+  53 000e 80ED078A 		vstr.32	s16, [r0, #28]
+  21:SynaptiX_FDK/services/read_bat/sx_read_bat.c ****     reader->sample_elapsed_ms = 0;
+  54              		.loc 1 21 5 is_stmt 1 view .LVU6
+  55              		.loc 1 21 31 is_stmt 0 view .LVU7
+  56 0012 0023     		movs	r3, #0
+  57 0014 0362     		str	r3, [r0, #32]
+  22:SynaptiX_FDK/services/read_bat/sx_read_bat.c ****     reader->log_elapsed_ms    = 0;
+  58              		.loc 1 22 5 is_stmt 1 view .LVU8
+  59              		.loc 1 22 31 is_stmt 0 view .LVU9
+  60 0016 4362     		str	r3, [r0, #36]
+  23:SynaptiX_FDK/services/read_bat/sx_read_bat.c ****     lpf_init(&reader->lpf, VBAT_LPF_ALPHA);
+  61              		.loc 1 23 5 is_stmt 1 view .LVU10
+  62 0018 9FED090A 		vldr.32	s0, .L7+4
+  63 001c 1030     		adds	r0, r0, #16
+  64              	.LVL1:
+  65              		.loc 1 23 5 is_stmt 0 view .LVU11
+  66 001e FFF7FEFF 		bl	lpf_init
+  67              	.LVL2:
+  24:SynaptiX_FDK/services/read_bat/sx_read_bat.c ****     kalman1d_init(&reader->kalman, VBAT_KALMAN_Q, VBAT_KALMAN_R, 0.0f);
+  68              		.loc 1 24 5 is_stmt 1 view .LVU12
+  69 0022 B0EE481A 		vmov.f32	s2, s16
+  70 0026 DFED070A 		vldr.32	s1, .L7+8
+  71 002a 9FED070A 		vldr.32	s0, .L7+12
+  72 002e 2046     		mov	r0, r4
+  73 0030 FFF7FEFF 		bl	kalman1d_init
+  74              	.LVL3:
+  25:SynaptiX_FDK/services/read_bat/sx_read_bat.c **** }
+  75              		.loc 1 25 1 is_stmt 0 view .LVU13
+  76 0034 BDEC028B 		vldm	sp!, {d8}
+  77              	.LCFI2:
+  78              		.cfi_restore 80
+  79              		.cfi_restore 81
+  80              		.cfi_def_cfa_offset 8
+  81 0038 10BD     		pop	{r4, pc}
+  82              	.LVL4:
+  83              	.L4:
+  84              	.LCFI3:
+  85              		.cfi_def_cfa_offset 0
+  86              		.cfi_restore 4
+  87              		.cfi_restore 14
+  88              		.loc 1 25 1 view .LVU14
+  89 003a 7047     		bx	lr
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccGpxysI.s 			page 3
+
+
+  90              	.L8:
+  91              		.align	2
+  92              	.L7:
+  93 003c 00000000 		.word	0
+  94 0040 CDCC4C3D 		.word	1028443341
+  95 0044 CDCCCC3D 		.word	1036831949
+  96 0048 17B7D138 		.word	953267991
+  97              		.cfi_endproc
+  98              	.LFE542:
+ 100              		.section	.rodata.sx_adc_reader_process.str1.4,"aMS",%progbits,1
+ 101              		.align	2
+ 102              	.LC0:
+ 103 0000 56626174 		.ascii	"Vbat = %.4f V\000"
+ 103      203D2025 
+ 103      2E346620 
+ 103      5600
+ 104 000e 0000     		.align	2
+ 105              	.LC1:
+ 106 0010 52454144 		.ascii	"READ_BAT\000"
+ 106      5F424154 
+ 106      00
+ 107              		.global	__aeabi_f2d
+ 108              		.section	.text.sx_adc_reader_process,"ax",%progbits
+ 109              		.align	1
+ 110              		.global	sx_adc_reader_process
+ 111              		.syntax unified
+ 112              		.thumb
+ 113              		.thumb_func
+ 115              	sx_adc_reader_process:
+ 116              	.LVL5:
+ 117              	.LFB543:
+  26:SynaptiX_FDK/services/read_bat/sx_read_bat.c **** 
+  27:SynaptiX_FDK/services/read_bat/sx_read_bat.c **** void sx_adc_reader_process(sx_adc_reader_t *reader, void *hal_adc, uint32_t timestamp)
+  28:SynaptiX_FDK/services/read_bat/sx_read_bat.c **** {
+ 118              		.loc 1 28 1 is_stmt 1 view -0
+ 119              		.cfi_startproc
+ 120              		@ args = 0, pretend = 0, frame = 0
+ 121              		@ frame_needed = 0, uses_anonymous_args = 0
+  29:SynaptiX_FDK/services/read_bat/sx_read_bat.c ****     if (!reader || !hal_adc) return;
+ 122              		.loc 1 29 5 view .LVU16
+ 123              		.loc 1 29 8 is_stmt 0 view .LVU17
+ 124 0000 0028     		cmp	r0, #0
+ 125 0002 5BD0     		beq	.L14
+  28:SynaptiX_FDK/services/read_bat/sx_read_bat.c ****     if (!reader || !hal_adc) return;
+ 126              		.loc 1 28 1 view .LVU18
+ 127 0004 70B5     		push	{r4, r5, r6, lr}
+ 128              	.LCFI4:
+ 129              		.cfi_def_cfa_offset 16
+ 130              		.cfi_offset 4, -16
+ 131              		.cfi_offset 5, -12
+ 132              		.cfi_offset 6, -8
+ 133              		.cfi_offset 14, -4
+ 134 0006 2DED028B 		vpush.64	{d8}
+ 135              	.LCFI5:
+ 136              		.cfi_def_cfa_offset 24
+ 137              		.cfi_offset 80, -24
+ 138              		.cfi_offset 81, -20
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccGpxysI.s 			page 4
+
+
+ 139 000a 82B0     		sub	sp, sp, #8
+ 140              	.LCFI6:
+ 141              		.cfi_def_cfa_offset 32
+ 142 000c 0D46     		mov	r5, r1
+ 143 000e 1646     		mov	r6, r2
+ 144 0010 0446     		mov	r4, r0
+ 145              		.loc 1 29 17 discriminator 2 view .LVU19
+ 146 0012 59B1     		cbz	r1, .L9
+  30:SynaptiX_FDK/services/read_bat/sx_read_bat.c **** 
+  31:SynaptiX_FDK/services/read_bat/sx_read_bat.c ****     ADC_HandleTypeDef *adc = (ADC_HandleTypeDef *)hal_adc;
+ 147              		.loc 1 31 5 is_stmt 1 view .LVU20
+ 148              	.LVL6:
+  32:SynaptiX_FDK/services/read_bat/sx_read_bat.c **** 
+  33:SynaptiX_FDK/services/read_bat/sx_read_bat.c ****     reader->sample_elapsed_ms += timestamp;
+ 149              		.loc 1 33 5 view .LVU21
+ 150              		.loc 1 33 11 is_stmt 0 view .LVU22
+ 151 0014 036A     		ldr	r3, [r0, #32]
+ 152              		.loc 1 33 31 view .LVU23
+ 153 0016 1344     		add	r3, r3, r2
+ 154 0018 0362     		str	r3, [r0, #32]
+  34:SynaptiX_FDK/services/read_bat/sx_read_bat.c ****     if (reader->sample_elapsed_ms >= SAMPLE_PERIOD_MS) {
+ 155              		.loc 1 34 5 is_stmt 1 view .LVU24
+ 156              		.loc 1 34 8 is_stmt 0 view .LVU25
+ 157 001a 632B     		cmp	r3, #99
+ 158 001c 0AD8     		bhi	.L17
+ 159              	.LVL7:
+ 160              	.L11:
+  35:SynaptiX_FDK/services/read_bat/sx_read_bat.c ****         reader->sample_elapsed_ms = 0;
+  36:SynaptiX_FDK/services/read_bat/sx_read_bat.c **** 
+  37:SynaptiX_FDK/services/read_bat/sx_read_bat.c ****         HAL_ADC_Start(adc);
+  38:SynaptiX_FDK/services/read_bat/sx_read_bat.c ****         if (HAL_ADC_PollForConversion(adc, 10) == HAL_OK) {
+  39:SynaptiX_FDK/services/read_bat/sx_read_bat.c ****             uint32_t raw   = HAL_ADC_GetValue(adc);
+  40:SynaptiX_FDK/services/read_bat/sx_read_bat.c ****             float    v_adc = ((float)raw * ADC_VREF) / ADC_RESOLUTION;
+  41:SynaptiX_FDK/services/read_bat/sx_read_bat.c ****             float    v_raw = v_adc * VBAT_DIVIDER_RATIO;
+  42:SynaptiX_FDK/services/read_bat/sx_read_bat.c **** 
+  43:SynaptiX_FDK/services/read_bat/sx_read_bat.c ****             float v_lpf = lpf_update(&reader->lpf, v_raw);
+  44:SynaptiX_FDK/services/read_bat/sx_read_bat.c **** 
+  45:SynaptiX_FDK/services/read_bat/sx_read_bat.c ****             kalman1d_predict(&reader->kalman, 0.0f);
+  46:SynaptiX_FDK/services/read_bat/sx_read_bat.c ****             kalman1d_update(&reader->kalman, v_lpf);
+  47:SynaptiX_FDK/services/read_bat/sx_read_bat.c ****             reader->v_bat_filtered = kalman1d_get(&reader->kalman);
+  48:SynaptiX_FDK/services/read_bat/sx_read_bat.c ****         }
+  49:SynaptiX_FDK/services/read_bat/sx_read_bat.c ****         HAL_ADC_Stop(adc);
+  50:SynaptiX_FDK/services/read_bat/sx_read_bat.c ****     }
+  51:SynaptiX_FDK/services/read_bat/sx_read_bat.c **** 
+  52:SynaptiX_FDK/services/read_bat/sx_read_bat.c ****     // if (reader->sample_elapsed_ms >= SAMPLE_PERIOD_MS) {
+  53:SynaptiX_FDK/services/read_bat/sx_read_bat.c ****     //     reader->sample_elapsed_ms = 0;
+  54:SynaptiX_FDK/services/read_bat/sx_read_bat.c **** 
+  55:SynaptiX_FDK/services/read_bat/sx_read_bat.c ****     //     uint32_t sum = 0;
+  56:SynaptiX_FDK/services/read_bat/sx_read_bat.c ****     //     HAL_ADC_Start(adc);
+  57:SynaptiX_FDK/services/read_bat/sx_read_bat.c ****     //     for (uint8_t i = 0; i < OVERSAMPLE_COUNT; i++) {
+  58:SynaptiX_FDK/services/read_bat/sx_read_bat.c ****     //         if (HAL_ADC_PollForConversion(adc, 10) == HAL_OK)
+  59:SynaptiX_FDK/services/read_bat/sx_read_bat.c ****     //             sum += HAL_ADC_GetValue(adc);
+  60:SynaptiX_FDK/services/read_bat/sx_read_bat.c ****     //     }
+  61:SynaptiX_FDK/services/read_bat/sx_read_bat.c ****     //     HAL_ADC_Stop(adc);
+  62:SynaptiX_FDK/services/read_bat/sx_read_bat.c **** 
+  63:SynaptiX_FDK/services/read_bat/sx_read_bat.c ****     //     float v_adc = ((float)(sum / OVERSAMPLE_COUNT) * ADC_VREF) / ADC_RESOLUTION;
+  64:SynaptiX_FDK/services/read_bat/sx_read_bat.c ****     //     float v_raw = v_adc * VBAT_DIVIDER_RATIO;
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccGpxysI.s 			page 5
+
+
+  65:SynaptiX_FDK/services/read_bat/sx_read_bat.c **** 
+  66:SynaptiX_FDK/services/read_bat/sx_read_bat.c ****     //     float v_lpf = lpf_update(&reader->lpf, v_raw);
+  67:SynaptiX_FDK/services/read_bat/sx_read_bat.c **** 
+  68:SynaptiX_FDK/services/read_bat/sx_read_bat.c ****     //     kalman1d_predict(&reader->kalman, 0.0f);
+  69:SynaptiX_FDK/services/read_bat/sx_read_bat.c ****     //     kalman1d_update(&reader->kalman, v_lpf);
+  70:SynaptiX_FDK/services/read_bat/sx_read_bat.c ****     //     reader->v_bat_filtered = kalman1d_get(&reader->kalman);
+  71:SynaptiX_FDK/services/read_bat/sx_read_bat.c ****     // }
+  72:SynaptiX_FDK/services/read_bat/sx_read_bat.c **** 
+  73:SynaptiX_FDK/services/read_bat/sx_read_bat.c ****     reader->log_elapsed_ms += timestamp;
+ 161              		.loc 1 73 5 is_stmt 1 view .LVU26
+ 162              		.loc 1 73 11 is_stmt 0 view .LVU27
+ 163 001e 636A     		ldr	r3, [r4, #36]
+ 164              		.loc 1 73 28 view .LVU28
+ 165 0020 3344     		add	r3, r3, r6
+ 166 0022 6362     		str	r3, [r4, #36]
+  74:SynaptiX_FDK/services/read_bat/sx_read_bat.c ****     if (reader->log_elapsed_ms >= LOG_PERIOD_MS) {
+ 167              		.loc 1 74 5 is_stmt 1 view .LVU29
+ 168              		.loc 1 74 8 is_stmt 0 view .LVU30
+ 169 0024 42F20F72 		movw	r2, #9999
+ 170 0028 9342     		cmp	r3, r2
+ 171 002a 3AD8     		bhi	.L18
+ 172              	.LVL8:
+ 173              	.L9:
+  75:SynaptiX_FDK/services/read_bat/sx_read_bat.c ****         reader->log_elapsed_ms = 0;
+  76:SynaptiX_FDK/services/read_bat/sx_read_bat.c ****         log_info(TAG, "Vbat = %.4f V", reader->v_bat_filtered);
+  77:SynaptiX_FDK/services/read_bat/sx_read_bat.c ****     }
+  78:SynaptiX_FDK/services/read_bat/sx_read_bat.c **** }...
+ 174              		.loc 1 78 1 view .LVU31
+ 175 002c 02B0     		add	sp, sp, #8
+ 176              	.LCFI7:
+ 177              		.cfi_remember_state
+ 178              		.cfi_def_cfa_offset 24
+ 179              		@ sp needed
+ 180 002e BDEC028B 		vldm	sp!, {d8}
+ 181              	.LCFI8:
+ 182              		.cfi_restore 80
+ 183              		.cfi_restore 81
+ 184              		.cfi_def_cfa_offset 16
+ 185 0032 70BD     		pop	{r4, r5, r6, pc}
+ 186              	.LVL9:
+ 187              	.L17:
+ 188              	.LCFI9:
+ 189              		.cfi_restore_state
+  35:SynaptiX_FDK/services/read_bat/sx_read_bat.c ****         reader->sample_elapsed_ms = 0;
+ 190              		.loc 1 35 9 is_stmt 1 view .LVU32
+  35:SynaptiX_FDK/services/read_bat/sx_read_bat.c ****         reader->sample_elapsed_ms = 0;
+ 191              		.loc 1 35 35 is_stmt 0 view .LVU33
+ 192 0034 0023     		movs	r3, #0
+ 193 0036 0362     		str	r3, [r0, #32]
+  37:SynaptiX_FDK/services/read_bat/sx_read_bat.c ****         HAL_ADC_Start(adc);
+ 194              		.loc 1 37 9 is_stmt 1 view .LVU34
+ 195 0038 0846     		mov	r0, r1
+ 196              	.LVL10:
+  37:SynaptiX_FDK/services/read_bat/sx_read_bat.c ****         HAL_ADC_Start(adc);
+ 197              		.loc 1 37 9 is_stmt 0 view .LVU35
+ 198 003a FFF7FEFF 		bl	HAL_ADC_Start
+ 199              	.LVL11:
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccGpxysI.s 			page 6
+
+
+  38:SynaptiX_FDK/services/read_bat/sx_read_bat.c ****         if (HAL_ADC_PollForConversion(adc, 10) == HAL_OK) {
+ 200              		.loc 1 38 9 is_stmt 1 view .LVU36
+  38:SynaptiX_FDK/services/read_bat/sx_read_bat.c ****         if (HAL_ADC_PollForConversion(adc, 10) == HAL_OK) {
+ 201              		.loc 1 38 13 is_stmt 0 view .LVU37
+ 202 003e 0A21     		movs	r1, #10
+ 203 0040 2846     		mov	r0, r5
+ 204 0042 FFF7FEFF 		bl	HAL_ADC_PollForConversion
+ 205              	.LVL12:
+  38:SynaptiX_FDK/services/read_bat/sx_read_bat.c ****         if (HAL_ADC_PollForConversion(adc, 10) == HAL_OK) {
+ 206              		.loc 1 38 12 discriminator 1 view .LVU38
+ 207 0046 18B1     		cbz	r0, .L19
+ 208              	.L12:
+  49:SynaptiX_FDK/services/read_bat/sx_read_bat.c ****         HAL_ADC_Stop(adc);
+ 209              		.loc 1 49 9 is_stmt 1 view .LVU39
+ 210 0048 2846     		mov	r0, r5
+ 211 004a FFF7FEFF 		bl	HAL_ADC_Stop
+ 212              	.LVL13:
+ 213 004e E6E7     		b	.L11
+ 214              	.L19:
+ 215              	.LBB2:
+  39:SynaptiX_FDK/services/read_bat/sx_read_bat.c ****             uint32_t raw   = HAL_ADC_GetValue(adc);
+ 216              		.loc 1 39 13 view .LVU40
+  39:SynaptiX_FDK/services/read_bat/sx_read_bat.c ****             uint32_t raw   = HAL_ADC_GetValue(adc);
+ 217              		.loc 1 39 30 is_stmt 0 view .LVU41
+ 218 0050 2846     		mov	r0, r5
+ 219 0052 FFF7FEFF 		bl	HAL_ADC_GetValue
+ 220              	.LVL14:
+ 221 0056 07EE900A 		vmov	s15, r0	@ int
+ 222              	.LVL15:
+  40:SynaptiX_FDK/services/read_bat/sx_read_bat.c ****             float    v_adc = ((float)raw * ADC_VREF) / ADC_RESOLUTION;
+ 223              		.loc 1 40 13 is_stmt 1 view .LVU42
+  40:SynaptiX_FDK/services/read_bat/sx_read_bat.c ****             float    v_adc = ((float)raw * ADC_VREF) / ADC_RESOLUTION;
+ 224              		.loc 1 40 31 is_stmt 0 view .LVU43
+ 225 005a F8EE677A 		vcvt.f32.u32	s15, s15
+  40:SynaptiX_FDK/services/read_bat/sx_read_bat.c ****             float    v_adc = ((float)raw * ADC_VREF) / ADC_RESOLUTION;
+ 226              		.loc 1 40 42 view .LVU44
+ 227 005e 9FED187A 		vldr.32	s14, .L20
+ 228 0062 67EE877A 		vmul.f32	s15, s15, s14
+  40:SynaptiX_FDK/services/read_bat/sx_read_bat.c ****             float    v_adc = ((float)raw * ADC_VREF) / ADC_RESOLUTION;
+ 229              		.loc 1 40 22 view .LVU45
+ 230 0066 9FED177A 		vldr.32	s14, .L20+4
+ 231 006a 87EE870A 		vdiv.f32	s0, s15, s14
+ 232              	.LVL16:
+  41:SynaptiX_FDK/services/read_bat/sx_read_bat.c ****             float    v_raw = v_adc * VBAT_DIVIDER_RATIO;
+ 233              		.loc 1 41 13 is_stmt 1 view .LVU46
+  43:SynaptiX_FDK/services/read_bat/sx_read_bat.c ****             float v_lpf = lpf_update(&reader->lpf, v_raw);
+ 234              		.loc 1 43 13 view .LVU47
+  43:SynaptiX_FDK/services/read_bat/sx_read_bat.c ****             float v_lpf = lpf_update(&reader->lpf, v_raw);
+ 235              		.loc 1 43 27 is_stmt 0 view .LVU48
+ 236 006e DFED167A 		vldr.32	s15, .L20+8
+ 237 0072 20EE270A 		vmul.f32	s0, s0, s15
+ 238              	.LVL17:
+  43:SynaptiX_FDK/services/read_bat/sx_read_bat.c ****             float v_lpf = lpf_update(&reader->lpf, v_raw);
+ 239              		.loc 1 43 27 view .LVU49
+ 240 0076 04F11000 		add	r0, r4, #16
+ 241              	.LVL18:
+  43:SynaptiX_FDK/services/read_bat/sx_read_bat.c ****             float v_lpf = lpf_update(&reader->lpf, v_raw);
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccGpxysI.s 			page 7
+
+
+ 242              		.loc 1 43 27 view .LVU50
+ 243 007a FFF7FEFF 		bl	lpf_update
+ 244              	.LVL19:
+  43:SynaptiX_FDK/services/read_bat/sx_read_bat.c ****             float v_lpf = lpf_update(&reader->lpf, v_raw);
+ 245              		.loc 1 43 27 view .LVU51
+ 246 007e B0EE408A 		vmov.f32	s16, s0
+ 247              	.LVL20:
+  45:SynaptiX_FDK/services/read_bat/sx_read_bat.c ****             kalman1d_predict(&reader->kalman, 0.0f);
+ 248              		.loc 1 45 13 is_stmt 1 view .LVU52
+ 249 0082 9FED120A 		vldr.32	s0, .L20+12
+ 250              	.LVL21:
+  45:SynaptiX_FDK/services/read_bat/sx_read_bat.c ****             kalman1d_predict(&reader->kalman, 0.0f);
+ 251              		.loc 1 45 13 is_stmt 0 view .LVU53
+ 252 0086 2046     		mov	r0, r4
+ 253 0088 FFF7FEFF 		bl	kalman1d_predict
+ 254              	.LVL22:
+  46:SynaptiX_FDK/services/read_bat/sx_read_bat.c ****             kalman1d_update(&reader->kalman, v_lpf);
+ 255              		.loc 1 46 13 is_stmt 1 view .LVU54
+ 256 008c B0EE480A 		vmov.f32	s0, s16
+ 257 0090 2046     		mov	r0, r4
+ 258 0092 FFF7FEFF 		bl	kalman1d_update
+ 259              	.LVL23:
+  47:SynaptiX_FDK/services/read_bat/sx_read_bat.c ****             reader->v_bat_filtered = kalman1d_get(&reader->kalman);
+ 260              		.loc 1 47 13 view .LVU55
+  47:SynaptiX_FDK/services/read_bat/sx_read_bat.c ****             reader->v_bat_filtered = kalman1d_get(&reader->kalman);
+ 261              		.loc 1 47 38 is_stmt 0 view .LVU56
+ 262 0096 2046     		mov	r0, r4
+ 263 0098 FFF7FEFF 		bl	kalman1d_get
+ 264              	.LVL24:
+  47:SynaptiX_FDK/services/read_bat/sx_read_bat.c ****             reader->v_bat_filtered = kalman1d_get(&reader->kalman);
+ 265              		.loc 1 47 36 discriminator 1 view .LVU57
+ 266 009c 84ED070A 		vstr.32	s0, [r4, #28]
+ 267 00a0 D2E7     		b	.L12
+ 268              	.LVL25:
+ 269              	.L18:
+  47:SynaptiX_FDK/services/read_bat/sx_read_bat.c ****             reader->v_bat_filtered = kalman1d_get(&reader->kalman);
+ 270              		.loc 1 47 36 discriminator 1 view .LVU58
+ 271              	.LBE2:
+  75:SynaptiX_FDK/services/read_bat/sx_read_bat.c ****         reader->log_elapsed_ms = 0;
+ 272              		.loc 1 75 9 is_stmt 1 view .LVU59
+  75:SynaptiX_FDK/services/read_bat/sx_read_bat.c ****         reader->log_elapsed_ms = 0;
+ 273              		.loc 1 75 32 is_stmt 0 view .LVU60
+ 274 00a2 0023     		movs	r3, #0
+ 275 00a4 6362     		str	r3, [r4, #36]
+  76:SynaptiX_FDK/services/read_bat/sx_read_bat.c ****         log_info(TAG, "Vbat = %.4f V", reader->v_bat_filtered);
+ 276              		.loc 1 76 9 is_stmt 1 view .LVU61
+ 277 00a6 E069     		ldr	r0, [r4, #28]	@ float
+ 278 00a8 FFF7FEFF 		bl	__aeabi_f2d
+ 279              	.LVL26:
+ 280 00ac CDE90001 		strd	r0, [sp]
+ 281 00b0 074A     		ldr	r2, .L20+16
+ 282 00b2 0849     		ldr	r1, .L20+20
+ 283 00b4 0320     		movs	r0, #3
+ 284 00b6 FFF7FEFF 		bl	log_func
+ 285              	.LVL27:
+ 286 00ba B7E7     		b	.L9
+ 287              	.LVL28:
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccGpxysI.s 			page 8
+
+
+ 288              	.L14:
+ 289              	.LCFI10:
+ 290              		.cfi_def_cfa_offset 0
+ 291              		.cfi_restore 4
+ 292              		.cfi_restore 5
+ 293              		.cfi_restore 6
+ 294              		.cfi_restore 14
+ 295              		.cfi_restore 80
+ 296              		.cfi_restore 81
+  76:SynaptiX_FDK/services/read_bat/sx_read_bat.c ****         log_info(TAG, "Vbat = %.4f V", reader->v_bat_filtered);
+ 297              		.loc 1 76 9 is_stmt 0 view .LVU62
+ 298 00bc 7047     		bx	lr
+ 299              	.L21:
+ 300 00be 00BF     		.align	2
+ 301              	.L20:
+ 302 00c0 33335340 		.word	1079194419
+ 303 00c4 00F07F45 		.word	1166012416
+ 304 00c8 F628BC3F 		.word	1069295862
+ 305 00cc 00000000 		.word	0
+ 306 00d0 00000000 		.word	.LC0
+ 307 00d4 10000000 		.word	.LC1
+ 308              		.cfi_endproc
+ 309              	.LFE543:
+ 311              		.text
+ 312              	.Letext0:
+ 313              		.file 2 "C:\\ST\\STM32CubeCLT_1.20.0\\GNU-tools-for-STM32\\bin/../lib/gcc/arm-none-eabi/13.3.1/../
+ 314              		.file 3 "C:\\ST\\STM32CubeCLT_1.20.0\\GNU-tools-for-STM32\\bin/../lib/gcc/arm-none-eabi/13.3.1/../
+ 315              		.file 4 "SynaptiX_FDK/utils/filter/sx_filter.h"
+ 316              		.file 5 "SynaptiX_FDK/services/read_bat/sx_read_bat.h"
+ 317              		.file 6 "SynaptiX_FDK/services/logger/logger.h"
+ 318              		.file 7 "Drivers/CMSIS/Device/ST/STM32H5xx/Include/stm32h563xx.h"
+ 319              		.file 8 "Drivers/CMSIS/Device/ST/STM32H5xx/Include/stm32h5xx.h"
+ 320              		.file 9 "Drivers/STM32H5xx_HAL_Driver/Inc/stm32h5xx_hal_def.h"
+ 321              		.file 10 "Drivers/STM32H5xx_HAL_Driver/Inc/stm32h5xx_hal_dma.h"
+ 322              		.file 11 "Drivers/STM32H5xx_HAL_Driver/Inc/stm32h5xx_hal_dma_ex.h"
+ 323              		.file 12 "Drivers/STM32H5xx_HAL_Driver/Inc/stm32h5xx_hal_adc.h"
+ 324              		.file 13 "Drivers/STM32H5xx_HAL_Driver/Inc/stm32h5xx_ll_lptim.h"
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccGpxysI.s 			page 9
+
+
+DEFINED SYMBOLS
+                            *ABS*:00000000 sx_read_bat.c
+C:\Users\LENOVO\AppData\Local\Temp\ccGpxysI.s:22     .text.sx_adc_reader_init:00000000 $t
+C:\Users\LENOVO\AppData\Local\Temp\ccGpxysI.s:28     .text.sx_adc_reader_init:00000000 sx_adc_reader_init
+C:\Users\LENOVO\AppData\Local\Temp\ccGpxysI.s:93     .text.sx_adc_reader_init:0000003c $d
+C:\Users\LENOVO\AppData\Local\Temp\ccGpxysI.s:101    .rodata.sx_adc_reader_process.str1.4:00000000 $d
+C:\Users\LENOVO\AppData\Local\Temp\ccGpxysI.s:109    .text.sx_adc_reader_process:00000000 $t
+C:\Users\LENOVO\AppData\Local\Temp\ccGpxysI.s:115    .text.sx_adc_reader_process:00000000 sx_adc_reader_process
+C:\Users\LENOVO\AppData\Local\Temp\ccGpxysI.s:302    .text.sx_adc_reader_process:000000c0 $d
+
+UNDEFINED SYMBOLS
+lpf_init
+kalman1d_init
+__aeabi_f2d
+HAL_ADC_Start
+HAL_ADC_PollForConversion
+HAL_ADC_Stop
+HAL_ADC_GetValue
+lpf_update
+kalman1d_predict
+kalman1d_update
+kalman1d_get
+log_func

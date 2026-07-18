@@ -1,0 +1,1284 @@
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccxzJIqI.s 			page 1
+
+
+   1              		.cpu cortex-m33
+   2              		.arch armv8-m.main
+   3              		.fpu fpv5-sp-d16
+   4              		.arch_extension dsp
+   5              		.eabi_attribute 27, 1
+   6              		.eabi_attribute 28, 1
+   7              		.eabi_attribute 20, 1
+   8              		.eabi_attribute 21, 1
+   9              		.eabi_attribute 23, 3
+  10              		.eabi_attribute 24, 1
+  11              		.eabi_attribute 25, 1
+  12              		.eabi_attribute 26, 1
+  13              		.eabi_attribute 30, 1
+  14              		.eabi_attribute 34, 1
+  15              		.eabi_attribute 18, 4
+  16              		.file	"sx_diskio.c"
+  17              		.text
+  18              	.Ltext0:
+  19              		.cfi_sections	.debug_frame
+  20              		.file 1 "SynaptiX_FDK/services/sx_fatfs/sx_diskio.c"
+  21              		.section	.text._cache_load,"ax",%progbits
+  22              		.align	1
+  23              		.syntax unified
+  24              		.thumb
+  25              		.thumb_func
+  27              	_cache_load:
+  28              	.LVL0:
+  29              	.LFB2:
+   1:SynaptiX_FDK/services/sx_fatfs/sx_diskio.c **** #include "sx_diskio.h"
+   2:SynaptiX_FDK/services/sx_fatfs/sx_diskio.c **** #include "sx_flash.h"
+   3:SynaptiX_FDK/services/sx_fatfs/sx_diskio.c **** #include <string.h>
+   4:SynaptiX_FDK/services/sx_fatfs/sx_diskio.c **** #include "logger.h"
+   5:SynaptiX_FDK/services/sx_fatfs/sx_diskio.c **** #include "sx_delay.h"
+   6:SynaptiX_FDK/services/sx_fatfs/sx_diskio.c **** 
+   7:SynaptiX_FDK/services/sx_fatfs/sx_diskio.c **** #define FLASH_STORAGE_BASE      0x081C0000UL
+   8:SynaptiX_FDK/services/sx_fatfs/sx_diskio.c **** #define FLASH_SECTOR_SIZE_BYTES 0x2000UL        /* 8 KB  */
+   9:SynaptiX_FDK/services/sx_fatfs/sx_diskio.c **** #define FAT_BLOCKS_PER_SECTOR   (FLASH_SECTOR_SIZE_BYTES / SX_FLASHDISK_BLOCK_SIZE)  /* 16 */
+  10:SynaptiX_FDK/services/sx_fatfs/sx_diskio.c **** 
+  11:SynaptiX_FDK/services/sx_fatfs/sx_diskio.c **** static uint8_t  s_cache_buf[FLASH_SECTOR_SIZE_BYTES];
+  12:SynaptiX_FDK/services/sx_fatfs/sx_diskio.c **** static int32_t  s_cache_sector = -1;    
+  13:SynaptiX_FDK/services/sx_fatfs/sx_diskio.c **** static bool     s_cache_dirty  = false;
+  14:SynaptiX_FDK/services/sx_fatfs/sx_diskio.c **** static bool     s_initialized  = false;
+  15:SynaptiX_FDK/services/sx_fatfs/sx_diskio.c **** 
+  16:SynaptiX_FDK/services/sx_fatfs/sx_diskio.c **** static uint32_t s_last_write_tick = 0;
+  17:SynaptiX_FDK/services/sx_fatfs/sx_diskio.c **** static bool     s_pending_flush   = false;
+  18:SynaptiX_FDK/services/sx_fatfs/sx_diskio.c **** 
+  19:SynaptiX_FDK/services/sx_fatfs/sx_diskio.c **** static inline uint32_t _lba_to_addr(LBA_t lba)
+  20:SynaptiX_FDK/services/sx_fatfs/sx_diskio.c **** {
+  21:SynaptiX_FDK/services/sx_fatfs/sx_diskio.c ****     return FLASH_STORAGE_BASE + (uint32_t)lba * SX_FLASHDISK_BLOCK_SIZE;
+  22:SynaptiX_FDK/services/sx_fatfs/sx_diskio.c **** }
+  23:SynaptiX_FDK/services/sx_fatfs/sx_diskio.c **** 
+  24:SynaptiX_FDK/services/sx_fatfs/sx_diskio.c **** static inline int32_t _lba_to_flash_sector(LBA_t lba)
+  25:SynaptiX_FDK/services/sx_fatfs/sx_diskio.c **** {
+  26:SynaptiX_FDK/services/sx_fatfs/sx_diskio.c ****     return (int32_t)(lba / FAT_BLOCKS_PER_SECTOR);
+  27:SynaptiX_FDK/services/sx_fatfs/sx_diskio.c **** }
+  28:SynaptiX_FDK/services/sx_fatfs/sx_diskio.c **** 
+  29:SynaptiX_FDK/services/sx_fatfs/sx_diskio.c **** /** Load a flash sector into the RAM cache */
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccxzJIqI.s 			page 2
+
+
+  30:SynaptiX_FDK/services/sx_fatfs/sx_diskio.c **** static void _cache_load(int32_t flash_sector)
+  31:SynaptiX_FDK/services/sx_fatfs/sx_diskio.c **** {
+  30              		.loc 1 31 1 view -0
+  31              		.cfi_startproc
+  32              		@ args = 0, pretend = 0, frame = 0
+  33              		@ frame_needed = 0, uses_anonymous_args = 0
+  34              		.loc 1 31 1 is_stmt 0 view .LVU1
+  35 0000 10B5     		push	{r4, lr}
+  36              	.LCFI0:
+  37              		.cfi_def_cfa_offset 8
+  38              		.cfi_offset 4, -8
+  39              		.cfi_offset 14, -4
+  40 0002 0446     		mov	r4, r0
+  32:SynaptiX_FDK/services/sx_fatfs/sx_diskio.c ****     uint32_t addr = FLASH_STORAGE_BASE + (uint32_t)flash_sector * FLASH_SECTOR_SIZE_BYTES;
+  41              		.loc 1 32 5 is_stmt 1 view .LVU2
+  42              		.loc 1 32 40 is_stmt 0 view .LVU3
+  43 0004 00F58140 		add	r0, r0, #16512
+  44              	.LVL1:
+  45              		.loc 1 32 40 view .LVU4
+  46 0008 6030     		adds	r0, r0, #96
+  47              	.LVL2:
+  33:SynaptiX_FDK/services/sx_fatfs/sx_diskio.c ****     sx_flash_read(addr, s_cache_buf, FLASH_SECTOR_SIZE_BYTES);
+  48              		.loc 1 33 5 is_stmt 1 view .LVU5
+  49 000a 4FF40052 		mov	r2, #8192
+  50 000e 0549     		ldr	r1, .L3
+  51 0010 4003     		lsls	r0, r0, #13
+  52              	.LVL3:
+  53              		.loc 1 33 5 is_stmt 0 view .LVU6
+  54 0012 FFF7FEFF 		bl	sx_flash_read
+  55              	.LVL4:
+  34:SynaptiX_FDK/services/sx_fatfs/sx_diskio.c ****     s_cache_sector = flash_sector;
+  56              		.loc 1 34 5 is_stmt 1 view .LVU7
+  57              		.loc 1 34 20 is_stmt 0 view .LVU8
+  58 0016 044B     		ldr	r3, .L3+4
+  59 0018 1C60     		str	r4, [r3]
+  35:SynaptiX_FDK/services/sx_fatfs/sx_diskio.c ****     s_cache_dirty  = false;
+  60              		.loc 1 35 5 is_stmt 1 view .LVU9
+  61              		.loc 1 35 20 is_stmt 0 view .LVU10
+  62 001a 044B     		ldr	r3, .L3+8
+  63 001c 0022     		movs	r2, #0
+  64 001e 1A70     		strb	r2, [r3]
+  36:SynaptiX_FDK/services/sx_fatfs/sx_diskio.c **** }
+  65              		.loc 1 36 1 view .LVU11
+  66 0020 10BD     		pop	{r4, pc}
+  67              	.LVL5:
+  68              	.L4:
+  69              		.loc 1 36 1 view .LVU12
+  70 0022 00BF     		.align	2
+  71              	.L3:
+  72 0024 00000000 		.word	s_cache_buf
+  73 0028 00000000 		.word	s_cache_sector
+  74 002c 00000000 		.word	s_cache_dirty
+  75              		.cfi_endproc
+  76              	.LFE2:
+  78              		.section	.rodata._cache_flush.str1.4,"aMS",%progbits,1
+  79              		.align	2
+  80              	.LC0:
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccxzJIqI.s 			page 3
+
+
+  81 0000 666C7573 		.ascii	"flush sector=%ld addr=0x%08lX\000"
+  81      68207365 
+  81      63746F72 
+  81      3D256C64 
+  81      20616464 
+  82 001e 0000     		.align	2
+  83              	.LC1:
+  84 0020 4449534B 		.ascii	"DISKIO\000"
+  84      494F00
+  85 0027 00       		.align	2
+  86              	.LC2:
+  87 0028 3E3E3E20 		.ascii	">>> FLASH WRITE sector=%ld addr=0x%08lX\000"
+  87      464C4153 
+  87      48205752 
+  87      49544520 
+  87      73656374 
+  88              		.align	2
+  89              	.LC3:
+  90 0050 65726173 		.ascii	"erase start\000"
+  90      65207374 
+  90      61727400 
+  91              		.align	2
+  92              	.LC4:
+  93 005c 65726173 		.ascii	"erase done, write start\000"
+  93      6520646F 
+  93      6E652C20 
+  93      77726974 
+  93      65207374 
+  94              		.align	2
+  95              	.LC5:
+  96 0074 77726974 		.ascii	"write done\000"
+  96      6520646F 
+  96      6E6500
+  97              		.section	.text._cache_flush,"ax",%progbits
+  98              		.align	1
+  99              		.syntax unified
+ 100              		.thumb
+ 101              		.thumb_func
+ 103              	_cache_flush:
+ 104              	.LFB3:
+  37:SynaptiX_FDK/services/sx_fatfs/sx_diskio.c **** 
+  38:SynaptiX_FDK/services/sx_fatfs/sx_diskio.c **** static void _cache_flush(void)
+  39:SynaptiX_FDK/services/sx_fatfs/sx_diskio.c **** {
+ 105              		.loc 1 39 1 is_stmt 1 view -0
+ 106              		.cfi_startproc
+ 107              		@ args = 0, pretend = 0, frame = 0
+ 108              		@ frame_needed = 0, uses_anonymous_args = 0
+  40:SynaptiX_FDK/services/sx_fatfs/sx_diskio.c ****     if (!s_cache_dirty || s_cache_sector < 0) return;
+ 109              		.loc 1 40 5 view .LVU14
+ 110              		.loc 1 40 9 is_stmt 0 view .LVU15
+ 111 0000 204B     		ldr	r3, .L11
+ 112 0002 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 113              		.loc 1 40 8 view .LVU16
+ 114 0004 002B     		cmp	r3, #0
+ 115 0006 3BD0     		beq	.L8
+ 116              		.loc 1 40 42 discriminator 2 view .LVU17
+ 117 0008 1F4B     		ldr	r3, .L11+4
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccxzJIqI.s 			page 4
+
+
+ 118 000a 1B68     		ldr	r3, [r3]
+ 119              		.loc 1 40 24 discriminator 2 view .LVU18
+ 120 000c 002B     		cmp	r3, #0
+ 121 000e 37DB     		blt	.L8
+  39:SynaptiX_FDK/services/sx_fatfs/sx_diskio.c ****     if (!s_cache_dirty || s_cache_sector < 0) return;
+ 122              		.loc 1 39 1 view .LVU19
+ 123 0010 30B5     		push	{r4, r5, lr}
+ 124              	.LCFI1:
+ 125              		.cfi_def_cfa_offset 12
+ 126              		.cfi_offset 4, -12
+ 127              		.cfi_offset 5, -8
+ 128              		.cfi_offset 14, -4
+ 129 0012 83B0     		sub	sp, sp, #12
+ 130              	.LCFI2:
+ 131              		.cfi_def_cfa_offset 24
+  41:SynaptiX_FDK/services/sx_fatfs/sx_diskio.c **** 
+  42:SynaptiX_FDK/services/sx_fatfs/sx_diskio.c ****     uint32_t addr = FLASH_STORAGE_BASE + (uint32_t)s_cache_sector * FLASH_SECTOR_SIZE_BYTES;
+ 132              		.loc 1 42 5 is_stmt 1 view .LVU20
+ 133              		.loc 1 42 40 is_stmt 0 view .LVU21
+ 134 0014 03F58144 		add	r4, r3, #16512
+ 135 0018 6034     		adds	r4, r4, #96
+ 136              		.loc 1 42 14 view .LVU22
+ 137 001a 6403     		lsls	r4, r4, #13
+ 138              	.LVL6:
+  43:SynaptiX_FDK/services/sx_fatfs/sx_diskio.c **** 
+  44:SynaptiX_FDK/services/sx_fatfs/sx_diskio.c ****     log_info("DISKIO", "flush sector=%ld addr=0x%08lX", s_cache_sector, addr);
+ 139              		.loc 1 44 5 is_stmt 1 view .LVU23
+ 140 001c 1B4D     		ldr	r5, .L11+8
+ 141 001e 0094     		str	r4, [sp]
+ 142 0020 1B4A     		ldr	r2, .L11+12
+ 143 0022 2946     		mov	r1, r5
+ 144 0024 0320     		movs	r0, #3
+ 145 0026 FFF7FEFF 		bl	log_func
+ 146              	.LVL7:
+  45:SynaptiX_FDK/services/sx_fatfs/sx_diskio.c ****     log_info("DISKIO", ">>> FLASH WRITE sector=%ld addr=0x%08lX", 
+ 147              		.loc 1 45 5 view .LVU24
+ 148 002a 0094     		str	r4, [sp]
+ 149 002c 164B     		ldr	r3, .L11+4
+ 150 002e 1B68     		ldr	r3, [r3]
+ 151 0030 184A     		ldr	r2, .L11+16
+ 152 0032 2946     		mov	r1, r5
+ 153 0034 0320     		movs	r0, #3
+ 154 0036 FFF7FEFF 		bl	log_func
+ 155              	.LVL8:
+  46:SynaptiX_FDK/services/sx_fatfs/sx_diskio.c ****              s_cache_sector, addr);
+  47:SynaptiX_FDK/services/sx_fatfs/sx_diskio.c **** 
+  48:SynaptiX_FDK/services/sx_fatfs/sx_diskio.c ****     sx_flash_unlock();
+ 156              		.loc 1 48 5 view .LVU25
+ 157 003a FFF7FEFF 		bl	sx_flash_unlock
+ 158              	.LVL9:
+  49:SynaptiX_FDK/services/sx_fatfs/sx_diskio.c ****     log_info("DISKIO", "erase start");
+ 159              		.loc 1 49 5 view .LVU26
+ 160 003e 164A     		ldr	r2, .L11+20
+ 161 0040 2946     		mov	r1, r5
+ 162 0042 0320     		movs	r0, #3
+ 163 0044 FFF7FEFF 		bl	log_func
+ 164              	.LVL10:
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccxzJIqI.s 			page 5
+
+
+  50:SynaptiX_FDK/services/sx_fatfs/sx_diskio.c ****     sx_flash_erase(addr, FLASH_SECTOR_SIZE_BYTES);
+ 165              		.loc 1 50 5 view .LVU27
+ 166 0048 4FF40051 		mov	r1, #8192
+ 167 004c 2046     		mov	r0, r4
+ 168 004e FFF7FEFF 		bl	sx_flash_erase
+ 169              	.LVL11:
+  51:SynaptiX_FDK/services/sx_fatfs/sx_diskio.c ****     log_info("DISKIO", "erase done, write start");
+ 170              		.loc 1 51 5 view .LVU28
+ 171 0052 124A     		ldr	r2, .L11+24
+ 172 0054 2946     		mov	r1, r5
+ 173 0056 0320     		movs	r0, #3
+ 174 0058 FFF7FEFF 		bl	log_func
+ 175              	.LVL12:
+  52:SynaptiX_FDK/services/sx_fatfs/sx_diskio.c ****     sx_flash_write(addr, s_cache_buf, FLASH_SECTOR_SIZE_BYTES);
+ 176              		.loc 1 52 5 view .LVU29
+ 177 005c 4FF40052 		mov	r2, #8192
+ 178 0060 0F49     		ldr	r1, .L11+28
+ 179 0062 2046     		mov	r0, r4
+ 180 0064 FFF7FEFF 		bl	sx_flash_write
+ 181              	.LVL13:
+  53:SynaptiX_FDK/services/sx_fatfs/sx_diskio.c ****     log_info("DISKIO", "write done");
+ 182              		.loc 1 53 5 view .LVU30
+ 183 0068 0E4A     		ldr	r2, .L11+32
+ 184 006a 2946     		mov	r1, r5
+ 185 006c 0320     		movs	r0, #3
+ 186 006e FFF7FEFF 		bl	log_func
+ 187              	.LVL14:
+  54:SynaptiX_FDK/services/sx_fatfs/sx_diskio.c ****     sx_flash_lock();
+ 188              		.loc 1 54 5 view .LVU31
+ 189 0072 FFF7FEFF 		bl	sx_flash_lock
+ 190              	.LVL15:
+  55:SynaptiX_FDK/services/sx_fatfs/sx_diskio.c **** 
+  56:SynaptiX_FDK/services/sx_fatfs/sx_diskio.c ****     s_cache_dirty = false;
+ 191              		.loc 1 56 5 view .LVU32
+ 192              		.loc 1 56 19 is_stmt 0 view .LVU33
+ 193 0076 034B     		ldr	r3, .L11
+ 194 0078 0022     		movs	r2, #0
+ 195 007a 1A70     		strb	r2, [r3]
+  57:SynaptiX_FDK/services/sx_fatfs/sx_diskio.c **** }
+ 196              		.loc 1 57 1 view .LVU34
+ 197 007c 03B0     		add	sp, sp, #12
+ 198              	.LCFI3:
+ 199              		.cfi_def_cfa_offset 12
+ 200              		@ sp needed
+ 201 007e 30BD     		pop	{r4, r5, pc}
+ 202              	.LVL16:
+ 203              	.L8:
+ 204              	.LCFI4:
+ 205              		.cfi_def_cfa_offset 0
+ 206              		.cfi_restore 4
+ 207              		.cfi_restore 5
+ 208              		.cfi_restore 14
+ 209              		.loc 1 57 1 view .LVU35
+ 210 0080 7047     		bx	lr
+ 211              	.L12:
+ 212 0082 00BF     		.align	2
+ 213              	.L11:
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccxzJIqI.s 			page 6
+
+
+ 214 0084 00000000 		.word	s_cache_dirty
+ 215 0088 00000000 		.word	s_cache_sector
+ 216 008c 20000000 		.word	.LC1
+ 217 0090 00000000 		.word	.LC0
+ 218 0094 28000000 		.word	.LC2
+ 219 0098 50000000 		.word	.LC3
+ 220 009c 5C000000 		.word	.LC4
+ 221 00a0 00000000 		.word	s_cache_buf
+ 222 00a4 74000000 		.word	.LC5
+ 223              		.cfi_endproc
+ 224              	.LFE3:
+ 226              		.section	.text.sx_diskio_get_block_count,"ax",%progbits
+ 227              		.align	1
+ 228              		.global	sx_diskio_get_block_count
+ 229              		.syntax unified
+ 230              		.thumb
+ 231              		.thumb_func
+ 233              	sx_diskio_get_block_count:
+ 234              	.LFB4:
+  58:SynaptiX_FDK/services/sx_fatfs/sx_diskio.c **** 
+  59:SynaptiX_FDK/services/sx_fatfs/sx_diskio.c **** uint32_t sx_diskio_get_block_count(void)
+  60:SynaptiX_FDK/services/sx_fatfs/sx_diskio.c **** {
+ 235              		.loc 1 60 1 is_stmt 1 view -0
+ 236              		.cfi_startproc
+ 237              		@ args = 0, pretend = 0, frame = 0
+ 238              		@ frame_needed = 0, uses_anonymous_args = 0
+ 239              		@ link register save eliminated.
+  61:SynaptiX_FDK/services/sx_fatfs/sx_diskio.c ****     return SX_FLASHDISK_BLOCK_COUNT;
+ 240              		.loc 1 61 5 view .LVU37
+  62:SynaptiX_FDK/services/sx_fatfs/sx_diskio.c **** }
+ 241              		.loc 1 62 1 is_stmt 0 view .LVU38
+ 242 0000 4FF40070 		mov	r0, #512
+ 243 0004 7047     		bx	lr
+ 244              		.cfi_endproc
+ 245              	.LFE4:
+ 247              		.section	.text.sx_diskio_get_buffer,"ax",%progbits
+ 248              		.align	1
+ 249              		.global	sx_diskio_get_buffer
+ 250              		.syntax unified
+ 251              		.thumb
+ 252              		.thumb_func
+ 254              	sx_diskio_get_buffer:
+ 255              	.LFB5:
+  63:SynaptiX_FDK/services/sx_fatfs/sx_diskio.c **** 
+  64:SynaptiX_FDK/services/sx_fatfs/sx_diskio.c **** uint8_t *sx_diskio_get_buffer(void)
+  65:SynaptiX_FDK/services/sx_fatfs/sx_diskio.c **** {
+ 256              		.loc 1 65 1 is_stmt 1 view -0
+ 257              		.cfi_startproc
+ 258              		@ args = 0, pretend = 0, frame = 0
+ 259              		@ frame_needed = 0, uses_anonymous_args = 0
+ 260              		@ link register save eliminated.
+  66:SynaptiX_FDK/services/sx_fatfs/sx_diskio.c ****     return NULL;
+ 261              		.loc 1 66 5 view .LVU40
+  67:SynaptiX_FDK/services/sx_fatfs/sx_diskio.c **** }
+ 262              		.loc 1 67 1 is_stmt 0 view .LVU41
+ 263 0000 0020     		movs	r0, #0
+ 264 0002 7047     		bx	lr
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccxzJIqI.s 			page 7
+
+
+ 265              		.cfi_endproc
+ 266              	.LFE5:
+ 268              		.section	.text.disk_initialize,"ax",%progbits
+ 269              		.align	1
+ 270              		.global	disk_initialize
+ 271              		.syntax unified
+ 272              		.thumb
+ 273              		.thumb_func
+ 275              	disk_initialize:
+ 276              	.LVL17:
+ 277              	.LFB6:
+  68:SynaptiX_FDK/services/sx_fatfs/sx_diskio.c **** 
+  69:SynaptiX_FDK/services/sx_fatfs/sx_diskio.c **** 
+  70:SynaptiX_FDK/services/sx_fatfs/sx_diskio.c **** DSTATUS disk_initialize(BYTE pdrv)
+  71:SynaptiX_FDK/services/sx_fatfs/sx_diskio.c **** {
+ 278              		.loc 1 71 1 is_stmt 1 view -0
+ 279              		.cfi_startproc
+ 280              		@ args = 0, pretend = 0, frame = 0
+ 281              		@ frame_needed = 0, uses_anonymous_args = 0
+ 282              		@ link register save eliminated.
+  72:SynaptiX_FDK/services/sx_fatfs/sx_diskio.c ****     if (pdrv != 0) return STA_NOINIT;
+ 283              		.loc 1 72 5 view .LVU43
+ 284              		.loc 1 72 8 is_stmt 0 view .LVU44
+ 285 0000 50B9     		cbnz	r0, .L17
+  73:SynaptiX_FDK/services/sx_fatfs/sx_diskio.c ****     s_cache_sector = -1;
+ 286              		.loc 1 73 5 is_stmt 1 view .LVU45
+ 287              		.loc 1 73 20 is_stmt 0 view .LVU46
+ 288 0002 064A     		ldr	r2, .L18
+ 289 0004 4FF0FF31 		mov	r1, #-1
+ 290 0008 1160     		str	r1, [r2]
+  74:SynaptiX_FDK/services/sx_fatfs/sx_diskio.c ****     s_cache_dirty  = false;
+ 291              		.loc 1 74 5 is_stmt 1 view .LVU47
+ 292              		.loc 1 74 20 is_stmt 0 view .LVU48
+ 293 000a 054A     		ldr	r2, .L18+4
+ 294 000c 0021     		movs	r1, #0
+ 295 000e 1170     		strb	r1, [r2]
+  75:SynaptiX_FDK/services/sx_fatfs/sx_diskio.c ****     s_initialized  = true;
+ 296              		.loc 1 75 5 is_stmt 1 view .LVU49
+ 297              		.loc 1 75 20 is_stmt 0 view .LVU50
+ 298 0010 044A     		ldr	r2, .L18+8
+ 299 0012 0121     		movs	r1, #1
+ 300 0014 1170     		strb	r1, [r2]
+  76:SynaptiX_FDK/services/sx_fatfs/sx_diskio.c ****     return 0;
+ 301              		.loc 1 76 5 is_stmt 1 view .LVU51
+ 302              		.loc 1 76 12 is_stmt 0 view .LVU52
+ 303 0016 7047     		bx	lr
+ 304              	.L17:
+  72:SynaptiX_FDK/services/sx_fatfs/sx_diskio.c ****     s_cache_sector = -1;
+ 305              		.loc 1 72 27 discriminator 1 view .LVU53
+ 306 0018 0120     		movs	r0, #1
+ 307              	.LVL18:
+  77:SynaptiX_FDK/services/sx_fatfs/sx_diskio.c **** }
+ 308              		.loc 1 77 1 view .LVU54
+ 309 001a 7047     		bx	lr
+ 310              	.L19:
+ 311              		.align	2
+ 312              	.L18:
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccxzJIqI.s 			page 8
+
+
+ 313 001c 00000000 		.word	s_cache_sector
+ 314 0020 00000000 		.word	s_cache_dirty
+ 315 0024 00000000 		.word	s_initialized
+ 316              		.cfi_endproc
+ 317              	.LFE6:
+ 319              		.section	.text.disk_status,"ax",%progbits
+ 320              		.align	1
+ 321              		.global	disk_status
+ 322              		.syntax unified
+ 323              		.thumb
+ 324              		.thumb_func
+ 326              	disk_status:
+ 327              	.LVL19:
+ 328              	.LFB7:
+  78:SynaptiX_FDK/services/sx_fatfs/sx_diskio.c **** 
+  79:SynaptiX_FDK/services/sx_fatfs/sx_diskio.c **** DSTATUS disk_status(BYTE pdrv)
+  80:SynaptiX_FDK/services/sx_fatfs/sx_diskio.c **** {
+ 329              		.loc 1 80 1 is_stmt 1 view -0
+ 330              		.cfi_startproc
+ 331              		@ args = 0, pretend = 0, frame = 0
+ 332              		@ frame_needed = 0, uses_anonymous_args = 0
+ 333              		@ link register save eliminated.
+  81:SynaptiX_FDK/services/sx_fatfs/sx_diskio.c ****     if (pdrv != 0) return STA_NOINIT;
+ 334              		.loc 1 81 5 view .LVU56
+ 335              		.loc 1 81 8 is_stmt 0 view .LVU57
+ 336 0000 20B9     		cbnz	r0, .L22
+  82:SynaptiX_FDK/services/sx_fatfs/sx_diskio.c ****     return s_initialized ? 0 : STA_NOINIT;
+ 337              		.loc 1 82 5 is_stmt 1 view .LVU58
+ 338              		.loc 1 82 30 is_stmt 0 view .LVU59
+ 339 0002 034B     		ldr	r3, .L23
+ 340 0004 1878     		ldrb	r0, [r3]	@ zero_extendqisi2
+ 341              	.LVL20:
+ 342              		.loc 1 82 30 view .LVU60
+ 343 0006 80F00100 		eor	r0, r0, #1
+ 344 000a 7047     		bx	lr
+ 345              	.LVL21:
+ 346              	.L22:
+  81:SynaptiX_FDK/services/sx_fatfs/sx_diskio.c ****     if (pdrv != 0) return STA_NOINIT;
+ 347              		.loc 1 81 27 discriminator 1 view .LVU61
+ 348 000c 0120     		movs	r0, #1
+ 349              	.LVL22:
+  83:SynaptiX_FDK/services/sx_fatfs/sx_diskio.c **** }
+ 350              		.loc 1 83 1 view .LVU62
+ 351 000e 7047     		bx	lr
+ 352              	.L24:
+ 353              		.align	2
+ 354              	.L23:
+ 355 0010 00000000 		.word	s_initialized
+ 356              		.cfi_endproc
+ 357              	.LFE7:
+ 359              		.section	.text.disk_read,"ax",%progbits
+ 360              		.align	1
+ 361              		.global	disk_read
+ 362              		.syntax unified
+ 363              		.thumb
+ 364              		.thumb_func
+ 366              	disk_read:
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccxzJIqI.s 			page 9
+
+
+ 367              	.LVL23:
+ 368              	.LFB8:
+  84:SynaptiX_FDK/services/sx_fatfs/sx_diskio.c **** 
+  85:SynaptiX_FDK/services/sx_fatfs/sx_diskio.c **** DRESULT disk_read(BYTE pdrv, BYTE *buff, LBA_t sector, UINT count)
+  86:SynaptiX_FDK/services/sx_fatfs/sx_diskio.c **** {
+ 369              		.loc 1 86 1 is_stmt 1 view -0
+ 370              		.cfi_startproc
+ 371              		@ args = 0, pretend = 0, frame = 0
+ 372              		@ frame_needed = 0, uses_anonymous_args = 0
+  87:SynaptiX_FDK/services/sx_fatfs/sx_diskio.c ****     if (pdrv != 0)                                   return RES_PARERR;
+ 373              		.loc 1 87 5 view .LVU64
+ 374              		.loc 1 87 8 is_stmt 0 view .LVU65
+ 375 0000 A0BB     		cbnz	r0, .L31
+  86:SynaptiX_FDK/services/sx_fatfs/sx_diskio.c ****     if (pdrv != 0)                                   return RES_PARERR;
+ 376              		.loc 1 86 1 view .LVU66
+ 377 0002 2DE9F041 		push	{r4, r5, r6, r7, r8, lr}
+ 378              	.LCFI5:
+ 379              		.cfi_def_cfa_offset 24
+ 380              		.cfi_offset 4, -24
+ 381              		.cfi_offset 5, -20
+ 382              		.cfi_offset 6, -16
+ 383              		.cfi_offset 7, -12
+ 384              		.cfi_offset 8, -8
+ 385              		.cfi_offset 14, -4
+ 386 0006 0F46     		mov	r7, r1
+ 387 0008 1646     		mov	r6, r2
+ 388 000a 1D46     		mov	r5, r3
+ 389 000c 8046     		mov	r8, r0
+  88:SynaptiX_FDK/services/sx_fatfs/sx_diskio.c ****     if (!s_initialized)                              return RES_NOTRDY;
+ 390              		.loc 1 88 5 is_stmt 1 view .LVU67
+ 391              		.loc 1 88 9 is_stmt 0 view .LVU68
+ 392 000e 1A4B     		ldr	r3, .L39
+ 393              	.LVL24:
+ 394              		.loc 1 88 9 view .LVU69
+ 395 0010 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 396              		.loc 1 88 8 view .LVU70
+ 397 0012 6BB3     		cbz	r3, .L32
+  89:SynaptiX_FDK/services/sx_fatfs/sx_diskio.c ****     if (sector + count > SX_FLASHDISK_BLOCK_COUNT)   return RES_PARERR;
+ 398              		.loc 1 89 5 is_stmt 1 view .LVU71
+ 399              		.loc 1 89 16 is_stmt 0 view .LVU72
+ 400 0014 5319     		adds	r3, r2, r5
+ 401              		.loc 1 89 8 view .LVU73
+ 402 0016 B3F5007F 		cmp	r3, #512
+ 403 001a 2BD8     		bhi	.L33
+ 404              	.LBB12:
+  90:SynaptiX_FDK/services/sx_fatfs/sx_diskio.c **** 
+  91:SynaptiX_FDK/services/sx_fatfs/sx_diskio.c ****     for (UINT i = 0; i < count; i++) {
+ 405              		.loc 1 91 15 view .LVU74
+ 406 001c 0024     		movs	r4, #0
+ 407 001e 0CE0     		b	.L27
+ 408              	.LVL25:
+ 409              	.L28:
+ 410              	.LBB13:
+  92:SynaptiX_FDK/services/sx_fatfs/sx_diskio.c ****         LBA_t    lba        = sector + i;
+  93:SynaptiX_FDK/services/sx_fatfs/sx_diskio.c ****         int32_t  fsect      = _lba_to_flash_sector(lba);
+  94:SynaptiX_FDK/services/sx_fatfs/sx_diskio.c ****         uint32_t buf_offset = (uint32_t)(lba % FAT_BLOCKS_PER_SECTOR) * SX_FLASHDISK_BLOCK_SIZE;
+  95:SynaptiX_FDK/services/sx_fatfs/sx_diskio.c **** 
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccxzJIqI.s 			page 10
+
+
+  96:SynaptiX_FDK/services/sx_fatfs/sx_diskio.c ****         if (s_cache_sector == fsect) {
+  97:SynaptiX_FDK/services/sx_fatfs/sx_diskio.c ****             /* Cache hit */
+  98:SynaptiX_FDK/services/sx_fatfs/sx_diskio.c ****             memcpy(buff + i * SX_FLASHDISK_BLOCK_SIZE,
+  99:SynaptiX_FDK/services/sx_fatfs/sx_diskio.c ****                    s_cache_buf + buf_offset,
+ 100:SynaptiX_FDK/services/sx_fatfs/sx_diskio.c ****                    SX_FLASHDISK_BLOCK_SIZE);
+ 101:SynaptiX_FDK/services/sx_fatfs/sx_diskio.c ****         } else {
+ 102:SynaptiX_FDK/services/sx_fatfs/sx_diskio.c ****             sx_flash_read(_lba_to_addr(lba),
+ 411              		.loc 1 102 13 is_stmt 1 view .LVU75
+ 412              	.LBB14:
+ 413              	.LBI14:
+  19:SynaptiX_FDK/services/sx_fatfs/sx_diskio.c **** {
+ 414              		.loc 1 19 24 view .LVU76
+ 415              	.LBB15:
+  21:SynaptiX_FDK/services/sx_fatfs/sx_diskio.c **** }
+ 416              		.loc 1 21 5 view .LVU77
+  21:SynaptiX_FDK/services/sx_fatfs/sx_diskio.c **** }
+ 417              		.loc 1 21 31 is_stmt 0 view .LVU78
+ 418 0020 0CF5812C 		add	ip, ip, #264192
+ 419              	.LVL26:
+  21:SynaptiX_FDK/services/sx_fatfs/sx_diskio.c **** }
+ 420              		.loc 1 21 31 view .LVU79
+ 421 0024 0CF5C06C 		add	ip, ip, #1536
+ 422              	.LVL27:
+  21:SynaptiX_FDK/services/sx_fatfs/sx_diskio.c **** }
+ 423              		.loc 1 21 31 view .LVU80
+ 424              	.LBE15:
+ 425              	.LBE14:
+ 426              		.loc 1 102 13 view .LVU81
+ 427 0028 4FF40072 		mov	r2, #512
+ 428 002c 07EB4421 		add	r1, r7, r4, lsl #9
+ 429 0030 4FEA4C20 		lsl	r0, ip, #9
+ 430 0034 FFF7FEFF 		bl	sx_flash_read
+ 431              	.LVL28:
+ 432              	.L29:
+ 433              		.loc 1 102 13 view .LVU82
+ 434              	.LBE13:
+  91:SynaptiX_FDK/services/sx_fatfs/sx_diskio.c ****         LBA_t    lba        = sector + i;
+ 435              		.loc 1 91 34 is_stmt 1 discriminator 2 view .LVU83
+ 436 0038 0134     		adds	r4, r4, #1
+ 437              	.LVL29:
+ 438              	.L27:
+  91:SynaptiX_FDK/services/sx_fatfs/sx_diskio.c ****         LBA_t    lba        = sector + i;
+ 439              		.loc 1 91 24 discriminator 1 view .LVU84
+ 440 003a AC42     		cmp	r4, r5
+ 441 003c 13D2     		bcs	.L38
+ 442              	.LBB18:
+  92:SynaptiX_FDK/services/sx_fatfs/sx_diskio.c ****         int32_t  fsect      = _lba_to_flash_sector(lba);
+ 443              		.loc 1 92 9 view .LVU85
+  92:SynaptiX_FDK/services/sx_fatfs/sx_diskio.c ****         int32_t  fsect      = _lba_to_flash_sector(lba);
+ 444              		.loc 1 92 18 is_stmt 0 view .LVU86
+ 445 003e 04EB060C 		add	ip, r4, r6
+ 446              	.LVL30:
+  93:SynaptiX_FDK/services/sx_fatfs/sx_diskio.c ****         uint32_t buf_offset = (uint32_t)(lba % FAT_BLOCKS_PER_SECTOR) * SX_FLASHDISK_BLOCK_SIZE;
+ 447              		.loc 1 93 9 is_stmt 1 view .LVU87
+ 448              	.LBB16:
+ 449              	.LBI16:
+  24:SynaptiX_FDK/services/sx_fatfs/sx_diskio.c **** {
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccxzJIqI.s 			page 11
+
+
+ 450              		.loc 1 24 23 view .LVU88
+ 451              	.LBB17:
+  26:SynaptiX_FDK/services/sx_fatfs/sx_diskio.c **** }
+ 452              		.loc 1 26 5 view .LVU89
+  26:SynaptiX_FDK/services/sx_fatfs/sx_diskio.c **** }
+ 453              		.loc 1 26 5 is_stmt 0 view .LVU90
+ 454              	.LBE17:
+ 455              	.LBE16:
+  94:SynaptiX_FDK/services/sx_fatfs/sx_diskio.c **** 
+ 456              		.loc 1 94 9 is_stmt 1 view .LVU91
+  94:SynaptiX_FDK/services/sx_fatfs/sx_diskio.c **** 
+ 457              		.loc 1 94 31 is_stmt 0 view .LVU92
+ 458 0042 0CF00F0E 		and	lr, ip, #15
+  94:SynaptiX_FDK/services/sx_fatfs/sx_diskio.c **** 
+ 459              		.loc 1 94 18 view .LVU93
+ 460 0046 4FEA4E2E 		lsl	lr, lr, #9
+ 461              	.LVL31:
+  96:SynaptiX_FDK/services/sx_fatfs/sx_diskio.c ****             /* Cache hit */
+ 462              		.loc 1 96 9 is_stmt 1 view .LVU94
+  96:SynaptiX_FDK/services/sx_fatfs/sx_diskio.c ****             /* Cache hit */
+ 463              		.loc 1 96 28 is_stmt 0 view .LVU95
+ 464 004a 0C4B     		ldr	r3, .L39+4
+ 465 004c 1B68     		ldr	r3, [r3]
+  96:SynaptiX_FDK/services/sx_fatfs/sx_diskio.c ****             /* Cache hit */
+ 466              		.loc 1 96 12 view .LVU96
+ 467 004e B3EB1C1F 		cmp	r3, ip, lsr #4
+ 468 0052 E5D1     		bne	.L28
+  98:SynaptiX_FDK/services/sx_fatfs/sx_diskio.c ****                    s_cache_buf + buf_offset,
+ 469              		.loc 1 98 13 is_stmt 1 view .LVU97
+ 470 0054 4FF40072 		mov	r2, #512
+ 471 0058 0949     		ldr	r1, .L39+8
+ 472 005a 7144     		add	r1, r1, lr
+ 473 005c 07EB4420 		add	r0, r7, r4, lsl #9
+ 474 0060 FFF7FEFF 		bl	memcpy
+ 475              	.LVL32:
+  98:SynaptiX_FDK/services/sx_fatfs/sx_diskio.c ****                    s_cache_buf + buf_offset,
+ 476              		.loc 1 98 13 is_stmt 0 view .LVU98
+ 477 0064 E8E7     		b	.L29
+ 478              	.LVL33:
+ 479              	.L38:
+  98:SynaptiX_FDK/services/sx_fatfs/sx_diskio.c ****                    s_cache_buf + buf_offset,
+ 480              		.loc 1 98 13 view .LVU99
+ 481              	.LBE18:
+ 482              	.LBE12:
+ 103:SynaptiX_FDK/services/sx_fatfs/sx_diskio.c ****                           buff + i * SX_FLASHDISK_BLOCK_SIZE,
+ 104:SynaptiX_FDK/services/sx_fatfs/sx_diskio.c ****                           SX_FLASHDISK_BLOCK_SIZE);
+ 105:SynaptiX_FDK/services/sx_fatfs/sx_diskio.c ****         }
+ 106:SynaptiX_FDK/services/sx_fatfs/sx_diskio.c ****     }
+ 107:SynaptiX_FDK/services/sx_fatfs/sx_diskio.c ****     return RES_OK;
+ 483              		.loc 1 107 12 view .LVU100
+ 484 0066 4046     		mov	r0, r8
+ 485              	.LVL34:
+ 486              	.L26:
+ 108:SynaptiX_FDK/services/sx_fatfs/sx_diskio.c **** }
+ 487              		.loc 1 108 1 view .LVU101
+ 488 0068 BDE8F081 		pop	{r4, r5, r6, r7, r8, pc}
+ 489              	.LVL35:
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccxzJIqI.s 			page 12
+
+
+ 490              	.L31:
+ 491              	.LCFI6:
+ 492              		.cfi_def_cfa_offset 0
+ 493              		.cfi_restore 4
+ 494              		.cfi_restore 5
+ 495              		.cfi_restore 6
+ 496              		.cfi_restore 7
+ 497              		.cfi_restore 8
+ 498              		.cfi_restore 14
+  87:SynaptiX_FDK/services/sx_fatfs/sx_diskio.c ****     if (!s_initialized)                              return RES_NOTRDY;
+ 499              		.loc 1 87 61 discriminator 1 view .LVU102
+ 500 006c 0420     		movs	r0, #4
+ 501              	.LVL36:
+ 502              		.loc 1 108 1 view .LVU103
+ 503 006e 7047     		bx	lr
+ 504              	.LVL37:
+ 505              	.L32:
+ 506              	.LCFI7:
+ 507              		.cfi_def_cfa_offset 24
+ 508              		.cfi_offset 4, -24
+ 509              		.cfi_offset 5, -20
+ 510              		.cfi_offset 6, -16
+ 511              		.cfi_offset 7, -12
+ 512              		.cfi_offset 8, -8
+ 513              		.cfi_offset 14, -4
+  88:SynaptiX_FDK/services/sx_fatfs/sx_diskio.c ****     if (sector + count > SX_FLASHDISK_BLOCK_COUNT)   return RES_PARERR;
+ 514              		.loc 1 88 61 discriminator 1 view .LVU104
+ 515 0070 0320     		movs	r0, #3
+ 516              	.LVL38:
+  88:SynaptiX_FDK/services/sx_fatfs/sx_diskio.c ****     if (sector + count > SX_FLASHDISK_BLOCK_COUNT)   return RES_PARERR;
+ 517              		.loc 1 88 61 discriminator 1 view .LVU105
+ 518 0072 F9E7     		b	.L26
+ 519              	.LVL39:
+ 520              	.L33:
+  89:SynaptiX_FDK/services/sx_fatfs/sx_diskio.c **** 
+ 521              		.loc 1 89 61 discriminator 1 view .LVU106
+ 522 0074 0420     		movs	r0, #4
+ 523              	.LVL40:
+  89:SynaptiX_FDK/services/sx_fatfs/sx_diskio.c **** 
+ 524              		.loc 1 89 61 discriminator 1 view .LVU107
+ 525 0076 F7E7     		b	.L26
+ 526              	.L40:
+ 527              		.align	2
+ 528              	.L39:
+ 529 0078 00000000 		.word	s_initialized
+ 530 007c 00000000 		.word	s_cache_sector
+ 531 0080 00000000 		.word	s_cache_buf
+ 532              		.cfi_endproc
+ 533              	.LFE8:
+ 535              		.section	.text.disk_write,"ax",%progbits
+ 536              		.align	1
+ 537              		.global	disk_write
+ 538              		.syntax unified
+ 539              		.thumb
+ 540              		.thumb_func
+ 542              	disk_write:
+ 543              	.LVL41:
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccxzJIqI.s 			page 13
+
+
+ 544              	.LFB9:
+ 109:SynaptiX_FDK/services/sx_fatfs/sx_diskio.c **** 
+ 110:SynaptiX_FDK/services/sx_fatfs/sx_diskio.c **** DRESULT disk_write(BYTE pdrv, const BYTE *buff, LBA_t sector, UINT count)
+ 111:SynaptiX_FDK/services/sx_fatfs/sx_diskio.c **** {
+ 545              		.loc 1 111 1 is_stmt 1 view -0
+ 546              		.cfi_startproc
+ 547              		@ args = 0, pretend = 0, frame = 0
+ 548              		@ frame_needed = 0, uses_anonymous_args = 0
+ 112:SynaptiX_FDK/services/sx_fatfs/sx_diskio.c ****     if (pdrv != 0)                                   return RES_PARERR;
+ 549              		.loc 1 112 5 view .LVU109
+ 550              		.loc 1 112 8 is_stmt 0 view .LVU110
+ 551 0000 0028     		cmp	r0, #0
+ 552 0002 38D1     		bne	.L46
+ 111:SynaptiX_FDK/services/sx_fatfs/sx_diskio.c ****     if (pdrv != 0)                                   return RES_PARERR;
+ 553              		.loc 1 111 1 view .LVU111
+ 554 0004 2DE9F047 		push	{r4, r5, r6, r7, r8, r9, r10, lr}
+ 555              	.LCFI8:
+ 556              		.cfi_def_cfa_offset 32
+ 557              		.cfi_offset 4, -32
+ 558              		.cfi_offset 5, -28
+ 559              		.cfi_offset 6, -24
+ 560              		.cfi_offset 7, -20
+ 561              		.cfi_offset 8, -16
+ 562              		.cfi_offset 9, -12
+ 563              		.cfi_offset 10, -8
+ 564              		.cfi_offset 14, -4
+ 565 0008 8846     		mov	r8, r1
+ 566 000a 1746     		mov	r7, r2
+ 567 000c 1E46     		mov	r6, r3
+ 568 000e 8146     		mov	r9, r0
+ 113:SynaptiX_FDK/services/sx_fatfs/sx_diskio.c ****     if (!s_initialized)                              return RES_NOTRDY;
+ 569              		.loc 1 113 5 is_stmt 1 view .LVU112
+ 570              		.loc 1 113 9 is_stmt 0 view .LVU113
+ 571 0010 1C4B     		ldr	r3, .L54
+ 572              	.LVL42:
+ 573              		.loc 1 113 9 view .LVU114
+ 574 0012 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 575              		.loc 1 113 8 view .LVU115
+ 576 0014 8BB3     		cbz	r3, .L47
+ 114:SynaptiX_FDK/services/sx_fatfs/sx_diskio.c ****     if (sector + count > SX_FLASHDISK_BLOCK_COUNT)   return RES_PARERR;
+ 577              		.loc 1 114 5 is_stmt 1 view .LVU116
+ 578              		.loc 1 114 16 is_stmt 0 view .LVU117
+ 579 0016 9319     		adds	r3, r2, r6
+ 580              		.loc 1 114 8 view .LVU118
+ 581 0018 B3F5007F 		cmp	r3, #512
+ 582 001c 2FD8     		bhi	.L48
+ 583              	.LBB19:
+ 115:SynaptiX_FDK/services/sx_fatfs/sx_diskio.c **** 
+ 116:SynaptiX_FDK/services/sx_fatfs/sx_diskio.c ****     for (UINT i = 0; i < count; i++) {
+ 584              		.loc 1 116 15 view .LVU119
+ 585 001e 0024     		movs	r4, #0
+ 586 0020 0BE0     		b	.L43
+ 587              	.LVL43:
+ 588              	.L44:
+ 589              	.LBB20:
+ 117:SynaptiX_FDK/services/sx_fatfs/sx_diskio.c ****         LBA_t    lba        = sector + i;
+ 118:SynaptiX_FDK/services/sx_fatfs/sx_diskio.c ****         int32_t  fsect      = _lba_to_flash_sector(lba);
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccxzJIqI.s 			page 14
+
+
+ 119:SynaptiX_FDK/services/sx_fatfs/sx_diskio.c ****         uint32_t buf_offset = (uint32_t)(lba % FAT_BLOCKS_PER_SECTOR) * SX_FLASHDISK_BLOCK_SIZE;
+ 120:SynaptiX_FDK/services/sx_fatfs/sx_diskio.c **** 
+ 121:SynaptiX_FDK/services/sx_fatfs/sx_diskio.c ****         if (s_cache_sector != fsect) {
+ 122:SynaptiX_FDK/services/sx_fatfs/sx_diskio.c ****             _cache_flush();
+ 123:SynaptiX_FDK/services/sx_fatfs/sx_diskio.c ****             _cache_load(fsect);
+ 124:SynaptiX_FDK/services/sx_fatfs/sx_diskio.c ****         }
+ 125:SynaptiX_FDK/services/sx_fatfs/sx_diskio.c **** 
+ 126:SynaptiX_FDK/services/sx_fatfs/sx_diskio.c ****         memcpy(s_cache_buf + buf_offset,
+ 590              		.loc 1 126 9 is_stmt 1 view .LVU120
+ 591 0022 4FF40072 		mov	r2, #512
+ 592 0026 08EB4421 		add	r1, r8, r4, lsl #9
+ 593 002a 1748     		ldr	r0, .L54+4
+ 594 002c 2844     		add	r0, r0, r5
+ 595 002e FFF7FEFF 		bl	memcpy
+ 596              	.LVL44:
+ 127:SynaptiX_FDK/services/sx_fatfs/sx_diskio.c ****                buff + i * SX_FLASHDISK_BLOCK_SIZE,
+ 128:SynaptiX_FDK/services/sx_fatfs/sx_diskio.c ****                SX_FLASHDISK_BLOCK_SIZE);
+ 129:SynaptiX_FDK/services/sx_fatfs/sx_diskio.c ****         s_cache_dirty = true;
+ 597              		.loc 1 129 9 view .LVU121
+ 598              		.loc 1 129 23 is_stmt 0 view .LVU122
+ 599 0032 164B     		ldr	r3, .L54+8
+ 600 0034 0122     		movs	r2, #1
+ 601 0036 1A70     		strb	r2, [r3]
+ 602              	.LBE20:
+ 116:SynaptiX_FDK/services/sx_fatfs/sx_diskio.c ****         LBA_t    lba        = sector + i;
+ 603              		.loc 1 116 34 is_stmt 1 discriminator 2 view .LVU123
+ 604 0038 1444     		add	r4, r4, r2
+ 605              	.LVL45:
+ 606              	.L43:
+ 116:SynaptiX_FDK/services/sx_fatfs/sx_diskio.c ****         LBA_t    lba        = sector + i;
+ 607              		.loc 1 116 24 discriminator 1 view .LVU124
+ 608 003a B442     		cmp	r4, r6
+ 609 003c 11D2     		bcs	.L53
+ 610              	.LBB23:
+ 117:SynaptiX_FDK/services/sx_fatfs/sx_diskio.c ****         LBA_t    lba        = sector + i;
+ 611              		.loc 1 117 9 view .LVU125
+ 117:SynaptiX_FDK/services/sx_fatfs/sx_diskio.c ****         LBA_t    lba        = sector + i;
+ 612              		.loc 1 117 18 is_stmt 0 view .LVU126
+ 613 003e 04EB070C 		add	ip, r4, r7
+ 614              	.LVL46:
+ 118:SynaptiX_FDK/services/sx_fatfs/sx_diskio.c ****         uint32_t buf_offset = (uint32_t)(lba % FAT_BLOCKS_PER_SECTOR) * SX_FLASHDISK_BLOCK_SIZE;
+ 615              		.loc 1 118 9 is_stmt 1 view .LVU127
+ 616              	.LBB21:
+ 617              	.LBI21:
+  24:SynaptiX_FDK/services/sx_fatfs/sx_diskio.c **** {
+ 618              		.loc 1 24 23 view .LVU128
+ 619              	.LBB22:
+  26:SynaptiX_FDK/services/sx_fatfs/sx_diskio.c **** }
+ 620              		.loc 1 26 5 view .LVU129
+  26:SynaptiX_FDK/services/sx_fatfs/sx_diskio.c **** }
+ 621              		.loc 1 26 26 is_stmt 0 view .LVU130
+ 622 0042 4FEA1C1A 		lsr	r10, ip, #4
+ 623              	.LVL47:
+  26:SynaptiX_FDK/services/sx_fatfs/sx_diskio.c **** }
+ 624              		.loc 1 26 26 view .LVU131
+ 625              	.LBE22:
+ 626              	.LBE21:
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccxzJIqI.s 			page 15
+
+
+ 119:SynaptiX_FDK/services/sx_fatfs/sx_diskio.c **** 
+ 627              		.loc 1 119 9 is_stmt 1 view .LVU132
+ 119:SynaptiX_FDK/services/sx_fatfs/sx_diskio.c **** 
+ 628              		.loc 1 119 31 is_stmt 0 view .LVU133
+ 629 0046 0CF00F05 		and	r5, ip, #15
+ 119:SynaptiX_FDK/services/sx_fatfs/sx_diskio.c **** 
+ 630              		.loc 1 119 18 view .LVU134
+ 631 004a 6D02     		lsls	r5, r5, #9
+ 632              	.LVL48:
+ 121:SynaptiX_FDK/services/sx_fatfs/sx_diskio.c ****             _cache_flush();
+ 633              		.loc 1 121 9 is_stmt 1 view .LVU135
+ 121:SynaptiX_FDK/services/sx_fatfs/sx_diskio.c ****             _cache_flush();
+ 634              		.loc 1 121 28 is_stmt 0 view .LVU136
+ 635 004c 104B     		ldr	r3, .L54+12
+ 636 004e 1B68     		ldr	r3, [r3]
+ 121:SynaptiX_FDK/services/sx_fatfs/sx_diskio.c ****             _cache_flush();
+ 637              		.loc 1 121 12 view .LVU137
+ 638 0050 B3EB1C1F 		cmp	r3, ip, lsr #4
+ 639 0054 E5D0     		beq	.L44
+ 122:SynaptiX_FDK/services/sx_fatfs/sx_diskio.c ****             _cache_load(fsect);
+ 640              		.loc 1 122 13 is_stmt 1 view .LVU138
+ 641 0056 FFF7FEFF 		bl	_cache_flush
+ 642              	.LVL49:
+ 123:SynaptiX_FDK/services/sx_fatfs/sx_diskio.c ****         }
+ 643              		.loc 1 123 13 view .LVU139
+ 644 005a 5046     		mov	r0, r10
+ 645 005c FFF7FEFF 		bl	_cache_load
+ 646              	.LVL50:
+ 647 0060 DFE7     		b	.L44
+ 648              	.LVL51:
+ 649              	.L53:
+ 123:SynaptiX_FDK/services/sx_fatfs/sx_diskio.c ****         }
+ 650              		.loc 1 123 13 is_stmt 0 view .LVU140
+ 651              	.LBE23:
+ 652              	.LBE19:
+ 130:SynaptiX_FDK/services/sx_fatfs/sx_diskio.c ****     }
+ 131:SynaptiX_FDK/services/sx_fatfs/sx_diskio.c ****     s_pending_flush   = true;        
+ 653              		.loc 1 131 5 is_stmt 1 view .LVU141
+ 654              		.loc 1 131 23 is_stmt 0 view .LVU142
+ 655 0062 0C4B     		ldr	r3, .L54+16
+ 656 0064 0122     		movs	r2, #1
+ 657 0066 1A70     		strb	r2, [r3]
+ 132:SynaptiX_FDK/services/sx_fatfs/sx_diskio.c ****     s_last_write_tick = sx_gettick();
+ 658              		.loc 1 132 5 is_stmt 1 view .LVU143
+ 659              		.loc 1 132 25 is_stmt 0 view .LVU144
+ 660 0068 FFF7FEFF 		bl	sx_gettick
+ 661              	.LVL52:
+ 662              		.loc 1 132 23 discriminator 1 view .LVU145
+ 663 006c 0A4B     		ldr	r3, .L54+20
+ 664 006e 1860     		str	r0, [r3]
+ 133:SynaptiX_FDK/services/sx_fatfs/sx_diskio.c ****     return RES_OK;
+ 665              		.loc 1 133 5 is_stmt 1 view .LVU146
+ 666              		.loc 1 133 12 is_stmt 0 view .LVU147
+ 667 0070 4846     		mov	r0, r9
+ 668              	.LVL53:
+ 669              	.L42:
+ 134:SynaptiX_FDK/services/sx_fatfs/sx_diskio.c **** }
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccxzJIqI.s 			page 16
+
+
+ 670              		.loc 1 134 1 view .LVU148
+ 671 0072 BDE8F087 		pop	{r4, r5, r6, r7, r8, r9, r10, pc}
+ 672              	.LVL54:
+ 673              	.L46:
+ 674              	.LCFI9:
+ 675              		.cfi_def_cfa_offset 0
+ 676              		.cfi_restore 4
+ 677              		.cfi_restore 5
+ 678              		.cfi_restore 6
+ 679              		.cfi_restore 7
+ 680              		.cfi_restore 8
+ 681              		.cfi_restore 9
+ 682              		.cfi_restore 10
+ 683              		.cfi_restore 14
+ 112:SynaptiX_FDK/services/sx_fatfs/sx_diskio.c ****     if (!s_initialized)                              return RES_NOTRDY;
+ 684              		.loc 1 112 61 discriminator 1 view .LVU149
+ 685 0076 0420     		movs	r0, #4
+ 686              	.LVL55:
+ 687              		.loc 1 134 1 view .LVU150
+ 688 0078 7047     		bx	lr
+ 689              	.LVL56:
+ 690              	.L47:
+ 691              	.LCFI10:
+ 692              		.cfi_def_cfa_offset 32
+ 693              		.cfi_offset 4, -32
+ 694              		.cfi_offset 5, -28
+ 695              		.cfi_offset 6, -24
+ 696              		.cfi_offset 7, -20
+ 697              		.cfi_offset 8, -16
+ 698              		.cfi_offset 9, -12
+ 699              		.cfi_offset 10, -8
+ 700              		.cfi_offset 14, -4
+ 113:SynaptiX_FDK/services/sx_fatfs/sx_diskio.c ****     if (sector + count > SX_FLASHDISK_BLOCK_COUNT)   return RES_PARERR;
+ 701              		.loc 1 113 61 discriminator 1 view .LVU151
+ 702 007a 0320     		movs	r0, #3
+ 703              	.LVL57:
+ 113:SynaptiX_FDK/services/sx_fatfs/sx_diskio.c ****     if (sector + count > SX_FLASHDISK_BLOCK_COUNT)   return RES_PARERR;
+ 704              		.loc 1 113 61 discriminator 1 view .LVU152
+ 705 007c F9E7     		b	.L42
+ 706              	.LVL58:
+ 707              	.L48:
+ 114:SynaptiX_FDK/services/sx_fatfs/sx_diskio.c **** 
+ 708              		.loc 1 114 61 discriminator 1 view .LVU153
+ 709 007e 0420     		movs	r0, #4
+ 710              	.LVL59:
+ 114:SynaptiX_FDK/services/sx_fatfs/sx_diskio.c **** 
+ 711              		.loc 1 114 61 discriminator 1 view .LVU154
+ 712 0080 F7E7     		b	.L42
+ 713              	.L55:
+ 714 0082 00BF     		.align	2
+ 715              	.L54:
+ 716 0084 00000000 		.word	s_initialized
+ 717 0088 00000000 		.word	s_cache_buf
+ 718 008c 00000000 		.word	s_cache_dirty
+ 719 0090 00000000 		.word	s_cache_sector
+ 720 0094 00000000 		.word	s_pending_flush
+ 721 0098 00000000 		.word	s_last_write_tick
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccxzJIqI.s 			page 17
+
+
+ 722              		.cfi_endproc
+ 723              	.LFE9:
+ 725              		.section	.text.sx_diskio_process,"ax",%progbits
+ 726              		.align	1
+ 727              		.global	sx_diskio_process
+ 728              		.syntax unified
+ 729              		.thumb
+ 730              		.thumb_func
+ 732              	sx_diskio_process:
+ 733              	.LFB10:
+ 135:SynaptiX_FDK/services/sx_fatfs/sx_diskio.c **** 
+ 136:SynaptiX_FDK/services/sx_fatfs/sx_diskio.c **** void sx_diskio_process(void)
+ 137:SynaptiX_FDK/services/sx_fatfs/sx_diskio.c **** {
+ 734              		.loc 1 137 1 is_stmt 1 view -0
+ 735              		.cfi_startproc
+ 736              		@ args = 0, pretend = 0, frame = 0
+ 737              		@ frame_needed = 0, uses_anonymous_args = 0
+ 738 0000 08B5     		push	{r3, lr}
+ 739              	.LCFI11:
+ 740              		.cfi_def_cfa_offset 8
+ 741              		.cfi_offset 3, -8
+ 742              		.cfi_offset 14, -4
+ 138:SynaptiX_FDK/services/sx_fatfs/sx_diskio.c ****     if (!s_pending_flush) return;
+ 743              		.loc 1 138 5 view .LVU156
+ 744              		.loc 1 138 9 is_stmt 0 view .LVU157
+ 745 0002 094B     		ldr	r3, .L60
+ 746 0004 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 747              		.loc 1 138 8 view .LVU158
+ 748 0006 03B9     		cbnz	r3, .L59
+ 749              	.L56:
+ 139:SynaptiX_FDK/services/sx_fatfs/sx_diskio.c ****     if ((sx_gettick() - s_last_write_tick) < 500) return; 
+ 140:SynaptiX_FDK/services/sx_fatfs/sx_diskio.c **** 
+ 141:SynaptiX_FDK/services/sx_fatfs/sx_diskio.c ****     _cache_flush();
+ 142:SynaptiX_FDK/services/sx_fatfs/sx_diskio.c ****     s_pending_flush = false;
+ 143:SynaptiX_FDK/services/sx_fatfs/sx_diskio.c **** }
+ 750              		.loc 1 143 1 view .LVU159
+ 751 0008 08BD     		pop	{r3, pc}
+ 752              	.L59:
+ 139:SynaptiX_FDK/services/sx_fatfs/sx_diskio.c ****     if ((sx_gettick() - s_last_write_tick) < 500) return; 
+ 753              		.loc 1 139 5 is_stmt 1 view .LVU160
+ 139:SynaptiX_FDK/services/sx_fatfs/sx_diskio.c ****     if ((sx_gettick() - s_last_write_tick) < 500) return; 
+ 754              		.loc 1 139 10 is_stmt 0 view .LVU161
+ 755 000a FFF7FEFF 		bl	sx_gettick
+ 756              	.LVL60:
+ 139:SynaptiX_FDK/services/sx_fatfs/sx_diskio.c ****     if ((sx_gettick() - s_last_write_tick) < 500) return; 
+ 757              		.loc 1 139 23 discriminator 1 view .LVU162
+ 758 000e 074B     		ldr	r3, .L60+4
+ 759 0010 1B68     		ldr	r3, [r3]
+ 760 0012 C01A     		subs	r0, r0, r3
+ 139:SynaptiX_FDK/services/sx_fatfs/sx_diskio.c ****     if ((sx_gettick() - s_last_write_tick) < 500) return; 
+ 761              		.loc 1 139 8 discriminator 1 view .LVU163
+ 762 0014 B0F5FA7F 		cmp	r0, #500
+ 763 0018 F6D3     		bcc	.L56
+ 141:SynaptiX_FDK/services/sx_fatfs/sx_diskio.c ****     s_pending_flush = false;
+ 764              		.loc 1 141 5 is_stmt 1 view .LVU164
+ 765 001a FFF7FEFF 		bl	_cache_flush
+ 766              	.LVL61:
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccxzJIqI.s 			page 18
+
+
+ 142:SynaptiX_FDK/services/sx_fatfs/sx_diskio.c **** }
+ 767              		.loc 1 142 5 view .LVU165
+ 142:SynaptiX_FDK/services/sx_fatfs/sx_diskio.c **** }
+ 768              		.loc 1 142 21 is_stmt 0 view .LVU166
+ 769 001e 024B     		ldr	r3, .L60
+ 770 0020 0022     		movs	r2, #0
+ 771 0022 1A70     		strb	r2, [r3]
+ 772 0024 F0E7     		b	.L56
+ 773              	.L61:
+ 774 0026 00BF     		.align	2
+ 775              	.L60:
+ 776 0028 00000000 		.word	s_pending_flush
+ 777 002c 00000000 		.word	s_last_write_tick
+ 778              		.cfi_endproc
+ 779              	.LFE10:
+ 781              		.section	.text.disk_ioctl,"ax",%progbits
+ 782              		.align	1
+ 783              		.global	disk_ioctl
+ 784              		.syntax unified
+ 785              		.thumb
+ 786              		.thumb_func
+ 788              	disk_ioctl:
+ 789              	.LVL62:
+ 790              	.LFB11:
+ 144:SynaptiX_FDK/services/sx_fatfs/sx_diskio.c **** 
+ 145:SynaptiX_FDK/services/sx_fatfs/sx_diskio.c **** DRESULT disk_ioctl(BYTE pdrv, BYTE cmd, void *buff)
+ 146:SynaptiX_FDK/services/sx_fatfs/sx_diskio.c **** {
+ 791              		.loc 1 146 1 is_stmt 1 view -0
+ 792              		.cfi_startproc
+ 793              		@ args = 0, pretend = 0, frame = 0
+ 794              		@ frame_needed = 0, uses_anonymous_args = 0
+ 147:SynaptiX_FDK/services/sx_fatfs/sx_diskio.c ****     if (pdrv != 0)      return RES_PARERR;
+ 795              		.loc 1 147 5 view .LVU168
+ 796              		.loc 1 147 8 is_stmt 0 view .LVU169
+ 797 0000 C8B9     		cbnz	r0, .L69
+ 146:SynaptiX_FDK/services/sx_fatfs/sx_diskio.c ****     if (pdrv != 0)      return RES_PARERR;
+ 798              		.loc 1 146 1 view .LVU170
+ 799 0002 10B5     		push	{r4, lr}
+ 800              	.LCFI12:
+ 801              		.cfi_def_cfa_offset 8
+ 802              		.cfi_offset 4, -8
+ 803              		.cfi_offset 14, -4
+ 804 0004 0C46     		mov	r4, r1
+ 148:SynaptiX_FDK/services/sx_fatfs/sx_diskio.c ****     if (!s_initialized) return RES_NOTRDY;
+ 805              		.loc 1 148 5 is_stmt 1 view .LVU171
+ 806              		.loc 1 148 9 is_stmt 0 view .LVU172
+ 807 0006 0F49     		ldr	r1, .L76
+ 808              	.LVL63:
+ 809              		.loc 1 148 9 view .LVU173
+ 810 0008 0978     		ldrb	r1, [r1]	@ zero_extendqisi2
+ 811              		.loc 1 148 8 view .LVU174
+ 812 000a B1B1     		cbz	r1, .L70
+ 149:SynaptiX_FDK/services/sx_fatfs/sx_diskio.c **** 
+ 150:SynaptiX_FDK/services/sx_fatfs/sx_diskio.c ****     switch (cmd) {
+ 813              		.loc 1 150 5 is_stmt 1 view .LVU175
+ 814 000c 032C     		cmp	r4, #3
+ 815 000e 16D8     		bhi	.L71
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccxzJIqI.s 			page 19
+
+
+ 816 0010 DFE804F0 		tbb	[pc, r4]
+ 817              	.L65:
+ 818 0014 02       		.byte	(.L68-.L65)/2
+ 819 0015 06       		.byte	(.L67-.L65)/2
+ 820 0016 0A       		.byte	(.L66-.L65)/2
+ 821 0017 0E       		.byte	(.L64-.L65)/2
+ 822              		.p2align 1
+ 823              	.L68:
+ 151:SynaptiX_FDK/services/sx_fatfs/sx_diskio.c ****         case CTRL_SYNC:
+ 152:SynaptiX_FDK/services/sx_fatfs/sx_diskio.c ****             _cache_flush();
+ 824              		.loc 1 152 13 view .LVU176
+ 825 0018 FFF7FEFF 		bl	_cache_flush
+ 826              	.LVL64:
+ 153:SynaptiX_FDK/services/sx_fatfs/sx_diskio.c ****             return RES_OK;
+ 827              		.loc 1 153 13 view .LVU177
+ 828              		.loc 1 153 20 is_stmt 0 view .LVU178
+ 829 001c 2046     		mov	r0, r4
+ 830 001e 0DE0     		b	.L63
+ 831              	.LVL65:
+ 832              	.L67:
+ 154:SynaptiX_FDK/services/sx_fatfs/sx_diskio.c **** 
+ 155:SynaptiX_FDK/services/sx_fatfs/sx_diskio.c ****         case GET_SECTOR_COUNT:
+ 156:SynaptiX_FDK/services/sx_fatfs/sx_diskio.c ****             *(LBA_t *)buff = SX_FLASHDISK_BLOCK_COUNT;
+ 833              		.loc 1 156 13 is_stmt 1 view .LVU179
+ 834              		.loc 1 156 28 is_stmt 0 view .LVU180
+ 835 0020 4FF40071 		mov	r1, #512
+ 836 0024 1160     		str	r1, [r2]
+ 157:SynaptiX_FDK/services/sx_fatfs/sx_diskio.c ****             return RES_OK;
+ 837              		.loc 1 157 13 is_stmt 1 view .LVU181
+ 838              		.loc 1 157 20 is_stmt 0 view .LVU182
+ 839 0026 09E0     		b	.L63
+ 840              	.L66:
+ 158:SynaptiX_FDK/services/sx_fatfs/sx_diskio.c **** 
+ 159:SynaptiX_FDK/services/sx_fatfs/sx_diskio.c ****         case GET_SECTOR_SIZE:
+ 160:SynaptiX_FDK/services/sx_fatfs/sx_diskio.c ****             *(WORD *)buff = SX_FLASHDISK_BLOCK_SIZE;
+ 841              		.loc 1 160 13 is_stmt 1 view .LVU183
+ 842              		.loc 1 160 27 is_stmt 0 view .LVU184
+ 843 0028 4FF40071 		mov	r1, #512
+ 844 002c 1180     		strh	r1, [r2]	@ movhi
+ 161:SynaptiX_FDK/services/sx_fatfs/sx_diskio.c ****             return RES_OK;
+ 845              		.loc 1 161 13 is_stmt 1 view .LVU185
+ 846              		.loc 1 161 20 is_stmt 0 view .LVU186
+ 847 002e 05E0     		b	.L63
+ 848              	.L64:
+ 162:SynaptiX_FDK/services/sx_fatfs/sx_diskio.c **** 
+ 163:SynaptiX_FDK/services/sx_fatfs/sx_diskio.c ****         case GET_BLOCK_SIZE:
+ 164:SynaptiX_FDK/services/sx_fatfs/sx_diskio.c ****             *(DWORD *)buff = FAT_BLOCKS_PER_SECTOR;
+ 849              		.loc 1 164 13 is_stmt 1 view .LVU187
+ 850              		.loc 1 164 28 is_stmt 0 view .LVU188
+ 851 0030 1021     		movs	r1, #16
+ 852 0032 1160     		str	r1, [r2]
+ 165:SynaptiX_FDK/services/sx_fatfs/sx_diskio.c ****             return RES_OK;
+ 853              		.loc 1 165 13 is_stmt 1 view .LVU189
+ 854              		.loc 1 165 20 is_stmt 0 view .LVU190
+ 855 0034 02E0     		b	.L63
+ 856              	.LVL66:
+ 857              	.L69:
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccxzJIqI.s 			page 20
+
+
+ 858              	.LCFI13:
+ 859              		.cfi_def_cfa_offset 0
+ 860              		.cfi_restore 4
+ 861              		.cfi_restore 14
+ 147:SynaptiX_FDK/services/sx_fatfs/sx_diskio.c ****     if (!s_initialized) return RES_NOTRDY;
+ 862              		.loc 1 147 32 discriminator 1 view .LVU191
+ 863 0036 0420     		movs	r0, #4
+ 864              	.LVL67:
+ 166:SynaptiX_FDK/services/sx_fatfs/sx_diskio.c **** 
+ 167:SynaptiX_FDK/services/sx_fatfs/sx_diskio.c ****         default:
+ 168:SynaptiX_FDK/services/sx_fatfs/sx_diskio.c ****             return RES_PARERR;
+ 169:SynaptiX_FDK/services/sx_fatfs/sx_diskio.c ****     }
+ 170:SynaptiX_FDK/services/sx_fatfs/sx_diskio.c **** }...
+ 865              		.loc 1 170 1 view .LVU192
+ 866 0038 7047     		bx	lr
+ 867              	.LVL68:
+ 868              	.L70:
+ 869              	.LCFI14:
+ 870              		.cfi_def_cfa_offset 8
+ 871              		.cfi_offset 4, -8
+ 872              		.cfi_offset 14, -4
+ 148:SynaptiX_FDK/services/sx_fatfs/sx_diskio.c ****     if (!s_initialized) return RES_NOTRDY;
+ 873              		.loc 1 148 32 discriminator 1 view .LVU193
+ 874 003a 0320     		movs	r0, #3
+ 875              	.LVL69:
+ 876              	.L63:
+ 877              		.loc 1 170 1 view .LVU194
+ 878 003c 10BD     		pop	{r4, pc}
+ 879              	.LVL70:
+ 880              	.L71:
+ 150:SynaptiX_FDK/services/sx_fatfs/sx_diskio.c ****     switch (cmd) {
+ 881              		.loc 1 150 5 view .LVU195
+ 882 003e 0420     		movs	r0, #4
+ 883              	.LVL71:
+ 150:SynaptiX_FDK/services/sx_fatfs/sx_diskio.c ****     switch (cmd) {
+ 884              		.loc 1 150 5 view .LVU196
+ 885 0040 FCE7     		b	.L63
+ 886              	.L77:
+ 887 0042 00BF     		.align	2
+ 888              	.L76:
+ 889 0044 00000000 		.word	s_initialized
+ 890              		.cfi_endproc
+ 891              	.LFE11:
+ 893              		.section	.bss.s_pending_flush,"aw",%nobits
+ 896              	s_pending_flush:
+ 897 0000 00       		.space	1
+ 898              		.section	.bss.s_last_write_tick,"aw",%nobits
+ 899              		.align	2
+ 902              	s_last_write_tick:
+ 903 0000 00000000 		.space	4
+ 904              		.section	.bss.s_initialized,"aw",%nobits
+ 907              	s_initialized:
+ 908 0000 00       		.space	1
+ 909              		.section	.bss.s_cache_dirty,"aw",%nobits
+ 912              	s_cache_dirty:
+ 913 0000 00       		.space	1
+ 914              		.section	.data.s_cache_sector,"aw"
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccxzJIqI.s 			page 21
+
+
+ 915              		.align	2
+ 918              	s_cache_sector:
+ 919 0000 FFFFFFFF 		.word	-1
+ 920              		.section	.bss.s_cache_buf,"aw",%nobits
+ 921              		.align	2
+ 924              	s_cache_buf:
+ 925 0000 00000000 		.space	8192
+ 925      00000000 
+ 925      00000000 
+ 925      00000000 
+ 925      00000000 
+ 926              		.text
+ 927              	.Letext0:
+ 928              		.file 2 "C:\\ST\\STM32CubeCLT_1.20.0\\GNU-tools-for-STM32\\bin/../lib/gcc/arm-none-eabi/13.3.1/../
+ 929              		.file 3 "C:\\ST\\STM32CubeCLT_1.20.0\\GNU-tools-for-STM32\\bin/../lib/gcc/arm-none-eabi/13.3.1/../
+ 930              		.file 4 "SynaptiX_FDK/services/fatfs/ff.h"
+ 931              		.file 5 "SynaptiX_FDK/services/fatfs/diskio.h"
+ 932              		.file 6 "C:\\ST\\STM32CubeCLT_1.20.0\\GNU-tools-for-STM32\\bin/../lib/gcc/arm-none-eabi/13.3.1/inc
+ 933              		.file 7 "SynaptiX_FDK/services/logger/logger.h"
+ 934              		.file 8 "SynaptiX_FDK/components/flash/sx_flash.h"
+ 935              		.file 9 "SynaptiX_FDK/utils/delay/sx_delay.h"
+ 936              		.file 10 "C:\\ST\\STM32CubeCLT_1.20.0\\GNU-tools-for-STM32\\bin/../lib/gcc/arm-none-eabi/13.3.1/..
+ 937              		.file 11 "<built-in>"
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccxzJIqI.s 			page 22
+
+
+DEFINED SYMBOLS
+                            *ABS*:00000000 sx_diskio.c
+C:\Users\LENOVO\AppData\Local\Temp\ccxzJIqI.s:22     .text._cache_load:00000000 $t
+C:\Users\LENOVO\AppData\Local\Temp\ccxzJIqI.s:27     .text._cache_load:00000000 _cache_load
+C:\Users\LENOVO\AppData\Local\Temp\ccxzJIqI.s:72     .text._cache_load:00000024 $d
+C:\Users\LENOVO\AppData\Local\Temp\ccxzJIqI.s:924    .bss.s_cache_buf:00000000 s_cache_buf
+C:\Users\LENOVO\AppData\Local\Temp\ccxzJIqI.s:918    .data.s_cache_sector:00000000 s_cache_sector
+C:\Users\LENOVO\AppData\Local\Temp\ccxzJIqI.s:912    .bss.s_cache_dirty:00000000 s_cache_dirty
+C:\Users\LENOVO\AppData\Local\Temp\ccxzJIqI.s:79     .rodata._cache_flush.str1.4:00000000 $d
+C:\Users\LENOVO\AppData\Local\Temp\ccxzJIqI.s:98     .text._cache_flush:00000000 $t
+C:\Users\LENOVO\AppData\Local\Temp\ccxzJIqI.s:103    .text._cache_flush:00000000 _cache_flush
+C:\Users\LENOVO\AppData\Local\Temp\ccxzJIqI.s:214    .text._cache_flush:00000084 $d
+C:\Users\LENOVO\AppData\Local\Temp\ccxzJIqI.s:227    .text.sx_diskio_get_block_count:00000000 $t
+C:\Users\LENOVO\AppData\Local\Temp\ccxzJIqI.s:233    .text.sx_diskio_get_block_count:00000000 sx_diskio_get_block_count
+C:\Users\LENOVO\AppData\Local\Temp\ccxzJIqI.s:248    .text.sx_diskio_get_buffer:00000000 $t
+C:\Users\LENOVO\AppData\Local\Temp\ccxzJIqI.s:254    .text.sx_diskio_get_buffer:00000000 sx_diskio_get_buffer
+C:\Users\LENOVO\AppData\Local\Temp\ccxzJIqI.s:269    .text.disk_initialize:00000000 $t
+C:\Users\LENOVO\AppData\Local\Temp\ccxzJIqI.s:275    .text.disk_initialize:00000000 disk_initialize
+C:\Users\LENOVO\AppData\Local\Temp\ccxzJIqI.s:313    .text.disk_initialize:0000001c $d
+C:\Users\LENOVO\AppData\Local\Temp\ccxzJIqI.s:907    .bss.s_initialized:00000000 s_initialized
+C:\Users\LENOVO\AppData\Local\Temp\ccxzJIqI.s:320    .text.disk_status:00000000 $t
+C:\Users\LENOVO\AppData\Local\Temp\ccxzJIqI.s:326    .text.disk_status:00000000 disk_status
+C:\Users\LENOVO\AppData\Local\Temp\ccxzJIqI.s:355    .text.disk_status:00000010 $d
+C:\Users\LENOVO\AppData\Local\Temp\ccxzJIqI.s:360    .text.disk_read:00000000 $t
+C:\Users\LENOVO\AppData\Local\Temp\ccxzJIqI.s:366    .text.disk_read:00000000 disk_read
+C:\Users\LENOVO\AppData\Local\Temp\ccxzJIqI.s:529    .text.disk_read:00000078 $d
+C:\Users\LENOVO\AppData\Local\Temp\ccxzJIqI.s:536    .text.disk_write:00000000 $t
+C:\Users\LENOVO\AppData\Local\Temp\ccxzJIqI.s:542    .text.disk_write:00000000 disk_write
+C:\Users\LENOVO\AppData\Local\Temp\ccxzJIqI.s:716    .text.disk_write:00000084 $d
+C:\Users\LENOVO\AppData\Local\Temp\ccxzJIqI.s:896    .bss.s_pending_flush:00000000 s_pending_flush
+C:\Users\LENOVO\AppData\Local\Temp\ccxzJIqI.s:902    .bss.s_last_write_tick:00000000 s_last_write_tick
+C:\Users\LENOVO\AppData\Local\Temp\ccxzJIqI.s:726    .text.sx_diskio_process:00000000 $t
+C:\Users\LENOVO\AppData\Local\Temp\ccxzJIqI.s:732    .text.sx_diskio_process:00000000 sx_diskio_process
+C:\Users\LENOVO\AppData\Local\Temp\ccxzJIqI.s:776    .text.sx_diskio_process:00000028 $d
+C:\Users\LENOVO\AppData\Local\Temp\ccxzJIqI.s:782    .text.disk_ioctl:00000000 $t
+C:\Users\LENOVO\AppData\Local\Temp\ccxzJIqI.s:788    .text.disk_ioctl:00000000 disk_ioctl
+C:\Users\LENOVO\AppData\Local\Temp\ccxzJIqI.s:818    .text.disk_ioctl:00000014 $d
+C:\Users\LENOVO\AppData\Local\Temp\ccxzJIqI.s:822    .text.disk_ioctl:00000018 $t
+C:\Users\LENOVO\AppData\Local\Temp\ccxzJIqI.s:889    .text.disk_ioctl:00000044 $d
+C:\Users\LENOVO\AppData\Local\Temp\ccxzJIqI.s:897    .bss.s_pending_flush:00000000 $d
+C:\Users\LENOVO\AppData\Local\Temp\ccxzJIqI.s:899    .bss.s_last_write_tick:00000000 $d
+C:\Users\LENOVO\AppData\Local\Temp\ccxzJIqI.s:908    .bss.s_initialized:00000000 $d
+C:\Users\LENOVO\AppData\Local\Temp\ccxzJIqI.s:913    .bss.s_cache_dirty:00000000 $d
+C:\Users\LENOVO\AppData\Local\Temp\ccxzJIqI.s:915    .data.s_cache_sector:00000000 $d
+C:\Users\LENOVO\AppData\Local\Temp\ccxzJIqI.s:921    .bss.s_cache_buf:00000000 $d
+
+UNDEFINED SYMBOLS
+sx_flash_read
+log_func
+sx_flash_unlock
+sx_flash_erase
+sx_flash_write
+sx_flash_lock
+memcpy
+sx_gettick
