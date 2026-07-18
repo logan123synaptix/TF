@@ -1,5 +1,6 @@
 #include "sx_config.h"
 #include "sx_delay.h"
+#include "logger.h" // DEBUG: needed for log_info added for hang investigation
 
 static const char *TAG = "SX_SPI";
 
@@ -58,8 +59,14 @@ static int _sx_spi_read(sx_spi_t *spi, uint8_t *data, uint32_t len){
 }
 
 static int _sx_spi_write_read(sx_spi_t *spi, const uint8_t *tx_buf, uint8_t *rx_buf, uint32_t len){
+    // DEBUG: temporary trace to locate the hang after boot-via-bootloader.
+    log_info(TAG, "wr: cs_low len=%lu", (unsigned long)len);
     sx_spi_cs_low(spi);
-    int ret = spi_write_read((SPI_HandleTypeDef *)spi->pDriver, (const uint8_t *)tx_buf, rx_buf, (uint16_t)len, SX_SPI_TIMEOUT_MS) == HAL_OK ? 0 : -1;
+    log_info(TAG, "wr: cs_low done, calling HAL_SPI_TransmitReceive");
+    HAL_StatusTypeDef hal_ret = spi_write_read((SPI_HandleTypeDef *)spi->pDriver, (const uint8_t *)tx_buf, rx_buf, (uint16_t)len, SX_SPI_TIMEOUT_MS);
+    log_info(TAG, "wr: HAL_SPI_TransmitReceive returned %d", (int)hal_ret);
+    int ret = (hal_ret == HAL_OK) ? 0 : -1;
     sx_spi_cs_high(spi);
+    log_info(TAG, "wr: cs_high done, ret=%d", ret);
     return ret;
 }

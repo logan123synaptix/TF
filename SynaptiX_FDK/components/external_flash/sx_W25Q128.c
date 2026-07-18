@@ -141,11 +141,16 @@ int sx_W25Q128_read(uint32_t addr, uint8_t *buf, uint32_t len)
         tx[3] = (uint8_t)(cur_addr >>  0);
         memset(tx + 4, 0x00, chunk);
 
+        // DEBUG: temporary trace to locate the hang after boot-via-bootloader.
+        log_info(TAG, "read: before spi_write_read addr=0x%06lX chunk=%lu",
+          (unsigned long)cur_addr, (unsigned long)chunk);
         if (sx_spi_write_read(s_dev->spi, tx, rx, 4 + chunk) != 0) {
             log_error(TAG, "spi_write_read failed at addr=0x%06lX chunk=%lu",
               (unsigned long)cur_addr, (unsigned long)chunk);
             return -1;
         }
+        log_info(TAG, "read: after spi_write_read addr=0x%06lX chunk=%lu",
+          (unsigned long)cur_addr, (unsigned long)chunk);
         memcpy(buf + offset, rx + 4, chunk);
 
         offset += chunk;

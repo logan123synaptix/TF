@@ -342,7 +342,9 @@ static void publish_gps(char *mode)
     char topic[128];
     sx_gps_t *gps = &g_app.board->gps;
     struct tm t = {0};
+    log_info(TAG, "publish_gps: enter, mode=%s", mode);
     rx8130ce_get_time(&g_app.board->rtc, &g_app.time);
+    log_info(TAG, "publish_gps: rtc read done");
     t.tm_year = g_app.time.year + 100;  
     t.tm_mon  = g_app.time.month;
     t.tm_mday = g_app.time.day;
@@ -370,7 +372,8 @@ static void publish_gps(char *mode)
     else
     {
         fix = 0;
-        // read_last_gps();
+        
+        read_last_gps();
         lat = g_app.last_lat;
         lon = g_app.last_lon;
     }
@@ -390,7 +393,9 @@ static void publish_gps(char *mode)
 
 static void read_last_gps(void)
 {
+    log_info(TAG, "read_last_gps: enter");
     int32_t file_size = sx_storage_size(GPS_LOG_FILE_PATH);
+    log_info(TAG, "read_last_gps: size=%ld", (long)file_size);
     if (file_size <= 0) {
         log_info(TAG, "NO DATA FROM EXFLASH!");
         return;
