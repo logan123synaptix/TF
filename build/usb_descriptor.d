@@ -58,6 +58,7 @@ build/usb_descriptor.o: \
  SynaptiX_FDK/utils/delay/sx_delay.h \
  SynaptiX_FDK/components/external_flash/sx_W25Q128.h \
  SynaptiX_FDK/components/external_flash/sx_external_flash.h \
+ SynaptiX_FDK/services/logger/logger.h SynaptiX_FDK/app/app_config.h \
  SynaptiX_FDK/app/user/sx_ex_storage/sx_ex_storage.h \
  SynaptiX_FDK/components/usb_cdc_tiny/sx_usb_tiny_cdc.h \
  SynaptiX_FDK/lib/tinyusb/src/common/tusb_types.h Core/Inc/adc.h \
@@ -148,6 +149,8 @@ SynaptiX_FDK/components/modem/modem.h:
 SynaptiX_FDK/utils/delay/sx_delay.h:
 SynaptiX_FDK/components/external_flash/sx_W25Q128.h:
 SynaptiX_FDK/components/external_flash/sx_external_flash.h:
+SynaptiX_FDK/services/logger/logger.h:
+SynaptiX_FDK/app/app_config.h:
 SynaptiX_FDK/app/user/sx_ex_storage/sx_ex_storage.h:
 SynaptiX_FDK/components/usb_cdc_tiny/sx_usb_tiny_cdc.h:
 SynaptiX_FDK/lib/tinyusb/src/common/tusb_types.h:

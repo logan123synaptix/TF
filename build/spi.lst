@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cccq8EUE.s 			page 1
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccafrmWR.s 			page 1
 
 
    1              		.cpu cortex-m33
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cccq8EUE.s 			page 1
   27:Core/Src/spi.c **** SPI_HandleTypeDef hspi1;
   28:Core/Src/spi.c **** 
   29:Core/Src/spi.c **** /* SPI1 init function */
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cccq8EUE.s 			page 2
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccafrmWR.s 			page 2
 
 
   30:Core/Src/spi.c **** void MX_SPI1_Init(void)
@@ -118,7 +118,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cccq8EUE.s 			page 1
   66              		.loc 1 47 3 is_stmt 1 view .LVU15
   67              		.loc 1 47 32 is_stmt 0 view .LVU16
   68 0020 4FF04051 		mov	r1, #805306368
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cccq8EUE.s 			page 3
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccafrmWR.s 			page 3
 
 
   69 0024 C161     		str	r1, [r0, #28]
@@ -178,7 +178,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cccq8EUE.s 			page 1
   61:Core/Src/spi.c ****   hspi1.Init.ReadyPolarity = SPI_RDY_POLARITY_HIGH;
  110              		.loc 1 61 3 is_stmt 1 view .LVU43
  111              		.loc 1 61 28 is_stmt 0 view .LVU44
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cccq8EUE.s 			page 4
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccafrmWR.s 			page 4
 
 
  112 0044 0366     		str	r3, [r0, #96]
@@ -238,7 +238,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cccq8EUE.s 			page 1
  155              		.cfi_offset 14, -4
  156 0002 CAB0     		sub	sp, sp, #296
  157              	.LCFI2:
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cccq8EUE.s 			page 5
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccafrmWR.s 			page 5
 
 
  158              		.cfi_def_cfa_offset 304
@@ -298,7 +298,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cccq8EUE.s 			page 1
  101:Core/Src/spi.c ****     GPIO_InitStruct.Pin = FLASH_SPI_SCK_Pin|FLASH_SPI_MISO_Pin|FLASH_SPI_MOSI_Pin;
  102:Core/Src/spi.c ****     GPIO_InitStruct.Mode = GPIO_MODE_AF_PP;
  103:Core/Src/spi.c ****     GPIO_InitStruct.Pull = GPIO_NOPULL;
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cccq8EUE.s 			page 6
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccafrmWR.s 			page 6
 
 
  104:Core/Src/spi.c ****     GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
@@ -358,7 +358,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cccq8EUE.s 			page 1
  217 003e 1A4B     		ldr	r3, .L13+4
  218 0040 D3F8A420 		ldr	r2, [r3, #164]
  219 0044 42F48052 		orr	r2, r2, #4096
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cccq8EUE.s 			page 7
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccafrmWR.s 			page 7
 
 
  220 0048 C3F8A420 		str	r2, [r3, #164]
@@ -418,7 +418,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cccq8EUE.s 			page 1
  104:Core/Src/spi.c ****     GPIO_InitStruct.Alternate = GPIO_AF5_SPI1;
  258              		.loc 1 104 5 is_stmt 1 view .LVU88
  104:Core/Src/spi.c ****     GPIO_InitStruct.Alternate = GPIO_AF5_SPI1;
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cccq8EUE.s 			page 8
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccafrmWR.s 			page 8
 
 
  259              		.loc 1 104 27 is_stmt 0 view .LVU89
@@ -478,7 +478,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cccq8EUE.s 			page 1
  118:Core/Src/spi.c **** {
  307              		.loc 1 118 1 view -0
  308              		.cfi_startproc
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cccq8EUE.s 			page 9
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccafrmWR.s 			page 9
 
 
  309              		@ args = 0, pretend = 0, frame = 0
@@ -538,7 +538,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cccq8EUE.s 			page 1
  338              	.LVL17:
  133:Core/Src/spi.c **** 
  339              		.loc 1 133 5 is_stmt 0 view .LVU105
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cccq8EUE.s 			page 10
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccafrmWR.s 			page 10
 
 
  340 001e FFF7FEFF 		bl	HAL_GPIO_DeInit
@@ -583,22 +583,22 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cccq8EUE.s 			page 1
  377              		.file 13 "Core/Inc/spi.h"
  378              		.file 14 "Core/Inc/main.h"
  379              		.file 15 "<built-in>"
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cccq8EUE.s 			page 11
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccafrmWR.s 			page 11
 
 
 DEFINED SYMBOLS
                             *ABS*:00000000 spi.c
-C:\Users\LENOVO\AppData\Local\Temp\cccq8EUE.s:22     .text.MX_SPI1_Init:00000000 $t
-C:\Users\LENOVO\AppData\Local\Temp\cccq8EUE.s:28     .text.MX_SPI1_Init:00000000 MX_SPI1_Init
-C:\Users\LENOVO\AppData\Local\Temp\cccq8EUE.s:131    .text.MX_SPI1_Init:00000054 $d
-C:\Users\LENOVO\AppData\Local\Temp\cccq8EUE.s:362    .bss.hspi1:00000000 hspi1
-C:\Users\LENOVO\AppData\Local\Temp\cccq8EUE.s:137    .text.HAL_SPI_MspInit:00000000 $t
-C:\Users\LENOVO\AppData\Local\Temp\cccq8EUE.s:143    .text.HAL_SPI_MspInit:00000000 HAL_SPI_MspInit
-C:\Users\LENOVO\AppData\Local\Temp\cccq8EUE.s:291    .text.HAL_SPI_MspInit:000000a4 $d
-C:\Users\LENOVO\AppData\Local\Temp\cccq8EUE.s:298    .text.HAL_SPI_MspDeInit:00000000 $t
-C:\Users\LENOVO\AppData\Local\Temp\cccq8EUE.s:304    .text.HAL_SPI_MspDeInit:00000000 HAL_SPI_MspDeInit
-C:\Users\LENOVO\AppData\Local\Temp\cccq8EUE.s:351    .text.HAL_SPI_MspDeInit:0000002c $d
-C:\Users\LENOVO\AppData\Local\Temp\cccq8EUE.s:359    .bss.hspi1:00000000 $d
+C:\Users\LENOVO\AppData\Local\Temp\ccafrmWR.s:22     .text.MX_SPI1_Init:00000000 $t
+C:\Users\LENOVO\AppData\Local\Temp\ccafrmWR.s:28     .text.MX_SPI1_Init:00000000 MX_SPI1_Init
+C:\Users\LENOVO\AppData\Local\Temp\ccafrmWR.s:131    .text.MX_SPI1_Init:00000054 $d
+C:\Users\LENOVO\AppData\Local\Temp\ccafrmWR.s:362    .bss.hspi1:00000000 hspi1
+C:\Users\LENOVO\AppData\Local\Temp\ccafrmWR.s:137    .text.HAL_SPI_MspInit:00000000 $t
+C:\Users\LENOVO\AppData\Local\Temp\ccafrmWR.s:143    .text.HAL_SPI_MspInit:00000000 HAL_SPI_MspInit
+C:\Users\LENOVO\AppData\Local\Temp\ccafrmWR.s:291    .text.HAL_SPI_MspInit:000000a4 $d
+C:\Users\LENOVO\AppData\Local\Temp\ccafrmWR.s:298    .text.HAL_SPI_MspDeInit:00000000 $t
+C:\Users\LENOVO\AppData\Local\Temp\ccafrmWR.s:304    .text.HAL_SPI_MspDeInit:00000000 HAL_SPI_MspDeInit
+C:\Users\LENOVO\AppData\Local\Temp\ccafrmWR.s:351    .text.HAL_SPI_MspDeInit:0000002c $d
+C:\Users\LENOVO\AppData\Local\Temp\ccafrmWR.s:359    .bss.hspi1:00000000 $d
 
 UNDEFINED SYMBOLS
 HAL_SPI_Init

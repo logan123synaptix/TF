@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cceakz8m.s 			page 1
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cc1nX1Ej.s 			page 1
 
 
    1              		.cpu cortex-m33
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cceakz8m.s 			page 1
   26:SynaptiX_FDK/components/gpio/sx_gpio.h **** 
   27:SynaptiX_FDK/components/gpio/sx_gpio.h **** typedef struct sx_gpio{
   28:SynaptiX_FDK/components/gpio/sx_gpio.h ****     sx_gpio_ops_t *ops;
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cceakz8m.s 			page 2
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cc1nX1Ej.s 			page 2
 
 
   29:SynaptiX_FDK/components/gpio/sx_gpio.h ****     void *pDriver;
@@ -118,7 +118,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cceakz8m.s 			page 1
   68              		.loc 2 45 9 is_stmt 0 view .LVU14
   69              	.LBE2:
   46:SynaptiX_FDK/components/gpio/sx_gpio.h ****     }
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cceakz8m.s 			page 3
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cc1nX1Ej.s 			page 3
 
 
   47:SynaptiX_FDK/components/gpio/sx_gpio.h ****     return -1;
@@ -178,7 +178,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cceakz8m.s 			page 1
   22:SynaptiX_FDK/components/spi/sx_spi.h ****     void *pDriver;
   23:SynaptiX_FDK/components/spi/sx_spi.h ****     sx_gpio_t *cs;
   24:SynaptiX_FDK/components/spi/sx_spi.h **** };
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cceakz8m.s 			page 4
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cc1nX1Ej.s 			page 4
 
 
   25:SynaptiX_FDK/components/spi/sx_spi.h **** 
@@ -238,7 +238,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cceakz8m.s 			page 1
  121              	.L10:
  122              	.LCFI2:
  123              		.cfi_def_cfa_offset 0
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cceakz8m.s 			page 5
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cc1nX1Ej.s 			page 5
 
 
  124              		.cfi_restore 3
@@ -298,58 +298,59 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cceakz8m.s 			page 1
  178              	.LFB506:
    1:SynaptiX_FDK/components/spi/sx_spi.c **** #include "sx_config.h"
    2:SynaptiX_FDK/components/spi/sx_spi.c **** #include "sx_delay.h"
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cceakz8m.s 			page 6
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cc1nX1Ej.s 			page 6
 
 
-   3:SynaptiX_FDK/components/spi/sx_spi.c **** 
-   4:SynaptiX_FDK/components/spi/sx_spi.c **** static const char *TAG = "SX_SPI";
-   5:SynaptiX_FDK/components/spi/sx_spi.c **** 
-   6:SynaptiX_FDK/components/spi/sx_spi.c **** #if SX_PLATFORM == SX_PLATFORM_STM32H5 
-   7:SynaptiX_FDK/components/spi/sx_spi.c ****     #include "stm32h5xx_hal.h"
-   8:SynaptiX_FDK/components/spi/sx_spi.c ****     #include "stm32h5xx_hal_spi.h"
-   9:SynaptiX_FDK/components/spi/sx_spi.c **** #elif SX_PLATFORM == SX_PLATFORM_STM32H7
-  10:SynaptiX_FDK/components/spi/sx_spi.c ****     #include "stm32h7xx_hal.h"
-  11:SynaptiX_FDK/components/spi/sx_spi.c ****     #include "stm32h7xx_hal_spi.h"
-  12:SynaptiX_FDK/components/spi/sx_spi.c **** #elif SX_PLATFORM == SX_PLATFORM_STM32F7
-  13:SynaptiX_FDK/components/spi/sx_spi.c ****     #include "stm32f7xx_hal.h"
-  14:SynaptiX_FDK/components/spi/sx_spi.c ****     #include "stm32f7xx_hal_spi.h"
-  15:SynaptiX_FDK/components/spi/sx_spi.c **** #elif SX_PLATFORM == SX_PLATFORM_STM32F4
-  16:SynaptiX_FDK/components/spi/sx_spi.c ****     #include "stm32f4xx_hal.h"
-  17:SynaptiX_FDK/components/spi/sx_spi.c ****     #include "stm32f4xx_hal_spi.h"
-  18:SynaptiX_FDK/components/spi/sx_spi.c **** #elif SX_PLATFORM == SX_PLATFORM_STM32F1
-  19:SynaptiX_FDK/components/spi/sx_spi.c ****     #include "stm32f1xx_hal.h"
-  20:SynaptiX_FDK/components/spi/sx_spi.c ****     #include "stm32f1xx_hal_spi.h"
-  21:SynaptiX_FDK/components/spi/sx_spi.c **** #endif
-  22:SynaptiX_FDK/components/spi/sx_spi.c **** 
-  23:SynaptiX_FDK/components/spi/sx_spi.c **** #include "sx_spi.h"
-  24:SynaptiX_FDK/components/spi/sx_spi.c **** 
-  25:SynaptiX_FDK/components/spi/sx_spi.c **** #define SX_SPI_TIMEOUT_MS   100U
-  26:SynaptiX_FDK/components/spi/sx_spi.c **** 
-  27:SynaptiX_FDK/components/spi/sx_spi.c **** typedef HAL_StatusTypeDef (*spi_write_fn_t) (SPI_HandleTypeDef *hspi, const uint8_t *pData, uint16_
-  28:SynaptiX_FDK/components/spi/sx_spi.c **** typedef HAL_StatusTypeDef (*spi_read_fn_t) (SPI_HandleTypeDef *hspi, uint8_t *pData, uint16_t Size,
-  29:SynaptiX_FDK/components/spi/sx_spi.c **** typedef HAL_StatusTypeDef (*spi_write_read_fn_t) (SPI_HandleTypeDef *hspi, const uint8_t *pTxData, 
-  30:SynaptiX_FDK/components/spi/sx_spi.c ****                                                   uint16_t Size, uint32_t Timeout);
-  31:SynaptiX_FDK/components/spi/sx_spi.c **** 
-  32:SynaptiX_FDK/components/spi/sx_spi.c **** static spi_write_fn_t   spi_write = HAL_SPI_Transmit;
-  33:SynaptiX_FDK/components/spi/sx_spi.c **** static spi_read_fn_t    spi_read = HAL_SPI_Receive;
-  34:SynaptiX_FDK/components/spi/sx_spi.c **** static spi_write_read_fn_t spi_write_read = HAL_SPI_TransmitReceive;
-  35:SynaptiX_FDK/components/spi/sx_spi.c **** 
-  36:SynaptiX_FDK/components/spi/sx_spi.c **** static int _sx_spi_write(sx_spi_t *spi, const uint8_t *data, uint32_t len);
-  37:SynaptiX_FDK/components/spi/sx_spi.c **** static int _sx_spi_read(sx_spi_t *spi, uint8_t *data, uint32_t len);
-  38:SynaptiX_FDK/components/spi/sx_spi.c **** static int _sx_spi_write_read(sx_spi_t *spi, const uint8_t *tx_buf, uint8_t *rx_buf, uint32_t len);
-  39:SynaptiX_FDK/components/spi/sx_spi.c **** 
-  40:SynaptiX_FDK/components/spi/sx_spi.c **** sx_spi_ops_t sx_spi_ops = {
-  41:SynaptiX_FDK/components/spi/sx_spi.c ****     .write      = _sx_spi_write,
-  42:SynaptiX_FDK/components/spi/sx_spi.c ****     .read       = _sx_spi_read,
-  43:SynaptiX_FDK/components/spi/sx_spi.c ****     .write_read = _sx_spi_write_read,
-  44:SynaptiX_FDK/components/spi/sx_spi.c **** };
-  45:SynaptiX_FDK/components/spi/sx_spi.c **** 
-  46:SynaptiX_FDK/components/spi/sx_spi.c **** static int _sx_spi_write(sx_spi_t *spi, const uint8_t *data, uint32_t len){
- 179              		.loc 1 46 75 is_stmt 1 view -0
+   3:SynaptiX_FDK/components/spi/sx_spi.c **** #include "logger.h" // DEBUG: needed for log_info added for hang investigation
+   4:SynaptiX_FDK/components/spi/sx_spi.c **** 
+   5:SynaptiX_FDK/components/spi/sx_spi.c **** static const char *TAG = "SX_SPI";
+   6:SynaptiX_FDK/components/spi/sx_spi.c **** 
+   7:SynaptiX_FDK/components/spi/sx_spi.c **** #if SX_PLATFORM == SX_PLATFORM_STM32H5 
+   8:SynaptiX_FDK/components/spi/sx_spi.c ****     #include "stm32h5xx_hal.h"
+   9:SynaptiX_FDK/components/spi/sx_spi.c ****     #include "stm32h5xx_hal_spi.h"
+  10:SynaptiX_FDK/components/spi/sx_spi.c **** #elif SX_PLATFORM == SX_PLATFORM_STM32H7
+  11:SynaptiX_FDK/components/spi/sx_spi.c ****     #include "stm32h7xx_hal.h"
+  12:SynaptiX_FDK/components/spi/sx_spi.c ****     #include "stm32h7xx_hal_spi.h"
+  13:SynaptiX_FDK/components/spi/sx_spi.c **** #elif SX_PLATFORM == SX_PLATFORM_STM32F7
+  14:SynaptiX_FDK/components/spi/sx_spi.c ****     #include "stm32f7xx_hal.h"
+  15:SynaptiX_FDK/components/spi/sx_spi.c ****     #include "stm32f7xx_hal_spi.h"
+  16:SynaptiX_FDK/components/spi/sx_spi.c **** #elif SX_PLATFORM == SX_PLATFORM_STM32F4
+  17:SynaptiX_FDK/components/spi/sx_spi.c ****     #include "stm32f4xx_hal.h"
+  18:SynaptiX_FDK/components/spi/sx_spi.c ****     #include "stm32f4xx_hal_spi.h"
+  19:SynaptiX_FDK/components/spi/sx_spi.c **** #elif SX_PLATFORM == SX_PLATFORM_STM32F1
+  20:SynaptiX_FDK/components/spi/sx_spi.c ****     #include "stm32f1xx_hal.h"
+  21:SynaptiX_FDK/components/spi/sx_spi.c ****     #include "stm32f1xx_hal_spi.h"
+  22:SynaptiX_FDK/components/spi/sx_spi.c **** #endif
+  23:SynaptiX_FDK/components/spi/sx_spi.c **** 
+  24:SynaptiX_FDK/components/spi/sx_spi.c **** #include "sx_spi.h"
+  25:SynaptiX_FDK/components/spi/sx_spi.c **** 
+  26:SynaptiX_FDK/components/spi/sx_spi.c **** #define SX_SPI_TIMEOUT_MS   100U
+  27:SynaptiX_FDK/components/spi/sx_spi.c **** 
+  28:SynaptiX_FDK/components/spi/sx_spi.c **** typedef HAL_StatusTypeDef (*spi_write_fn_t) (SPI_HandleTypeDef *hspi, const uint8_t *pData, uint16_
+  29:SynaptiX_FDK/components/spi/sx_spi.c **** typedef HAL_StatusTypeDef (*spi_read_fn_t) (SPI_HandleTypeDef *hspi, uint8_t *pData, uint16_t Size,
+  30:SynaptiX_FDK/components/spi/sx_spi.c **** typedef HAL_StatusTypeDef (*spi_write_read_fn_t) (SPI_HandleTypeDef *hspi, const uint8_t *pTxData, 
+  31:SynaptiX_FDK/components/spi/sx_spi.c ****                                                   uint16_t Size, uint32_t Timeout);
+  32:SynaptiX_FDK/components/spi/sx_spi.c **** 
+  33:SynaptiX_FDK/components/spi/sx_spi.c **** static spi_write_fn_t   spi_write = HAL_SPI_Transmit;
+  34:SynaptiX_FDK/components/spi/sx_spi.c **** static spi_read_fn_t    spi_read = HAL_SPI_Receive;
+  35:SynaptiX_FDK/components/spi/sx_spi.c **** static spi_write_read_fn_t spi_write_read = HAL_SPI_TransmitReceive;
+  36:SynaptiX_FDK/components/spi/sx_spi.c **** 
+  37:SynaptiX_FDK/components/spi/sx_spi.c **** static int _sx_spi_write(sx_spi_t *spi, const uint8_t *data, uint32_t len);
+  38:SynaptiX_FDK/components/spi/sx_spi.c **** static int _sx_spi_read(sx_spi_t *spi, uint8_t *data, uint32_t len);
+  39:SynaptiX_FDK/components/spi/sx_spi.c **** static int _sx_spi_write_read(sx_spi_t *spi, const uint8_t *tx_buf, uint8_t *rx_buf, uint32_t len);
+  40:SynaptiX_FDK/components/spi/sx_spi.c **** 
+  41:SynaptiX_FDK/components/spi/sx_spi.c **** sx_spi_ops_t sx_spi_ops = {
+  42:SynaptiX_FDK/components/spi/sx_spi.c ****     .write      = _sx_spi_write,
+  43:SynaptiX_FDK/components/spi/sx_spi.c ****     .read       = _sx_spi_read,
+  44:SynaptiX_FDK/components/spi/sx_spi.c ****     .write_read = _sx_spi_write_read,
+  45:SynaptiX_FDK/components/spi/sx_spi.c **** };
+  46:SynaptiX_FDK/components/spi/sx_spi.c **** 
+  47:SynaptiX_FDK/components/spi/sx_spi.c **** static int _sx_spi_write(sx_spi_t *spi, const uint8_t *data, uint32_t len){
+ 179              		.loc 1 47 75 is_stmt 1 view -0
  180              		.cfi_startproc
  181              		@ args = 0, pretend = 0, frame = 0
  182              		@ frame_needed = 0, uses_anonymous_args = 0
- 183              		.loc 1 46 75 is_stmt 0 view .LVU35
+ 183              		.loc 1 47 75 is_stmt 0 view .LVU35
  184 0000 70B5     		push	{r4, r5, r6, lr}
  185              	.LCFI5:
  186              		.cfi_def_cfa_offset 16
@@ -357,49 +358,49 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cceakz8m.s 			page 1
  188              		.cfi_offset 5, -12
  189              		.cfi_offset 6, -8
  190              		.cfi_offset 14, -4
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cc1nX1Ej.s 			page 7
+
+
  191 0002 0446     		mov	r4, r0
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cceakz8m.s 			page 7
-
-
  192 0004 0D46     		mov	r5, r1
  193 0006 1646     		mov	r6, r2
-  47:SynaptiX_FDK/components/spi/sx_spi.c ****     sx_spi_cs_low(spi);
- 194              		.loc 1 47 5 is_stmt 1 view .LVU36
+  48:SynaptiX_FDK/components/spi/sx_spi.c ****     sx_spi_cs_low(spi);
+ 194              		.loc 1 48 5 is_stmt 1 view .LVU36
  195 0008 FFF7FEFF 		bl	sx_spi_cs_low
  196              	.LVL14:
-  48:SynaptiX_FDK/components/spi/sx_spi.c ****     int ret = spi_write((SPI_HandleTypeDef *)spi->pDriver, (const uint8_t *)data, (uint16_t)len, SX
- 197              		.loc 1 48 5 view .LVU37
- 198              		.loc 1 48 15 is_stmt 0 view .LVU38
+  49:SynaptiX_FDK/components/spi/sx_spi.c ****     int ret = spi_write((SPI_HandleTypeDef *)spi->pDriver, (const uint8_t *)data, (uint16_t)len, SX
+ 197              		.loc 1 49 5 view .LVU37
+ 198              		.loc 1 49 15 is_stmt 0 view .LVU38
  199 000c 6423     		movs	r3, #100
  200 000e B2B2     		uxth	r2, r6
  201 0010 2946     		mov	r1, r5
  202 0012 6068     		ldr	r0, [r4, #4]
  203 0014 FFF7FEFF 		bl	HAL_SPI_Transmit
  204              	.LVL15:
- 205              		.loc 1 48 131 discriminator 1 view .LVU39
+ 205              		.loc 1 49 131 discriminator 1 view .LVU39
  206 0018 28B9     		cbnz	r0, .L21
  207 001a 0025     		movs	r5, #0
  208              	.LVL16:
  209              	.L20:
-  49:SynaptiX_FDK/components/spi/sx_spi.c ****     sx_spi_cs_high(spi);
- 210              		.loc 1 49 5 is_stmt 1 view .LVU40
+  50:SynaptiX_FDK/components/spi/sx_spi.c ****     sx_spi_cs_high(spi);
+ 210              		.loc 1 50 5 is_stmt 1 view .LVU40
  211 001c 2046     		mov	r0, r4
  212 001e FFF7FEFF 		bl	sx_spi_cs_high
  213              	.LVL17:
-  50:SynaptiX_FDK/components/spi/sx_spi.c ****     return ret;
- 214              		.loc 1 50 5 view .LVU41
-  51:SynaptiX_FDK/components/spi/sx_spi.c **** }
- 215              		.loc 1 51 1 is_stmt 0 view .LVU42
+  51:SynaptiX_FDK/components/spi/sx_spi.c ****     return ret;
+ 214              		.loc 1 51 5 view .LVU41
+  52:SynaptiX_FDK/components/spi/sx_spi.c **** }
+ 215              		.loc 1 52 1 is_stmt 0 view .LVU42
  216 0022 2846     		mov	r0, r5
  217 0024 70BD     		pop	{r4, r5, r6, pc}
  218              	.LVL18:
  219              	.L21:
-  48:SynaptiX_FDK/components/spi/sx_spi.c ****     sx_spi_cs_high(spi);
- 220              		.loc 1 48 131 discriminator 2 view .LVU43
+  49:SynaptiX_FDK/components/spi/sx_spi.c ****     sx_spi_cs_high(spi);
+ 220              		.loc 1 49 131 discriminator 2 view .LVU43
  221 0026 4FF0FF35 		mov	r5, #-1
  222              	.LVL19:
-  48:SynaptiX_FDK/components/spi/sx_spi.c ****     sx_spi_cs_high(spi);
- 223              		.loc 1 48 131 discriminator 2 view .LVU44
+  49:SynaptiX_FDK/components/spi/sx_spi.c ****     sx_spi_cs_high(spi);
+ 223              		.loc 1 49 131 discriminator 2 view .LVU44
  224 002a F7E7     		b	.L20
  225              		.cfi_endproc
  226              	.LFE506:
@@ -411,16 +412,16 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cceakz8m.s 			page 1
  234              	_sx_spi_read:
  235              	.LVL20:
  236              	.LFB507:
-  52:SynaptiX_FDK/components/spi/sx_spi.c **** 
-  53:SynaptiX_FDK/components/spi/sx_spi.c **** static int _sx_spi_read(sx_spi_t *spi, uint8_t *data, uint32_t len){
- 237              		.loc 1 53 68 is_stmt 1 view -0
+  53:SynaptiX_FDK/components/spi/sx_spi.c **** 
+  54:SynaptiX_FDK/components/spi/sx_spi.c **** static int _sx_spi_read(sx_spi_t *spi, uint8_t *data, uint32_t len){
+ 237              		.loc 1 54 68 is_stmt 1 view -0
  238              		.cfi_startproc
  239              		@ args = 0, pretend = 0, frame = 0
  240              		@ frame_needed = 0, uses_anonymous_args = 0
- 241              		.loc 1 53 68 is_stmt 0 view .LVU46
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cceakz8m.s 			page 8
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cc1nX1Ej.s 			page 8
 
 
+ 241              		.loc 1 54 68 is_stmt 0 view .LVU46
  242 0000 70B5     		push	{r4, r5, r6, lr}
  243              	.LCFI6:
  244              		.cfi_def_cfa_offset 16
@@ -431,43 +432,43 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cceakz8m.s 			page 1
  249 0002 0446     		mov	r4, r0
  250 0004 0D46     		mov	r5, r1
  251 0006 1646     		mov	r6, r2
-  54:SynaptiX_FDK/components/spi/sx_spi.c ****     sx_spi_cs_low(spi);
- 252              		.loc 1 54 5 is_stmt 1 view .LVU47
+  55:SynaptiX_FDK/components/spi/sx_spi.c ****     sx_spi_cs_low(spi);
+ 252              		.loc 1 55 5 is_stmt 1 view .LVU47
  253 0008 FFF7FEFF 		bl	sx_spi_cs_low
  254              	.LVL21:
-  55:SynaptiX_FDK/components/spi/sx_spi.c ****     int ret = spi_read((SPI_HandleTypeDef *)spi->pDriver, data, (uint16_t) len, SX_SPI_TIMEOUT_MS) 
- 255              		.loc 1 55 5 view .LVU48
- 256              		.loc 1 55 15 is_stmt 0 view .LVU49
+  56:SynaptiX_FDK/components/spi/sx_spi.c ****     int ret = spi_read((SPI_HandleTypeDef *)spi->pDriver, data, (uint16_t) len, SX_SPI_TIMEOUT_MS) 
+ 255              		.loc 1 56 5 view .LVU48
+ 256              		.loc 1 56 15 is_stmt 0 view .LVU49
  257 000c 6423     		movs	r3, #100
  258 000e B2B2     		uxth	r2, r6
  259 0010 2946     		mov	r1, r5
  260 0012 6068     		ldr	r0, [r4, #4]
  261 0014 FFF7FEFF 		bl	HAL_SPI_Receive
  262              	.LVL22:
- 263              		.loc 1 55 114 discriminator 1 view .LVU50
+ 263              		.loc 1 56 114 discriminator 1 view .LVU50
  264 0018 28B9     		cbnz	r0, .L25
  265 001a 0025     		movs	r5, #0
  266              	.LVL23:
  267              	.L24:
-  56:SynaptiX_FDK/components/spi/sx_spi.c ****     sx_spi_cs_high(spi);
- 268              		.loc 1 56 5 is_stmt 1 view .LVU51
+  57:SynaptiX_FDK/components/spi/sx_spi.c ****     sx_spi_cs_high(spi);
+ 268              		.loc 1 57 5 is_stmt 1 view .LVU51
  269 001c 2046     		mov	r0, r4
  270 001e FFF7FEFF 		bl	sx_spi_cs_high
  271              	.LVL24:
-  57:SynaptiX_FDK/components/spi/sx_spi.c ****     return ret;
- 272              		.loc 1 57 5 view .LVU52
-  58:SynaptiX_FDK/components/spi/sx_spi.c **** }
- 273              		.loc 1 58 1 is_stmt 0 view .LVU53
+  58:SynaptiX_FDK/components/spi/sx_spi.c ****     return ret;
+ 272              		.loc 1 58 5 view .LVU52
+  59:SynaptiX_FDK/components/spi/sx_spi.c **** }
+ 273              		.loc 1 59 1 is_stmt 0 view .LVU53
  274 0022 2846     		mov	r0, r5
  275 0024 70BD     		pop	{r4, r5, r6, pc}
  276              	.LVL25:
  277              	.L25:
-  55:SynaptiX_FDK/components/spi/sx_spi.c ****     sx_spi_cs_high(spi);
- 278              		.loc 1 55 114 discriminator 2 view .LVU54
+  56:SynaptiX_FDK/components/spi/sx_spi.c ****     sx_spi_cs_high(spi);
+ 278              		.loc 1 56 114 discriminator 2 view .LVU54
  279 0026 4FF0FF35 		mov	r5, #-1
  280              	.LVL26:
-  55:SynaptiX_FDK/components/spi/sx_spi.c ****     sx_spi_cs_high(spi);
- 281              		.loc 1 55 114 discriminator 2 view .LVU55
+  56:SynaptiX_FDK/components/spi/sx_spi.c ****     sx_spi_cs_high(spi);
+ 281              		.loc 1 56 114 discriminator 2 view .LVU55
  282 002a F7E7     		b	.L24
  283              		.cfi_endproc
  284              	.LFE507:
@@ -477,18 +478,18 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cceakz8m.s 			page 1
  289              		.thumb
  290              		.thumb_func
  292              	_sx_spi_write_read:
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cc1nX1Ej.s 			page 9
+
+
  293              	.LVL27:
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cceakz8m.s 			page 9
-
-
  294              	.LFB508:
-  59:SynaptiX_FDK/components/spi/sx_spi.c **** 
-  60:SynaptiX_FDK/components/spi/sx_spi.c **** static int _sx_spi_write_read(sx_spi_t *spi, const uint8_t *tx_buf, uint8_t *rx_buf, uint32_t len){
- 295              		.loc 1 60 99 is_stmt 1 view -0
+  60:SynaptiX_FDK/components/spi/sx_spi.c **** 
+  61:SynaptiX_FDK/components/spi/sx_spi.c **** static int _sx_spi_write_read(sx_spi_t *spi, const uint8_t *tx_buf, uint8_t *rx_buf, uint32_t len){
+ 295              		.loc 1 61 99 is_stmt 1 view -0
  296              		.cfi_startproc
  297              		@ args = 0, pretend = 0, frame = 0
  298              		@ frame_needed = 0, uses_anonymous_args = 0
- 299              		.loc 1 60 99 is_stmt 0 view .LVU57
+ 299              		.loc 1 61 99 is_stmt 0 view .LVU57
  300 0000 F0B5     		push	{r4, r5, r6, r7, lr}
  301              	.LCFI7:
  302              		.cfi_def_cfa_offset 20
@@ -504,13 +505,13 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cceakz8m.s 			page 1
  312 0006 0D46     		mov	r5, r1
  313 0008 1646     		mov	r6, r2
  314 000a 1F46     		mov	r7, r3
-  61:SynaptiX_FDK/components/spi/sx_spi.c ****     sx_spi_cs_low(spi);
- 315              		.loc 1 61 5 is_stmt 1 view .LVU58
+  62:SynaptiX_FDK/components/spi/sx_spi.c ****     sx_spi_cs_low(spi);
+ 315              		.loc 1 62 5 is_stmt 1 view .LVU58
  316 000c FFF7FEFF 		bl	sx_spi_cs_low
  317              	.LVL28:
-  62:SynaptiX_FDK/components/spi/sx_spi.c ****     int ret = spi_write_read((SPI_HandleTypeDef *)spi->pDriver, (const uint8_t *)tx_buf, rx_buf, (u
- 318              		.loc 1 62 5 view .LVU59
- 319              		.loc 1 62 15 is_stmt 0 view .LVU60
+  63:SynaptiX_FDK/components/spi/sx_spi.c ****     HAL_StatusTypeDef hal_ret = spi_write_read((SPI_HandleTypeDef *)spi->pDriver, (const uint8_t *)
+ 318              		.loc 1 63 5 view .LVU59
+ 319              		.loc 1 63 33 is_stmt 0 view .LVU60
  320 0010 6423     		movs	r3, #100
  321 0012 0093     		str	r3, [sp]
  322 0014 BBB2     		uxth	r3, r7
@@ -519,79 +520,84 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cceakz8m.s 			page 1
  325 001a 6068     		ldr	r0, [r4, #4]
  326 001c FFF7FEFF 		bl	HAL_SPI_TransmitReceive
  327              	.LVL29:
- 328              		.loc 1 62 146 discriminator 1 view .LVU61
- 329 0020 30B9     		cbnz	r0, .L29
- 330 0022 0025     		movs	r5, #0
- 331              	.LVL30:
- 332              	.L28:
-  63:SynaptiX_FDK/components/spi/sx_spi.c ****     sx_spi_cs_high(spi);
- 333              		.loc 1 63 5 is_stmt 1 view .LVU62
- 334 0024 2046     		mov	r0, r4
- 335 0026 FFF7FEFF 		bl	sx_spi_cs_high
- 336              	.LVL31:
-  64:SynaptiX_FDK/components/spi/sx_spi.c ****     return ret;
- 337              		.loc 1 64 5 view .LVU63
-  65:SynaptiX_FDK/components/spi/sx_spi.c **** }
- 338              		.loc 1 65 1 is_stmt 0 view .LVU64
- 339 002a 2846     		mov	r0, r5
- 340 002c 03B0     		add	sp, sp, #12
- 341              	.LCFI9:
- 342              		.cfi_remember_state
- 343              		.cfi_def_cfa_offset 20
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cceakz8m.s 			page 10
+  64:SynaptiX_FDK/components/spi/sx_spi.c ****     int ret = (hal_ret == HAL_OK) ? 0 : -1;
+ 328              		.loc 1 64 5 is_stmt 1 view .LVU61
+ 329              		.loc 1 64 39 is_stmt 0 view .LVU62
+ 330 0020 30B9     		cbnz	r0, .L29
+ 331              		.loc 1 64 39 discriminator 1 view .LVU63
+ 332 0022 0025     		movs	r5, #0
+ 333              	.LVL30:
+ 334              	.L28:
+  65:SynaptiX_FDK/components/spi/sx_spi.c ****     sx_spi_cs_high(spi);
+ 335              		.loc 1 65 5 is_stmt 1 view .LVU64
+ 336 0024 2046     		mov	r0, r4
+ 337              	.LVL31:
+ 338              		.loc 1 65 5 is_stmt 0 view .LVU65
+ 339 0026 FFF7FEFF 		bl	sx_spi_cs_high
+ 340              	.LVL32:
+  66:SynaptiX_FDK/components/spi/sx_spi.c ****     return ret;
+ 341              		.loc 1 66 5 is_stmt 1 view .LVU66
+  67:SynaptiX_FDK/components/spi/sx_spi.c **** }...
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cc1nX1Ej.s 			page 10
 
 
- 344              		@ sp needed
- 345 002e F0BD     		pop	{r4, r5, r6, r7, pc}
- 346              	.LVL32:
- 347              	.L29:
- 348              	.LCFI10:
- 349              		.cfi_restore_state
-  62:SynaptiX_FDK/components/spi/sx_spi.c ****     sx_spi_cs_high(spi);
- 350              		.loc 1 62 146 discriminator 2 view .LVU65
- 351 0030 4FF0FF35 		mov	r5, #-1
- 352              	.LVL33:
-  62:SynaptiX_FDK/components/spi/sx_spi.c ****     sx_spi_cs_high(spi);
- 353              		.loc 1 62 146 discriminator 2 view .LVU66
- 354 0034 F6E7     		b	.L28
- 355              		.cfi_endproc
- 356              	.LFE508:
- 358              		.global	sx_spi_ops
- 359              		.section	.data.sx_spi_ops,"aw"
- 360              		.align	2
- 363              	sx_spi_ops:
- 364 0000 00000000 		.word	_sx_spi_write
- 365 0004 00000000 		.word	_sx_spi_read
- 366 0008 00000000 		.word	_sx_spi_write_read
- 367              		.text
- 368              	.Letext0:
- 369              		.file 4 "C:\\ST\\STM32CubeCLT_1.20.0\\GNU-tools-for-STM32\\bin/../lib/gcc/arm-none-eabi/13.3.1/../
- 370              		.file 5 "C:\\ST\\STM32CubeCLT_1.20.0\\GNU-tools-for-STM32\\bin/../lib/gcc/arm-none-eabi/13.3.1/../
- 371              		.file 6 "Drivers/CMSIS/Device/ST/STM32H5xx/Include/stm32h563xx.h"
- 372              		.file 7 "Drivers/STM32H5xx_HAL_Driver/Inc/stm32h5xx_hal_def.h"
- 373              		.file 8 "Drivers/STM32H5xx_HAL_Driver/Inc/stm32h5xx_hal_dma.h"
- 374              		.file 9 "Drivers/STM32H5xx_HAL_Driver/Inc/stm32h5xx_hal_dma_ex.h"
- 375              		.file 10 "Drivers/STM32H5xx_HAL_Driver/Inc/stm32h5xx_ll_lptim.h"
- 376              		.file 11 "Drivers/STM32H5xx_HAL_Driver/Inc/stm32h5xx_hal_spi.h"
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cceakz8m.s 			page 11
+ 342              		.loc 1 67 1 is_stmt 0 view .LVU67
+ 343 002a 2846     		mov	r0, r5
+ 344 002c 03B0     		add	sp, sp, #12
+ 345              	.LCFI9:
+ 346              		.cfi_remember_state
+ 347              		.cfi_def_cfa_offset 20
+ 348              		@ sp needed
+ 349 002e F0BD     		pop	{r4, r5, r6, r7, pc}
+ 350              	.LVL33:
+ 351              	.L29:
+ 352              	.LCFI10:
+ 353              		.cfi_restore_state
+  64:SynaptiX_FDK/components/spi/sx_spi.c ****     int ret = (hal_ret == HAL_OK) ? 0 : -1;
+ 354              		.loc 1 64 39 discriminator 2 view .LVU68
+ 355 0030 4FF0FF35 		mov	r5, #-1
+ 356              	.LVL34:
+  64:SynaptiX_FDK/components/spi/sx_spi.c ****     int ret = (hal_ret == HAL_OK) ? 0 : -1;
+ 357              		.loc 1 64 39 discriminator 2 view .LVU69
+ 358 0034 F6E7     		b	.L28
+ 359              		.cfi_endproc
+ 360              	.LFE508:
+ 362              		.global	sx_spi_ops
+ 363              		.section	.data.sx_spi_ops,"aw"
+ 364              		.align	2
+ 367              	sx_spi_ops:
+ 368 0000 00000000 		.word	_sx_spi_write
+ 369 0004 00000000 		.word	_sx_spi_read
+ 370 0008 00000000 		.word	_sx_spi_write_read
+ 371              		.text
+ 372              	.Letext0:
+ 373              		.file 4 "C:\\ST\\STM32CubeCLT_1.20.0\\GNU-tools-for-STM32\\bin/../lib/gcc/arm-none-eabi/13.3.1/../
+ 374              		.file 5 "C:\\ST\\STM32CubeCLT_1.20.0\\GNU-tools-for-STM32\\bin/../lib/gcc/arm-none-eabi/13.3.1/../
+ 375              		.file 6 "Drivers/CMSIS/Device/ST/STM32H5xx/Include/stm32h563xx.h"
+ 376              		.file 7 "Drivers/STM32H5xx_HAL_Driver/Inc/stm32h5xx_hal_def.h"
+ 377              		.file 8 "Drivers/STM32H5xx_HAL_Driver/Inc/stm32h5xx_hal_dma.h"
+ 378              		.file 9 "Drivers/STM32H5xx_HAL_Driver/Inc/stm32h5xx_hal_dma_ex.h"
+ 379              		.file 10 "Drivers/STM32H5xx_HAL_Driver/Inc/stm32h5xx_ll_lptim.h"
+ 380              		.file 11 "Drivers/STM32H5xx_HAL_Driver/Inc/stm32h5xx_hal_spi.h"
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cc1nX1Ej.s 			page 11
 
 
 DEFINED SYMBOLS
                             *ABS*:00000000 sx_spi.c
-C:\Users\LENOVO\AppData\Local\Temp\cceakz8m.s:22     .text.sx_gpio_write:00000000 $t
-C:\Users\LENOVO\AppData\Local\Temp\cceakz8m.s:27     .text.sx_gpio_write:00000000 sx_gpio_write
-C:\Users\LENOVO\AppData\Local\Temp\cceakz8m.s:90     .text.sx_spi_cs_low:00000000 $t
-C:\Users\LENOVO\AppData\Local\Temp\cceakz8m.s:95     .text.sx_spi_cs_low:00000000 sx_spi_cs_low
-C:\Users\LENOVO\AppData\Local\Temp\cceakz8m.s:131    .text.sx_spi_cs_high:00000000 $t
-C:\Users\LENOVO\AppData\Local\Temp\cceakz8m.s:136    .text.sx_spi_cs_high:00000000 sx_spi_cs_high
-C:\Users\LENOVO\AppData\Local\Temp\cceakz8m.s:171    .text._sx_spi_write:00000000 $t
-C:\Users\LENOVO\AppData\Local\Temp\cceakz8m.s:176    .text._sx_spi_write:00000000 _sx_spi_write
-C:\Users\LENOVO\AppData\Local\Temp\cceakz8m.s:229    .text._sx_spi_read:00000000 $t
-C:\Users\LENOVO\AppData\Local\Temp\cceakz8m.s:234    .text._sx_spi_read:00000000 _sx_spi_read
-C:\Users\LENOVO\AppData\Local\Temp\cceakz8m.s:287    .text._sx_spi_write_read:00000000 $t
-C:\Users\LENOVO\AppData\Local\Temp\cceakz8m.s:292    .text._sx_spi_write_read:00000000 _sx_spi_write_read
-C:\Users\LENOVO\AppData\Local\Temp\cceakz8m.s:363    .data.sx_spi_ops:00000000 sx_spi_ops
-C:\Users\LENOVO\AppData\Local\Temp\cceakz8m.s:360    .data.sx_spi_ops:00000000 $d
+C:\Users\LENOVO\AppData\Local\Temp\cc1nX1Ej.s:22     .text.sx_gpio_write:00000000 $t
+C:\Users\LENOVO\AppData\Local\Temp\cc1nX1Ej.s:27     .text.sx_gpio_write:00000000 sx_gpio_write
+C:\Users\LENOVO\AppData\Local\Temp\cc1nX1Ej.s:90     .text.sx_spi_cs_low:00000000 $t
+C:\Users\LENOVO\AppData\Local\Temp\cc1nX1Ej.s:95     .text.sx_spi_cs_low:00000000 sx_spi_cs_low
+C:\Users\LENOVO\AppData\Local\Temp\cc1nX1Ej.s:131    .text.sx_spi_cs_high:00000000 $t
+C:\Users\LENOVO\AppData\Local\Temp\cc1nX1Ej.s:136    .text.sx_spi_cs_high:00000000 sx_spi_cs_high
+C:\Users\LENOVO\AppData\Local\Temp\cc1nX1Ej.s:171    .text._sx_spi_write:00000000 $t
+C:\Users\LENOVO\AppData\Local\Temp\cc1nX1Ej.s:176    .text._sx_spi_write:00000000 _sx_spi_write
+C:\Users\LENOVO\AppData\Local\Temp\cc1nX1Ej.s:229    .text._sx_spi_read:00000000 $t
+C:\Users\LENOVO\AppData\Local\Temp\cc1nX1Ej.s:234    .text._sx_spi_read:00000000 _sx_spi_read
+C:\Users\LENOVO\AppData\Local\Temp\cc1nX1Ej.s:287    .text._sx_spi_write_read:00000000 $t
+C:\Users\LENOVO\AppData\Local\Temp\cc1nX1Ej.s:292    .text._sx_spi_write_read:00000000 _sx_spi_write_read
+C:\Users\LENOVO\AppData\Local\Temp\cc1nX1Ej.s:367    .data.sx_spi_ops:00000000 sx_spi_ops
+C:\Users\LENOVO\AppData\Local\Temp\cc1nX1Ej.s:364    .data.sx_spi_ops:00000000 $d
 
 UNDEFINED SYMBOLS
 HAL_SPI_Transmit

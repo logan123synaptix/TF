@@ -7,6 +7,7 @@
  */
 #include "lfs.h"
 #include "lfs_util.h"
+#include "logger.h" // DEBUG: needed for log_error added for hang investigation
 
 
 // some constants used throughout the code
@@ -51,8 +52,23 @@ static int lfs_bd_read(lfs_t *lfs,
         return LFS_ERR_CORRUPT;
     }
 
+    // DEBUG: temporary loop counter to detect infinite loop in this function.
+    uint32_t dbg_bd_read_iters = 0;
+
     while (size > 0) {
         lfs_size_t diff = size;
+
+        // DEBUG: temporary trace - only log once this loop runs abnormally long
+        // (normal iteration count observed so far tops out around 4), to avoid
+        // flooding UART and to make sure the log right before a real hang isn't lost.
+        dbg_bd_read_iters++;
+        if (dbg_bd_read_iters == 6 || dbg_bd_read_iters % 50 == 0) {
+            log_error("LFS_DBG",
+                "bd_read: SUSPICIOUS iter=%lu block=%lu off=%lu size=%lu | rcache.block=%lu rcache.off=%lu rcache.size=%lu | pcache=%p",
+                (unsigned long)dbg_bd_read_iters, (unsigned long)block, (unsigned long)off, (unsigned long)size,
+                (unsigned long)rcache->block, (unsigned long)rcache->off, (unsigned long)rcache->size,
+                (void*)pcache);
+        }
 
         if (pcache && block == pcache->block &&
                 off < pcache->off + pcache->size) {
@@ -6546,4 +6562,3 @@ int lfs_migrate(lfs_t *lfs, const struct lfs_config *cfg) {
     return err;
 }
 #endif
-

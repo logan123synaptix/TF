@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccxzJIqI.s 			page 1
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccP32thX.s 			page 1
 
 
    1              		.cpu cortex-m33
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccxzJIqI.s 			page 1
   27:SynaptiX_FDK/services/sx_fatfs/sx_diskio.c **** }
   28:SynaptiX_FDK/services/sx_fatfs/sx_diskio.c **** 
   29:SynaptiX_FDK/services/sx_fatfs/sx_diskio.c **** /** Load a flash sector into the RAM cache */
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccxzJIqI.s 			page 2
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccP32thX.s 			page 2
 
 
   30:SynaptiX_FDK/services/sx_fatfs/sx_diskio.c **** static void _cache_load(int32_t flash_sector)
@@ -118,7 +118,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccxzJIqI.s 			page 1
   78              		.section	.rodata._cache_flush.str1.4,"aMS",%progbits,1
   79              		.align	2
   80              	.LC0:
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccxzJIqI.s 			page 3
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccP32thX.s 			page 3
 
 
   81 0000 666C7573 		.ascii	"flush sector=%ld addr=0x%08lX\000"
@@ -178,7 +178,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccxzJIqI.s 			page 1
  115 0006 3BD0     		beq	.L8
  116              		.loc 1 40 42 discriminator 2 view .LVU17
  117 0008 1F4B     		ldr	r3, .L11+4
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccxzJIqI.s 			page 4
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccP32thX.s 			page 4
 
 
  118 000a 1B68     		ldr	r3, [r3]
@@ -238,7 +238,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccxzJIqI.s 			page 1
  162 0042 0320     		movs	r0, #3
  163 0044 FFF7FEFF 		bl	log_func
  164              	.LVL10:
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccxzJIqI.s 			page 5
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccP32thX.s 			page 5
 
 
   50:SynaptiX_FDK/services/sx_fatfs/sx_diskio.c ****     sx_flash_erase(addr, FLASH_SECTOR_SIZE_BYTES);
@@ -298,7 +298,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccxzJIqI.s 			page 1
  211              	.L12:
  212 0082 00BF     		.align	2
  213              	.L11:
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccxzJIqI.s 			page 6
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccP32thX.s 			page 6
 
 
  214 0084 00000000 		.word	s_cache_dirty
@@ -358,7 +358,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccxzJIqI.s 			page 1
  262              		.loc 1 67 1 is_stmt 0 view .LVU41
  263 0000 0020     		movs	r0, #0
  264 0002 7047     		bx	lr
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccxzJIqI.s 			page 7
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccP32thX.s 			page 7
 
 
  265              		.cfi_endproc
@@ -418,7 +418,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccxzJIqI.s 			page 1
  310              	.L19:
  311              		.align	2
  312              	.L18:
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccxzJIqI.s 			page 8
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccP32thX.s 			page 8
 
 
  313 001c 00000000 		.word	s_cache_sector
@@ -478,7 +478,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccxzJIqI.s 			page 1
  363              		.thumb
  364              		.thumb_func
  366              	disk_read:
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccxzJIqI.s 			page 9
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccP32thX.s 			page 9
 
 
  367              	.LVL23:
@@ -538,7 +538,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccxzJIqI.s 			page 1
   93:SynaptiX_FDK/services/sx_fatfs/sx_diskio.c ****         int32_t  fsect      = _lba_to_flash_sector(lba);
   94:SynaptiX_FDK/services/sx_fatfs/sx_diskio.c ****         uint32_t buf_offset = (uint32_t)(lba % FAT_BLOCKS_PER_SECTOR) * SX_FLASHDISK_BLOCK_SIZE;
   95:SynaptiX_FDK/services/sx_fatfs/sx_diskio.c **** 
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccxzJIqI.s 			page 10
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccP32thX.s 			page 10
 
 
   96:SynaptiX_FDK/services/sx_fatfs/sx_diskio.c ****         if (s_cache_sector == fsect) {
@@ -598,7 +598,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccxzJIqI.s 			page 1
  448              	.LBB16:
  449              	.LBI16:
   24:SynaptiX_FDK/services/sx_fatfs/sx_diskio.c **** {
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccxzJIqI.s 			page 11
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccP32thX.s 			page 11
 
 
  450              		.loc 1 24 23 view .LVU88
@@ -658,7 +658,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccxzJIqI.s 			page 1
  487              		.loc 1 108 1 view .LVU101
  488 0068 BDE8F081 		pop	{r4, r5, r6, r7, r8, pc}
  489              	.LVL35:
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccxzJIqI.s 			page 12
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccP32thX.s 			page 12
 
 
  490              	.L31:
@@ -718,7 +718,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccxzJIqI.s 			page 1
  540              		.thumb_func
  542              	disk_write:
  543              	.LVL41:
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccxzJIqI.s 			page 13
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccP32thX.s 			page 13
 
 
  544              	.LFB9:
@@ -778,7 +778,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccxzJIqI.s 			page 1
  589              	.LBB20:
  117:SynaptiX_FDK/services/sx_fatfs/sx_diskio.c ****         LBA_t    lba        = sector + i;
  118:SynaptiX_FDK/services/sx_fatfs/sx_diskio.c ****         int32_t  fsect      = _lba_to_flash_sector(lba);
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccxzJIqI.s 			page 14
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccP32thX.s 			page 14
 
 
  119:SynaptiX_FDK/services/sx_fatfs/sx_diskio.c ****         uint32_t buf_offset = (uint32_t)(lba % FAT_BLOCKS_PER_SECTOR) * SX_FLASHDISK_BLOCK_SIZE;
@@ -838,7 +838,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccxzJIqI.s 			page 1
  624              		.loc 1 26 26 view .LVU131
  625              	.LBE22:
  626              	.LBE21:
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccxzJIqI.s 			page 15
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccP32thX.s 			page 15
 
 
  119:SynaptiX_FDK/services/sx_fatfs/sx_diskio.c **** 
@@ -898,7 +898,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccxzJIqI.s 			page 1
  668              	.LVL53:
  669              	.L42:
  134:SynaptiX_FDK/services/sx_fatfs/sx_diskio.c **** }
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccxzJIqI.s 			page 16
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccP32thX.s 			page 16
 
 
  670              		.loc 1 134 1 view .LVU148
@@ -958,7 +958,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccxzJIqI.s 			page 1
  719 0090 00000000 		.word	s_cache_sector
  720 0094 00000000 		.word	s_pending_flush
  721 0098 00000000 		.word	s_last_write_tick
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccxzJIqI.s 			page 17
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccP32thX.s 			page 17
 
 
  722              		.cfi_endproc
@@ -1018,7 +1018,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccxzJIqI.s 			page 1
  764              		.loc 1 141 5 is_stmt 1 view .LVU164
  765 001a FFF7FEFF 		bl	_cache_flush
  766              	.LVL61:
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccxzJIqI.s 			page 18
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccP32thX.s 			page 18
 
 
  142:SynaptiX_FDK/services/sx_fatfs/sx_diskio.c **** }
@@ -1078,7 +1078,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccxzJIqI.s 			page 1
  813              		.loc 1 150 5 is_stmt 1 view .LVU175
  814 000c 032C     		cmp	r4, #3
  815 000e 16D8     		bhi	.L71
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccxzJIqI.s 			page 19
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccP32thX.s 			page 19
 
 
  816 0010 DFE804F0 		tbb	[pc, r4]
@@ -1138,7 +1138,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccxzJIqI.s 			page 1
  855 0034 02E0     		b	.L63
  856              	.LVL66:
  857              	.L69:
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccxzJIqI.s 			page 20
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccP32thX.s 			page 20
 
 
  858              	.LCFI13:
@@ -1198,7 +1198,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccxzJIqI.s 			page 1
  912              	s_cache_dirty:
  913 0000 00       		.space	1
  914              		.section	.data.s_cache_sector,"aw"
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccxzJIqI.s 			page 21
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccP32thX.s 			page 21
 
 
  915              		.align	2
@@ -1224,54 +1224,54 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccxzJIqI.s 			page 1
  935              		.file 9 "SynaptiX_FDK/utils/delay/sx_delay.h"
  936              		.file 10 "C:\\ST\\STM32CubeCLT_1.20.0\\GNU-tools-for-STM32\\bin/../lib/gcc/arm-none-eabi/13.3.1/..
  937              		.file 11 "<built-in>"
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccxzJIqI.s 			page 22
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccP32thX.s 			page 22
 
 
 DEFINED SYMBOLS
                             *ABS*:00000000 sx_diskio.c
-C:\Users\LENOVO\AppData\Local\Temp\ccxzJIqI.s:22     .text._cache_load:00000000 $t
-C:\Users\LENOVO\AppData\Local\Temp\ccxzJIqI.s:27     .text._cache_load:00000000 _cache_load
-C:\Users\LENOVO\AppData\Local\Temp\ccxzJIqI.s:72     .text._cache_load:00000024 $d
-C:\Users\LENOVO\AppData\Local\Temp\ccxzJIqI.s:924    .bss.s_cache_buf:00000000 s_cache_buf
-C:\Users\LENOVO\AppData\Local\Temp\ccxzJIqI.s:918    .data.s_cache_sector:00000000 s_cache_sector
-C:\Users\LENOVO\AppData\Local\Temp\ccxzJIqI.s:912    .bss.s_cache_dirty:00000000 s_cache_dirty
-C:\Users\LENOVO\AppData\Local\Temp\ccxzJIqI.s:79     .rodata._cache_flush.str1.4:00000000 $d
-C:\Users\LENOVO\AppData\Local\Temp\ccxzJIqI.s:98     .text._cache_flush:00000000 $t
-C:\Users\LENOVO\AppData\Local\Temp\ccxzJIqI.s:103    .text._cache_flush:00000000 _cache_flush
-C:\Users\LENOVO\AppData\Local\Temp\ccxzJIqI.s:214    .text._cache_flush:00000084 $d
-C:\Users\LENOVO\AppData\Local\Temp\ccxzJIqI.s:227    .text.sx_diskio_get_block_count:00000000 $t
-C:\Users\LENOVO\AppData\Local\Temp\ccxzJIqI.s:233    .text.sx_diskio_get_block_count:00000000 sx_diskio_get_block_count
-C:\Users\LENOVO\AppData\Local\Temp\ccxzJIqI.s:248    .text.sx_diskio_get_buffer:00000000 $t
-C:\Users\LENOVO\AppData\Local\Temp\ccxzJIqI.s:254    .text.sx_diskio_get_buffer:00000000 sx_diskio_get_buffer
-C:\Users\LENOVO\AppData\Local\Temp\ccxzJIqI.s:269    .text.disk_initialize:00000000 $t
-C:\Users\LENOVO\AppData\Local\Temp\ccxzJIqI.s:275    .text.disk_initialize:00000000 disk_initialize
-C:\Users\LENOVO\AppData\Local\Temp\ccxzJIqI.s:313    .text.disk_initialize:0000001c $d
-C:\Users\LENOVO\AppData\Local\Temp\ccxzJIqI.s:907    .bss.s_initialized:00000000 s_initialized
-C:\Users\LENOVO\AppData\Local\Temp\ccxzJIqI.s:320    .text.disk_status:00000000 $t
-C:\Users\LENOVO\AppData\Local\Temp\ccxzJIqI.s:326    .text.disk_status:00000000 disk_status
-C:\Users\LENOVO\AppData\Local\Temp\ccxzJIqI.s:355    .text.disk_status:00000010 $d
-C:\Users\LENOVO\AppData\Local\Temp\ccxzJIqI.s:360    .text.disk_read:00000000 $t
-C:\Users\LENOVO\AppData\Local\Temp\ccxzJIqI.s:366    .text.disk_read:00000000 disk_read
-C:\Users\LENOVO\AppData\Local\Temp\ccxzJIqI.s:529    .text.disk_read:00000078 $d
-C:\Users\LENOVO\AppData\Local\Temp\ccxzJIqI.s:536    .text.disk_write:00000000 $t
-C:\Users\LENOVO\AppData\Local\Temp\ccxzJIqI.s:542    .text.disk_write:00000000 disk_write
-C:\Users\LENOVO\AppData\Local\Temp\ccxzJIqI.s:716    .text.disk_write:00000084 $d
-C:\Users\LENOVO\AppData\Local\Temp\ccxzJIqI.s:896    .bss.s_pending_flush:00000000 s_pending_flush
-C:\Users\LENOVO\AppData\Local\Temp\ccxzJIqI.s:902    .bss.s_last_write_tick:00000000 s_last_write_tick
-C:\Users\LENOVO\AppData\Local\Temp\ccxzJIqI.s:726    .text.sx_diskio_process:00000000 $t
-C:\Users\LENOVO\AppData\Local\Temp\ccxzJIqI.s:732    .text.sx_diskio_process:00000000 sx_diskio_process
-C:\Users\LENOVO\AppData\Local\Temp\ccxzJIqI.s:776    .text.sx_diskio_process:00000028 $d
-C:\Users\LENOVO\AppData\Local\Temp\ccxzJIqI.s:782    .text.disk_ioctl:00000000 $t
-C:\Users\LENOVO\AppData\Local\Temp\ccxzJIqI.s:788    .text.disk_ioctl:00000000 disk_ioctl
-C:\Users\LENOVO\AppData\Local\Temp\ccxzJIqI.s:818    .text.disk_ioctl:00000014 $d
-C:\Users\LENOVO\AppData\Local\Temp\ccxzJIqI.s:822    .text.disk_ioctl:00000018 $t
-C:\Users\LENOVO\AppData\Local\Temp\ccxzJIqI.s:889    .text.disk_ioctl:00000044 $d
-C:\Users\LENOVO\AppData\Local\Temp\ccxzJIqI.s:897    .bss.s_pending_flush:00000000 $d
-C:\Users\LENOVO\AppData\Local\Temp\ccxzJIqI.s:899    .bss.s_last_write_tick:00000000 $d
-C:\Users\LENOVO\AppData\Local\Temp\ccxzJIqI.s:908    .bss.s_initialized:00000000 $d
-C:\Users\LENOVO\AppData\Local\Temp\ccxzJIqI.s:913    .bss.s_cache_dirty:00000000 $d
-C:\Users\LENOVO\AppData\Local\Temp\ccxzJIqI.s:915    .data.s_cache_sector:00000000 $d
-C:\Users\LENOVO\AppData\Local\Temp\ccxzJIqI.s:921    .bss.s_cache_buf:00000000 $d
+C:\Users\LENOVO\AppData\Local\Temp\ccP32thX.s:22     .text._cache_load:00000000 $t
+C:\Users\LENOVO\AppData\Local\Temp\ccP32thX.s:27     .text._cache_load:00000000 _cache_load
+C:\Users\LENOVO\AppData\Local\Temp\ccP32thX.s:72     .text._cache_load:00000024 $d
+C:\Users\LENOVO\AppData\Local\Temp\ccP32thX.s:924    .bss.s_cache_buf:00000000 s_cache_buf
+C:\Users\LENOVO\AppData\Local\Temp\ccP32thX.s:918    .data.s_cache_sector:00000000 s_cache_sector
+C:\Users\LENOVO\AppData\Local\Temp\ccP32thX.s:912    .bss.s_cache_dirty:00000000 s_cache_dirty
+C:\Users\LENOVO\AppData\Local\Temp\ccP32thX.s:79     .rodata._cache_flush.str1.4:00000000 $d
+C:\Users\LENOVO\AppData\Local\Temp\ccP32thX.s:98     .text._cache_flush:00000000 $t
+C:\Users\LENOVO\AppData\Local\Temp\ccP32thX.s:103    .text._cache_flush:00000000 _cache_flush
+C:\Users\LENOVO\AppData\Local\Temp\ccP32thX.s:214    .text._cache_flush:00000084 $d
+C:\Users\LENOVO\AppData\Local\Temp\ccP32thX.s:227    .text.sx_diskio_get_block_count:00000000 $t
+C:\Users\LENOVO\AppData\Local\Temp\ccP32thX.s:233    .text.sx_diskio_get_block_count:00000000 sx_diskio_get_block_count
+C:\Users\LENOVO\AppData\Local\Temp\ccP32thX.s:248    .text.sx_diskio_get_buffer:00000000 $t
+C:\Users\LENOVO\AppData\Local\Temp\ccP32thX.s:254    .text.sx_diskio_get_buffer:00000000 sx_diskio_get_buffer
+C:\Users\LENOVO\AppData\Local\Temp\ccP32thX.s:269    .text.disk_initialize:00000000 $t
+C:\Users\LENOVO\AppData\Local\Temp\ccP32thX.s:275    .text.disk_initialize:00000000 disk_initialize
+C:\Users\LENOVO\AppData\Local\Temp\ccP32thX.s:313    .text.disk_initialize:0000001c $d
+C:\Users\LENOVO\AppData\Local\Temp\ccP32thX.s:907    .bss.s_initialized:00000000 s_initialized
+C:\Users\LENOVO\AppData\Local\Temp\ccP32thX.s:320    .text.disk_status:00000000 $t
+C:\Users\LENOVO\AppData\Local\Temp\ccP32thX.s:326    .text.disk_status:00000000 disk_status
+C:\Users\LENOVO\AppData\Local\Temp\ccP32thX.s:355    .text.disk_status:00000010 $d
+C:\Users\LENOVO\AppData\Local\Temp\ccP32thX.s:360    .text.disk_read:00000000 $t
+C:\Users\LENOVO\AppData\Local\Temp\ccP32thX.s:366    .text.disk_read:00000000 disk_read
+C:\Users\LENOVO\AppData\Local\Temp\ccP32thX.s:529    .text.disk_read:00000078 $d
+C:\Users\LENOVO\AppData\Local\Temp\ccP32thX.s:536    .text.disk_write:00000000 $t
+C:\Users\LENOVO\AppData\Local\Temp\ccP32thX.s:542    .text.disk_write:00000000 disk_write
+C:\Users\LENOVO\AppData\Local\Temp\ccP32thX.s:716    .text.disk_write:00000084 $d
+C:\Users\LENOVO\AppData\Local\Temp\ccP32thX.s:896    .bss.s_pending_flush:00000000 s_pending_flush
+C:\Users\LENOVO\AppData\Local\Temp\ccP32thX.s:902    .bss.s_last_write_tick:00000000 s_last_write_tick
+C:\Users\LENOVO\AppData\Local\Temp\ccP32thX.s:726    .text.sx_diskio_process:00000000 $t
+C:\Users\LENOVO\AppData\Local\Temp\ccP32thX.s:732    .text.sx_diskio_process:00000000 sx_diskio_process
+C:\Users\LENOVO\AppData\Local\Temp\ccP32thX.s:776    .text.sx_diskio_process:00000028 $d
+C:\Users\LENOVO\AppData\Local\Temp\ccP32thX.s:782    .text.disk_ioctl:00000000 $t
+C:\Users\LENOVO\AppData\Local\Temp\ccP32thX.s:788    .text.disk_ioctl:00000000 disk_ioctl
+C:\Users\LENOVO\AppData\Local\Temp\ccP32thX.s:818    .text.disk_ioctl:00000014 $d
+C:\Users\LENOVO\AppData\Local\Temp\ccP32thX.s:822    .text.disk_ioctl:00000018 $t
+C:\Users\LENOVO\AppData\Local\Temp\ccP32thX.s:889    .text.disk_ioctl:00000044 $d
+C:\Users\LENOVO\AppData\Local\Temp\ccP32thX.s:897    .bss.s_pending_flush:00000000 $d
+C:\Users\LENOVO\AppData\Local\Temp\ccP32thX.s:899    .bss.s_last_write_tick:00000000 $d
+C:\Users\LENOVO\AppData\Local\Temp\ccP32thX.s:908    .bss.s_initialized:00000000 $d
+C:\Users\LENOVO\AppData\Local\Temp\ccP32thX.s:913    .bss.s_cache_dirty:00000000 $d
+C:\Users\LENOVO\AppData\Local\Temp\ccP32thX.s:915    .data.s_cache_sector:00000000 $d
+C:\Users\LENOVO\AppData\Local\Temp\ccP32thX.s:921    .bss.s_cache_buf:00000000 $d
 
 UNDEFINED SYMBOLS
 sx_flash_read

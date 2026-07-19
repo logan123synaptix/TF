@@ -1,6 +1,7 @@
 build/sx_spi.o: SynaptiX_FDK/components/spi/sx_spi.c \
  SynaptiX_FDK/app/sx_config.h SynaptiX_FDK/utils/def/sx_def.h \
  SynaptiX_FDK/utils/delay/sx_delay.h \
+ SynaptiX_FDK/services/logger/logger.h SynaptiX_FDK/app/app_config.h \
  Drivers/STM32H5xx_HAL_Driver/Inc/stm32h5xx_hal.h \
  Core/Inc/stm32h5xx_hal_conf.h \
  Drivers/STM32H5xx_HAL_Driver/Inc/stm32h5xx_hal_rcc.h \
@@ -48,6 +49,8 @@ build/sx_spi.o: SynaptiX_FDK/components/spi/sx_spi.c \
 SynaptiX_FDK/app/sx_config.h:
 SynaptiX_FDK/utils/def/sx_def.h:
 SynaptiX_FDK/utils/delay/sx_delay.h:
+SynaptiX_FDK/services/logger/logger.h:
+SynaptiX_FDK/app/app_config.h:
 Drivers/STM32H5xx_HAL_Driver/Inc/stm32h5xx_hal.h:
 Core/Inc/stm32h5xx_hal_conf.h:
 Drivers/STM32H5xx_HAL_Driver/Inc/stm32h5xx_hal_rcc.h:

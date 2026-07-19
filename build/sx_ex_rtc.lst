@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cc5x5dXS.s 			page 1
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccDPdGGG.s 			page 1
 
 
    1              		.cpu cortex-m33
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cc5x5dXS.s 			page 1
   26:SynaptiX_FDK/components/i2c/sx_i2c.h ****     i2c->pDriver = pDriver;
   27:SynaptiX_FDK/components/i2c/sx_i2c.h **** }
   28:SynaptiX_FDK/components/i2c/sx_i2c.h **** 
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cc5x5dXS.s 			page 2
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccDPdGGG.s 			page 2
 
 
   29:SynaptiX_FDK/components/i2c/sx_i2c.h **** static inline int sx_i2c_write(sx_i2c_t *i2c, uint16_t dev_addr, const uint8_t *data, uint32_t len)
@@ -118,7 +118,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cc5x5dXS.s 			page 1
   68              		@ sp needed
   69 0018 30BD     		pop	{r4, r5, pc}
   70              	.LVL2:
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cc5x5dXS.s 			page 3
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccDPdGGG.s 			page 3
 
 
   71              	.L3:
@@ -178,7 +178,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cc5x5dXS.s 			page 1
  120 000a 4CB1     		cbz	r4, .L9
   49:SynaptiX_FDK/components/i2c/sx_i2c.h ****         return i2c->ops->mem_read(i2c, dev_addr, mem_addr, mem_addr_size, data, len);
  121              		.loc 2 49 9 is_stmt 1 view .LVU21
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cc5x5dXS.s 			page 4
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccDPdGGG.s 			page 4
 
 
  122              		.loc 2 49 16 is_stmt 0 view .LVU22
@@ -238,7 +238,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cc5x5dXS.s 			page 1
    7:SynaptiX_FDK/components/gpio/sx_gpio.h **** #include <stdint.h>
    8:SynaptiX_FDK/components/gpio/sx_gpio.h **** 
    9:SynaptiX_FDK/components/gpio/sx_gpio.h **** typedef enum SX_GPIO_VALUE{
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cc5x5dXS.s 			page 5
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccDPdGGG.s 			page 5
 
 
   10:SynaptiX_FDK/components/gpio/sx_gpio.h ****     SX_GPIO_LOW = 0,
@@ -298,7 +298,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cc5x5dXS.s 			page 1
  189              	.LBB26:
   41:SynaptiX_FDK/components/gpio/sx_gpio.h ****         int ret = gpio->ops->write(gpio, value);
  190              		.loc 3 41 9 is_stmt 1 view .LVU35
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cc5x5dXS.s 			page 6
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccDPdGGG.s 			page 6
 
 
  191              		.loc 3 41 19 is_stmt 0 view .LVU36
@@ -358,7 +358,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cc5x5dXS.s 			page 1
    4:SynaptiX_FDK/components/rtc/sx_ex_rtc.c **** 
    5:SynaptiX_FDK/components/rtc/sx_ex_rtc.c **** /* ------------------------------------------------------------------ */
    6:SynaptiX_FDK/components/rtc/sx_ex_rtc.c **** /*  Internal helpers                                                   */
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cc5x5dXS.s 			page 7
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccDPdGGG.s 			page 7
 
 
    7:SynaptiX_FDK/components/rtc/sx_ex_rtc.c **** /* ------------------------------------------------------------------ */
@@ -418,7 +418,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cc5x5dXS.s 			page 1
  267              	.LCFI11:
  268              		.cfi_def_cfa_offset 4
  269              		@ sp needed
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cc5x5dXS.s 			page 8
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccDPdGGG.s 			page 8
 
 
  270 001e 5DF804FB 		ldr	pc, [sp], #4
@@ -478,7 +478,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cc5x5dXS.s 			page 1
  317              		@ sp needed
  318 0016 5DF804FB 		ldr	pc, [sp], #4
  319              		.cfi_endproc
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cc5x5dXS.s 			page 9
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccDPdGGG.s 			page 9
 
 
  320              	.LFE14:
@@ -538,7 +538,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cc5x5dXS.s 			page 1
  348              		.loc 1 63 9 is_stmt 0 view .LVU70
  349 0006 0022     		movs	r2, #0
  350 0008 1E21     		movs	r1, #30
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cc5x5dXS.s 			page 10
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccDPdGGG.s 			page 10
 
 
  351 000a FFF7FEFF 		bl	_reg_write
@@ -598,7 +598,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cc5x5dXS.s 			page 1
   69:SynaptiX_FDK/components/rtc/sx_ex_rtc.c ****     if (_reg_write(dev, 0x6B, 0x01) != 0) return RX8130CE_ERR_I2C;
  400              		.loc 1 69 5 is_stmt 1 view .LVU87
  401              		.loc 1 69 9 is_stmt 0 view .LVU88
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cc5x5dXS.s 			page 11
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccDPdGGG.s 			page 11
 
 
  402 004c 0122     		movs	r2, #1
@@ -658,7 +658,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cc5x5dXS.s 			page 1
  444              		.loc 1 65 50 discriminator 1 view .LVU97
  445 0080 4FF0FF35 		mov	r5, #-1
  446 0084 F3E7     		b	.L21
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cc5x5dXS.s 			page 12
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccDPdGGG.s 			page 12
 
 
  447              	.L26:
@@ -718,7 +718,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cc5x5dXS.s 			page 1
  493 0006 30B1     		cbz	r0, .L34
   45:SynaptiX_FDK/components/rtc/sx_ex_rtc.c **** }
  494              		.loc 1 45 5 is_stmt 1 view .LVU108
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cc5x5dXS.s 			page 13
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccDPdGGG.s 			page 13
 
 
   45:SynaptiX_FDK/components/rtc/sx_ex_rtc.c **** }
@@ -778,7 +778,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cc5x5dXS.s 			page 1
  542 0002 08B5     		push	{r3, lr}
  543              	.LCFI22:
  544              		.cfi_def_cfa_offset 8
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cc5x5dXS.s 			page 14
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccDPdGGG.s 			page 14
 
 
  545              		.cfi_offset 3, -8
@@ -838,7 +838,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cc5x5dXS.s 			page 1
   80:SynaptiX_FDK/components/rtc/sx_ex_rtc.c **** /* ------------------------------------------------------------------ */
   81:SynaptiX_FDK/components/rtc/sx_ex_rtc.c **** /*  Initialisation                                                     */
   82:SynaptiX_FDK/components/rtc/sx_ex_rtc.c **** /* ------------------------------------------------------------------ */
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cc5x5dXS.s 			page 15
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccDPdGGG.s 			page 15
 
 
   83:SynaptiX_FDK/components/rtc/sx_ex_rtc.c **** 
@@ -898,7 +898,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cc5x5dXS.s 			page 1
   95:SynaptiX_FDK/components/rtc/sx_ex_rtc.c ****     /* 2. Wait ≥ 30 ms (datasheet: oscillation start + stable) */
   96:SynaptiX_FDK/components/rtc/sx_ex_rtc.c ****     sx_delay_ms(40);
  633              		.loc 1 96 5 is_stmt 1 view .LVU141
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cc5x5dXS.s 			page 16
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccDPdGGG.s 			page 16
 
 
  634 0022 2820     		movs	r0, #40
@@ -958,7 +958,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cc5x5dXS.s 			page 1
  673              	.LVL57:
  674              		.loc 1 111 12 discriminator 1 view .LVU155
  675 005c 0028     		cmp	r0, #0
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cc5x5dXS.s 			page 17
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccDPdGGG.s 			page 17
 
 
  676 005e 57D1     		bne	.L55
@@ -1018,7 +1018,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cc5x5dXS.s 			page 1
  130:SynaptiX_FDK/components/rtc/sx_ex_rtc.c ****      */
  131:SynaptiX_FDK/components/rtc/sx_ex_rtc.c ****     if (_reg_write(dev, RX8130CE_REG_CTRL0, 0x00) != 0)
  712              		.loc 1 131 5 is_stmt 1 view .LVU168
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cc5x5dXS.s 			page 18
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccDPdGGG.s 			page 18
 
 
  713              		.loc 1 131 9 is_stmt 0 view .LVU169
@@ -1078,7 +1078,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cc5x5dXS.s 			page 1
  753              		.loc 1 145 5 is_stmt 1 view .LVU183
  754              		.loc 1 145 9 is_stmt 0 view .LVU184
  755 00e0 1D21     		movs	r1, #29
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cc5x5dXS.s 			page 19
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccDPdGGG.s 			page 19
 
 
  756 00e2 2046     		mov	r0, r4
@@ -1138,7 +1138,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cc5x5dXS.s 			page 1
  800              		.loc 1 86 42 discriminator 5 view .LVU195
  801 0102 F4E7     		b	.L47
  802              	.LVL70:
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cc5x5dXS.s 			page 20
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccDPdGGG.s 			page 20
 
 
  803              	.L53:
@@ -1198,7 +1198,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cc5x5dXS.s 			page 1
  850              	.LVL71:
  851              	.LFB19:
  151:SynaptiX_FDK/components/rtc/sx_ex_rtc.c **** 
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cc5x5dXS.s 			page 21
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccDPdGGG.s 			page 21
 
 
  152:SynaptiX_FDK/components/rtc/sx_ex_rtc.c **** /* ------------------------------------------------------------------ */
@@ -1258,7 +1258,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cc5x5dXS.s 			page 1
  895 002e 172B     		cmp	r3, #23
  896 0030 00F2AB80 		bhi	.L73
  163:SynaptiX_FDK/components/rtc/sx_ex_rtc.c ****         t->day   < 1  || t->day   > 31 ||
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cc5x5dXS.s 			page 22
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccDPdGGG.s 			page 22
 
 
  897              		.loc 1 163 10 view .LVU220
@@ -1318,7 +1318,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cc5x5dXS.s 			page 1
  940              		.loc 1 172 9 is_stmt 0 view .LVU237
  941 007c 1E21     		movs	r1, #30
  942 007e 2846     		mov	r0, r5
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cc5x5dXS.s 			page 23
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccDPdGGG.s 			page 23
 
 
  943 0080 FFF7FEFF 		bl	_reg_write
@@ -1378,7 +1378,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cc5x5dXS.s 			page 1
   16:SynaptiX_FDK/components/rtc/sx_ex_rtc.c **** }
  984              		.loc 1 16 5 view .LVU252
   16:SynaptiX_FDK/components/rtc/sx_ex_rtc.c **** }
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cc5x5dXS.s 			page 24
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccDPdGGG.s 			page 24
 
 
  985              		.loc 1 16 35 is_stmt 0 view .LVU253
@@ -1438,7 +1438,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cc5x5dXS.s 			page 1
  1028              		.loc 1 180 5 is_stmt 1 view .LVU267
  1029              		.loc 1 180 15 is_stmt 0 view .LVU268
  1030 00e0 E278     		ldrb	r2, [r4, #3]	@ zero_extendqisi2
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cc5x5dXS.s 			page 25
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccDPdGGG.s 			page 25
 
 
  1031              		.loc 1 180 12 view .LVU269
@@ -1498,7 +1498,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cc5x5dXS.s 			page 1
  1073              		.loc 1 16 12 view .LVU284
  1074 010e 02EB8202 		add	r2, r2, r2, lsl #2
  1075 0112 A0EB4200 		sub	r0, r0, r2, lsl #1
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cc5x5dXS.s 			page 26
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccDPdGGG.s 			page 26
 
 
  1076              	.LVL88:
@@ -1558,7 +1558,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cc5x5dXS.s 			page 1
  1119 0146 6421     		movs	r1, #100
  1120 0148 2868     		ldr	r0, [r5]
  1121 014a FFF7FEFF 		bl	sx_i2c_mem_write
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cc5x5dXS.s 			page 27
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccDPdGGG.s 			page 27
 
 
  1122              	.LVL93:
@@ -1618,7 +1618,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cc5x5dXS.s 			page 1
  159:SynaptiX_FDK/components/rtc/sx_ex_rtc.c **** 
  1163              		.loc 1 159 43 discriminator 1 view .LVU309
  1164 0178 6FF00104 		mvn	r4, #1
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cc5x5dXS.s 			page 28
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccDPdGGG.s 			page 28
 
 
  1165 017c F3E7     		b	.L66
@@ -1678,7 +1678,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cc5x5dXS.s 			page 1
  1208 01b4 4FF0FF34 		mov	r4, #-1
  1209              	.LVL102:
  173:SynaptiX_FDK/components/rtc/sx_ex_rtc.c **** 
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cc5x5dXS.s 			page 29
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccDPdGGG.s 			page 29
 
 
  1210              		.loc 1 173 16 view .LVU321
@@ -1738,7 +1738,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cc5x5dXS.s 			page 1
  1255 000a 0029     		cmp	r1, #0
  1256 000c 5ED0     		beq	.L89
  205:SynaptiX_FDK/components/rtc/sx_ex_rtc.c ****     if (!dev->initialized) return RX8130CE_ERR_NOT_INIT;
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cc5x5dXS.s 			page 30
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccDPdGGG.s 			page 30
 
 
  1257              		.loc 1 205 5 is_stmt 1 view .LVU329
@@ -1798,7 +1798,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cc5x5dXS.s 			page 1
   11:SynaptiX_FDK/components/rtc/sx_ex_rtc.c **** }
  1297              		.loc 1 11 48 view .LVU343
  1298 003c 02F00F02 		and	r2, r2, #15
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cc5x5dXS.s 			page 31
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccDPdGGG.s 			page 31
 
 
  1299              	.LVL110:
@@ -1858,7 +1858,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cc5x5dXS.s 			page 1
  1341              		.loc 1 11 5 view .LVU359
   11:SynaptiX_FDK/components/rtc/sx_ex_rtc.c **** }
  1342              		.loc 1 11 34 is_stmt 0 view .LVU360
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cc5x5dXS.s 			page 32
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccDPdGGG.s 			page 32
 
 
  1343 0060 C2F30113 		ubfx	r3, r2, #4, #2
@@ -1918,7 +1918,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cc5x5dXS.s 			page 1
  1386              	.LBE47:
  1387              	.LBE46:
  1388              		.loc 1 220 14 discriminator 1 view .LVU377
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cc5x5dXS.s 			page 33
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccDPdGGG.s 			page 33
 
 
  1389 0094 2371     		strb	r3, [r4, #4]
@@ -1978,7 +1978,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cc5x5dXS.s 			page 1
  1430              		.loc 1 11 12 view .LVU393
  1431 00bc 03EB4203 		add	r3, r3, r2, lsl #1
  1432              	.LVL126:
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cc5x5dXS.s 			page 34
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccDPdGGG.s 			page 34
 
 
   11:SynaptiX_FDK/components/rtc/sx_ex_rtc.c **** }
@@ -2038,7 +2038,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cc5x5dXS.s 			page 1
  1477              		.loc 1 213 16 view .LVU404
  1478 00d8 4FF0FF30 		mov	r0, #-1
  1479 00dc F1E7     		b	.L86
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cc5x5dXS.s 			page 35
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccDPdGGG.s 			page 35
 
 
  1480              		.cfi_endproc
@@ -2098,7 +2098,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cc5x5dXS.s 			page 1
  1523 0014 0123     		movs	r3, #1
  1524 0016 0DF10702 		add	r2, sp, #7
  1525 001a 1D21     		movs	r1, #29
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cc5x5dXS.s 			page 36
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccDPdGGG.s 			page 36
 
 
  1526              	.LVL135:
@@ -2158,7 +2158,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cc5x5dXS.s 			page 1
  1572              	.L100:
  234:SynaptiX_FDK/components/rtc/sx_ex_rtc.c ****     if (!dev->initialized) return RX8130CE_ERR_NOT_INIT;
  1573              		.loc 1 234 35 discriminator 1 view .LVU429
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cc5x5dXS.s 			page 37
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccDPdGGG.s 			page 37
 
 
  1574 0042 6FF00100 		mvn	r0, #1
@@ -2180,36 +2180,36 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cc5x5dXS.s 			page 1
  1589              		.file 5 "C:\\ST\\STM32CubeCLT_1.20.0\\GNU-tools-for-STM32\\bin/../lib/gcc/arm-none-eabi/13.3.1/../
  1590              		.file 6 "SynaptiX_FDK/components/rtc/sx_ex_rtc.h"
  1591              		.file 7 "SynaptiX_FDK/utils/delay/sx_delay.h"
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cc5x5dXS.s 			page 38
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccDPdGGG.s 			page 38
 
 
 DEFINED SYMBOLS
                             *ABS*:00000000 sx_ex_rtc.c
-C:\Users\LENOVO\AppData\Local\Temp\cc5x5dXS.s:22     .text.sx_i2c_mem_write:00000000 $t
-C:\Users\LENOVO\AppData\Local\Temp\cc5x5dXS.s:27     .text.sx_i2c_mem_write:00000000 sx_i2c_mem_write
-C:\Users\LENOVO\AppData\Local\Temp\cc5x5dXS.s:90     .text.sx_i2c_mem_read:00000000 $t
-C:\Users\LENOVO\AppData\Local\Temp\cc5x5dXS.s:95     .text.sx_i2c_mem_read:00000000 sx_i2c_mem_read
-C:\Users\LENOVO\AppData\Local\Temp\cc5x5dXS.s:157    .text.sx_gpio_write:00000000 $t
-C:\Users\LENOVO\AppData\Local\Temp\cc5x5dXS.s:162    .text.sx_gpio_write:00000000 sx_gpio_write
-C:\Users\LENOVO\AppData\Local\Temp\cc5x5dXS.s:225    .text._reg_write:00000000 $t
-C:\Users\LENOVO\AppData\Local\Temp\cc5x5dXS.s:230    .text._reg_write:00000000 _reg_write
-C:\Users\LENOVO\AppData\Local\Temp\cc5x5dXS.s:275    .text._reg_read:00000000 $t
-C:\Users\LENOVO\AppData\Local\Temp\cc5x5dXS.s:280    .text._reg_read:00000000 _reg_read
-C:\Users\LENOVO\AppData\Local\Temp\cc5x5dXS.s:323    .text._software_reset:00000000 $t
-C:\Users\LENOVO\AppData\Local\Temp\cc5x5dXS.s:328    .text._software_reset:00000000 _software_reset
-C:\Users\LENOVO\AppData\Local\Temp\cc5x5dXS.s:467    .text.rx8130ce_power_on:00000000 $t
-C:\Users\LENOVO\AppData\Local\Temp\cc5x5dXS.s:473    .text.rx8130ce_power_on:00000000 rx8130ce_power_on
-C:\Users\LENOVO\AppData\Local\Temp\cc5x5dXS.s:525    .text.rx8130ce_power_off:00000000 $t
-C:\Users\LENOVO\AppData\Local\Temp\cc5x5dXS.s:531    .text.rx8130ce_power_off:00000000 rx8130ce_power_off
-C:\Users\LENOVO\AppData\Local\Temp\cc5x5dXS.s:583    .text.rx8130ce_init:00000000 $t
-C:\Users\LENOVO\AppData\Local\Temp\cc5x5dXS.s:589    .text.rx8130ce_init:00000000 rx8130ce_init
-C:\Users\LENOVO\AppData\Local\Temp\cc5x5dXS.s:843    .text.rx8130ce_set_time:00000000 $t
-C:\Users\LENOVO\AppData\Local\Temp\cc5x5dXS.s:849    .text.rx8130ce_set_time:00000000 rx8130ce_set_time
-C:\Users\LENOVO\AppData\Local\Temp\cc5x5dXS.s:1222   .text.rx8130ce_set_time:000001c0 $d
-C:\Users\LENOVO\AppData\Local\Temp\cc5x5dXS.s:1227   .text.rx8130ce_get_time:00000000 $t
-C:\Users\LENOVO\AppData\Local\Temp\cc5x5dXS.s:1233   .text.rx8130ce_get_time:00000000 rx8130ce_get_time
-C:\Users\LENOVO\AppData\Local\Temp\cc5x5dXS.s:1484   .text.rx8130ce_is_time_valid:00000000 $t
-C:\Users\LENOVO\AppData\Local\Temp\cc5x5dXS.s:1490   .text.rx8130ce_is_time_valid:00000000 rx8130ce_is_time_valid
+C:\Users\LENOVO\AppData\Local\Temp\ccDPdGGG.s:22     .text.sx_i2c_mem_write:00000000 $t
+C:\Users\LENOVO\AppData\Local\Temp\ccDPdGGG.s:27     .text.sx_i2c_mem_write:00000000 sx_i2c_mem_write
+C:\Users\LENOVO\AppData\Local\Temp\ccDPdGGG.s:90     .text.sx_i2c_mem_read:00000000 $t
+C:\Users\LENOVO\AppData\Local\Temp\ccDPdGGG.s:95     .text.sx_i2c_mem_read:00000000 sx_i2c_mem_read
+C:\Users\LENOVO\AppData\Local\Temp\ccDPdGGG.s:157    .text.sx_gpio_write:00000000 $t
+C:\Users\LENOVO\AppData\Local\Temp\ccDPdGGG.s:162    .text.sx_gpio_write:00000000 sx_gpio_write
+C:\Users\LENOVO\AppData\Local\Temp\ccDPdGGG.s:225    .text._reg_write:00000000 $t
+C:\Users\LENOVO\AppData\Local\Temp\ccDPdGGG.s:230    .text._reg_write:00000000 _reg_write
+C:\Users\LENOVO\AppData\Local\Temp\ccDPdGGG.s:275    .text._reg_read:00000000 $t
+C:\Users\LENOVO\AppData\Local\Temp\ccDPdGGG.s:280    .text._reg_read:00000000 _reg_read
+C:\Users\LENOVO\AppData\Local\Temp\ccDPdGGG.s:323    .text._software_reset:00000000 $t
+C:\Users\LENOVO\AppData\Local\Temp\ccDPdGGG.s:328    .text._software_reset:00000000 _software_reset
+C:\Users\LENOVO\AppData\Local\Temp\ccDPdGGG.s:467    .text.rx8130ce_power_on:00000000 $t
+C:\Users\LENOVO\AppData\Local\Temp\ccDPdGGG.s:473    .text.rx8130ce_power_on:00000000 rx8130ce_power_on
+C:\Users\LENOVO\AppData\Local\Temp\ccDPdGGG.s:525    .text.rx8130ce_power_off:00000000 $t
+C:\Users\LENOVO\AppData\Local\Temp\ccDPdGGG.s:531    .text.rx8130ce_power_off:00000000 rx8130ce_power_off
+C:\Users\LENOVO\AppData\Local\Temp\ccDPdGGG.s:583    .text.rx8130ce_init:00000000 $t
+C:\Users\LENOVO\AppData\Local\Temp\ccDPdGGG.s:589    .text.rx8130ce_init:00000000 rx8130ce_init
+C:\Users\LENOVO\AppData\Local\Temp\ccDPdGGG.s:843    .text.rx8130ce_set_time:00000000 $t
+C:\Users\LENOVO\AppData\Local\Temp\ccDPdGGG.s:849    .text.rx8130ce_set_time:00000000 rx8130ce_set_time
+C:\Users\LENOVO\AppData\Local\Temp\ccDPdGGG.s:1222   .text.rx8130ce_set_time:000001c0 $d
+C:\Users\LENOVO\AppData\Local\Temp\ccDPdGGG.s:1227   .text.rx8130ce_get_time:00000000 $t
+C:\Users\LENOVO\AppData\Local\Temp\ccDPdGGG.s:1233   .text.rx8130ce_get_time:00000000 rx8130ce_get_time
+C:\Users\LENOVO\AppData\Local\Temp\ccDPdGGG.s:1484   .text.rx8130ce_is_time_valid:00000000 $t
+C:\Users\LENOVO\AppData\Local\Temp\ccDPdGGG.s:1490   .text.rx8130ce_is_time_valid:00000000 rx8130ce_is_time_valid
 
 UNDEFINED SYMBOLS
 sx_delay_ms

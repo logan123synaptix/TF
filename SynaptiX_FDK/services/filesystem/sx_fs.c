@@ -9,13 +9,13 @@ static int lfs_flash_read(const struct lfs_config *c,
                            lfs_block_t block, lfs_off_t off,
                            void *buf, lfs_size_t size)
 {
-    // uint32_t addr = block * c->block_size + off;
-    // log_info("SX_FS", "lfs read block=%lu off=%lu size=%lu addr=0x%06lX", (unsigned long)block, (unsigned long)off, (unsigned long)size, (unsigned long)addr);
-    // int ret = sx_ext_flash_read(s_flash, addr, buf, size);
-    // if (ret != 0) log_error("SX_FS", "read FAILED ret=%d", ret);
-    // return ret;
     uint32_t addr = PART_GPS_LOG_OFFSET + block * c->block_size + off;
-    return sx_ext_flash_read(s_flash, addr, buf, size);
+    // DEBUG: temporary trace to locate the hang after boot-via-bootloader.
+    log_info("SX_FS", "flash_read: enter addr=0x%06lX size=%lu s_flash=%p",
+        (unsigned long)addr, (unsigned long)size, (void*)s_flash);
+    int ret = sx_ext_flash_read(s_flash, addr, buf, size);
+    log_info("SX_FS", "flash_read: returned %d", ret);
+    return ret;
 }
 
 static int lfs_flash_write(const struct lfs_config *c,

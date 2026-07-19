@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccwU4Jpn.s 			page 1
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccB7P2Fv.s 			page 1
 
 
    1              		.cpu cortex-m33
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccwU4Jpn.s 			page 1
   26:SynaptiX_FDK/components/sleep/sx_sleep.h ****     void                   *pDriver;
   27:SynaptiX_FDK/components/sleep/sx_sleep.h ****     wake_reason_t           wake_reason;
   28:SynaptiX_FDK/components/sleep/sx_sleep.h **** };
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccwU4Jpn.s 			page 2
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccB7P2Fv.s 			page 2
 
 
   29:SynaptiX_FDK/components/sleep/sx_sleep.h **** 
@@ -118,7 +118,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccwU4Jpn.s 			page 1
   68              		.loc 2 47 1 is_stmt 1 view -0
   69              		.cfi_startproc
   70              		@ args = 0, pretend = 0, frame = 0
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccwU4Jpn.s 			page 3
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccB7P2Fv.s 			page 3
 
 
   71              		@ frame_needed = 0, uses_anonymous_args = 0
@@ -178,7 +178,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccwU4Jpn.s 			page 1
  120              		.loc 2 54 29 discriminator 1 view .LVU23
  121 0006 9B68     		ldr	r3, [r3, #8]
  122              		.loc 2 54 18 discriminator 1 view .LVU24
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccwU4Jpn.s 			page 4
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccB7P2Fv.s 			page 4
 
 
  123 0008 03B1     		cbz	r3, .L7
@@ -238,7 +238,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccwU4Jpn.s 			page 1
  157              		.cfi_def_cfa_offset 8
  158              		.cfi_offset 3, -8
  159              		.cfi_offset 14, -4
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccwU4Jpn.s 			page 5
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccB7P2Fv.s 			page 5
 
 
   14:SynaptiX_FDK/services/sleepmanager/sx_sleep_manager.c ****     mgr->sleep              = sleep;
@@ -298,7 +298,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccwU4Jpn.s 			page 1
  202              		.loc 1 25 5 view .LVU53
  203 001e FFF7FEFF 		bl	log_func
  204              	.LVL11:
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccwU4Jpn.s 			page 6
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccB7P2Fv.s 			page 6
 
 
   26:SynaptiX_FDK/services/sleepmanager/sx_sleep_manager.c **** }
@@ -358,7 +358,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccwU4Jpn.s 			page 1
  241              		@ frame_needed = 0, uses_anonymous_args = 0
  242              		.loc 1 29 1 is_stmt 0 view .LVU56
  243 0000 70B5     		push	{r4, r5, r6, lr}
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccwU4Jpn.s 			page 7
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccB7P2Fv.s 			page 7
 
 
  244              	.LCFI4:
@@ -418,7 +418,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccwU4Jpn.s 			page 1
  291 002c FFF7FEFF 		bl	log_func
  292              	.LVL19:
   35:SynaptiX_FDK/services/sleepmanager/sx_sleep_manager.c **** 
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccwU4Jpn.s 			page 8
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccB7P2Fv.s 			page 8
 
 
   36:SynaptiX_FDK/services/sleepmanager/sx_sleep_manager.c ****     gps_power_off(mgr->module.gps);
@@ -478,7 +478,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccwU4Jpn.s 			page 1
  336 006e FFF7FEFF 		bl	log_func
  337              	.LVL26:
   47:SynaptiX_FDK/services/sleepmanager/sx_sleep_manager.c ****     sx_delay_ms(10);  
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccwU4Jpn.s 			page 9
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccB7P2Fv.s 			page 9
 
 
  338              		.loc 1 47 5 view .LVU83
@@ -538,7 +538,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccwU4Jpn.s 			page 1
  382      66697820 
  382      4F4B2061 
  382      66746572 
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccwU4Jpn.s 			page 10
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccB7P2Fv.s 			page 10
 
 
  382      20256C75 
@@ -598,7 +598,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccwU4Jpn.s 			page 1
  417              		.cfi_offset 5, -8
  418              		.cfi_offset 14, -4
  419 0002 0446     		mov	r4, r0
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccwU4Jpn.s 			page 11
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccB7P2Fv.s 			page 11
 
 
   57:SynaptiX_FDK/services/sleepmanager/sx_sleep_manager.c ****     switch (mgr->wake_step)
@@ -658,7 +658,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccwU4Jpn.s 			page 1
   89:SynaptiX_FDK/services/sleepmanager/sx_sleep_manager.c ****     case SX_WAKE_STEP_UART_RESUME:
   90:SynaptiX_FDK/services/sleepmanager/sx_sleep_manager.c ****         log_info(TAG, "Resume UART + Power on SIM");
   91:SynaptiX_FDK/services/sleepmanager/sx_sleep_manager.c **** 
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccwU4Jpn.s 			page 12
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccB7P2Fv.s 			page 12
 
 
   92:SynaptiX_FDK/services/sleepmanager/sx_sleep_manager.c ****         sx_board_uart_resume_it();
@@ -718,7 +718,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccwU4Jpn.s 			page 1
   68:SynaptiX_FDK/services/sleepmanager/sx_sleep_manager.c ****         mgr->wake_step = SX_WAKE_STEP_GPS_WAIT;
  459              		.loc 1 68 9 view .LVU101
   68:SynaptiX_FDK/services/sleepmanager/sx_sleep_manager.c ****         mgr->wake_step = SX_WAKE_STEP_GPS_WAIT;
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccwU4Jpn.s 			page 13
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccB7P2Fv.s 			page 13
 
 
  460              		.loc 1 68 37 is_stmt 0 view .LVU102
@@ -778,7 +778,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccwU4Jpn.s 			page 1
  499 0062 2C4A     		ldr	r2, .L35+12
  500 0064 2949     		ldr	r1, .L35+4
  501              	.LVL39:
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccwU4Jpn.s 			page 14
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccB7P2Fv.s 			page 14
 
 
   84:SynaptiX_FDK/services/sleepmanager/sx_sleep_manager.c ****             mgr->wake_step = SX_WAKE_STEP_UART_RESUME;
@@ -838,7 +838,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccwU4Jpn.s 			page 1
  543 008c FFF7FEFF 		bl	sx_board_uart_resume_it
  544              	.LVL50:
   94:SynaptiX_FDK/services/sleepmanager/sx_sleep_manager.c ****         mgr->module.sim->base.buff_id = 0;
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccwU4Jpn.s 			page 15
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccB7P2Fv.s 			page 15
 
 
  545              		.loc 1 94 9 view .LVU131
@@ -898,7 +898,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccwU4Jpn.s 			page 1
  583 00c2 A9E7     		b	.L21
  584              	.LVL54:
  585              	.L23:
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccwU4Jpn.s 			page 16
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccB7P2Fv.s 			page 16
 
 
  107:SynaptiX_FDK/services/sleepmanager/sx_sleep_manager.c ****         if (sim76xx_is_ready(mgr->module.sim)) {
@@ -958,7 +958,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccwU4Jpn.s 			page 1
   37:SynaptiX_FDK/components/sim76xx/sim76xx.h **** typedef struct sim76xx sim76xx_t;
   38:SynaptiX_FDK/components/sim76xx/sim76xx.h **** 
   39:SynaptiX_FDK/components/sim76xx/sim76xx.h **** typedef void (*sim76xx_on_ready_cb_t)(sim76xx_t *dce);
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccwU4Jpn.s 			page 17
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccB7P2Fv.s 			page 17
 
 
   40:SynaptiX_FDK/components/sim76xx/sim76xx.h **** 
@@ -1018,7 +1018,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccwU4Jpn.s 			page 1
   94:SynaptiX_FDK/components/sim76xx/sim76xx.h **** 
   95:SynaptiX_FDK/components/sim76xx/sim76xx.h **** static inline uint8_t sim76xx_is_ready(sim76xx_t *dce){
  599              		.loc 3 95 23 is_stmt 1 view .LVU153
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccwU4Jpn.s 			page 18
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccB7P2Fv.s 			page 18
 
 
  600              	.LBB5:
@@ -1078,7 +1078,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccwU4Jpn.s 			page 1
  642              		.loc 1 109 13 is_stmt 1 view .LVU168
  643 00f6 0C4A     		ldr	r2, .L35+32
  644 00f8 0449     		ldr	r1, .L35+4
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccwU4Jpn.s 			page 19
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccB7P2Fv.s 			page 19
 
 
  645              	.LVL63:
@@ -1138,7 +1138,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccwU4Jpn.s 			page 1
  692 0002 0528     		cmp	r0, #5
  693 0004 14BF     		ite	ne
  694 0006 0020     		movne	r0, #0
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccwU4Jpn.s 			page 20
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccB7P2Fv.s 			page 20
 
 
  695 0008 0120     		moveq	r0, #1
@@ -1198,7 +1198,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccwU4Jpn.s 			page 1
  738              	.LVL71:
  739              		.loc 1 143 12 view .LVU189
  740 0012 7047     		bx	lr
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccwU4Jpn.s 			page 21
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccB7P2Fv.s 			page 21
 
 
  741              	.LVL72:
@@ -1258,7 +1258,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccwU4Jpn.s 			page 1
  786              		.loc 1 153 1 view .LVU203
  787 000c 7047     		bx	lr
  788              		.cfi_endproc
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccwU4Jpn.s 			page 22
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccB7P2Fv.s 			page 22
 
 
  789              	.LFE553:
@@ -1276,46 +1276,46 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccwU4Jpn.s 			page 1
  802              		.file 13 "SynaptiX_FDK/components/gps/minmea.h"
  803              		.file 14 "SynaptiX_FDK/components/gps/gps.h"
  804              		.file 15 "SynaptiX_FDK/components/spi/sx_spi.h"
- 805              		.file 16 "SynaptiX_FDK/components/external_flash/sx_W25Q128.h"
- 806              		.file 17 "SynaptiX_FDK/services/sleepmanager/sx_sleep_manager.h"
- 807              		.file 18 "SynaptiX_FDK/services/logger/logger.h"
+ 805              		.file 16 "SynaptiX_FDK/services/logger/logger.h"
+ 806              		.file 17 "SynaptiX_FDK/components/external_flash/sx_W25Q128.h"
+ 807              		.file 18 "SynaptiX_FDK/services/sleepmanager/sx_sleep_manager.h"
  808              		.file 19 "C:\\ST\\STM32CubeCLT_1.20.0\\GNU-tools-for-STM32\\bin/../lib/gcc/arm-none-eabi/13.3.1/..
  809              		.file 20 "SynaptiX_FDK/board/sx_board.h"
  810              		.file 21 "SynaptiX_FDK/utils/delay/sx_delay.h"
  811              		.file 22 "<built-in>"
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccwU4Jpn.s 			page 23
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccB7P2Fv.s 			page 23
 
 
 DEFINED SYMBOLS
                             *ABS*:00000000 sx_sleep_manager.c
-C:\Users\LENOVO\AppData\Local\Temp\ccwU4Jpn.s:22     .text.sx_sleep_enter_stop:00000000 $t
-C:\Users\LENOVO\AppData\Local\Temp\ccwU4Jpn.s:27     .text.sx_sleep_enter_stop:00000000 sx_sleep_enter_stop
-C:\Users\LENOVO\AppData\Local\Temp\ccwU4Jpn.s:60     .text.sx_sleep_set_rtc_wake:00000000 $t
-C:\Users\LENOVO\AppData\Local\Temp\ccwU4Jpn.s:65     .text.sx_sleep_set_rtc_wake:00000000 sx_sleep_set_rtc_wake
-C:\Users\LENOVO\AppData\Local\Temp\ccwU4Jpn.s:97     .text.sx_sleep_cancel_rtc:00000000 $t
-C:\Users\LENOVO\AppData\Local\Temp\ccwU4Jpn.s:102    .text.sx_sleep_cancel_rtc:00000000 sx_sleep_cancel_rtc
-C:\Users\LENOVO\AppData\Local\Temp\ccwU4Jpn.s:134    .rodata.sx_sleep_manager_init.str1.4:00000000 $d
-C:\Users\LENOVO\AppData\Local\Temp\ccwU4Jpn.s:141    .text.sx_sleep_manager_init:00000000 $t
-C:\Users\LENOVO\AppData\Local\Temp\ccwU4Jpn.s:147    .text.sx_sleep_manager_init:00000000 sx_sleep_manager_init
-C:\Users\LENOVO\AppData\Local\Temp\ccwU4Jpn.s:210    .text.sx_sleep_manager_init:00000024 $d
-C:\Users\LENOVO\AppData\Local\Temp\ccwU4Jpn.s:216    .rodata.sx_sleep_manager_enter.str1.4:00000000 $d
-C:\Users\LENOVO\AppData\Local\Temp\ccwU4Jpn.s:229    .text.sx_sleep_manager_enter:00000000 $t
-C:\Users\LENOVO\AppData\Local\Temp\ccwU4Jpn.s:235    .text.sx_sleep_manager_enter:00000000 sx_sleep_manager_enter
-C:\Users\LENOVO\AppData\Local\Temp\ccwU4Jpn.s:367    .text.sx_sleep_manager_enter:00000094 $d
-C:\Users\LENOVO\AppData\Local\Temp\ccwU4Jpn.s:377    .rodata.sx_sleep_manager_wake_process.str1.4:00000000 $d
-C:\Users\LENOVO\AppData\Local\Temp\ccwU4Jpn.s:398    .text.sx_sleep_manager_wake_process:00000000 $t
-C:\Users\LENOVO\AppData\Local\Temp\ccwU4Jpn.s:404    .text.sx_sleep_manager_wake_process:00000000 sx_sleep_manager_wake_process
-C:\Users\LENOVO\AppData\Local\Temp\ccwU4Jpn.s:428    .text.sx_sleep_manager_wake_process:0000000e $d
-C:\Users\LENOVO\AppData\Local\Temp\ccwU4Jpn.s:660    .text.sx_sleep_manager_wake_process:00000108 $d
-C:\Users\LENOVO\AppData\Local\Temp\ccwU4Jpn.s:673    .text.sx_sleep_manager_is_wake_done:00000000 $t
-C:\Users\LENOVO\AppData\Local\Temp\ccwU4Jpn.s:679    .text.sx_sleep_manager_is_wake_done:00000000 sx_sleep_manager_is_wake_done
-C:\Users\LENOVO\AppData\Local\Temp\ccwU4Jpn.s:701    .text.sx_sleep_manager_wake_tick:00000000 $t
-C:\Users\LENOVO\AppData\Local\Temp\ccwU4Jpn.s:707    .text.sx_sleep_manager_wake_tick:00000000 sx_sleep_manager_wake_tick
-C:\Users\LENOVO\AppData\Local\Temp\ccwU4Jpn.s:751    .text.sx_sleep_manager_wake_tick:00000018 $d
-C:\Users\LENOVO\AppData\Local\Temp\ccwU4Jpn.s:756    .text.sx_sleep_manager_reset_wake:00000000 $t
-C:\Users\LENOVO\AppData\Local\Temp\ccwU4Jpn.s:762    .text.sx_sleep_manager_reset_wake:00000000 sx_sleep_manager_reset_wake
-C:\Users\LENOVO\AppData\Local\Temp\ccwU4Jpn.s:433    .text.sx_sleep_manager_wake_process:00000013 $d
-C:\Users\LENOVO\AppData\Local\Temp\ccwU4Jpn.s:433    .text.sx_sleep_manager_wake_process:00000014 $t
+C:\Users\LENOVO\AppData\Local\Temp\ccB7P2Fv.s:22     .text.sx_sleep_enter_stop:00000000 $t
+C:\Users\LENOVO\AppData\Local\Temp\ccB7P2Fv.s:27     .text.sx_sleep_enter_stop:00000000 sx_sleep_enter_stop
+C:\Users\LENOVO\AppData\Local\Temp\ccB7P2Fv.s:60     .text.sx_sleep_set_rtc_wake:00000000 $t
+C:\Users\LENOVO\AppData\Local\Temp\ccB7P2Fv.s:65     .text.sx_sleep_set_rtc_wake:00000000 sx_sleep_set_rtc_wake
+C:\Users\LENOVO\AppData\Local\Temp\ccB7P2Fv.s:97     .text.sx_sleep_cancel_rtc:00000000 $t
+C:\Users\LENOVO\AppData\Local\Temp\ccB7P2Fv.s:102    .text.sx_sleep_cancel_rtc:00000000 sx_sleep_cancel_rtc
+C:\Users\LENOVO\AppData\Local\Temp\ccB7P2Fv.s:134    .rodata.sx_sleep_manager_init.str1.4:00000000 $d
+C:\Users\LENOVO\AppData\Local\Temp\ccB7P2Fv.s:141    .text.sx_sleep_manager_init:00000000 $t
+C:\Users\LENOVO\AppData\Local\Temp\ccB7P2Fv.s:147    .text.sx_sleep_manager_init:00000000 sx_sleep_manager_init
+C:\Users\LENOVO\AppData\Local\Temp\ccB7P2Fv.s:210    .text.sx_sleep_manager_init:00000024 $d
+C:\Users\LENOVO\AppData\Local\Temp\ccB7P2Fv.s:216    .rodata.sx_sleep_manager_enter.str1.4:00000000 $d
+C:\Users\LENOVO\AppData\Local\Temp\ccB7P2Fv.s:229    .text.sx_sleep_manager_enter:00000000 $t
+C:\Users\LENOVO\AppData\Local\Temp\ccB7P2Fv.s:235    .text.sx_sleep_manager_enter:00000000 sx_sleep_manager_enter
+C:\Users\LENOVO\AppData\Local\Temp\ccB7P2Fv.s:367    .text.sx_sleep_manager_enter:00000094 $d
+C:\Users\LENOVO\AppData\Local\Temp\ccB7P2Fv.s:377    .rodata.sx_sleep_manager_wake_process.str1.4:00000000 $d
+C:\Users\LENOVO\AppData\Local\Temp\ccB7P2Fv.s:398    .text.sx_sleep_manager_wake_process:00000000 $t
+C:\Users\LENOVO\AppData\Local\Temp\ccB7P2Fv.s:404    .text.sx_sleep_manager_wake_process:00000000 sx_sleep_manager_wake_process
+C:\Users\LENOVO\AppData\Local\Temp\ccB7P2Fv.s:428    .text.sx_sleep_manager_wake_process:0000000e $d
+C:\Users\LENOVO\AppData\Local\Temp\ccB7P2Fv.s:660    .text.sx_sleep_manager_wake_process:00000108 $d
+C:\Users\LENOVO\AppData\Local\Temp\ccB7P2Fv.s:673    .text.sx_sleep_manager_is_wake_done:00000000 $t
+C:\Users\LENOVO\AppData\Local\Temp\ccB7P2Fv.s:679    .text.sx_sleep_manager_is_wake_done:00000000 sx_sleep_manager_is_wake_done
+C:\Users\LENOVO\AppData\Local\Temp\ccB7P2Fv.s:701    .text.sx_sleep_manager_wake_tick:00000000 $t
+C:\Users\LENOVO\AppData\Local\Temp\ccB7P2Fv.s:707    .text.sx_sleep_manager_wake_tick:00000000 sx_sleep_manager_wake_tick
+C:\Users\LENOVO\AppData\Local\Temp\ccB7P2Fv.s:751    .text.sx_sleep_manager_wake_tick:00000018 $d
+C:\Users\LENOVO\AppData\Local\Temp\ccB7P2Fv.s:756    .text.sx_sleep_manager_reset_wake:00000000 $t
+C:\Users\LENOVO\AppData\Local\Temp\ccB7P2Fv.s:762    .text.sx_sleep_manager_reset_wake:00000000 sx_sleep_manager_reset_wake
+C:\Users\LENOVO\AppData\Local\Temp\ccB7P2Fv.s:433    .text.sx_sleep_manager_wake_process:00000013 $d
+C:\Users\LENOVO\AppData\Local\Temp\ccB7P2Fv.s:433    .text.sx_sleep_manager_wake_process:00000014 $t
 
 UNDEFINED SYMBOLS
 log_func

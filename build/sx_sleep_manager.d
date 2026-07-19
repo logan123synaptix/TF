@@ -53,6 +53,7 @@ build/sx_sleep_manager.o: \
  SynaptiX_FDK/components/external_flash/sx_W25Q128.h \
  SynaptiX_FDK/components/spi/sx_spi.h \
  SynaptiX_FDK/components/external_flash/sx_external_flash.h \
+ SynaptiX_FDK/services/logger/logger.h SynaptiX_FDK/app/app_config.h \
  SynaptiX_FDK/app/user/sx_mqtt/sx_user_mqtt.h \
  SynaptiX_FDK/board/sx_board.h Core/Inc/main.h Core/Inc/usart.h \
  Core/Inc/gpio.h SynaptiX_FDK/utils/delay/sx_delay.h \
@@ -64,8 +65,7 @@ build/sx_sleep_manager.o: \
  SynaptiX_FDK/components/i2c/sx_i2c.h \
  SynaptiX_FDK/components/imu/bno055.h \
  SynaptiX_FDK/utils/filter/sx_filter.h \
- SynaptiX_FDK/services/read_bat/sx_read_bat.h \
- SynaptiX_FDK/app/app_config.h SynaptiX_FDK/services/logger/logger.h
+ SynaptiX_FDK/services/read_bat/sx_read_bat.h
 SynaptiX_FDK/services/sleepmanager/sx_sleep_manager.h:
 Core/Inc/rtc.h:
 Core/Inc/main.h:
@@ -126,6 +126,8 @@ SynaptiX_FDK/components/gps/minmea.h:
 SynaptiX_FDK/components/external_flash/sx_W25Q128.h:
 SynaptiX_FDK/components/spi/sx_spi.h:
 SynaptiX_FDK/components/external_flash/sx_external_flash.h:
+SynaptiX_FDK/services/logger/logger.h:
+SynaptiX_FDK/app/app_config.h:
 SynaptiX_FDK/app/user/sx_mqtt/sx_user_mqtt.h:
 SynaptiX_FDK/board/sx_board.h:
 Core/Inc/main.h:
@@ -144,5 +146,3 @@ SynaptiX_FDK/components/i2c/sx_i2c.h:
 SynaptiX_FDK/components/imu/bno055.h:
 SynaptiX_FDK/utils/filter/sx_filter.h:
 SynaptiX_FDK/services/read_bat/sx_read_bat.h:
-SynaptiX_FDK/app/app_config.h:
-SynaptiX_FDK/services/logger/logger.h:

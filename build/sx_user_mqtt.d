@@ -52,6 +52,7 @@ build/sx_user_mqtt.o: SynaptiX_FDK/app/user/sx_mqtt/sx_user_mqtt.c \
  SynaptiX_FDK/utils/delay/sx_delay.h \
  SynaptiX_FDK/components/external_flash/sx_W25Q128.h \
  SynaptiX_FDK/components/external_flash/sx_external_flash.h \
+ SynaptiX_FDK/services/logger/logger.h SynaptiX_FDK/app/app_config.h \
  SynaptiX_FDK/app/user/sx_ex_storage/sx_ex_storage.h \
  SynaptiX_FDK/components/usb_cdc_tiny/sx_usb_tiny_cdc.h \
  SynaptiX_FDK/lib/tinyusb/src/common/tusb_types.h \
@@ -62,8 +63,7 @@ build/sx_user_mqtt.o: SynaptiX_FDK/app/user/sx_mqtt/sx_user_mqtt.c \
  SynaptiX_FDK/utils/filter/sx_filter.h \
  SynaptiX_FDK/services/read_bat/sx_read_bat.h \
  SynaptiX_FDK/app/user/sx_mqtt/sx_user_mqtt.h \
- SynaptiX_FDK/services/mqtt/sx_mqtt.h \
- SynaptiX_FDK/services/logger/logger.h SynaptiX_FDK/app/app_config.h
+ SynaptiX_FDK/services/mqtt/sx_mqtt.h
 SynaptiX_FDK/board/sx_board.h:
 Core/Inc/main.h:
 Drivers/STM32H5xx_HAL_Driver/Inc/stm32h5xx_hal.h:
@@ -126,6 +126,8 @@ SynaptiX_FDK/components/modem/modem.h:
 SynaptiX_FDK/utils/delay/sx_delay.h:
 SynaptiX_FDK/components/external_flash/sx_W25Q128.h:
 SynaptiX_FDK/components/external_flash/sx_external_flash.h:
+SynaptiX_FDK/services/logger/logger.h:
+SynaptiX_FDK/app/app_config.h:
 SynaptiX_FDK/app/user/sx_ex_storage/sx_ex_storage.h:
 SynaptiX_FDK/components/usb_cdc_tiny/sx_usb_tiny_cdc.h:
 SynaptiX_FDK/lib/tinyusb/src/common/tusb_types.h:
@@ -140,5 +142,3 @@ SynaptiX_FDK/utils/filter/sx_filter.h:
 SynaptiX_FDK/services/read_bat/sx_read_bat.h:
 SynaptiX_FDK/app/user/sx_mqtt/sx_user_mqtt.h:
 SynaptiX_FDK/services/mqtt/sx_mqtt.h:
-SynaptiX_FDK/services/logger/logger.h:
-SynaptiX_FDK/app/app_config.h:

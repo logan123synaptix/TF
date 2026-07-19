@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccUTIJQG.s 			page 1
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccc7byMl.s 			page 1
 
 
    1              		.cpu cortex-m33
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccUTIJQG.s 			page 1
   26:SynaptiX_FDK/components/gpio/sx_gpio.h **** 
   27:SynaptiX_FDK/components/gpio/sx_gpio.h **** typedef struct sx_gpio{
   28:SynaptiX_FDK/components/gpio/sx_gpio.h ****     sx_gpio_ops_t *ops;
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccUTIJQG.s 			page 2
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccc7byMl.s 			page 2
 
 
   29:SynaptiX_FDK/components/gpio/sx_gpio.h ****     void *pDriver;
@@ -118,7 +118,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccUTIJQG.s 			page 1
   68              		.loc 2 45 9 is_stmt 0 view .LVU14
   69              	.LBE8:
   46:SynaptiX_FDK/components/gpio/sx_gpio.h ****     }
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccUTIJQG.s 			page 3
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccc7byMl.s 			page 3
 
 
   47:SynaptiX_FDK/components/gpio/sx_gpio.h ****     return -1;
@@ -178,7 +178,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccUTIJQG.s 			page 1
   12:SynaptiX_FDK/app/user/sx_ex_storage/sx_ex_storage.c **** static sx_W25Q128_t     s_w25q128;
   13:SynaptiX_FDK/app/user/sx_ex_storage/sx_ex_storage.c **** static sx_ext_flash_t   s_flash;
   14:SynaptiX_FDK/app/user/sx_ex_storage/sx_ex_storage.c **** static bool             s_initialized = false;
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccUTIJQG.s 			page 4
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccc7byMl.s 			page 4
 
 
   15:SynaptiX_FDK/app/user/sx_ex_storage/sx_ex_storage.c **** 
@@ -238,7 +238,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccUTIJQG.s 			page 1
  122              		.loc 1 50 1 view .LVU25
  123 000a 08BD     		pop	{r3, pc}
  124              	.L11:
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccUTIJQG.s 			page 5
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccc7byMl.s 			page 5
 
 
   46:SynaptiX_FDK/app/user/sx_ex_storage/sx_ex_storage.c ****         log_error(TAG, "Not initialized");
@@ -262,15 +262,51 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccUTIJQG.s 			page 1
  140 0024 10000000 		.word	.LC1
  141              		.cfi_endproc
  142              	.LFE531:
- 144              		.section	.text.file_open,"ax",%progbits
- 145              		.align	1
- 146              		.syntax unified
- 147              		.thumb
- 148              		.thumb_func
- 150              	file_open:
- 151              	.LVL8:
- 152              	.LFB528:
- 153              		.file 3 "SynaptiX_FDK/services/filesystem/file_io.h"
+ 144              		.section	.rodata.file_open.str1.4,"aMS",%progbits,1
+ 145              		.align	2
+ 146              	.LC2:
+ 147 0000 66696C65 		.ascii	"file_open: enter path=%s mode=%s\000"
+ 147      5F6F7065 
+ 147      6E3A2065 
+ 147      6E746572 
+ 147      20706174 
+ 148 0021 000000   		.align	2
+ 149              	.LC3:
+ 150 0024 46494C45 		.ascii	"FILE_IO\000"
+ 150      5F494F00 
+ 151              		.align	2
+ 152              	.LC4:
+ 153 002c 66696C65 		.ascii	"file_open: malloc done, file=%p\000"
+ 153      5F6F7065 
+ 153      6E3A206D 
+ 153      616C6C6F 
+ 153      6320646F 
+ 154              		.align	2
+ 155              	.LC5:
+ 156 004c 66696C65 		.ascii	"file_open: calling lfs_file_open, flags=%d\000"
+ 156      5F6F7065 
+ 156      6E3A2063 
+ 156      616C6C69 
+ 156      6E67206C 
+ 157 0077 00       		.align	2
+ 158              	.LC6:
+ 159 0078 66696C65 		.ascii	"file_open: lfs_file_open returned %d\000"
+ 159      5F6F7065 
+ 159      6E3A206C 
+ 159      66735F66 
+ 159      696C655F 
+ 160              		.section	.text.file_open,"ax",%progbits
+ 161              		.align	1
+ 162              		.syntax unified
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccc7byMl.s 			page 6
+
+
+ 163              		.thumb
+ 164              		.thumb_func
+ 166              	file_open:
+ 167              	.LVL8:
+ 168              	.LFB528:
+ 169              		.file 3 "SynaptiX_FDK/services/filesystem/file_io.h"
    1:SynaptiX_FDK/services/filesystem/file_io.h **** #ifndef __FILE_IO_H
    2:SynaptiX_FDK/services/filesystem/file_io.h **** #define __FILE_IO_H
    3:SynaptiX_FDK/services/filesystem/file_io.h **** 
@@ -281,341 +317,422 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccUTIJQG.s 			page 1
    8:SynaptiX_FDK/services/filesystem/file_io.h **** #include <stdio.h>
    9:SynaptiX_FDK/services/filesystem/file_io.h **** #include "lfs.h"
   10:SynaptiX_FDK/services/filesystem/file_io.h **** #include "lfs_util.h"
-  11:SynaptiX_FDK/services/filesystem/file_io.h **** 
-  12:SynaptiX_FDK/services/filesystem/file_io.h **** typedef struct file_system_config{
-  13:SynaptiX_FDK/services/filesystem/file_io.h ****     struct lfs_config cfg; // LittleFS configuration
-  14:SynaptiX_FDK/services/filesystem/file_io.h ****     lfs_t *lfs; // Pointer to the LittleFS object
-  15:SynaptiX_FDK/services/filesystem/file_io.h ****     uint32_t block_size; // Size of a block in bytes
-  16:SynaptiX_FDK/services/filesystem/file_io.h ****     uint32_t block_count; // Number of blocks in the filesystem
-  17:SynaptiX_FDK/services/filesystem/file_io.h ****     struct file_function_t{
-  18:SynaptiX_FDK/services/filesystem/file_io.h ****         int (*erase)(const struct lfs_config *c,lfs_size_t block); // Function to erase a block
-  19:SynaptiX_FDK/services/filesystem/file_io.h ****         int (*read)(const struct lfs_config *c, lfs_block_t block,
-  20:SynaptiX_FDK/services/filesystem/file_io.h ****             lfs_off_t off, void *buffer, lfs_size_t size); // Function to read data from a block
-  21:SynaptiX_FDK/services/filesystem/file_io.h ****         int (*write)(const struct lfs_config *c, lfs_block_t block,
-  22:SynaptiX_FDK/services/filesystem/file_io.h ****             lfs_off_t off, const void *buffer, lfs_size_t size); // Function to write data to a blo
-  23:SynaptiX_FDK/services/filesystem/file_io.h ****     } file_function; // Disk operations functions
-  24:SynaptiX_FDK/services/filesystem/file_io.h **** }file_system_config_t;
-  25:SynaptiX_FDK/services/filesystem/file_io.h **** 
-  26:SynaptiX_FDK/services/filesystem/file_io.h **** int file_system_init(file_system_config_t *config);
-  27:SynaptiX_FDK/services/filesystem/file_io.h **** 
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccUTIJQG.s 			page 6
+  11:SynaptiX_FDK/services/filesystem/file_io.h **** #include "logger.h" // DEBUG: needed for log_info added for hang investigation
+  12:SynaptiX_FDK/services/filesystem/file_io.h **** 
+  13:SynaptiX_FDK/services/filesystem/file_io.h **** typedef struct file_system_config{
+  14:SynaptiX_FDK/services/filesystem/file_io.h ****     struct lfs_config cfg; // LittleFS configuration
+  15:SynaptiX_FDK/services/filesystem/file_io.h ****     lfs_t *lfs; // Pointer to the LittleFS object
+  16:SynaptiX_FDK/services/filesystem/file_io.h ****     uint32_t block_size; // Size of a block in bytes
+  17:SynaptiX_FDK/services/filesystem/file_io.h ****     uint32_t block_count; // Number of blocks in the filesystem
+  18:SynaptiX_FDK/services/filesystem/file_io.h ****     struct file_function_t{
+  19:SynaptiX_FDK/services/filesystem/file_io.h ****         int (*erase)(const struct lfs_config *c,lfs_size_t block); // Function to erase a block
+  20:SynaptiX_FDK/services/filesystem/file_io.h ****         int (*read)(const struct lfs_config *c, lfs_block_t block,
+  21:SynaptiX_FDK/services/filesystem/file_io.h ****             lfs_off_t off, void *buffer, lfs_size_t size); // Function to read data from a block
+  22:SynaptiX_FDK/services/filesystem/file_io.h ****         int (*write)(const struct lfs_config *c, lfs_block_t block,
+  23:SynaptiX_FDK/services/filesystem/file_io.h ****             lfs_off_t off, const void *buffer, lfs_size_t size); // Function to write data to a blo
+  24:SynaptiX_FDK/services/filesystem/file_io.h ****     } file_function; // Disk operations functions
+  25:SynaptiX_FDK/services/filesystem/file_io.h **** }file_system_config_t;
+  26:SynaptiX_FDK/services/filesystem/file_io.h **** 
+  27:SynaptiX_FDK/services/filesystem/file_io.h **** int file_system_init(file_system_config_t *config);
+  28:SynaptiX_FDK/services/filesystem/file_io.h **** 
+  29:SynaptiX_FDK/services/filesystem/file_io.h **** extern lfs_t lfs;
+  30:SynaptiX_FDK/services/filesystem/file_io.h **** 
+  31:SynaptiX_FDK/services/filesystem/file_io.h **** #define CONFIG_LITTLEFS &lfs
+  32:SynaptiX_FDK/services/filesystem/file_io.h **** 
+  33:SynaptiX_FDK/services/filesystem/file_io.h **** static inline FILE *file_open(const char *path, const char *mode) {
+ 170              		.loc 3 33 67 is_stmt 1 view -0
+ 171              		.cfi_startproc
+ 172              		@ args = 0, pretend = 0, frame = 0
+ 173              		@ frame_needed = 0, uses_anonymous_args = 0
+ 174              		.loc 3 33 67 is_stmt 0 view .LVU30
+ 175 0000 F0B5     		push	{r4, r5, r6, r7, lr}
+ 176              	.LCFI2:
+ 177              		.cfi_def_cfa_offset 20
+ 178              		.cfi_offset 4, -20
+ 179              		.cfi_offset 5, -16
+ 180              		.cfi_offset 6, -12
+ 181              		.cfi_offset 7, -8
+ 182              		.cfi_offset 14, -4
+ 183 0002 83B0     		sub	sp, sp, #12
+ 184              	.LCFI3:
+ 185              		.cfi_def_cfa_offset 32
+ 186 0004 0646     		mov	r6, r0
+ 187 0006 0D46     		mov	r5, r1
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccc7byMl.s 			page 7
 
 
-  28:SynaptiX_FDK/services/filesystem/file_io.h **** extern lfs_t lfs;
-  29:SynaptiX_FDK/services/filesystem/file_io.h **** 
-  30:SynaptiX_FDK/services/filesystem/file_io.h **** #define CONFIG_LITTLEFS &lfs
-  31:SynaptiX_FDK/services/filesystem/file_io.h **** 
-  32:SynaptiX_FDK/services/filesystem/file_io.h **** static inline FILE *file_open(const char *path, const char *mode) {
- 154              		.loc 3 32 67 is_stmt 1 view -0
- 155              		.cfi_startproc
- 156              		@ args = 0, pretend = 0, frame = 0
- 157              		@ frame_needed = 0, uses_anonymous_args = 0
- 158              		.loc 3 32 67 is_stmt 0 view .LVU30
- 159 0000 70B5     		push	{r4, r5, r6, lr}
- 160              	.LCFI2:
- 161              		.cfi_def_cfa_offset 16
- 162              		.cfi_offset 4, -16
- 163              		.cfi_offset 5, -12
- 164              		.cfi_offset 6, -8
- 165              		.cfi_offset 14, -4
- 166 0002 0646     		mov	r6, r0
- 167 0004 0C46     		mov	r4, r1
-  33:SynaptiX_FDK/services/filesystem/file_io.h ****     // Use LittleFS to open a file
-  34:SynaptiX_FDK/services/filesystem/file_io.h ****     lfs_file_t *file = malloc(sizeof(lfs_file_t));
- 168              		.loc 3 34 5 is_stmt 1 view .LVU31
- 169              		.loc 3 34 24 is_stmt 0 view .LVU32
- 170 0006 5420     		movs	r0, #84
- 171              	.LVL9:
- 172              		.loc 3 34 24 view .LVU33
- 173 0008 FFF7FEFF 		bl	malloc
- 174              	.LVL10:
-  35:SynaptiX_FDK/services/filesystem/file_io.h ****     int lfs_status;
- 175              		.loc 3 35 5 is_stmt 1 view .LVU34
-  36:SynaptiX_FDK/services/filesystem/file_io.h ****     if(file == NULL) {
- 176              		.loc 3 36 5 view .LVU35
- 177              		.loc 3 36 7 is_stmt 0 view .LVU36
- 178 000c 0546     		mov	r5, r0
- 179 000e 60B3     		cbz	r0, .L14
-  37:SynaptiX_FDK/services/filesystem/file_io.h ****         return NULL; // Memory allocation failed
-  38:SynaptiX_FDK/services/filesystem/file_io.h ****     }
-  39:SynaptiX_FDK/services/filesystem/file_io.h ****     int flags = LFS_O_RDONLY;
- 180              		.loc 3 39 5 is_stmt 1 view .LVU37
- 181              	.LVL11:
-  40:SynaptiX_FDK/services/filesystem/file_io.h **** 
-  41:SynaptiX_FDK/services/filesystem/file_io.h ****     if (mode[0] == 'r' && mode[1] == '+') {
- 182              		.loc 3 41 5 view .LVU38
- 183              		.loc 3 41 13 is_stmt 0 view .LVU39
- 184 0010 2378     		ldrb	r3, [r4]	@ zero_extendqisi2
- 185              		.loc 3 41 8 view .LVU40
- 186 0012 722B     		cmp	r3, #114
- 187 0014 0ED0     		beq	.L27
- 188              	.L16:
-  42:SynaptiX_FDK/services/filesystem/file_io.h ****         flags = LFS_O_RDWR;
-  43:SynaptiX_FDK/services/filesystem/file_io.h ****     } else if (mode[0] == 'w' && mode[1] == '+') {
- 189              		.loc 3 43 12 is_stmt 1 view .LVU41
- 190              		.loc 3 43 15 is_stmt 0 view .LVU42
- 191 0016 772B     		cmp	r3, #119
- 192 0018 11D0     		beq	.L28
- 193              	.L18:
-  44:SynaptiX_FDK/services/filesystem/file_io.h ****         flags = LFS_O_RDWR | LFS_O_CREAT | LFS_O_TRUNC;
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccUTIJQG.s 			page 7
+  34:SynaptiX_FDK/services/filesystem/file_io.h ****     // DEBUG: temporary trace to locate the hang after boot-via-bootloader.
+  35:SynaptiX_FDK/services/filesystem/file_io.h ****     log_info("FILE_IO", "file_open: enter path=%s mode=%s", path, mode);
+ 188              		.loc 3 35 5 is_stmt 1 view .LVU31
+ 189 0008 2D4F     		ldr	r7, .L31
+ 190 000a 0091     		str	r1, [sp]
+ 191 000c 0346     		mov	r3, r0
+ 192 000e 2D4A     		ldr	r2, .L31+4
+ 193 0010 3946     		mov	r1, r7
+ 194              	.LVL9:
+ 195              		.loc 3 35 5 is_stmt 0 view .LVU32
+ 196 0012 0320     		movs	r0, #3
+ 197              	.LVL10:
+ 198              		.loc 3 35 5 view .LVU33
+ 199 0014 FFF7FEFF 		bl	log_func
+ 200              	.LVL11:
+  36:SynaptiX_FDK/services/filesystem/file_io.h ****     // Use LittleFS to open a file
+  37:SynaptiX_FDK/services/filesystem/file_io.h ****     lfs_file_t *file = malloc(sizeof(lfs_file_t));
+ 201              		.loc 3 37 5 is_stmt 1 view .LVU34
+ 202              		.loc 3 37 24 is_stmt 0 view .LVU35
+ 203 0018 5420     		movs	r0, #84
+ 204 001a FFF7FEFF 		bl	malloc
+ 205              	.LVL12:
+ 206 001e 0446     		mov	r4, r0
+ 207              	.LVL13:
+  38:SynaptiX_FDK/services/filesystem/file_io.h ****     log_info("FILE_IO", "file_open: malloc done, file=%p", (void *)file);
+ 208              		.loc 3 38 5 is_stmt 1 view .LVU36
+ 209 0020 0346     		mov	r3, r0
+ 210 0022 294A     		ldr	r2, .L31+8
+ 211 0024 3946     		mov	r1, r7
+ 212 0026 0320     		movs	r0, #3
+ 213              	.LVL14:
+ 214              		.loc 3 38 5 is_stmt 0 view .LVU37
+ 215 0028 FFF7FEFF 		bl	log_func
+ 216              	.LVL15:
+  39:SynaptiX_FDK/services/filesystem/file_io.h ****     int lfs_status;
+ 217              		.loc 3 39 5 is_stmt 1 view .LVU38
+  40:SynaptiX_FDK/services/filesystem/file_io.h ****     if(file == NULL) {
+ 218              		.loc 3 40 5 view .LVU39
+ 219              		.loc 3 40 7 is_stmt 0 view .LVU40
+ 220 002c 002C     		cmp	r4, #0
+ 221 002e 3BD0     		beq	.L14
+  41:SynaptiX_FDK/services/filesystem/file_io.h ****         return NULL; // Memory allocation failed
+  42:SynaptiX_FDK/services/filesystem/file_io.h ****     }
+  43:SynaptiX_FDK/services/filesystem/file_io.h ****     int flags = LFS_O_RDONLY;
+ 222              		.loc 3 43 5 is_stmt 1 view .LVU41
+ 223              	.LVL16:
+  44:SynaptiX_FDK/services/filesystem/file_io.h **** 
+  45:SynaptiX_FDK/services/filesystem/file_io.h ****     if (mode[0] == 'r' && mode[1] == '+') {
+ 224              		.loc 3 45 5 view .LVU42
+ 225              		.loc 3 45 13 is_stmt 0 view .LVU43
+ 226 0030 2978     		ldrb	r1, [r5]	@ zero_extendqisi2
+ 227              		.loc 3 45 8 view .LVU44
+ 228 0032 7229     		cmp	r1, #114
+ 229 0034 0ED0     		beq	.L27
+ 230              	.L16:
+  46:SynaptiX_FDK/services/filesystem/file_io.h ****         flags = LFS_O_RDWR;
+  47:SynaptiX_FDK/services/filesystem/file_io.h ****     } else if (mode[0] == 'w' && mode[1] == '+') {
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccc7byMl.s 			page 8
 
 
-  45:SynaptiX_FDK/services/filesystem/file_io.h ****     } else if (mode[0] == 'a' && mode[1] == '+') {
- 194              		.loc 3 45 12 is_stmt 1 view .LVU43
- 195              		.loc 3 45 15 is_stmt 0 view .LVU44
- 196 001a 612B     		cmp	r3, #97
- 197 001c 15D0     		beq	.L29
- 198              	.L19:
-  46:SynaptiX_FDK/services/filesystem/file_io.h ****         flags = LFS_O_RDWR | LFS_O_CREAT | LFS_O_APPEND;
-  47:SynaptiX_FDK/services/filesystem/file_io.h ****     } else if (mode[0] == 'r') {
- 199              		.loc 3 47 12 is_stmt 1 view .LVU45
- 200 001e 722B     		cmp	r3, #114
- 201 0020 19D0     		beq	.L23
- 202 0022 772B     		cmp	r3, #119
- 203 0024 19D0     		beq	.L24
- 204 0026 612B     		cmp	r3, #97
- 205 0028 21D0     		beq	.L25
-  48:SynaptiX_FDK/services/filesystem/file_io.h ****         flags = LFS_O_RDONLY;
-  49:SynaptiX_FDK/services/filesystem/file_io.h ****     } else if (mode[0] == 'w') {
-  50:SynaptiX_FDK/services/filesystem/file_io.h ****         flags = LFS_O_WRONLY | LFS_O_CREAT | LFS_O_TRUNC;
-  51:SynaptiX_FDK/services/filesystem/file_io.h ****     } else if (mode[0] == 'a') {
-  52:SynaptiX_FDK/services/filesystem/file_io.h ****         flags = LFS_O_WRONLY | LFS_O_CREAT | LFS_O_APPEND;
-  53:SynaptiX_FDK/services/filesystem/file_io.h ****     } else {
-  54:SynaptiX_FDK/services/filesystem/file_io.h ****         free(file);
- 206              		.loc 3 54 9 view .LVU46
- 207 002a 2846     		mov	r0, r5
- 208              	.LVL12:
- 209              		.loc 3 54 9 is_stmt 0 view .LVU47
- 210 002c FFF7FEFF 		bl	free
- 211              	.LVL13:
-  55:SynaptiX_FDK/services/filesystem/file_io.h ****         return NULL;
- 212              		.loc 3 55 9 is_stmt 1 view .LVU48
- 213              		.loc 3 55 16 is_stmt 0 view .LVU49
- 214 0030 0025     		movs	r5, #0
- 215              	.LVL14:
- 216              		.loc 3 55 16 view .LVU50
- 217 0032 1AE0     		b	.L14
- 218              	.LVL15:
- 219              	.L27:
-  41:SynaptiX_FDK/services/filesystem/file_io.h ****         flags = LFS_O_RDWR;
- 220              		.loc 3 41 31 discriminator 1 view .LVU51
- 221 0034 6278     		ldrb	r2, [r4, #1]	@ zero_extendqisi2
-  41:SynaptiX_FDK/services/filesystem/file_io.h ****         flags = LFS_O_RDWR;
- 222              		.loc 3 41 24 discriminator 1 view .LVU52
- 223 0036 2B2A     		cmp	r2, #43
- 224 0038 EDD1     		bne	.L16
-  42:SynaptiX_FDK/services/filesystem/file_io.h ****     } else if (mode[0] == 'w' && mode[1] == '+') {
- 225              		.loc 3 42 15 view .LVU53
- 226 003a 0323     		movs	r3, #3
- 227 003c 0FE0     		b	.L17
- 228              	.L28:
-  43:SynaptiX_FDK/services/filesystem/file_io.h ****         flags = LFS_O_RDWR | LFS_O_CREAT | LFS_O_TRUNC;
- 229              		.loc 3 43 38 discriminator 1 view .LVU54
- 230 003e 6278     		ldrb	r2, [r4, #1]	@ zero_extendqisi2
-  43:SynaptiX_FDK/services/filesystem/file_io.h ****         flags = LFS_O_RDWR | LFS_O_CREAT | LFS_O_TRUNC;
- 231              		.loc 3 43 31 discriminator 1 view .LVU55
- 232 0040 2B2A     		cmp	r2, #43
- 233 0042 EAD1     		bne	.L18
-  44:SynaptiX_FDK/services/filesystem/file_io.h ****     } else if (mode[0] == 'a' && mode[1] == '+') {
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccUTIJQG.s 			page 8
+ 231              		.loc 3 47 12 is_stmt 1 view .LVU45
+ 232              		.loc 3 47 15 is_stmt 0 view .LVU46
+ 233 0036 7729     		cmp	r1, #119
+ 234 0038 11D0     		beq	.L28
+ 235              	.L18:
+  48:SynaptiX_FDK/services/filesystem/file_io.h ****         flags = LFS_O_RDWR | LFS_O_CREAT | LFS_O_TRUNC;
+  49:SynaptiX_FDK/services/filesystem/file_io.h ****     } else if (mode[0] == 'a' && mode[1] == '+') {
+ 236              		.loc 3 49 12 is_stmt 1 view .LVU47
+ 237              		.loc 3 49 15 is_stmt 0 view .LVU48
+ 238 003a 6129     		cmp	r1, #97
+ 239 003c 15D0     		beq	.L29
+ 240              	.L19:
+  50:SynaptiX_FDK/services/filesystem/file_io.h ****         flags = LFS_O_RDWR | LFS_O_CREAT | LFS_O_APPEND;
+  51:SynaptiX_FDK/services/filesystem/file_io.h ****     } else if (mode[0] == 'r') {
+ 241              		.loc 3 51 12 is_stmt 1 view .LVU49
+ 242 003e 7229     		cmp	r1, #114
+ 243 0040 19D0     		beq	.L23
+ 244 0042 7729     		cmp	r1, #119
+ 245 0044 19D0     		beq	.L24
+ 246 0046 6129     		cmp	r1, #97
+ 247 0048 31D0     		beq	.L25
+  52:SynaptiX_FDK/services/filesystem/file_io.h ****         flags = LFS_O_RDONLY;
+  53:SynaptiX_FDK/services/filesystem/file_io.h ****     } else if (mode[0] == 'w') {
+  54:SynaptiX_FDK/services/filesystem/file_io.h ****         flags = LFS_O_WRONLY | LFS_O_CREAT | LFS_O_TRUNC;
+  55:SynaptiX_FDK/services/filesystem/file_io.h ****     } else if (mode[0] == 'a') {
+  56:SynaptiX_FDK/services/filesystem/file_io.h ****         flags = LFS_O_WRONLY | LFS_O_CREAT | LFS_O_APPEND;
+  57:SynaptiX_FDK/services/filesystem/file_io.h ****     } else {
+  58:SynaptiX_FDK/services/filesystem/file_io.h ****         free(file);
+ 248              		.loc 3 58 9 view .LVU50
+ 249 004a 2046     		mov	r0, r4
+ 250 004c FFF7FEFF 		bl	free
+ 251              	.LVL17:
+  59:SynaptiX_FDK/services/filesystem/file_io.h ****         return NULL;
+ 252              		.loc 3 59 9 view .LVU51
+ 253              		.loc 3 59 16 is_stmt 0 view .LVU52
+ 254 0050 0024     		movs	r4, #0
+ 255              	.LVL18:
+ 256              		.loc 3 59 16 view .LVU53
+ 257 0052 29E0     		b	.L14
+ 258              	.LVL19:
+ 259              	.L27:
+  45:SynaptiX_FDK/services/filesystem/file_io.h ****         flags = LFS_O_RDWR;
+ 260              		.loc 3 45 31 discriminator 1 view .LVU54
+ 261 0054 6B78     		ldrb	r3, [r5, #1]	@ zero_extendqisi2
+  45:SynaptiX_FDK/services/filesystem/file_io.h ****         flags = LFS_O_RDWR;
+ 262              		.loc 3 45 24 discriminator 1 view .LVU55
+ 263 0056 2B2B     		cmp	r3, #43
+ 264 0058 EDD1     		bne	.L16
+  46:SynaptiX_FDK/services/filesystem/file_io.h ****     } else if (mode[0] == 'w' && mode[1] == '+') {
+ 265              		.loc 3 46 15 view .LVU56
+ 266 005a 0325     		movs	r5, #3
+ 267              	.LVL20:
+  46:SynaptiX_FDK/services/filesystem/file_io.h ****     } else if (mode[0] == 'w' && mode[1] == '+') {
+ 268              		.loc 3 46 15 view .LVU57
+ 269 005c 0FE0     		b	.L17
+ 270              	.LVL21:
+ 271              	.L28:
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccc7byMl.s 			page 9
 
 
- 234              		.loc 3 44 15 view .LVU56
- 235 0044 40F20353 		movw	r3, #1283
- 236 0048 09E0     		b	.L17
- 237              	.L29:
-  45:SynaptiX_FDK/services/filesystem/file_io.h ****         flags = LFS_O_RDWR | LFS_O_CREAT | LFS_O_APPEND;
- 238              		.loc 3 45 38 discriminator 1 view .LVU57
- 239 004a 6278     		ldrb	r2, [r4, #1]	@ zero_extendqisi2
-  45:SynaptiX_FDK/services/filesystem/file_io.h ****         flags = LFS_O_RDWR | LFS_O_CREAT | LFS_O_APPEND;
- 240              		.loc 3 45 31 discriminator 1 view .LVU58
- 241 004c 2B2A     		cmp	r2, #43
- 242 004e E6D1     		bne	.L19
-  46:SynaptiX_FDK/services/filesystem/file_io.h ****     } else if (mode[0] == 'r') {
- 243              		.loc 3 46 15 view .LVU59
- 244 0050 40F60313 		movw	r3, #2307
- 245 0054 03E0     		b	.L17
- 246              	.L23:
-  46:SynaptiX_FDK/services/filesystem/file_io.h ****     } else if (mode[0] == 'r') {
- 247              		.loc 3 46 15 view .LVU60
- 248 0056 0123     		movs	r3, #1
- 249 0058 01E0     		b	.L17
- 250              	.L24:
- 251 005a 40F20253 		movw	r3, #1282
- 252              	.L17:
- 253              	.LVL16:
-  56:SynaptiX_FDK/services/filesystem/file_io.h ****     }
-  57:SynaptiX_FDK/services/filesystem/file_io.h ****     lfs_status = lfs_file_open(CONFIG_LITTLEFS,file, path, flags);
- 254              		.loc 3 57 5 is_stmt 1 view .LVU61
- 255              		.loc 3 57 18 is_stmt 0 view .LVU62
- 256 005e 3246     		mov	r2, r6
- 257 0060 2946     		mov	r1, r5
- 258 0062 0748     		ldr	r0, .L31
- 259              	.LVL17:
- 260              		.loc 3 57 18 view .LVU63
- 261 0064 FFF7FEFF 		bl	lfs_file_open
- 262              	.LVL18:
-  58:SynaptiX_FDK/services/filesystem/file_io.h ****     if (lfs_status != LFS_ERR_OK) {
- 263              		.loc 3 58 5 is_stmt 1 view .LVU64
- 264              		.loc 3 58 8 is_stmt 0 view .LVU65
- 265 0068 20B9     		cbnz	r0, .L30
- 266              	.LVL19:
- 267              	.L14:
-  59:SynaptiX_FDK/services/filesystem/file_io.h ****         free(file);
-  60:SynaptiX_FDK/services/filesystem/file_io.h ****         return NULL; // Error opening file
-  61:SynaptiX_FDK/services/filesystem/file_io.h ****     }
-  62:SynaptiX_FDK/services/filesystem/file_io.h ****     return (FILE *)file; // Cast to FILE pointer
-  63:SynaptiX_FDK/services/filesystem/file_io.h **** }
- 268              		.loc 3 63 1 view .LVU66
- 269 006a 2846     		mov	r0, r5
- 270 006c 70BD     		pop	{r4, r5, r6, pc}
- 271              	.LVL20:
- 272              	.L25:
-  46:SynaptiX_FDK/services/filesystem/file_io.h ****     } else if (mode[0] == 'r') {
- 273              		.loc 3 46 15 view .LVU67
- 274 006e 40F60213 		movw	r3, #2306
- 275 0072 F4E7     		b	.L17
- 276              	.LVL21:
- 277              	.L30:
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccUTIJQG.s 			page 9
-
-
-  59:SynaptiX_FDK/services/filesystem/file_io.h ****         free(file);
- 278              		.loc 3 59 9 is_stmt 1 view .LVU68
- 279 0074 2846     		mov	r0, r5
- 280              	.LVL22:
-  59:SynaptiX_FDK/services/filesystem/file_io.h ****         free(file);
- 281              		.loc 3 59 9 is_stmt 0 view .LVU69
- 282 0076 FFF7FEFF 		bl	free
- 283              	.LVL23:
+  47:SynaptiX_FDK/services/filesystem/file_io.h ****         flags = LFS_O_RDWR | LFS_O_CREAT | LFS_O_TRUNC;
+ 272              		.loc 3 47 38 discriminator 1 view .LVU58
+ 273 005e 6B78     		ldrb	r3, [r5, #1]	@ zero_extendqisi2
+  47:SynaptiX_FDK/services/filesystem/file_io.h ****         flags = LFS_O_RDWR | LFS_O_CREAT | LFS_O_TRUNC;
+ 274              		.loc 3 47 31 discriminator 1 view .LVU59
+ 275 0060 2B2B     		cmp	r3, #43
+ 276 0062 EAD1     		bne	.L18
+  48:SynaptiX_FDK/services/filesystem/file_io.h ****     } else if (mode[0] == 'a' && mode[1] == '+') {
+ 277              		.loc 3 48 15 view .LVU60
+ 278 0064 40F20355 		movw	r5, #1283
+ 279              	.LVL22:
+  48:SynaptiX_FDK/services/filesystem/file_io.h ****     } else if (mode[0] == 'a' && mode[1] == '+') {
+ 280              		.loc 3 48 15 view .LVU61
+ 281 0068 09E0     		b	.L17
+ 282              	.LVL23:
+ 283              	.L29:
+  49:SynaptiX_FDK/services/filesystem/file_io.h ****         flags = LFS_O_RDWR | LFS_O_CREAT | LFS_O_APPEND;
+ 284              		.loc 3 49 38 discriminator 1 view .LVU62
+ 285 006a 6B78     		ldrb	r3, [r5, #1]	@ zero_extendqisi2
+  49:SynaptiX_FDK/services/filesystem/file_io.h ****         flags = LFS_O_RDWR | LFS_O_CREAT | LFS_O_APPEND;
+ 286              		.loc 3 49 31 discriminator 1 view .LVU63
+ 287 006c 2B2B     		cmp	r3, #43
+ 288 006e E6D1     		bne	.L19
+  50:SynaptiX_FDK/services/filesystem/file_io.h ****     } else if (mode[0] == 'r') {
+ 289              		.loc 3 50 15 view .LVU64
+ 290 0070 40F60315 		movw	r5, #2307
+ 291              	.LVL24:
+  50:SynaptiX_FDK/services/filesystem/file_io.h ****     } else if (mode[0] == 'r') {
+ 292              		.loc 3 50 15 view .LVU65
+ 293 0074 03E0     		b	.L17
+ 294              	.LVL25:
+ 295              	.L23:
+  50:SynaptiX_FDK/services/filesystem/file_io.h ****     } else if (mode[0] == 'r') {
+ 296              		.loc 3 50 15 view .LVU66
+ 297 0076 0125     		movs	r5, #1
+ 298              	.LVL26:
+  50:SynaptiX_FDK/services/filesystem/file_io.h ****     } else if (mode[0] == 'r') {
+ 299              		.loc 3 50 15 view .LVU67
+ 300 0078 01E0     		b	.L17
+ 301              	.LVL27:
+ 302              	.L24:
+  50:SynaptiX_FDK/services/filesystem/file_io.h ****     } else if (mode[0] == 'r') {
+ 303              		.loc 3 50 15 view .LVU68
+ 304 007a 40F20255 		movw	r5, #1282
+ 305              	.LVL28:
+ 306              	.L17:
   60:SynaptiX_FDK/services/filesystem/file_io.h ****     }
- 284              		.loc 3 60 9 is_stmt 1 view .LVU70
-  60:SynaptiX_FDK/services/filesystem/file_io.h ****     }
- 285              		.loc 3 60 16 is_stmt 0 view .LVU71
- 286 007a 0025     		movs	r5, #0
- 287              	.LVL24:
-  60:SynaptiX_FDK/services/filesystem/file_io.h ****     }
- 288              		.loc 3 60 16 view .LVU72
- 289 007c F5E7     		b	.L14
- 290              	.L32:
- 291 007e 00BF     		.align	2
- 292              	.L31:
- 293 0080 00000000 		.word	lfs
- 294              		.cfi_endproc
- 295              	.LFE528:
- 297              		.section	.rodata.sx_storage_init.str1.4,"aMS",%progbits,1
- 298              		.align	2
- 299              	.LC2:
- 300 0000 57323551 		.ascii	"W25Q128 init failed\000"
- 300      31323820 
- 300      696E6974 
- 300      20666169 
- 300      6C656400 
- 301              		.align	2
- 302              	.LC3:
- 303 0014 46696C65 		.ascii	"Filesystem init failed\000"
- 303      73797374 
- 303      656D2069 
- 303      6E697420 
- 303      6661696C 
- 304 002b 00       		.align	2
- 305              	.LC4:
- 306 002c 53746F72 		.ascii	"Storage init OK\000"
- 306      61676520 
- 306      696E6974 
- 306      204F4B00 
- 307              		.section	.text.sx_storage_init,"ax",%progbits
- 308              		.align	1
- 309              		.global	sx_storage_init
- 310              		.syntax unified
- 311              		.thumb
- 312              		.thumb_func
- 314              	sx_storage_init:
- 315              	.LVL25:
- 316              	.LFB530:
+  61:SynaptiX_FDK/services/filesystem/file_io.h ****     log_info("FILE_IO", "file_open: calling lfs_file_open, flags=%d", flags);
+ 307              		.loc 3 61 5 is_stmt 1 view .LVU69
+ 308 007e 104F     		ldr	r7, .L31
+ 309 0080 2B46     		mov	r3, r5
+ 310 0082 124A     		ldr	r2, .L31+12
+ 311 0084 3946     		mov	r1, r7
+ 312 0086 0320     		movs	r0, #3
+ 313 0088 FFF7FEFF 		bl	log_func
+ 314              	.LVL29:
+  62:SynaptiX_FDK/services/filesystem/file_io.h ****     lfs_status = lfs_file_open(CONFIG_LITTLEFS,file, path, flags);
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccc7byMl.s 			page 10
+
+
+ 315              		.loc 3 62 5 view .LVU70
+ 316              		.loc 3 62 18 is_stmt 0 view .LVU71
+ 317 008c 2B46     		mov	r3, r5
+ 318 008e 3246     		mov	r2, r6
+ 319 0090 2146     		mov	r1, r4
+ 320 0092 0F48     		ldr	r0, .L31+16
+ 321 0094 FFF7FEFF 		bl	lfs_file_open
+ 322              	.LVL30:
+ 323 0098 0546     		mov	r5, r0
+ 324              	.LVL31:
+  63:SynaptiX_FDK/services/filesystem/file_io.h ****     log_info("FILE_IO", "file_open: lfs_file_open returned %d", lfs_status);
+ 325              		.loc 3 63 5 is_stmt 1 view .LVU72
+ 326 009a 0346     		mov	r3, r0
+ 327 009c 0D4A     		ldr	r2, .L31+20
+ 328 009e 3946     		mov	r1, r7
+ 329 00a0 0320     		movs	r0, #3
+ 330              	.LVL32:
+ 331              		.loc 3 63 5 is_stmt 0 view .LVU73
+ 332 00a2 FFF7FEFF 		bl	log_func
+ 333              	.LVL33:
+  64:SynaptiX_FDK/services/filesystem/file_io.h ****     if (lfs_status != LFS_ERR_OK) {
+ 334              		.loc 3 64 5 is_stmt 1 view .LVU74
+ 335              		.loc 3 64 8 is_stmt 0 view .LVU75
+ 336 00a6 2DB9     		cbnz	r5, .L30
+ 337              	.LVL34:
+ 338              	.L14:
+  65:SynaptiX_FDK/services/filesystem/file_io.h ****         free(file);
+  66:SynaptiX_FDK/services/filesystem/file_io.h ****         return NULL; // Error opening file
+  67:SynaptiX_FDK/services/filesystem/file_io.h ****     }
+  68:SynaptiX_FDK/services/filesystem/file_io.h ****     return (FILE *)file; // Cast to FILE pointer
+  69:SynaptiX_FDK/services/filesystem/file_io.h **** }
+ 339              		.loc 3 69 1 view .LVU76
+ 340 00a8 2046     		mov	r0, r4
+ 341 00aa 03B0     		add	sp, sp, #12
+ 342              	.LCFI4:
+ 343              		.cfi_remember_state
+ 344              		.cfi_def_cfa_offset 20
+ 345              		@ sp needed
+ 346 00ac F0BD     		pop	{r4, r5, r6, r7, pc}
+ 347              	.LVL35:
+ 348              	.L25:
+ 349              	.LCFI5:
+ 350              		.cfi_restore_state
+  50:SynaptiX_FDK/services/filesystem/file_io.h ****     } else if (mode[0] == 'r') {
+ 351              		.loc 3 50 15 view .LVU77
+ 352 00ae 40F60215 		movw	r5, #2306
+ 353              	.LVL36:
+  50:SynaptiX_FDK/services/filesystem/file_io.h ****     } else if (mode[0] == 'r') {
+ 354              		.loc 3 50 15 view .LVU78
+ 355 00b2 E4E7     		b	.L17
+ 356              	.LVL37:
+ 357              	.L30:
+  65:SynaptiX_FDK/services/filesystem/file_io.h ****         free(file);
+ 358              		.loc 3 65 9 is_stmt 1 view .LVU79
+ 359 00b4 2046     		mov	r0, r4
+ 360 00b6 FFF7FEFF 		bl	free
+ 361              	.LVL38:
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccc7byMl.s 			page 11
+
+
+  66:SynaptiX_FDK/services/filesystem/file_io.h ****     }
+ 362              		.loc 3 66 9 view .LVU80
+  66:SynaptiX_FDK/services/filesystem/file_io.h ****     }
+ 363              		.loc 3 66 16 is_stmt 0 view .LVU81
+ 364 00ba 0024     		movs	r4, #0
+ 365              	.LVL39:
+  66:SynaptiX_FDK/services/filesystem/file_io.h ****     }
+ 366              		.loc 3 66 16 view .LVU82
+ 367 00bc F4E7     		b	.L14
+ 368              	.L32:
+ 369 00be 00BF     		.align	2
+ 370              	.L31:
+ 371 00c0 24000000 		.word	.LC3
+ 372 00c4 00000000 		.word	.LC2
+ 373 00c8 2C000000 		.word	.LC4
+ 374 00cc 4C000000 		.word	.LC5
+ 375 00d0 00000000 		.word	lfs
+ 376 00d4 78000000 		.word	.LC6
+ 377              		.cfi_endproc
+ 378              	.LFE528:
+ 380              		.section	.rodata.sx_storage_init.str1.4,"aMS",%progbits,1
+ 381              		.align	2
+ 382              	.LC7:
+ 383 0000 57323551 		.ascii	"W25Q128 init failed\000"
+ 383      31323820 
+ 383      696E6974 
+ 383      20666169 
+ 383      6C656400 
+ 384              		.align	2
+ 385              	.LC8:
+ 386 0014 46696C65 		.ascii	"Filesystem init failed\000"
+ 386      73797374 
+ 386      656D2069 
+ 386      6E697420 
+ 386      6661696C 
+ 387 002b 00       		.align	2
+ 388              	.LC9:
+ 389 002c 53746F72 		.ascii	"Storage init OK\000"
+ 389      61676520 
+ 389      696E6974 
+ 389      204F4B00 
+ 390              		.section	.text.sx_storage_init,"ax",%progbits
+ 391              		.align	1
+ 392              		.global	sx_storage_init
+ 393              		.syntax unified
+ 394              		.thumb
+ 395              		.thumb_func
+ 397              	sx_storage_init:
+ 398              	.LVL40:
+ 399              	.LFB530:
   17:SynaptiX_FDK/app/user/sx_ex_storage/sx_ex_storage.c ****     if (cfg == NULL) return SX_STORAGE_ERR_INVALID;
- 317              		.loc 1 17 1 is_stmt 1 view -0
- 318              		.cfi_startproc
- 319              		@ args = 0, pretend = 0, frame = 0
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccUTIJQG.s 			page 10
+ 400              		.loc 1 17 1 is_stmt 1 view -0
+ 401              		.cfi_startproc
+ 402              		@ args = 0, pretend = 0, frame = 0
+ 403              		@ frame_needed = 0, uses_anonymous_args = 0
+  18:SynaptiX_FDK/app/user/sx_ex_storage/sx_ex_storage.c **** 
+ 404              		.loc 1 18 5 view .LVU84
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccc7byMl.s 			page 12
 
 
- 320              		@ frame_needed = 0, uses_anonymous_args = 0
   18:SynaptiX_FDK/app/user/sx_ex_storage/sx_ex_storage.c **** 
- 321              		.loc 1 18 5 view .LVU74
-  18:SynaptiX_FDK/app/user/sx_ex_storage/sx_ex_storage.c **** 
- 322              		.loc 1 18 8 is_stmt 0 view .LVU75
- 323 0000 0028     		cmp	r0, #0
- 324 0002 42D0     		beq	.L37
+ 405              		.loc 1 18 8 is_stmt 0 view .LVU85
+ 406 0000 0028     		cmp	r0, #0
+ 407 0002 42D0     		beq	.L37
   17:SynaptiX_FDK/app/user/sx_ex_storage/sx_ex_storage.c ****     if (cfg == NULL) return SX_STORAGE_ERR_INVALID;
- 325              		.loc 1 17 1 view .LVU76
- 326 0004 70B5     		push	{r4, r5, r6, lr}
- 327              	.LCFI3:
- 328              		.cfi_def_cfa_offset 16
- 329              		.cfi_offset 4, -16
- 330              		.cfi_offset 5, -12
- 331              		.cfi_offset 6, -8
- 332              		.cfi_offset 14, -4
- 333 0006 0446     		mov	r4, r0
+ 408              		.loc 1 17 1 view .LVU86
+ 409 0004 70B5     		push	{r4, r5, r6, lr}
+ 410              	.LCFI6:
+ 411              		.cfi_def_cfa_offset 16
+ 412              		.cfi_offset 4, -16
+ 413              		.cfi_offset 5, -12
+ 414              		.cfi_offset 6, -8
+ 415              		.cfi_offset 14, -4
+ 416 0006 0446     		mov	r4, r0
   20:SynaptiX_FDK/app/user/sx_ex_storage/sx_ex_storage.c ****     sx_gpio_write(&cfg->s_cs, SX_GPIO_HIGH);
- 334              		.loc 1 20 5 is_stmt 1 view .LVU77
+ 417              		.loc 1 20 5 is_stmt 1 view .LVU87
   20:SynaptiX_FDK/app/user/sx_ex_storage/sx_ex_storage.c ****     sx_gpio_write(&cfg->s_cs, SX_GPIO_HIGH);
- 335              		.loc 1 20 44 is_stmt 0 view .LVU78
- 336 0008 00F12803 		add	r3, r0, #40
- 337              	.LVL26:
- 338              	.LBB9:
- 339              	.LBI9:
+ 418              		.loc 1 20 44 is_stmt 0 view .LVU88
+ 419 0008 00F12803 		add	r3, r0, #40
+ 420              	.LVL41:
+ 421              	.LBB9:
+ 422              	.LBI9:
   33:SynaptiX_FDK/components/gpio/sx_gpio.h ****     gpio->ops = ops;
- 340              		.loc 2 33 20 is_stmt 1 view .LVU79
- 341              	.LBB10:
+ 423              		.loc 2 33 20 is_stmt 1 view .LVU89
+ 424              	.LBB10:
   34:SynaptiX_FDK/components/gpio/sx_gpio.h ****     gpio->pDriver = pDriver;
- 342              		.loc 2 34 5 view .LVU80
+ 425              		.loc 2 34 5 view .LVU90
   34:SynaptiX_FDK/components/gpio/sx_gpio.h ****     gpio->pDriver = pDriver;
- 343              		.loc 2 34 15 is_stmt 0 view .LVU81
- 344 000c 204D     		ldr	r5, .L44
- 345 000e 0561     		str	r5, [r0, #16]
+ 426              		.loc 2 34 15 is_stmt 0 view .LVU91
+ 427 000c 204D     		ldr	r5, .L44
+ 428 000e 0561     		str	r5, [r0, #16]
   35:SynaptiX_FDK/components/gpio/sx_gpio.h ****     gpio->value = SX_GPIO_LOW;
- 346              		.loc 2 35 5 is_stmt 1 view .LVU82
+ 429              		.loc 2 35 5 is_stmt 1 view .LVU92
   35:SynaptiX_FDK/components/gpio/sx_gpio.h ****     gpio->value = SX_GPIO_LOW;
- 347              		.loc 2 35 19 is_stmt 0 view .LVU83
- 348 0010 4361     		str	r3, [r0, #20]
+ 430              		.loc 2 35 19 is_stmt 0 view .LVU93
+ 431 0010 4361     		str	r3, [r0, #20]
   36:SynaptiX_FDK/components/gpio/sx_gpio.h **** }
- 349              		.loc 2 36 5 is_stmt 1 view .LVU84
+ 432              		.loc 2 36 5 is_stmt 1 view .LVU94
   36:SynaptiX_FDK/components/gpio/sx_gpio.h **** }
- 350              		.loc 2 36 17 is_stmt 0 view .LVU85
- 351 0012 0023     		movs	r3, #0
- 352              	.LVL27:
+ 433              		.loc 2 36 17 is_stmt 0 view .LVU95
+ 434 0012 0023     		movs	r3, #0
+ 435              	.LVL42:
   36:SynaptiX_FDK/components/gpio/sx_gpio.h **** }
- 353              		.loc 2 36 17 view .LVU86
- 354 0014 0376     		strb	r3, [r0, #24]
- 355              	.LVL28:
+ 436              		.loc 2 36 17 view .LVU96
+ 437 0014 0376     		strb	r3, [r0, #24]
+ 438              	.LVL43:
   36:SynaptiX_FDK/components/gpio/sx_gpio.h **** }
- 356              		.loc 2 36 17 view .LVU87
- 357              	.LBE10:
- 358              	.LBE9:
+ 439              		.loc 2 36 17 view .LVU97
+ 440              	.LBE10:
+ 441              	.LBE9:
   21:SynaptiX_FDK/app/user/sx_ex_storage/sx_ex_storage.c ****     sx_spi_init(&cfg->s_spi, &sx_spi_ops, cfg->hspi, &cfg->s_cs); 
- 359              		.loc 1 21 5 is_stmt 1 view .LVU88
- 360 0016 00F11006 		add	r6, r0, #16
- 361 001a 0121     		movs	r1, #1
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccUTIJQG.s 			page 11
+ 442              		.loc 1 21 5 is_stmt 1 view .LVU98
+ 443 0016 00F11006 		add	r6, r0, #16
+ 444 001a 0121     		movs	r1, #1
+ 445 001c 3046     		mov	r0, r6
+ 446              	.LVL44:
+  21:SynaptiX_FDK/app/user/sx_ex_storage/sx_ex_storage.c ****     sx_spi_init(&cfg->s_spi, &sx_spi_ops, cfg->hspi, &cfg->s_cs); 
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccc7byMl.s 			page 13
 
 
- 362 001c 3046     		mov	r0, r6
- 363              	.LVL29:
-  21:SynaptiX_FDK/app/user/sx_ex_storage/sx_ex_storage.c ****     sx_spi_init(&cfg->s_spi, &sx_spi_ops, cfg->hspi, &cfg->s_cs); 
- 364              		.loc 1 21 5 is_stmt 0 view .LVU89
- 365 001e FFF7FEFF 		bl	sx_gpio_write
- 366              	.LVL30:
+ 447              		.loc 1 21 5 is_stmt 0 view .LVU99
+ 448 001e FFF7FEFF 		bl	sx_gpio_write
+ 449              	.LVL45:
   22:SynaptiX_FDK/app/user/sx_ex_storage/sx_ex_storage.c **** 
- 367              		.loc 1 22 5 is_stmt 1 view .LVU90
+ 450              		.loc 1 22 5 is_stmt 1 view .LVU100
   22:SynaptiX_FDK/app/user/sx_ex_storage/sx_ex_storage.c **** 
- 368              		.loc 1 22 46 is_stmt 0 view .LVU91
- 369 0022 2368     		ldr	r3, [r4]
- 370              	.LVL31:
- 371              	.LBB11:
- 372              	.LBI11:
- 373              		.file 4 "SynaptiX_FDK/components/spi/sx_spi.h"
+ 451              		.loc 1 22 46 is_stmt 0 view .LVU101
+ 452 0022 2368     		ldr	r3, [r4]
+ 453              	.LVL46:
+ 454              	.LBB11:
+ 455              	.LBI11:
+ 456              		.file 4 "SynaptiX_FDK/components/spi/sx_spi.h"
    1:SynaptiX_FDK/components/spi/sx_spi.h **** #ifndef SX_SPI_H
    2:SynaptiX_FDK/components/spi/sx_spi.h **** #define SX_SPI_H
    3:SynaptiX_FDK/components/spi/sx_spi.h **** #ifdef __cplusplus
@@ -642,47 +759,47 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccUTIJQG.s 			page 1
   24:SynaptiX_FDK/components/spi/sx_spi.h **** };
   25:SynaptiX_FDK/components/spi/sx_spi.h **** 
   26:SynaptiX_FDK/components/spi/sx_spi.h **** static inline void sx_spi_init(sx_spi_t *spi, sx_spi_ops_t *ops, void *pDriver, sx_gpio_t *cs){
- 374              		.loc 4 26 20 is_stmt 1 view .LVU92
- 375              	.LBB12:
+ 457              		.loc 4 26 20 is_stmt 1 view .LVU102
+ 458              	.LBB12:
   27:SynaptiX_FDK/components/spi/sx_spi.h ****     spi->ops = ops;
- 376              		.loc 4 27 5 view .LVU93
- 377              		.loc 4 27 14 is_stmt 0 view .LVU94
- 378 0024 1B4A     		ldr	r2, .L44+4
- 379 0026 6260     		str	r2, [r4, #4]
+ 459              		.loc 4 27 5 view .LVU103
+ 460              		.loc 4 27 14 is_stmt 0 view .LVU104
+ 461 0024 1B4A     		ldr	r2, .L44+4
+ 462 0026 6260     		str	r2, [r4, #4]
   28:SynaptiX_FDK/components/spi/sx_spi.h ****     spi->pDriver = pDriver;
- 380              		.loc 4 28 5 is_stmt 1 view .LVU95
- 381              		.loc 4 28 18 is_stmt 0 view .LVU96
- 382 0028 A360     		str	r3, [r4, #8]
+ 463              		.loc 4 28 5 is_stmt 1 view .LVU105
+ 464              		.loc 4 28 18 is_stmt 0 view .LVU106
+ 465 0028 A360     		str	r3, [r4, #8]
   29:SynaptiX_FDK/components/spi/sx_spi.h ****     spi->cs = cs;
- 383              		.loc 4 29 5 is_stmt 1 view .LVU97
- 384              		.loc 4 29 13 is_stmt 0 view .LVU98
- 385 002a E660     		str	r6, [r4, #12]
- 386              	.LVL32:
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccUTIJQG.s 			page 12
+ 466              		.loc 4 29 5 is_stmt 1 view .LVU107
+ 467              		.loc 4 29 13 is_stmt 0 view .LVU108
+ 468 002a E660     		str	r6, [r4, #12]
+ 469              	.LVL47:
+ 470              		.loc 4 29 13 view .LVU109
+ 471              	.LBE12:
+ 472              	.LBE11:
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccc7byMl.s 			page 14
 
 
- 387              		.loc 4 29 13 view .LVU99
- 388              	.LBE12:
- 389              	.LBE11:
   24:SynaptiX_FDK/app/user/sx_ex_storage/sx_ex_storage.c ****         log_error(TAG, "W25Q128 init failed");
- 390              		.loc 1 24 5 is_stmt 1 view .LVU100
+ 473              		.loc 1 24 5 is_stmt 1 view .LVU110
   24:SynaptiX_FDK/app/user/sx_ex_storage/sx_ex_storage.c ****         log_error(TAG, "W25Q128 init failed");
- 391              		.loc 1 24 10 is_stmt 0 view .LVU101
- 392 002c 04F13003 		add	r3, r4, #48
- 393 0030 2A46     		mov	r2, r5
- 394 0032 211D     		adds	r1, r4, #4
- 395 0034 1848     		ldr	r0, .L44+8
- 396 0036 FFF7FEFF 		bl	sx_W25Q128_init
- 397              	.LVL33:
+ 474              		.loc 1 24 10 is_stmt 0 view .LVU111
+ 475 002c 04F13003 		add	r3, r4, #48
+ 476 0030 2A46     		mov	r2, r5
+ 477 0032 211D     		adds	r1, r4, #4
+ 478 0034 1848     		ldr	r0, .L44+8
+ 479 0036 FFF7FEFF 		bl	sx_W25Q128_init
+ 480              	.LVL48:
   24:SynaptiX_FDK/app/user/sx_ex_storage/sx_ex_storage.c ****         log_error(TAG, "W25Q128 init failed");
- 398              		.loc 1 24 8 discriminator 1 view .LVU102
- 399 003a B0B1     		cbz	r0, .L42
+ 481              		.loc 1 24 8 discriminator 1 view .LVU112
+ 482 003a B0B1     		cbz	r0, .L42
   30:SynaptiX_FDK/app/user/sx_ex_storage/sx_ex_storage.c **** 
- 400              		.loc 1 30 5 is_stmt 1 view .LVU103
- 401              	.LVL34:
- 402              	.LBB13:
- 403              	.LBI13:
- 404              		.file 5 "SynaptiX_FDK/components/external_flash/sx_external_flash.h"
+ 483              		.loc 1 30 5 is_stmt 1 view .LVU113
+ 484              	.LVL49:
+ 485              	.LBB13:
+ 486              	.LBI13:
+ 487              		.file 5 "SynaptiX_FDK/components/external_flash/sx_external_flash.h"
    1:SynaptiX_FDK/components/external_flash/sx_external_flash.h **** #ifndef __SX_EXTERNAL_FLASH_H
    2:SynaptiX_FDK/components/external_flash/sx_external_flash.h **** #define __SX_EXTERNAL_FLASH_H
    3:SynaptiX_FDK/components/external_flash/sx_external_flash.h **** 
@@ -693,1718 +810,1720 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccUTIJQG.s 			page 1
    8:SynaptiX_FDK/components/external_flash/sx_external_flash.h **** #include "stdint.h"
    9:SynaptiX_FDK/components/external_flash/sx_external_flash.h **** #include "stdbool.h"
   10:SynaptiX_FDK/components/external_flash/sx_external_flash.h **** #include "sx_gpio.h"
-  11:SynaptiX_FDK/components/external_flash/sx_external_flash.h **** 
-  12:SynaptiX_FDK/components/external_flash/sx_external_flash.h **** typedef struct {
-  13:SynaptiX_FDK/components/external_flash/sx_external_flash.h ****     uint32_t page_size;     /* bytes per page   */
-  14:SynaptiX_FDK/components/external_flash/sx_external_flash.h ****     uint32_t sector_size;   /* bytes per sector */
-  15:SynaptiX_FDK/components/external_flash/sx_external_flash.h ****     uint32_t block_size;    /* bytes per block  */
-  16:SynaptiX_FDK/components/external_flash/sx_external_flash.h ****     uint32_t total_bytes;   /* total chip size  */
-  17:SynaptiX_FDK/components/external_flash/sx_external_flash.h **** } sx_ext_flash_info_t;
-  18:SynaptiX_FDK/components/external_flash/sx_external_flash.h **** 
-  19:SynaptiX_FDK/components/external_flash/sx_external_flash.h **** typedef struct {
-  20:SynaptiX_FDK/components/external_flash/sx_external_flash.h ****     int  (*read)        (uint32_t addr, uint8_t *buf, uint32_t len);
-  21:SynaptiX_FDK/components/external_flash/sx_external_flash.h ****     int  (*write)       (uint32_t addr, const uint8_t *buf, uint32_t len);
-  22:SynaptiX_FDK/components/external_flash/sx_external_flash.h ****     int  (*erase_sector)(uint32_t addr);
-  23:SynaptiX_FDK/components/external_flash/sx_external_flash.h ****     bool (*is_busy)     (void);
-  24:SynaptiX_FDK/components/external_flash/sx_external_flash.h **** } sx_ext_flash_ops_t;
-  25:SynaptiX_FDK/components/external_flash/sx_external_flash.h **** 
-  26:SynaptiX_FDK/components/external_flash/sx_external_flash.h **** typedef struct {
-  27:SynaptiX_FDK/components/external_flash/sx_external_flash.h ****     sx_ext_flash_ops_t  *ops;
-  28:SynaptiX_FDK/components/external_flash/sx_external_flash.h ****     sx_ext_flash_info_t  info;
-  29:SynaptiX_FDK/components/external_flash/sx_external_flash.h **** } sx_ext_flash_t;
-  30:SynaptiX_FDK/components/external_flash/sx_external_flash.h **** 
-  31:SynaptiX_FDK/components/external_flash/sx_external_flash.h **** static inline void sx_ext_flash_init(sx_ext_flash_t *flash, sx_ext_flash_ops_t *ops, sx_ext_flash_i
- 405              		.loc 5 31 20 view .LVU104
- 406              	.LBB14:
-  32:SynaptiX_FDK/components/external_flash/sx_external_flash.h ****     flash->ops = ops;
- 407              		.loc 5 32 5 view .LVU105
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccUTIJQG.s 			page 13
+  11:SynaptiX_FDK/components/external_flash/sx_external_flash.h **** #include "logger.h" // DEBUG: needed for log_error added for hang investigation
+  12:SynaptiX_FDK/components/external_flash/sx_external_flash.h **** 
+  13:SynaptiX_FDK/components/external_flash/sx_external_flash.h **** typedef struct {
+  14:SynaptiX_FDK/components/external_flash/sx_external_flash.h ****     uint32_t page_size;     /* bytes per page   */
+  15:SynaptiX_FDK/components/external_flash/sx_external_flash.h ****     uint32_t sector_size;   /* bytes per sector */
+  16:SynaptiX_FDK/components/external_flash/sx_external_flash.h ****     uint32_t block_size;    /* bytes per block  */
+  17:SynaptiX_FDK/components/external_flash/sx_external_flash.h ****     uint32_t total_bytes;   /* total chip size  */
+  18:SynaptiX_FDK/components/external_flash/sx_external_flash.h **** } sx_ext_flash_info_t;
+  19:SynaptiX_FDK/components/external_flash/sx_external_flash.h **** 
+  20:SynaptiX_FDK/components/external_flash/sx_external_flash.h **** typedef struct {
+  21:SynaptiX_FDK/components/external_flash/sx_external_flash.h ****     int  (*read)        (uint32_t addr, uint8_t *buf, uint32_t len);
+  22:SynaptiX_FDK/components/external_flash/sx_external_flash.h ****     int  (*write)       (uint32_t addr, const uint8_t *buf, uint32_t len);
+  23:SynaptiX_FDK/components/external_flash/sx_external_flash.h ****     int  (*erase_sector)(uint32_t addr);
+  24:SynaptiX_FDK/components/external_flash/sx_external_flash.h ****     bool (*is_busy)     (void);
+  25:SynaptiX_FDK/components/external_flash/sx_external_flash.h **** } sx_ext_flash_ops_t;
+  26:SynaptiX_FDK/components/external_flash/sx_external_flash.h **** 
+  27:SynaptiX_FDK/components/external_flash/sx_external_flash.h **** typedef struct {
+  28:SynaptiX_FDK/components/external_flash/sx_external_flash.h ****     sx_ext_flash_ops_t  *ops;
+  29:SynaptiX_FDK/components/external_flash/sx_external_flash.h ****     sx_ext_flash_info_t  info;
+  30:SynaptiX_FDK/components/external_flash/sx_external_flash.h **** } sx_ext_flash_t;
+  31:SynaptiX_FDK/components/external_flash/sx_external_flash.h **** 
+  32:SynaptiX_FDK/components/external_flash/sx_external_flash.h **** static inline void sx_ext_flash_init(sx_ext_flash_t *flash, sx_ext_flash_ops_t *ops, sx_ext_flash_i
+ 488              		.loc 5 32 20 view .LVU114
+ 489              	.LBB14:
+  33:SynaptiX_FDK/components/external_flash/sx_external_flash.h ****     flash->ops = ops;
+ 490              		.loc 5 33 5 view .LVU115
+ 491              		.loc 5 33 16 is_stmt 0 view .LVU116
+ 492 003c 174D     		ldr	r5, .L44+12
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccc7byMl.s 			page 15
 
 
- 408              		.loc 5 32 16 is_stmt 0 view .LVU106
- 409 003c 174D     		ldr	r5, .L44+12
- 410 003e 2C46     		mov	r4, r5
- 411              	.LVL35:
- 412              		.loc 5 32 16 view .LVU107
- 413 0040 174B     		ldr	r3, .L44+16
- 414 0042 44F8043B 		str	r3, [r4], #4
-  33:SynaptiX_FDK/components/external_flash/sx_external_flash.h ****     flash->info = *info;
- 415              		.loc 5 33 5 is_stmt 1 view .LVU108
- 416              		.loc 5 33 17 is_stmt 0 view .LVU109
- 417 0046 174B     		ldr	r3, .L44+20
- 418 0048 0FCB     		ldm	r3, {r0, r1, r2, r3}
- 419 004a 84E80F00 		stm	r4, {r0, r1, r2, r3}
- 420              	.LVL36:
- 421              		.loc 5 33 17 view .LVU110
- 422              	.LBE14:
- 423              	.LBE13:
+ 493 003e 2C46     		mov	r4, r5
+ 494              	.LVL50:
+ 495              		.loc 5 33 16 view .LVU117
+ 496 0040 174B     		ldr	r3, .L44+16
+ 497 0042 44F8043B 		str	r3, [r4], #4
+  34:SynaptiX_FDK/components/external_flash/sx_external_flash.h ****     flash->info = *info;
+ 498              		.loc 5 34 5 is_stmt 1 view .LVU118
+ 499              		.loc 5 34 17 is_stmt 0 view .LVU119
+ 500 0046 174B     		ldr	r3, .L44+20
+ 501 0048 0FCB     		ldm	r3, {r0, r1, r2, r3}
+ 502 004a 84E80F00 		stm	r4, {r0, r1, r2, r3}
+ 503              	.LVL51:
+ 504              		.loc 5 34 17 view .LVU120
+ 505              	.LBE14:
+ 506              	.LBE13:
   33:SynaptiX_FDK/app/user/sx_ex_storage/sx_ex_storage.c ****         log_error(TAG, "Filesystem init failed");
- 424              		.loc 1 33 5 is_stmt 1 view .LVU111
+ 507              		.loc 1 33 5 is_stmt 1 view .LVU121
   33:SynaptiX_FDK/app/user/sx_ex_storage/sx_ex_storage.c ****         log_error(TAG, "Filesystem init failed");
- 425              		.loc 1 33 9 is_stmt 0 view .LVU112
- 426 004e 2846     		mov	r0, r5
- 427 0050 FFF7FEFF 		bl	sx_fs_init
- 428              	.LVL37:
+ 508              		.loc 1 33 9 is_stmt 0 view .LVU122
+ 509 004e 2846     		mov	r0, r5
+ 510 0050 FFF7FEFF 		bl	sx_fs_init
+ 511              	.LVL52:
   33:SynaptiX_FDK/app/user/sx_ex_storage/sx_ex_storage.c ****         log_error(TAG, "Filesystem init failed");
- 429              		.loc 1 33 8 discriminator 1 view .LVU113
- 430 0054 88B9     		cbnz	r0, .L43
+ 512              		.loc 1 33 8 discriminator 1 view .LVU123
+ 513 0054 88B9     		cbnz	r0, .L43
   38:SynaptiX_FDK/app/user/sx_ex_storage/sx_ex_storage.c ****     log_info(TAG, "Storage init OK");
- 431              		.loc 1 38 5 is_stmt 1 view .LVU114
+ 514              		.loc 1 38 5 is_stmt 1 view .LVU124
   38:SynaptiX_FDK/app/user/sx_ex_storage/sx_ex_storage.c ****     log_info(TAG, "Storage init OK");
- 432              		.loc 1 38 19 is_stmt 0 view .LVU115
- 433 0056 144B     		ldr	r3, .L44+24
- 434 0058 0122     		movs	r2, #1
- 435 005a 1A70     		strb	r2, [r3]
+ 515              		.loc 1 38 19 is_stmt 0 view .LVU125
+ 516 0056 144B     		ldr	r3, .L44+24
+ 517 0058 0122     		movs	r2, #1
+ 518 005a 1A70     		strb	r2, [r3]
   39:SynaptiX_FDK/app/user/sx_ex_storage/sx_ex_storage.c ****     return SX_STORAGE_OK;
- 436              		.loc 1 39 5 is_stmt 1 view .LVU116
- 437 005c 134A     		ldr	r2, .L44+28
- 438 005e 1449     		ldr	r1, .L44+32
- 439 0060 0320     		movs	r0, #3
- 440 0062 FFF7FEFF 		bl	log_func
- 441              	.LVL38:
+ 519              		.loc 1 39 5 is_stmt 1 view .LVU126
+ 520 005c 134A     		ldr	r2, .L44+28
+ 521 005e 1449     		ldr	r1, .L44+32
+ 522 0060 0320     		movs	r0, #3
+ 523 0062 FFF7FEFF 		bl	log_func
+ 524              	.LVL53:
   40:SynaptiX_FDK/app/user/sx_ex_storage/sx_ex_storage.c **** }
- 442              		.loc 1 40 5 view .LVU117
+ 525              		.loc 1 40 5 view .LVU127
   40:SynaptiX_FDK/app/user/sx_ex_storage/sx_ex_storage.c **** }
- 443              		.loc 1 40 12 is_stmt 0 view .LVU118
- 444 0066 0020     		movs	r0, #0
- 445              	.L34:
+ 526              		.loc 1 40 12 is_stmt 0 view .LVU128
+ 527 0066 0020     		movs	r0, #0
+ 528              	.L34:
   41:SynaptiX_FDK/app/user/sx_ex_storage/sx_ex_storage.c **** 
- 446              		.loc 1 41 1 view .LVU119
- 447 0068 70BD     		pop	{r4, r5, r6, pc}
- 448              	.LVL39:
- 449              	.L42:
+ 529              		.loc 1 41 1 view .LVU129
+ 530 0068 70BD     		pop	{r4, r5, r6, pc}
+ 531              	.LVL54:
+ 532              	.L42:
   25:SynaptiX_FDK/app/user/sx_ex_storage/sx_ex_storage.c ****         return SX_STORAGE_ERR_IO;
- 450              		.loc 1 25 9 is_stmt 1 view .LVU120
- 451 006a 124A     		ldr	r2, .L44+36
- 452 006c 1049     		ldr	r1, .L44+32
- 453 006e 0120     		movs	r0, #1
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccUTIJQG.s 			page 14
+ 533              		.loc 1 25 9 is_stmt 1 view .LVU130
+ 534 006a 124A     		ldr	r2, .L44+36
+ 535 006c 1049     		ldr	r1, .L44+32
+ 536 006e 0120     		movs	r0, #1
+ 537 0070 FFF7FEFF 		bl	log_func
+ 538              	.LVL55:
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccc7byMl.s 			page 16
 
 
- 454 0070 FFF7FEFF 		bl	log_func
- 455              	.LVL40:
   26:SynaptiX_FDK/app/user/sx_ex_storage/sx_ex_storage.c ****     }
- 456              		.loc 1 26 9 view .LVU121
+ 539              		.loc 1 26 9 view .LVU131
   26:SynaptiX_FDK/app/user/sx_ex_storage/sx_ex_storage.c ****     }
- 457              		.loc 1 26 16 is_stmt 0 view .LVU122
- 458 0074 6FF00100 		mvn	r0, #1
- 459 0078 F6E7     		b	.L34
- 460              	.LVL41:
- 461              	.L43:
+ 540              		.loc 1 26 16 is_stmt 0 view .LVU132
+ 541 0074 6FF00100 		mvn	r0, #1
+ 542 0078 F6E7     		b	.L34
+ 543              	.LVL56:
+ 544              	.L43:
   34:SynaptiX_FDK/app/user/sx_ex_storage/sx_ex_storage.c ****         return SX_STORAGE_ERR_IO;
- 462              		.loc 1 34 9 is_stmt 1 view .LVU123
- 463 007a 0F4A     		ldr	r2, .L44+40
- 464 007c 0C49     		ldr	r1, .L44+32
- 465 007e 0120     		movs	r0, #1
- 466 0080 FFF7FEFF 		bl	log_func
- 467              	.LVL42:
+ 545              		.loc 1 34 9 is_stmt 1 view .LVU133
+ 546 007a 0F4A     		ldr	r2, .L44+40
+ 547 007c 0C49     		ldr	r1, .L44+32
+ 548 007e 0120     		movs	r0, #1
+ 549 0080 FFF7FEFF 		bl	log_func
+ 550              	.LVL57:
   35:SynaptiX_FDK/app/user/sx_ex_storage/sx_ex_storage.c ****     }
- 468              		.loc 1 35 9 view .LVU124
+ 551              		.loc 1 35 9 view .LVU134
   35:SynaptiX_FDK/app/user/sx_ex_storage/sx_ex_storage.c ****     }
- 469              		.loc 1 35 16 is_stmt 0 view .LVU125
- 470 0084 6FF00100 		mvn	r0, #1
- 471 0088 EEE7     		b	.L34
- 472              	.LVL43:
- 473              	.L37:
- 474              	.LCFI4:
- 475              		.cfi_def_cfa_offset 0
- 476              		.cfi_restore 4
- 477              		.cfi_restore 5
- 478              		.cfi_restore 6
- 479              		.cfi_restore 14
+ 552              		.loc 1 35 16 is_stmt 0 view .LVU135
+ 553 0084 6FF00100 		mvn	r0, #1
+ 554 0088 EEE7     		b	.L34
+ 555              	.LVL58:
+ 556              	.L37:
+ 557              	.LCFI7:
+ 558              		.cfi_def_cfa_offset 0
+ 559              		.cfi_restore 4
+ 560              		.cfi_restore 5
+ 561              		.cfi_restore 6
+ 562              		.cfi_restore 14
   18:SynaptiX_FDK/app/user/sx_ex_storage/sx_ex_storage.c **** 
- 480              		.loc 1 18 29 discriminator 1 view .LVU126
- 481 008a 4FF0FF30 		mov	r0, #-1
- 482              	.LVL44:
+ 563              		.loc 1 18 29 discriminator 1 view .LVU136
+ 564 008a 4FF0FF30 		mov	r0, #-1
+ 565              	.LVL59:
   41:SynaptiX_FDK/app/user/sx_ex_storage/sx_ex_storage.c **** 
- 483              		.loc 1 41 1 view .LVU127
- 484 008e 7047     		bx	lr
- 485              	.L45:
- 486              		.align	2
- 487              	.L44:
- 488 0090 00000000 		.word	sx_gpio_ops
- 489 0094 00000000 		.word	sx_spi_ops
- 490 0098 00000000 		.word	s_w25q128
- 491 009c 00000000 		.word	s_flash
- 492 00a0 00000000 		.word	sx_W25Q128_ops
- 493 00a4 00000000 		.word	sx_W25Q128_info
- 494 00a8 00000000 		.word	s_initialized
- 495 00ac 2C000000 		.word	.LC4
- 496 00b0 10000000 		.word	.LC1
- 497 00b4 00000000 		.word	.LC2
- 498 00b8 14000000 		.word	.LC3
- 499              		.cfi_endproc
- 500              	.LFE530:
- 502              		.section	.rodata.sx_storage_write.str1.4,"aMS",%progbits,1
- 503              		.align	2
- 504              	.LC5:
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccUTIJQG.s 			page 15
+ 566              		.loc 1 41 1 view .LVU137
+ 567 008e 7047     		bx	lr
+ 568              	.L45:
+ 569              		.align	2
+ 570              	.L44:
+ 571 0090 00000000 		.word	sx_gpio_ops
+ 572 0094 00000000 		.word	sx_spi_ops
+ 573 0098 00000000 		.word	s_w25q128
+ 574 009c 00000000 		.word	s_flash
+ 575 00a0 00000000 		.word	sx_W25Q128_ops
+ 576 00a4 00000000 		.word	sx_W25Q128_info
+ 577 00a8 00000000 		.word	s_initialized
+ 578 00ac 2C000000 		.word	.LC9
+ 579 00b0 10000000 		.word	.LC1
+ 580 00b4 00000000 		.word	.LC7
+ 581 00b8 14000000 		.word	.LC8
+ 582              		.cfi_endproc
+ 583              	.LFE530:
+ 585              		.section	.rodata.sx_storage_write.str1.4,"aMS",%progbits,1
+ 586              		.align	2
+ 587              	.LC10:
+ 588 0000 7700     		.ascii	"w\000"
+ 589              		.section	.text.sx_storage_write,"ax",%progbits
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccc7byMl.s 			page 17
 
 
- 505 0000 7700     		.ascii	"w\000"
- 506              		.section	.text.sx_storage_write,"ax",%progbits
- 507              		.align	1
- 508              		.global	sx_storage_write
- 509              		.syntax unified
- 510              		.thumb
- 511              		.thumb_func
- 513              	sx_storage_write:
- 514              	.LVL45:
- 515              	.LFB532:
+ 590              		.align	1
+ 591              		.global	sx_storage_write
+ 592              		.syntax unified
+ 593              		.thumb
+ 594              		.thumb_func
+ 596              	sx_storage_write:
+ 597              	.LVL60:
+ 598              	.LFB532:
   51:SynaptiX_FDK/app/user/sx_ex_storage/sx_ex_storage.c **** 
   52:SynaptiX_FDK/app/user/sx_ex_storage/sx_ex_storage.c **** sx_storage_err_t sx_storage_write(const char *path, const void *data, uint32_t len)
   53:SynaptiX_FDK/app/user/sx_ex_storage/sx_ex_storage.c **** {
- 516              		.loc 1 53 1 is_stmt 1 view -0
- 517              		.cfi_startproc
- 518              		@ args = 0, pretend = 0, frame = 0
- 519              		@ frame_needed = 0, uses_anonymous_args = 0
- 520              		.loc 1 53 1 is_stmt 0 view .LVU129
- 521 0000 2DE9F041 		push	{r4, r5, r6, r7, r8, lr}
- 522              	.LCFI5:
- 523              		.cfi_def_cfa_offset 24
- 524              		.cfi_offset 4, -24
- 525              		.cfi_offset 5, -20
- 526              		.cfi_offset 6, -16
- 527              		.cfi_offset 7, -12
- 528              		.cfi_offset 8, -8
- 529              		.cfi_offset 14, -4
- 530 0004 0446     		mov	r4, r0
- 531 0006 0D46     		mov	r5, r1
- 532 0008 1646     		mov	r6, r2
+ 599              		.loc 1 53 1 is_stmt 1 view -0
+ 600              		.cfi_startproc
+ 601              		@ args = 0, pretend = 0, frame = 0
+ 602              		@ frame_needed = 0, uses_anonymous_args = 0
+ 603              		.loc 1 53 1 is_stmt 0 view .LVU139
+ 604 0000 2DE9F041 		push	{r4, r5, r6, r7, r8, lr}
+ 605              	.LCFI8:
+ 606              		.cfi_def_cfa_offset 24
+ 607              		.cfi_offset 4, -24
+ 608              		.cfi_offset 5, -20
+ 609              		.cfi_offset 6, -16
+ 610              		.cfi_offset 7, -12
+ 611              		.cfi_offset 8, -8
+ 612              		.cfi_offset 14, -4
+ 613 0004 0446     		mov	r4, r0
+ 614 0006 0D46     		mov	r5, r1
+ 615 0008 1646     		mov	r6, r2
   54:SynaptiX_FDK/app/user/sx_ex_storage/sx_ex_storage.c ****     if (_check_init() != SX_STORAGE_OK)     return SX_STORAGE_ERR_NOT_INIT;
- 533              		.loc 1 54 5 is_stmt 1 view .LVU130
- 534              		.loc 1 54 9 is_stmt 0 view .LVU131
- 535 000a FFF7FEFF 		bl	_check_init
- 536              	.LVL46:
- 537              		.loc 1 54 8 discriminator 1 view .LVU132
- 538 000e F0B9     		cbnz	r0, .L48
- 539 0010 0746     		mov	r7, r0
+ 616              		.loc 1 54 5 is_stmt 1 view .LVU140
+ 617              		.loc 1 54 9 is_stmt 0 view .LVU141
+ 618 000a FFF7FEFF 		bl	_check_init
+ 619              	.LVL61:
+ 620              		.loc 1 54 8 discriminator 1 view .LVU142
+ 621 000e F0B9     		cbnz	r0, .L48
+ 622 0010 0746     		mov	r7, r0
   55:SynaptiX_FDK/app/user/sx_ex_storage/sx_ex_storage.c ****     if (path == NULL || data == NULL || len == 0) return SX_STORAGE_ERR_INVALID;
- 540              		.loc 1 55 5 is_stmt 1 view .LVU133
- 541              		.loc 1 55 8 is_stmt 0 view .LVU134
- 542 0012 FCB1     		cbz	r4, .L49
- 543              		.loc 1 55 22 discriminator 2 view .LVU135
- 544 0014 0DB3     		cbz	r5, .L50
- 545              		.loc 1 55 38 discriminator 4 view .LVU136
- 546 0016 1EB3     		cbz	r6, .L51
+ 623              		.loc 1 55 5 is_stmt 1 view .LVU143
+ 624              		.loc 1 55 8 is_stmt 0 view .LVU144
+ 625 0012 FCB1     		cbz	r4, .L49
+ 626              		.loc 1 55 22 discriminator 2 view .LVU145
+ 627 0014 0DB3     		cbz	r5, .L50
+ 628              		.loc 1 55 38 discriminator 4 view .LVU146
+ 629 0016 1EB3     		cbz	r6, .L51
   56:SynaptiX_FDK/app/user/sx_ex_storage/sx_ex_storage.c **** 
   57:SynaptiX_FDK/app/user/sx_ex_storage/sx_ex_storage.c ****     FILE *f = fopen(path, "w");
- 547              		.loc 1 57 5 is_stmt 1 view .LVU137
- 548              		.loc 1 57 15 is_stmt 0 view .LVU138
- 549 0018 1649     		ldr	r1, .L56
- 550 001a 2046     		mov	r0, r4
- 551 001c FFF7FEFF 		bl	file_open
- 552              	.LVL47:
+ 630              		.loc 1 57 5 is_stmt 1 view .LVU147
+ 631              		.loc 1 57 15 is_stmt 0 view .LVU148
+ 632 0018 1649     		ldr	r1, .L56
+ 633 001a 2046     		mov	r0, r4
+ 634 001c FFF7FEFF 		bl	file_open
+ 635              	.LVL62:
   58:SynaptiX_FDK/app/user/sx_ex_storage/sx_ex_storage.c ****     if (f == NULL) return SX_STORAGE_ERR_IO;
- 553              		.loc 1 58 5 is_stmt 1 view .LVU139
- 554              		.loc 1 58 8 is_stmt 0 view .LVU140
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccUTIJQG.s 			page 16
+ 636              		.loc 1 58 5 is_stmt 1 view .LVU149
+ 637              		.loc 1 58 8 is_stmt 0 view .LVU150
+ 638 0020 0446     		mov	r4, r0
+ 639              	.LVL63:
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccc7byMl.s 			page 18
 
 
- 555 0020 0446     		mov	r4, r0
- 556              	.LVL48:
- 557              		.loc 1 58 8 view .LVU141
- 558 0022 00B3     		cbz	r0, .L52
+ 640              		.loc 1 58 8 view .LVU151
+ 641 0022 00B3     		cbz	r0, .L52
   59:SynaptiX_FDK/app/user/sx_ex_storage/sx_ex_storage.c **** 
   60:SynaptiX_FDK/app/user/sx_ex_storage/sx_ex_storage.c ****     int ret = fwrite(data, 1, len, f);
- 559              		.loc 1 60 5 is_stmt 1 view .LVU142
- 560              		.loc 1 60 15 is_stmt 0 view .LVU143
- 561 0024 DFF85080 		ldr	r8, .L56+4
- 562 0028 3346     		mov	r3, r6
- 563 002a 2A46     		mov	r2, r5
- 564 002c 0146     		mov	r1, r0
- 565 002e 4046     		mov	r0, r8
- 566              	.LVL49:
- 567              		.loc 1 60 15 view .LVU144
- 568 0030 FFF7FEFF 		bl	lfs_file_write
- 569              	.LVL50:
- 570              		.loc 1 60 15 view .LVU145
- 571 0034 0546     		mov	r5, r0
- 572              	.LVL51:
+ 642              		.loc 1 60 5 is_stmt 1 view .LVU152
+ 643              		.loc 1 60 15 is_stmt 0 view .LVU153
+ 644 0024 DFF85080 		ldr	r8, .L56+4
+ 645 0028 3346     		mov	r3, r6
+ 646 002a 2A46     		mov	r2, r5
+ 647 002c 0146     		mov	r1, r0
+ 648 002e 4046     		mov	r0, r8
+ 649              	.LVL64:
+ 650              		.loc 1 60 15 view .LVU154
+ 651 0030 FFF7FEFF 		bl	lfs_file_write
+ 652              	.LVL65:
+ 653              		.loc 1 60 15 view .LVU155
+ 654 0034 0546     		mov	r5, r0
+ 655              	.LVL66:
   61:SynaptiX_FDK/app/user/sx_ex_storage/sx_ex_storage.c ****     fclose(f);
- 573              		.loc 1 61 5 is_stmt 1 view .LVU146
- 574              		.loc 1 61 5 view .LVU147
- 575 0036 2146     		mov	r1, r4
- 576 0038 4046     		mov	r0, r8
- 577              	.LVL52:
- 578              		.loc 1 61 5 is_stmt 0 view .LVU148
- 579 003a FFF7FEFF 		bl	lfs_file_close
- 580              	.LVL53:
- 581              		.loc 1 61 5 is_stmt 1 discriminator 1 view .LVU149
- 582 003e 2046     		mov	r0, r4
- 583 0040 FFF7FEFF 		bl	free
- 584              	.LVL54:
- 585              		.loc 1 61 5 discriminator 2 view .LVU150
+ 656              		.loc 1 61 5 is_stmt 1 view .LVU156
+ 657              		.loc 1 61 5 view .LVU157
+ 658 0036 2146     		mov	r1, r4
+ 659 0038 4046     		mov	r0, r8
+ 660              	.LVL67:
+ 661              		.loc 1 61 5 is_stmt 0 view .LVU158
+ 662 003a FFF7FEFF 		bl	lfs_file_close
+ 663              	.LVL68:
+ 664              		.loc 1 61 5 is_stmt 1 discriminator 1 view .LVU159
+ 665 003e 2046     		mov	r0, r4
+ 666 0040 FFF7FEFF 		bl	free
+ 667              	.LVL69:
+ 668              		.loc 1 61 5 discriminator 2 view .LVU160
   62:SynaptiX_FDK/app/user/sx_ex_storage/sx_ex_storage.c **** 
   63:SynaptiX_FDK/app/user/sx_ex_storage/sx_ex_storage.c ****     if (ret < 0) return SX_STORAGE_ERR_IO;
- 586              		.loc 1 63 5 view .LVU151
- 587              		.loc 1 63 8 is_stmt 0 view .LVU152
- 588 0044 002D     		cmp	r5, #0
- 589 0046 11DB     		blt	.L55
- 590              	.LVL55:
- 591              	.L47:
+ 669              		.loc 1 63 5 view .LVU161
+ 670              		.loc 1 63 8 is_stmt 0 view .LVU162
+ 671 0044 002D     		cmp	r5, #0
+ 672 0046 11DB     		blt	.L55
+ 673              	.LVL70:
+ 674              	.L47:
   64:SynaptiX_FDK/app/user/sx_ex_storage/sx_ex_storage.c ****     return SX_STORAGE_OK;
   65:SynaptiX_FDK/app/user/sx_ex_storage/sx_ex_storage.c **** }
- 592              		.loc 1 65 1 view .LVU153
- 593 0048 3846     		mov	r0, r7
- 594 004a BDE8F081 		pop	{r4, r5, r6, r7, r8, pc}
- 595              	.LVL56:
- 596              	.L48:
+ 675              		.loc 1 65 1 view .LVU163
+ 676 0048 3846     		mov	r0, r7
+ 677 004a BDE8F081 		pop	{r4, r5, r6, r7, r8, pc}
+ 678              	.LVL71:
+ 679              	.L48:
   54:SynaptiX_FDK/app/user/sx_ex_storage/sx_ex_storage.c ****     if (path == NULL || data == NULL || len == 0) return SX_STORAGE_ERR_INVALID;
- 597              		.loc 1 54 52 discriminator 1 view .LVU154
- 598 004e 6FF00407 		mvn	r7, #4
- 599 0052 F9E7     		b	.L47
- 600              	.L49:
+ 680              		.loc 1 54 52 discriminator 1 view .LVU164
+ 681 004e 6FF00407 		mvn	r7, #4
+ 682 0052 F9E7     		b	.L47
+ 683              	.L49:
   55:SynaptiX_FDK/app/user/sx_ex_storage/sx_ex_storage.c **** 
- 601              		.loc 1 55 58 discriminator 5 view .LVU155
- 602 0054 4FF0FF37 		mov	r7, #-1
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccUTIJQG.s 			page 17
+ 684              		.loc 1 55 58 discriminator 5 view .LVU165
+ 685 0054 4FF0FF37 		mov	r7, #-1
+ 686 0058 F6E7     		b	.L47
+ 687              	.L50:
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccc7byMl.s 			page 19
 
 
- 603 0058 F6E7     		b	.L47
- 604              	.L50:
- 605 005a 4FF0FF37 		mov	r7, #-1
- 606 005e F3E7     		b	.L47
- 607              	.L51:
- 608 0060 4FF0FF37 		mov	r7, #-1
- 609 0064 F0E7     		b	.L47
- 610              	.LVL57:
- 611              	.L52:
+ 688 005a 4FF0FF37 		mov	r7, #-1
+ 689 005e F3E7     		b	.L47
+ 690              	.L51:
+ 691 0060 4FF0FF37 		mov	r7, #-1
+ 692 0064 F0E7     		b	.L47
+ 693              	.LVL72:
+ 694              	.L52:
   58:SynaptiX_FDK/app/user/sx_ex_storage/sx_ex_storage.c **** 
- 612              		.loc 1 58 27 discriminator 1 view .LVU156
- 613 0066 6FF00107 		mvn	r7, #1
- 614 006a EDE7     		b	.L47
- 615              	.LVL58:
- 616              	.L55:
+ 695              		.loc 1 58 27 discriminator 1 view .LVU166
+ 696 0066 6FF00107 		mvn	r7, #1
+ 697 006a EDE7     		b	.L47
+ 698              	.LVL73:
+ 699              	.L55:
   63:SynaptiX_FDK/app/user/sx_ex_storage/sx_ex_storage.c ****     return SX_STORAGE_OK;
- 617              		.loc 1 63 25 discriminator 1 view .LVU157
- 618 006c 6FF00107 		mvn	r7, #1
- 619 0070 EAE7     		b	.L47
- 620              	.L57:
- 621 0072 00BF     		.align	2
- 622              	.L56:
- 623 0074 00000000 		.word	.LC5
- 624 0078 00000000 		.word	lfs
- 625              		.cfi_endproc
- 626              	.LFE532:
- 628              		.section	.rodata.sx_storage_append.str1.4,"aMS",%progbits,1
- 629              		.align	2
- 630              	.LC6:
- 631 0000 6100     		.ascii	"a\000"
- 632              		.section	.text.sx_storage_append,"ax",%progbits
- 633              		.align	1
- 634              		.global	sx_storage_append
- 635              		.syntax unified
- 636              		.thumb
- 637              		.thumb_func
- 639              	sx_storage_append:
- 640              	.LVL59:
- 641              	.LFB533:
+ 700              		.loc 1 63 25 discriminator 1 view .LVU167
+ 701 006c 6FF00107 		mvn	r7, #1
+ 702 0070 EAE7     		b	.L47
+ 703              	.L57:
+ 704 0072 00BF     		.align	2
+ 705              	.L56:
+ 706 0074 00000000 		.word	.LC10
+ 707 0078 00000000 		.word	lfs
+ 708              		.cfi_endproc
+ 709              	.LFE532:
+ 711              		.section	.rodata.sx_storage_append.str1.4,"aMS",%progbits,1
+ 712              		.align	2
+ 713              	.LC11:
+ 714 0000 6100     		.ascii	"a\000"
+ 715              		.section	.text.sx_storage_append,"ax",%progbits
+ 716              		.align	1
+ 717              		.global	sx_storage_append
+ 718              		.syntax unified
+ 719              		.thumb
+ 720              		.thumb_func
+ 722              	sx_storage_append:
+ 723              	.LVL74:
+ 724              	.LFB533:
   66:SynaptiX_FDK/app/user/sx_ex_storage/sx_ex_storage.c **** 
   67:SynaptiX_FDK/app/user/sx_ex_storage/sx_ex_storage.c **** sx_storage_err_t sx_storage_append(const char *path, const void *data, uint32_t len)
   68:SynaptiX_FDK/app/user/sx_ex_storage/sx_ex_storage.c **** {
- 642              		.loc 1 68 1 is_stmt 1 view -0
- 643              		.cfi_startproc
- 644              		@ args = 0, pretend = 0, frame = 0
- 645              		@ frame_needed = 0, uses_anonymous_args = 0
- 646              		.loc 1 68 1 is_stmt 0 view .LVU159
- 647 0000 2DE9F041 		push	{r4, r5, r6, r7, r8, lr}
- 648              	.LCFI6:
- 649              		.cfi_def_cfa_offset 24
- 650              		.cfi_offset 4, -24
- 651              		.cfi_offset 5, -20
- 652              		.cfi_offset 6, -16
- 653              		.cfi_offset 7, -12
- 654              		.cfi_offset 8, -8
- 655              		.cfi_offset 14, -4
- 656 0004 0446     		mov	r4, r0
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccUTIJQG.s 			page 18
+ 725              		.loc 1 68 1 is_stmt 1 view -0
+ 726              		.cfi_startproc
+ 727              		@ args = 0, pretend = 0, frame = 0
+ 728              		@ frame_needed = 0, uses_anonymous_args = 0
+ 729              		.loc 1 68 1 is_stmt 0 view .LVU169
+ 730 0000 2DE9F041 		push	{r4, r5, r6, r7, r8, lr}
+ 731              	.LCFI9:
+ 732              		.cfi_def_cfa_offset 24
+ 733              		.cfi_offset 4, -24
+ 734              		.cfi_offset 5, -20
+ 735              		.cfi_offset 6, -16
+ 736              		.cfi_offset 7, -12
+ 737              		.cfi_offset 8, -8
+ 738              		.cfi_offset 14, -4
+ 739 0004 0446     		mov	r4, r0
+ 740 0006 0D46     		mov	r5, r1
+ 741 0008 1646     		mov	r6, r2
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccc7byMl.s 			page 20
 
 
- 657 0006 0D46     		mov	r5, r1
- 658 0008 1646     		mov	r6, r2
   69:SynaptiX_FDK/app/user/sx_ex_storage/sx_ex_storage.c ****     if (_check_init() != SX_STORAGE_OK)           return SX_STORAGE_ERR_NOT_INIT;
- 659              		.loc 1 69 5 is_stmt 1 view .LVU160
- 660              		.loc 1 69 9 is_stmt 0 view .LVU161
- 661 000a FFF7FEFF 		bl	_check_init
- 662              	.LVL60:
- 663              		.loc 1 69 8 discriminator 1 view .LVU162
- 664 000e F0B9     		cbnz	r0, .L60
- 665 0010 0746     		mov	r7, r0
+ 742              		.loc 1 69 5 is_stmt 1 view .LVU170
+ 743              		.loc 1 69 9 is_stmt 0 view .LVU171
+ 744 000a FFF7FEFF 		bl	_check_init
+ 745              	.LVL75:
+ 746              		.loc 1 69 8 discriminator 1 view .LVU172
+ 747 000e F0B9     		cbnz	r0, .L60
+ 748 0010 0746     		mov	r7, r0
   70:SynaptiX_FDK/app/user/sx_ex_storage/sx_ex_storage.c ****     if (path == NULL || data == NULL || len == 0) return SX_STORAGE_ERR_INVALID;
- 666              		.loc 1 70 5 is_stmt 1 view .LVU163
- 667              		.loc 1 70 8 is_stmt 0 view .LVU164
- 668 0012 FCB1     		cbz	r4, .L61
- 669              		.loc 1 70 22 discriminator 2 view .LVU165
- 670 0014 0DB3     		cbz	r5, .L62
- 671              		.loc 1 70 38 discriminator 4 view .LVU166
- 672 0016 1EB3     		cbz	r6, .L63
+ 749              		.loc 1 70 5 is_stmt 1 view .LVU173
+ 750              		.loc 1 70 8 is_stmt 0 view .LVU174
+ 751 0012 FCB1     		cbz	r4, .L61
+ 752              		.loc 1 70 22 discriminator 2 view .LVU175
+ 753 0014 0DB3     		cbz	r5, .L62
+ 754              		.loc 1 70 38 discriminator 4 view .LVU176
+ 755 0016 1EB3     		cbz	r6, .L63
   71:SynaptiX_FDK/app/user/sx_ex_storage/sx_ex_storage.c **** 
   72:SynaptiX_FDK/app/user/sx_ex_storage/sx_ex_storage.c ****     FILE *f = fopen(path, "a");
- 673              		.loc 1 72 5 is_stmt 1 view .LVU167
- 674              		.loc 1 72 15 is_stmt 0 view .LVU168
- 675 0018 1649     		ldr	r1, .L68
- 676 001a 2046     		mov	r0, r4
- 677 001c FFF7FEFF 		bl	file_open
- 678              	.LVL61:
+ 756              		.loc 1 72 5 is_stmt 1 view .LVU177
+ 757              		.loc 1 72 15 is_stmt 0 view .LVU178
+ 758 0018 1649     		ldr	r1, .L68
+ 759 001a 2046     		mov	r0, r4
+ 760 001c FFF7FEFF 		bl	file_open
+ 761              	.LVL76:
   73:SynaptiX_FDK/app/user/sx_ex_storage/sx_ex_storage.c ****     if (f == NULL) return SX_STORAGE_ERR_IO;
- 679              		.loc 1 73 5 is_stmt 1 view .LVU169
- 680              		.loc 1 73 8 is_stmt 0 view .LVU170
- 681 0020 0446     		mov	r4, r0
- 682              	.LVL62:
- 683              		.loc 1 73 8 view .LVU171
- 684 0022 00B3     		cbz	r0, .L64
+ 762              		.loc 1 73 5 is_stmt 1 view .LVU179
+ 763              		.loc 1 73 8 is_stmt 0 view .LVU180
+ 764 0020 0446     		mov	r4, r0
+ 765              	.LVL77:
+ 766              		.loc 1 73 8 view .LVU181
+ 767 0022 00B3     		cbz	r0, .L64
   74:SynaptiX_FDK/app/user/sx_ex_storage/sx_ex_storage.c **** 
   75:SynaptiX_FDK/app/user/sx_ex_storage/sx_ex_storage.c ****     int ret = fwrite(data, 1, len, f);
- 685              		.loc 1 75 5 is_stmt 1 view .LVU172
- 686              		.loc 1 75 15 is_stmt 0 view .LVU173
- 687 0024 DFF85080 		ldr	r8, .L68+4
- 688 0028 3346     		mov	r3, r6
- 689 002a 2A46     		mov	r2, r5
- 690 002c 0146     		mov	r1, r0
- 691 002e 4046     		mov	r0, r8
- 692              	.LVL63:
- 693              		.loc 1 75 15 view .LVU174
- 694 0030 FFF7FEFF 		bl	lfs_file_write
- 695              	.LVL64:
- 696              		.loc 1 75 15 view .LVU175
- 697 0034 0546     		mov	r5, r0
- 698              	.LVL65:
+ 768              		.loc 1 75 5 is_stmt 1 view .LVU182
+ 769              		.loc 1 75 15 is_stmt 0 view .LVU183
+ 770 0024 DFF85080 		ldr	r8, .L68+4
+ 771 0028 3346     		mov	r3, r6
+ 772 002a 2A46     		mov	r2, r5
+ 773 002c 0146     		mov	r1, r0
+ 774 002e 4046     		mov	r0, r8
+ 775              	.LVL78:
+ 776              		.loc 1 75 15 view .LVU184
+ 777 0030 FFF7FEFF 		bl	lfs_file_write
+ 778              	.LVL79:
+ 779              		.loc 1 75 15 view .LVU185
+ 780 0034 0546     		mov	r5, r0
+ 781              	.LVL80:
   76:SynaptiX_FDK/app/user/sx_ex_storage/sx_ex_storage.c ****     fclose(f);
- 699              		.loc 1 76 5 is_stmt 1 view .LVU176
- 700              		.loc 1 76 5 view .LVU177
- 701 0036 2146     		mov	r1, r4
- 702 0038 4046     		mov	r0, r8
- 703              	.LVL66:
- 704              		.loc 1 76 5 is_stmt 0 view .LVU178
- 705 003a FFF7FEFF 		bl	lfs_file_close
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccUTIJQG.s 			page 19
+ 782              		.loc 1 76 5 is_stmt 1 view .LVU186
+ 783              		.loc 1 76 5 view .LVU187
+ 784 0036 2146     		mov	r1, r4
+ 785 0038 4046     		mov	r0, r8
+ 786              	.LVL81:
+ 787              		.loc 1 76 5 is_stmt 0 view .LVU188
+ 788 003a FFF7FEFF 		bl	lfs_file_close
+ 789              	.LVL82:
+ 790              		.loc 1 76 5 is_stmt 1 discriminator 1 view .LVU189
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccc7byMl.s 			page 21
 
 
- 706              	.LVL67:
- 707              		.loc 1 76 5 is_stmt 1 discriminator 1 view .LVU179
- 708 003e 2046     		mov	r0, r4
- 709 0040 FFF7FEFF 		bl	free
- 710              	.LVL68:
- 711              		.loc 1 76 5 discriminator 2 view .LVU180
+ 791 003e 2046     		mov	r0, r4
+ 792 0040 FFF7FEFF 		bl	free
+ 793              	.LVL83:
+ 794              		.loc 1 76 5 discriminator 2 view .LVU190
   77:SynaptiX_FDK/app/user/sx_ex_storage/sx_ex_storage.c **** 
   78:SynaptiX_FDK/app/user/sx_ex_storage/sx_ex_storage.c ****     if (ret < 0) return SX_STORAGE_ERR_IO;
- 712              		.loc 1 78 5 view .LVU181
- 713              		.loc 1 78 8 is_stmt 0 view .LVU182
- 714 0044 002D     		cmp	r5, #0
- 715 0046 11DB     		blt	.L67
- 716              	.LVL69:
- 717              	.L59:
+ 795              		.loc 1 78 5 view .LVU191
+ 796              		.loc 1 78 8 is_stmt 0 view .LVU192
+ 797 0044 002D     		cmp	r5, #0
+ 798 0046 11DB     		blt	.L67
+ 799              	.LVL84:
+ 800              	.L59:
   79:SynaptiX_FDK/app/user/sx_ex_storage/sx_ex_storage.c ****     return SX_STORAGE_OK;
   80:SynaptiX_FDK/app/user/sx_ex_storage/sx_ex_storage.c **** }
- 718              		.loc 1 80 1 view .LVU183
- 719 0048 3846     		mov	r0, r7
- 720 004a BDE8F081 		pop	{r4, r5, r6, r7, r8, pc}
- 721              	.LVL70:
- 722              	.L60:
+ 801              		.loc 1 80 1 view .LVU193
+ 802 0048 3846     		mov	r0, r7
+ 803 004a BDE8F081 		pop	{r4, r5, r6, r7, r8, pc}
+ 804              	.LVL85:
+ 805              	.L60:
   69:SynaptiX_FDK/app/user/sx_ex_storage/sx_ex_storage.c ****     if (path == NULL || data == NULL || len == 0) return SX_STORAGE_ERR_INVALID;
- 723              		.loc 1 69 58 discriminator 1 view .LVU184
- 724 004e 6FF00407 		mvn	r7, #4
- 725 0052 F9E7     		b	.L59
- 726              	.L61:
+ 806              		.loc 1 69 58 discriminator 1 view .LVU194
+ 807 004e 6FF00407 		mvn	r7, #4
+ 808 0052 F9E7     		b	.L59
+ 809              	.L61:
   70:SynaptiX_FDK/app/user/sx_ex_storage/sx_ex_storage.c **** 
- 727              		.loc 1 70 58 discriminator 5 view .LVU185
- 728 0054 4FF0FF37 		mov	r7, #-1
- 729 0058 F6E7     		b	.L59
- 730              	.L62:
- 731 005a 4FF0FF37 		mov	r7, #-1
- 732 005e F3E7     		b	.L59
- 733              	.L63:
- 734 0060 4FF0FF37 		mov	r7, #-1
- 735 0064 F0E7     		b	.L59
- 736              	.LVL71:
- 737              	.L64:
+ 810              		.loc 1 70 58 discriminator 5 view .LVU195
+ 811 0054 4FF0FF37 		mov	r7, #-1
+ 812 0058 F6E7     		b	.L59
+ 813              	.L62:
+ 814 005a 4FF0FF37 		mov	r7, #-1
+ 815 005e F3E7     		b	.L59
+ 816              	.L63:
+ 817 0060 4FF0FF37 		mov	r7, #-1
+ 818 0064 F0E7     		b	.L59
+ 819              	.LVL86:
+ 820              	.L64:
   73:SynaptiX_FDK/app/user/sx_ex_storage/sx_ex_storage.c **** 
- 738              		.loc 1 73 27 discriminator 1 view .LVU186
- 739 0066 6FF00107 		mvn	r7, #1
- 740 006a EDE7     		b	.L59
- 741              	.LVL72:
- 742              	.L67:
+ 821              		.loc 1 73 27 discriminator 1 view .LVU196
+ 822 0066 6FF00107 		mvn	r7, #1
+ 823 006a EDE7     		b	.L59
+ 824              	.LVL87:
+ 825              	.L67:
   78:SynaptiX_FDK/app/user/sx_ex_storage/sx_ex_storage.c ****     return SX_STORAGE_OK;
- 743              		.loc 1 78 25 discriminator 1 view .LVU187
- 744 006c 6FF00107 		mvn	r7, #1
- 745 0070 EAE7     		b	.L59
- 746              	.L69:
- 747 0072 00BF     		.align	2
- 748              	.L68:
- 749 0074 00000000 		.word	.LC6
- 750 0078 00000000 		.word	lfs
- 751              		.cfi_endproc
- 752              	.LFE533:
- 754              		.section	.rodata.sx_storage_read.str1.4,"aMS",%progbits,1
- 755              		.align	2
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccUTIJQG.s 			page 20
+ 826              		.loc 1 78 25 discriminator 1 view .LVU197
+ 827 006c 6FF00107 		mvn	r7, #1
+ 828 0070 EAE7     		b	.L59
+ 829              	.L69:
+ 830 0072 00BF     		.align	2
+ 831              	.L68:
+ 832 0074 00000000 		.word	.LC11
+ 833 0078 00000000 		.word	lfs
+ 834              		.cfi_endproc
+ 835              	.LFE533:
+ 837              		.section	.rodata.sx_storage_read.str1.4,"aMS",%progbits,1
+ 838              		.align	2
+ 839              	.LC12:
+ 840 0000 7200     		.ascii	"r\000"
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccc7byMl.s 			page 22
 
 
- 756              	.LC7:
- 757 0000 7200     		.ascii	"r\000"
- 758              		.section	.text.sx_storage_read,"ax",%progbits
- 759              		.align	1
- 760              		.global	sx_storage_read
- 761              		.syntax unified
- 762              		.thumb
- 763              		.thumb_func
- 765              	sx_storage_read:
- 766              	.LVL73:
- 767              	.LFB534:
+ 841              		.section	.text.sx_storage_read,"ax",%progbits
+ 842              		.align	1
+ 843              		.global	sx_storage_read
+ 844              		.syntax unified
+ 845              		.thumb
+ 846              		.thumb_func
+ 848              	sx_storage_read:
+ 849              	.LVL88:
+ 850              	.LFB534:
   81:SynaptiX_FDK/app/user/sx_ex_storage/sx_ex_storage.c **** 
   82:SynaptiX_FDK/app/user/sx_ex_storage/sx_ex_storage.c **** sx_storage_err_t sx_storage_read(const char *path, void *buf, uint32_t len)
   83:SynaptiX_FDK/app/user/sx_ex_storage/sx_ex_storage.c **** {
- 768              		.loc 1 83 1 is_stmt 1 view -0
- 769              		.cfi_startproc
- 770              		@ args = 0, pretend = 0, frame = 0
- 771              		@ frame_needed = 0, uses_anonymous_args = 0
- 772              		.loc 1 83 1 is_stmt 0 view .LVU189
- 773 0000 2DE9F041 		push	{r4, r5, r6, r7, r8, lr}
- 774              	.LCFI7:
- 775              		.cfi_def_cfa_offset 24
- 776              		.cfi_offset 4, -24
- 777              		.cfi_offset 5, -20
- 778              		.cfi_offset 6, -16
- 779              		.cfi_offset 7, -12
- 780              		.cfi_offset 8, -8
- 781              		.cfi_offset 14, -4
- 782 0004 0446     		mov	r4, r0
- 783 0006 0D46     		mov	r5, r1
- 784 0008 1646     		mov	r6, r2
+ 851              		.loc 1 83 1 is_stmt 1 view -0
+ 852              		.cfi_startproc
+ 853              		@ args = 0, pretend = 0, frame = 0
+ 854              		@ frame_needed = 0, uses_anonymous_args = 0
+ 855              		.loc 1 83 1 is_stmt 0 view .LVU199
+ 856 0000 2DE9F041 		push	{r4, r5, r6, r7, r8, lr}
+ 857              	.LCFI10:
+ 858              		.cfi_def_cfa_offset 24
+ 859              		.cfi_offset 4, -24
+ 860              		.cfi_offset 5, -20
+ 861              		.cfi_offset 6, -16
+ 862              		.cfi_offset 7, -12
+ 863              		.cfi_offset 8, -8
+ 864              		.cfi_offset 14, -4
+ 865 0004 0446     		mov	r4, r0
+ 866 0006 0D46     		mov	r5, r1
+ 867 0008 1646     		mov	r6, r2
   84:SynaptiX_FDK/app/user/sx_ex_storage/sx_ex_storage.c ****     if (_check_init() != SX_STORAGE_OK)          return SX_STORAGE_ERR_NOT_INIT;
- 785              		.loc 1 84 5 is_stmt 1 view .LVU190
- 786              		.loc 1 84 9 is_stmt 0 view .LVU191
- 787 000a FFF7FEFF 		bl	_check_init
- 788              	.LVL74:
- 789              		.loc 1 84 8 discriminator 1 view .LVU192
- 790 000e F0B9     		cbnz	r0, .L72
- 791 0010 0746     		mov	r7, r0
+ 868              		.loc 1 84 5 is_stmt 1 view .LVU200
+ 869              		.loc 1 84 9 is_stmt 0 view .LVU201
+ 870 000a FFF7FEFF 		bl	_check_init
+ 871              	.LVL89:
+ 872              		.loc 1 84 8 discriminator 1 view .LVU202
+ 873 000e F0B9     		cbnz	r0, .L72
+ 874 0010 0746     		mov	r7, r0
   85:SynaptiX_FDK/app/user/sx_ex_storage/sx_ex_storage.c ****     if (path == NULL || buf == NULL || len == 0) return SX_STORAGE_ERR_INVALID;
- 792              		.loc 1 85 5 is_stmt 1 view .LVU193
- 793              		.loc 1 85 8 is_stmt 0 view .LVU194
- 794 0012 FCB1     		cbz	r4, .L73
- 795              		.loc 1 85 22 discriminator 2 view .LVU195
- 796 0014 0DB3     		cbz	r5, .L74
- 797              		.loc 1 85 37 discriminator 4 view .LVU196
- 798 0016 1EB3     		cbz	r6, .L75
+ 875              		.loc 1 85 5 is_stmt 1 view .LVU203
+ 876              		.loc 1 85 8 is_stmt 0 view .LVU204
+ 877 0012 FCB1     		cbz	r4, .L73
+ 878              		.loc 1 85 22 discriminator 2 view .LVU205
+ 879 0014 0DB3     		cbz	r5, .L74
+ 880              		.loc 1 85 37 discriminator 4 view .LVU206
+ 881 0016 1EB3     		cbz	r6, .L75
   86:SynaptiX_FDK/app/user/sx_ex_storage/sx_ex_storage.c **** 
   87:SynaptiX_FDK/app/user/sx_ex_storage/sx_ex_storage.c ****     FILE *f = fopen(path, "r");
- 799              		.loc 1 87 5 is_stmt 1 view .LVU197
- 800              		.loc 1 87 15 is_stmt 0 view .LVU198
- 801 0018 1649     		ldr	r1, .L80
- 802 001a 2046     		mov	r0, r4
- 803 001c FFF7FEFF 		bl	file_open
- 804              	.LVL75:
+ 882              		.loc 1 87 5 is_stmt 1 view .LVU207
+ 883              		.loc 1 87 15 is_stmt 0 view .LVU208
+ 884 0018 1649     		ldr	r1, .L80
+ 885 001a 2046     		mov	r0, r4
+ 886 001c FFF7FEFF 		bl	file_open
+ 887              	.LVL90:
   88:SynaptiX_FDK/app/user/sx_ex_storage/sx_ex_storage.c ****     if (f == NULL) return SX_STORAGE_ERR_NOT_FOUND;
- 805              		.loc 1 88 5 is_stmt 1 view .LVU199
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccUTIJQG.s 			page 21
+ 888              		.loc 1 88 5 is_stmt 1 view .LVU209
+ 889              		.loc 1 88 8 is_stmt 0 view .LVU210
+ 890 0020 0446     		mov	r4, r0
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccc7byMl.s 			page 23
 
 
- 806              		.loc 1 88 8 is_stmt 0 view .LVU200
- 807 0020 0446     		mov	r4, r0
- 808              	.LVL76:
- 809              		.loc 1 88 8 view .LVU201
- 810 0022 00B3     		cbz	r0, .L76
+ 891              	.LVL91:
+ 892              		.loc 1 88 8 view .LVU211
+ 893 0022 00B3     		cbz	r0, .L76
   89:SynaptiX_FDK/app/user/sx_ex_storage/sx_ex_storage.c **** 
   90:SynaptiX_FDK/app/user/sx_ex_storage/sx_ex_storage.c ****     int ret = fread(buf, 1, len, f);
- 811              		.loc 1 90 5 is_stmt 1 view .LVU202
- 812              		.loc 1 90 15 is_stmt 0 view .LVU203
- 813 0024 DFF85080 		ldr	r8, .L80+4
- 814 0028 3346     		mov	r3, r6
- 815 002a 2A46     		mov	r2, r5
- 816 002c 0146     		mov	r1, r0
- 817 002e 4046     		mov	r0, r8
- 818              	.LVL77:
- 819              		.loc 1 90 15 view .LVU204
- 820 0030 FFF7FEFF 		bl	lfs_file_read
- 821              	.LVL78:
- 822              		.loc 1 90 15 view .LVU205
- 823 0034 0546     		mov	r5, r0
- 824              	.LVL79:
+ 894              		.loc 1 90 5 is_stmt 1 view .LVU212
+ 895              		.loc 1 90 15 is_stmt 0 view .LVU213
+ 896 0024 DFF85080 		ldr	r8, .L80+4
+ 897 0028 3346     		mov	r3, r6
+ 898 002a 2A46     		mov	r2, r5
+ 899 002c 0146     		mov	r1, r0
+ 900 002e 4046     		mov	r0, r8
+ 901              	.LVL92:
+ 902              		.loc 1 90 15 view .LVU214
+ 903 0030 FFF7FEFF 		bl	lfs_file_read
+ 904              	.LVL93:
+ 905              		.loc 1 90 15 view .LVU215
+ 906 0034 0546     		mov	r5, r0
+ 907              	.LVL94:
   91:SynaptiX_FDK/app/user/sx_ex_storage/sx_ex_storage.c ****     fclose(f);
- 825              		.loc 1 91 5 is_stmt 1 view .LVU206
- 826              		.loc 1 91 5 view .LVU207
- 827 0036 2146     		mov	r1, r4
- 828 0038 4046     		mov	r0, r8
- 829              	.LVL80:
- 830              		.loc 1 91 5 is_stmt 0 view .LVU208
- 831 003a FFF7FEFF 		bl	lfs_file_close
- 832              	.LVL81:
- 833              		.loc 1 91 5 is_stmt 1 discriminator 1 view .LVU209
- 834 003e 2046     		mov	r0, r4
- 835 0040 FFF7FEFF 		bl	free
- 836              	.LVL82:
- 837              		.loc 1 91 5 discriminator 2 view .LVU210
+ 908              		.loc 1 91 5 is_stmt 1 view .LVU216
+ 909              		.loc 1 91 5 view .LVU217
+ 910 0036 2146     		mov	r1, r4
+ 911 0038 4046     		mov	r0, r8
+ 912              	.LVL95:
+ 913              		.loc 1 91 5 is_stmt 0 view .LVU218
+ 914 003a FFF7FEFF 		bl	lfs_file_close
+ 915              	.LVL96:
+ 916              		.loc 1 91 5 is_stmt 1 discriminator 1 view .LVU219
+ 917 003e 2046     		mov	r0, r4
+ 918 0040 FFF7FEFF 		bl	free
+ 919              	.LVL97:
+ 920              		.loc 1 91 5 discriminator 2 view .LVU220
   92:SynaptiX_FDK/app/user/sx_ex_storage/sx_ex_storage.c **** 
   93:SynaptiX_FDK/app/user/sx_ex_storage/sx_ex_storage.c ****     if (ret < 0) return SX_STORAGE_ERR_IO;
- 838              		.loc 1 93 5 view .LVU211
- 839              		.loc 1 93 8 is_stmt 0 view .LVU212
- 840 0044 002D     		cmp	r5, #0
- 841 0046 11DB     		blt	.L79
- 842              	.LVL83:
- 843              	.L71:
+ 921              		.loc 1 93 5 view .LVU221
+ 922              		.loc 1 93 8 is_stmt 0 view .LVU222
+ 923 0044 002D     		cmp	r5, #0
+ 924 0046 11DB     		blt	.L79
+ 925              	.LVL98:
+ 926              	.L71:
   94:SynaptiX_FDK/app/user/sx_ex_storage/sx_ex_storage.c ****     return SX_STORAGE_OK;
   95:SynaptiX_FDK/app/user/sx_ex_storage/sx_ex_storage.c **** }
- 844              		.loc 1 95 1 view .LVU213
- 845 0048 3846     		mov	r0, r7
- 846 004a BDE8F081 		pop	{r4, r5, r6, r7, r8, pc}
- 847              	.LVL84:
- 848              	.L72:
+ 927              		.loc 1 95 1 view .LVU223
+ 928 0048 3846     		mov	r0, r7
+ 929 004a BDE8F081 		pop	{r4, r5, r6, r7, r8, pc}
+ 930              	.LVL99:
+ 931              	.L72:
   84:SynaptiX_FDK/app/user/sx_ex_storage/sx_ex_storage.c ****     if (path == NULL || buf == NULL || len == 0) return SX_STORAGE_ERR_INVALID;
- 849              		.loc 1 84 57 discriminator 1 view .LVU214
- 850 004e 6FF00407 		mvn	r7, #4
- 851 0052 F9E7     		b	.L71
- 852              	.L73:
+ 932              		.loc 1 84 57 discriminator 1 view .LVU224
+ 933 004e 6FF00407 		mvn	r7, #4
+ 934 0052 F9E7     		b	.L71
+ 935              	.L73:
   85:SynaptiX_FDK/app/user/sx_ex_storage/sx_ex_storage.c **** 
- 853              		.loc 1 85 57 discriminator 5 view .LVU215
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccUTIJQG.s 			page 22
+ 936              		.loc 1 85 57 discriminator 5 view .LVU225
+ 937 0054 4FF0FF37 		mov	r7, #-1
+ 938 0058 F6E7     		b	.L71
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccc7byMl.s 			page 24
 
 
- 854 0054 4FF0FF37 		mov	r7, #-1
- 855 0058 F6E7     		b	.L71
- 856              	.L74:
- 857 005a 4FF0FF37 		mov	r7, #-1
- 858 005e F3E7     		b	.L71
- 859              	.L75:
- 860 0060 4FF0FF37 		mov	r7, #-1
- 861 0064 F0E7     		b	.L71
- 862              	.LVL85:
- 863              	.L76:
+ 939              	.L74:
+ 940 005a 4FF0FF37 		mov	r7, #-1
+ 941 005e F3E7     		b	.L71
+ 942              	.L75:
+ 943 0060 4FF0FF37 		mov	r7, #-1
+ 944 0064 F0E7     		b	.L71
+ 945              	.LVL100:
+ 946              	.L76:
   88:SynaptiX_FDK/app/user/sx_ex_storage/sx_ex_storage.c **** 
- 864              		.loc 1 88 27 discriminator 1 view .LVU216
- 865 0066 6FF00207 		mvn	r7, #2
- 866 006a EDE7     		b	.L71
- 867              	.LVL86:
- 868              	.L79:
+ 947              		.loc 1 88 27 discriminator 1 view .LVU226
+ 948 0066 6FF00207 		mvn	r7, #2
+ 949 006a EDE7     		b	.L71
+ 950              	.LVL101:
+ 951              	.L79:
   93:SynaptiX_FDK/app/user/sx_ex_storage/sx_ex_storage.c ****     return SX_STORAGE_OK;
- 869              		.loc 1 93 25 discriminator 1 view .LVU217
- 870 006c 6FF00107 		mvn	r7, #1
- 871 0070 EAE7     		b	.L71
- 872              	.L81:
- 873 0072 00BF     		.align	2
- 874              	.L80:
- 875 0074 00000000 		.word	.LC7
- 876 0078 00000000 		.word	lfs
- 877              		.cfi_endproc
- 878              	.LFE534:
- 880              		.section	.text.sx_storage_read_partial,"ax",%progbits
- 881              		.align	1
- 882              		.global	sx_storage_read_partial
- 883              		.syntax unified
- 884              		.thumb
- 885              		.thumb_func
- 887              	sx_storage_read_partial:
- 888              	.LVL87:
- 889              	.LFB535:
+ 952              		.loc 1 93 25 discriminator 1 view .LVU227
+ 953 006c 6FF00107 		mvn	r7, #1
+ 954 0070 EAE7     		b	.L71
+ 955              	.L81:
+ 956 0072 00BF     		.align	2
+ 957              	.L80:
+ 958 0074 00000000 		.word	.LC12
+ 959 0078 00000000 		.word	lfs
+ 960              		.cfi_endproc
+ 961              	.LFE534:
+ 963              		.section	.text.sx_storage_read_partial,"ax",%progbits
+ 964              		.align	1
+ 965              		.global	sx_storage_read_partial
+ 966              		.syntax unified
+ 967              		.thumb
+ 968              		.thumb_func
+ 970              	sx_storage_read_partial:
+ 971              	.LVL102:
+ 972              	.LFB535:
   96:SynaptiX_FDK/app/user/sx_ex_storage/sx_ex_storage.c **** 
   97:SynaptiX_FDK/app/user/sx_ex_storage/sx_ex_storage.c **** sx_storage_err_t sx_storage_read_partial(const char *path, void *buf, uint32_t offset, uint32_t len
   98:SynaptiX_FDK/app/user/sx_ex_storage/sx_ex_storage.c **** {
- 890              		.loc 1 98 1 is_stmt 1 view -0
- 891              		.cfi_startproc
- 892              		@ args = 0, pretend = 0, frame = 0
- 893              		@ frame_needed = 0, uses_anonymous_args = 0
- 894              		.loc 1 98 1 is_stmt 0 view .LVU219
- 895 0000 2DE9F041 		push	{r4, r5, r6, r7, r8, lr}
- 896              	.LCFI8:
- 897              		.cfi_def_cfa_offset 24
- 898              		.cfi_offset 4, -24
- 899              		.cfi_offset 5, -20
- 900              		.cfi_offset 6, -16
- 901              		.cfi_offset 7, -12
- 902              		.cfi_offset 8, -8
- 903              		.cfi_offset 14, -4
- 904 0004 0446     		mov	r4, r0
- 905 0006 0D46     		mov	r5, r1
- 906 0008 1746     		mov	r7, r2
- 907 000a 1E46     		mov	r6, r3
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccUTIJQG.s 			page 23
-
-
+ 973              		.loc 1 98 1 is_stmt 1 view -0
+ 974              		.cfi_startproc
+ 975              		@ args = 0, pretend = 0, frame = 0
+ 976              		@ frame_needed = 0, uses_anonymous_args = 0
+ 977              		.loc 1 98 1 is_stmt 0 view .LVU229
+ 978 0000 2DE9F041 		push	{r4, r5, r6, r7, r8, lr}
+ 979              	.LCFI11:
+ 980              		.cfi_def_cfa_offset 24
+ 981              		.cfi_offset 4, -24
+ 982              		.cfi_offset 5, -20
+ 983              		.cfi_offset 6, -16
+ 984              		.cfi_offset 7, -12
+ 985              		.cfi_offset 8, -8
+ 986              		.cfi_offset 14, -4
+ 987 0004 0446     		mov	r4, r0
+ 988 0006 0D46     		mov	r5, r1
+ 989 0008 1746     		mov	r7, r2
+ 990 000a 1E46     		mov	r6, r3
   99:SynaptiX_FDK/app/user/sx_ex_storage/sx_ex_storage.c ****     if (_check_init() != SX_STORAGE_OK)          return SX_STORAGE_ERR_NOT_INIT;
- 908              		.loc 1 99 5 is_stmt 1 view .LVU220
- 909              		.loc 1 99 9 is_stmt 0 view .LVU221
- 910 000c FFF7FEFF 		bl	_check_init
- 911              	.LVL88:
- 912              		.loc 1 99 8 discriminator 1 view .LVU222
- 913 0010 78BB     		cbnz	r0, .L85
- 914 0012 8046     		mov	r8, r0
+ 991              		.loc 1 99 5 is_stmt 1 view .LVU230
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccc7byMl.s 			page 25
+
+
+ 992              		.loc 1 99 9 is_stmt 0 view .LVU231
+ 993 000c FFF7FEFF 		bl	_check_init
+ 994              	.LVL103:
+ 995              		.loc 1 99 8 discriminator 1 view .LVU232
+ 996 0010 78BB     		cbnz	r0, .L85
+ 997 0012 8046     		mov	r8, r0
  100:SynaptiX_FDK/app/user/sx_ex_storage/sx_ex_storage.c ****     if (path == NULL || buf == NULL || len == 0)  return SX_STORAGE_ERR_INVALID;
- 915              		.loc 1 100 5 is_stmt 1 view .LVU223
- 916              		.loc 1 100 8 is_stmt 0 view .LVU224
- 917 0014 84B3     		cbz	r4, .L86
- 918              		.loc 1 100 22 discriminator 2 view .LVU225
- 919 0016 95B3     		cbz	r5, .L87
- 920              		.loc 1 100 37 discriminator 4 view .LVU226
- 921 0018 A6B3     		cbz	r6, .L88
+ 998              		.loc 1 100 5 is_stmt 1 view .LVU233
+ 999              		.loc 1 100 8 is_stmt 0 view .LVU234
+ 1000 0014 84B3     		cbz	r4, .L86
+ 1001              		.loc 1 100 22 discriminator 2 view .LVU235
+ 1002 0016 95B3     		cbz	r5, .L87
+ 1003              		.loc 1 100 37 discriminator 4 view .LVU236
+ 1004 0018 A6B3     		cbz	r6, .L88
  101:SynaptiX_FDK/app/user/sx_ex_storage/sx_ex_storage.c **** 
  102:SynaptiX_FDK/app/user/sx_ex_storage/sx_ex_storage.c ****     FILE *f = fopen(path, "r");
- 922              		.loc 1 102 5 is_stmt 1 view .LVU227
- 923              		.loc 1 102 15 is_stmt 0 view .LVU228
- 924 001a 1F49     		ldr	r1, .L94
- 925 001c 2046     		mov	r0, r4
- 926 001e FFF7FEFF 		bl	file_open
- 927              	.LVL89:
+ 1005              		.loc 1 102 5 is_stmt 1 view .LVU237
+ 1006              		.loc 1 102 15 is_stmt 0 view .LVU238
+ 1007 001a 1F49     		ldr	r1, .L94
+ 1008 001c 2046     		mov	r0, r4
+ 1009 001e FFF7FEFF 		bl	file_open
+ 1010              	.LVL104:
  103:SynaptiX_FDK/app/user/sx_ex_storage/sx_ex_storage.c ****     if (f == NULL) return SX_STORAGE_ERR_NOT_FOUND;
- 928              		.loc 1 103 5 is_stmt 1 view .LVU229
- 929              		.loc 1 103 8 is_stmt 0 view .LVU230
- 930 0022 0446     		mov	r4, r0
- 931              	.LVL90:
- 932              		.loc 1 103 8 view .LVU231
- 933 0024 88B3     		cbz	r0, .L89
+ 1011              		.loc 1 103 5 is_stmt 1 view .LVU239
+ 1012              		.loc 1 103 8 is_stmt 0 view .LVU240
+ 1013 0022 0446     		mov	r4, r0
+ 1014              	.LVL105:
+ 1015              		.loc 1 103 8 view .LVU241
+ 1016 0024 88B3     		cbz	r0, .L89
  104:SynaptiX_FDK/app/user/sx_ex_storage/sx_ex_storage.c **** 
  105:SynaptiX_FDK/app/user/sx_ex_storage/sx_ex_storage.c ****     if (fseek(f, offset, LFS_SEEK_SET) < 0) {
- 934              		.loc 1 105 5 is_stmt 1 view .LVU232
- 935              		.loc 1 105 9 is_stmt 0 view .LVU233
- 936 0026 0023     		movs	r3, #0
- 937 0028 3A46     		mov	r2, r7
- 938 002a 0146     		mov	r1, r0
- 939 002c 1B48     		ldr	r0, .L94+4
- 940              	.LVL91:
- 941              		.loc 1 105 9 view .LVU234
- 942 002e FFF7FEFF 		bl	lfs_file_seek
- 943              	.LVL92:
- 944              		.loc 1 105 8 discriminator 1 view .LVU235
- 945 0032 0028     		cmp	r0, #0
- 946 0034 13DB     		blt	.L92
+ 1017              		.loc 1 105 5 is_stmt 1 view .LVU242
+ 1018              		.loc 1 105 9 is_stmt 0 view .LVU243
+ 1019 0026 0023     		movs	r3, #0
+ 1020 0028 3A46     		mov	r2, r7
+ 1021 002a 0146     		mov	r1, r0
+ 1022 002c 1B48     		ldr	r0, .L94+4
+ 1023              	.LVL106:
+ 1024              		.loc 1 105 9 view .LVU244
+ 1025 002e FFF7FEFF 		bl	lfs_file_seek
+ 1026              	.LVL107:
+ 1027              		.loc 1 105 8 discriminator 1 view .LVU245
+ 1028 0032 0028     		cmp	r0, #0
+ 1029 0034 13DB     		blt	.L92
  106:SynaptiX_FDK/app/user/sx_ex_storage/sx_ex_storage.c ****         fclose(f);
  107:SynaptiX_FDK/app/user/sx_ex_storage/sx_ex_storage.c ****         return SX_STORAGE_ERR_IO;
  108:SynaptiX_FDK/app/user/sx_ex_storage/sx_ex_storage.c ****     }
  109:SynaptiX_FDK/app/user/sx_ex_storage/sx_ex_storage.c **** 
  110:SynaptiX_FDK/app/user/sx_ex_storage/sx_ex_storage.c ****     int ret = fread(buf, 1, len, f);
- 947              		.loc 1 110 5 is_stmt 1 view .LVU236
- 948              		.loc 1 110 15 is_stmt 0 view .LVU237
- 949 0036 194F     		ldr	r7, .L94+4
- 950              	.LVL93:
- 951              		.loc 1 110 15 view .LVU238
- 952 0038 3346     		mov	r3, r6
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccUTIJQG.s 			page 24
+ 1030              		.loc 1 110 5 is_stmt 1 view .LVU246
+ 1031              		.loc 1 110 15 is_stmt 0 view .LVU247
+ 1032 0036 194F     		ldr	r7, .L94+4
+ 1033              	.LVL108:
+ 1034              		.loc 1 110 15 view .LVU248
+ 1035 0038 3346     		mov	r3, r6
+ 1036 003a 2A46     		mov	r2, r5
+ 1037 003c 2146     		mov	r1, r4
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccc7byMl.s 			page 26
 
 
- 953 003a 2A46     		mov	r2, r5
- 954 003c 2146     		mov	r1, r4
- 955 003e 3846     		mov	r0, r7
- 956 0040 FFF7FEFF 		bl	lfs_file_read
- 957              	.LVL94:
- 958 0044 0546     		mov	r5, r0
- 959              	.LVL95:
+ 1038 003e 3846     		mov	r0, r7
+ 1039 0040 FFF7FEFF 		bl	lfs_file_read
+ 1040              	.LVL109:
+ 1041 0044 0546     		mov	r5, r0
+ 1042              	.LVL110:
  111:SynaptiX_FDK/app/user/sx_ex_storage/sx_ex_storage.c ****     fclose(f);
- 960              		.loc 1 111 5 is_stmt 1 view .LVU239
- 961              		.loc 1 111 5 view .LVU240
- 962 0046 2146     		mov	r1, r4
- 963 0048 3846     		mov	r0, r7
- 964              	.LVL96:
- 965              		.loc 1 111 5 is_stmt 0 view .LVU241
- 966 004a FFF7FEFF 		bl	lfs_file_close
- 967              	.LVL97:
- 968              		.loc 1 111 5 is_stmt 1 discriminator 1 view .LVU242
- 969 004e 2046     		mov	r0, r4
- 970 0050 FFF7FEFF 		bl	free
- 971              	.LVL98:
- 972              		.loc 1 111 5 discriminator 2 view .LVU243
+ 1043              		.loc 1 111 5 is_stmt 1 view .LVU249
+ 1044              		.loc 1 111 5 view .LVU250
+ 1045 0046 2146     		mov	r1, r4
+ 1046 0048 3846     		mov	r0, r7
+ 1047              	.LVL111:
+ 1048              		.loc 1 111 5 is_stmt 0 view .LVU251
+ 1049 004a FFF7FEFF 		bl	lfs_file_close
+ 1050              	.LVL112:
+ 1051              		.loc 1 111 5 is_stmt 1 discriminator 1 view .LVU252
+ 1052 004e 2046     		mov	r0, r4
+ 1053 0050 FFF7FEFF 		bl	free
+ 1054              	.LVL113:
+ 1055              		.loc 1 111 5 discriminator 2 view .LVU253
  112:SynaptiX_FDK/app/user/sx_ex_storage/sx_ex_storage.c **** 
  113:SynaptiX_FDK/app/user/sx_ex_storage/sx_ex_storage.c ****     if (ret < 0) return SX_STORAGE_ERR_IO;
- 973              		.loc 1 113 5 view .LVU244
- 974              		.loc 1 113 8 is_stmt 0 view .LVU245
- 975 0054 002D     		cmp	r5, #0
- 976 0056 1BDB     		blt	.L93
- 977              	.LVL99:
- 978              	.L83:
+ 1056              		.loc 1 113 5 view .LVU254
+ 1057              		.loc 1 113 8 is_stmt 0 view .LVU255
+ 1058 0054 002D     		cmp	r5, #0
+ 1059 0056 1BDB     		blt	.L93
+ 1060              	.LVL114:
+ 1061              	.L83:
  114:SynaptiX_FDK/app/user/sx_ex_storage/sx_ex_storage.c ****     return SX_STORAGE_OK;
  115:SynaptiX_FDK/app/user/sx_ex_storage/sx_ex_storage.c **** }
- 979              		.loc 1 115 1 view .LVU246
- 980 0058 4046     		mov	r0, r8
- 981 005a BDE8F081 		pop	{r4, r5, r6, r7, r8, pc}
- 982              	.LVL100:
- 983              	.L92:
+ 1062              		.loc 1 115 1 view .LVU256
+ 1063 0058 4046     		mov	r0, r8
+ 1064 005a BDE8F081 		pop	{r4, r5, r6, r7, r8, pc}
+ 1065              	.LVL115:
+ 1066              	.L92:
  106:SynaptiX_FDK/app/user/sx_ex_storage/sx_ex_storage.c ****         return SX_STORAGE_ERR_IO;
- 984              		.loc 1 106 9 is_stmt 1 view .LVU247
+ 1067              		.loc 1 106 9 is_stmt 1 view .LVU257
  106:SynaptiX_FDK/app/user/sx_ex_storage/sx_ex_storage.c ****         return SX_STORAGE_ERR_IO;
- 985              		.loc 1 106 9 view .LVU248
- 986 005e 2146     		mov	r1, r4
- 987 0060 0E48     		ldr	r0, .L94+4
- 988 0062 FFF7FEFF 		bl	lfs_file_close
- 989              	.LVL101:
+ 1068              		.loc 1 106 9 view .LVU258
+ 1069 005e 2146     		mov	r1, r4
+ 1070 0060 0E48     		ldr	r0, .L94+4
+ 1071 0062 FFF7FEFF 		bl	lfs_file_close
+ 1072              	.LVL116:
  106:SynaptiX_FDK/app/user/sx_ex_storage/sx_ex_storage.c ****         return SX_STORAGE_ERR_IO;
- 990              		.loc 1 106 9 discriminator 1 view .LVU249
- 991 0066 2046     		mov	r0, r4
- 992 0068 FFF7FEFF 		bl	free
- 993              	.LVL102:
+ 1073              		.loc 1 106 9 discriminator 1 view .LVU259
+ 1074 0066 2046     		mov	r0, r4
+ 1075 0068 FFF7FEFF 		bl	free
+ 1076              	.LVL117:
  106:SynaptiX_FDK/app/user/sx_ex_storage/sx_ex_storage.c ****         return SX_STORAGE_ERR_IO;
- 994              		.loc 1 106 9 discriminator 2 view .LVU250
+ 1077              		.loc 1 106 9 discriminator 2 view .LVU260
  107:SynaptiX_FDK/app/user/sx_ex_storage/sx_ex_storage.c ****     }
- 995              		.loc 1 107 9 view .LVU251
+ 1078              		.loc 1 107 9 view .LVU261
  107:SynaptiX_FDK/app/user/sx_ex_storage/sx_ex_storage.c ****     }
- 996              		.loc 1 107 16 is_stmt 0 view .LVU252
- 997 006c 6FF00108 		mvn	r8, #1
- 998 0070 F2E7     		b	.L83
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccUTIJQG.s 			page 25
+ 1079              		.loc 1 107 16 is_stmt 0 view .LVU262
+ 1080 006c 6FF00108 		mvn	r8, #1
+ 1081 0070 F2E7     		b	.L83
+ 1082              	.LVL118:
+ 1083              	.L85:
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccc7byMl.s 			page 27
 
 
- 999              	.LVL103:
- 1000              	.L85:
   99:SynaptiX_FDK/app/user/sx_ex_storage/sx_ex_storage.c ****     if (path == NULL || buf == NULL || len == 0)  return SX_STORAGE_ERR_INVALID;
- 1001              		.loc 1 99 57 discriminator 1 view .LVU253
- 1002 0072 6FF00408 		mvn	r8, #4
- 1003 0076 EFE7     		b	.L83
- 1004              	.L86:
+ 1084              		.loc 1 99 57 discriminator 1 view .LVU263
+ 1085 0072 6FF00408 		mvn	r8, #4
+ 1086 0076 EFE7     		b	.L83
+ 1087              	.L86:
  100:SynaptiX_FDK/app/user/sx_ex_storage/sx_ex_storage.c **** 
- 1005              		.loc 1 100 58 discriminator 5 view .LVU254
- 1006 0078 4FF0FF38 		mov	r8, #-1
- 1007 007c ECE7     		b	.L83
- 1008              	.L87:
- 1009 007e 4FF0FF38 		mov	r8, #-1
- 1010 0082 E9E7     		b	.L83
- 1011              	.L88:
- 1012 0084 4FF0FF38 		mov	r8, #-1
- 1013 0088 E6E7     		b	.L83
- 1014              	.LVL104:
- 1015              	.L89:
+ 1088              		.loc 1 100 58 discriminator 5 view .LVU264
+ 1089 0078 4FF0FF38 		mov	r8, #-1
+ 1090 007c ECE7     		b	.L83
+ 1091              	.L87:
+ 1092 007e 4FF0FF38 		mov	r8, #-1
+ 1093 0082 E9E7     		b	.L83
+ 1094              	.L88:
+ 1095 0084 4FF0FF38 		mov	r8, #-1
+ 1096 0088 E6E7     		b	.L83
+ 1097              	.LVL119:
+ 1098              	.L89:
  103:SynaptiX_FDK/app/user/sx_ex_storage/sx_ex_storage.c **** 
- 1016              		.loc 1 103 27 discriminator 1 view .LVU255
- 1017 008a 6FF00208 		mvn	r8, #2
- 1018 008e E3E7     		b	.L83
- 1019              	.LVL105:
- 1020              	.L93:
+ 1099              		.loc 1 103 27 discriminator 1 view .LVU265
+ 1100 008a 6FF00208 		mvn	r8, #2
+ 1101 008e E3E7     		b	.L83
+ 1102              	.LVL120:
+ 1103              	.L93:
  113:SynaptiX_FDK/app/user/sx_ex_storage/sx_ex_storage.c ****     return SX_STORAGE_OK;
- 1021              		.loc 1 113 25 discriminator 1 view .LVU256
- 1022 0090 6FF00108 		mvn	r8, #1
- 1023 0094 E0E7     		b	.L83
- 1024              	.L95:
- 1025 0096 00BF     		.align	2
- 1026              	.L94:
- 1027 0098 00000000 		.word	.LC7
- 1028 009c 00000000 		.word	lfs
- 1029              		.cfi_endproc
- 1030              	.LFE535:
- 1032              		.section	.text.sx_storage_delete,"ax",%progbits
- 1033              		.align	1
- 1034              		.global	sx_storage_delete
- 1035              		.syntax unified
- 1036              		.thumb
- 1037              		.thumb_func
- 1039              	sx_storage_delete:
- 1040              	.LVL106:
- 1041              	.LFB536:
+ 1104              		.loc 1 113 25 discriminator 1 view .LVU266
+ 1105 0090 6FF00108 		mvn	r8, #1
+ 1106 0094 E0E7     		b	.L83
+ 1107              	.L95:
+ 1108 0096 00BF     		.align	2
+ 1109              	.L94:
+ 1110 0098 00000000 		.word	.LC12
+ 1111 009c 00000000 		.word	lfs
+ 1112              		.cfi_endproc
+ 1113              	.LFE535:
+ 1115              		.section	.text.sx_storage_delete,"ax",%progbits
+ 1116              		.align	1
+ 1117              		.global	sx_storage_delete
+ 1118              		.syntax unified
+ 1119              		.thumb
+ 1120              		.thumb_func
+ 1122              	sx_storage_delete:
+ 1123              	.LVL121:
+ 1124              	.LFB536:
  116:SynaptiX_FDK/app/user/sx_ex_storage/sx_ex_storage.c **** 
  117:SynaptiX_FDK/app/user/sx_ex_storage/sx_ex_storage.c **** sx_storage_err_t sx_storage_delete(const char *path)
  118:SynaptiX_FDK/app/user/sx_ex_storage/sx_ex_storage.c **** {
- 1042              		.loc 1 118 1 is_stmt 1 view -0
- 1043              		.cfi_startproc
- 1044              		@ args = 0, pretend = 0, frame = 0
- 1045              		@ frame_needed = 0, uses_anonymous_args = 0
- 1046              		.loc 1 118 1 is_stmt 0 view .LVU258
- 1047 0000 38B5     		push	{r3, r4, r5, lr}
- 1048              	.LCFI9:
- 1049              		.cfi_def_cfa_offset 16
- 1050              		.cfi_offset 3, -16
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccUTIJQG.s 			page 26
+ 1125              		.loc 1 118 1 is_stmt 1 view -0
+ 1126              		.cfi_startproc
+ 1127              		@ args = 0, pretend = 0, frame = 0
+ 1128              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1129              		.loc 1 118 1 is_stmt 0 view .LVU268
+ 1130 0000 38B5     		push	{r3, r4, r5, lr}
+ 1131              	.LCFI12:
+ 1132              		.cfi_def_cfa_offset 16
+ 1133              		.cfi_offset 3, -16
+ 1134              		.cfi_offset 4, -12
+ 1135              		.cfi_offset 5, -8
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccc7byMl.s 			page 28
 
 
- 1051              		.cfi_offset 4, -12
- 1052              		.cfi_offset 5, -8
- 1053              		.cfi_offset 14, -4
- 1054 0002 0446     		mov	r4, r0
+ 1136              		.cfi_offset 14, -4
+ 1137 0002 0446     		mov	r4, r0
  119:SynaptiX_FDK/app/user/sx_ex_storage/sx_ex_storage.c ****     if (_check_init() != SX_STORAGE_OK) return SX_STORAGE_ERR_NOT_INIT;
- 1055              		.loc 1 119 5 is_stmt 1 view .LVU259
- 1056              		.loc 1 119 9 is_stmt 0 view .LVU260
- 1057 0004 FFF7FEFF 		bl	_check_init
- 1058              	.LVL107:
- 1059              		.loc 1 119 8 discriminator 1 view .LVU261
- 1060 0008 48B9     		cbnz	r0, .L98
- 1061 000a 0546     		mov	r5, r0
+ 1138              		.loc 1 119 5 is_stmt 1 view .LVU269
+ 1139              		.loc 1 119 9 is_stmt 0 view .LVU270
+ 1140 0004 FFF7FEFF 		bl	_check_init
+ 1141              	.LVL122:
+ 1142              		.loc 1 119 8 discriminator 1 view .LVU271
+ 1143 0008 48B9     		cbnz	r0, .L98
+ 1144 000a 0546     		mov	r5, r0
  120:SynaptiX_FDK/app/user/sx_ex_storage/sx_ex_storage.c ****     if (path == NULL)                    return SX_STORAGE_ERR_INVALID;
- 1062              		.loc 1 120 5 is_stmt 1 view .LVU262
- 1063              		.loc 1 120 8 is_stmt 0 view .LVU263
- 1064 000c 54B1     		cbz	r4, .L99
+ 1145              		.loc 1 120 5 is_stmt 1 view .LVU272
+ 1146              		.loc 1 120 8 is_stmt 0 view .LVU273
+ 1147 000c 54B1     		cbz	r4, .L99
  121:SynaptiX_FDK/app/user/sx_ex_storage/sx_ex_storage.c **** 
  122:SynaptiX_FDK/app/user/sx_ex_storage/sx_ex_storage.c ****     if (remove(path) < 0) return SX_STORAGE_ERR_NOT_FOUND;
- 1065              		.loc 1 122 5 is_stmt 1 view .LVU264
- 1066              		.loc 1 122 9 is_stmt 0 view .LVU265
- 1067 000e 2146     		mov	r1, r4
- 1068 0010 0748     		ldr	r0, .L103
- 1069 0012 FFF7FEFF 		bl	lfs_remove
- 1070              	.LVL108:
- 1071              		.loc 1 122 8 discriminator 1 view .LVU266
- 1072 0016 0028     		cmp	r0, #0
- 1073 0018 07DB     		blt	.L102
- 1074              	.L97:
+ 1148              		.loc 1 122 5 is_stmt 1 view .LVU274
+ 1149              		.loc 1 122 9 is_stmt 0 view .LVU275
+ 1150 000e 2146     		mov	r1, r4
+ 1151 0010 0748     		ldr	r0, .L103
+ 1152 0012 FFF7FEFF 		bl	lfs_remove
+ 1153              	.LVL123:
+ 1154              		.loc 1 122 8 discriminator 1 view .LVU276
+ 1155 0016 0028     		cmp	r0, #0
+ 1156 0018 07DB     		blt	.L102
+ 1157              	.L97:
  123:SynaptiX_FDK/app/user/sx_ex_storage/sx_ex_storage.c ****     return SX_STORAGE_OK;
  124:SynaptiX_FDK/app/user/sx_ex_storage/sx_ex_storage.c **** }
- 1075              		.loc 1 124 1 view .LVU267
- 1076 001a 2846     		mov	r0, r5
- 1077 001c 38BD     		pop	{r3, r4, r5, pc}
- 1078              	.LVL109:
- 1079              	.L98:
+ 1158              		.loc 1 124 1 view .LVU277
+ 1159 001a 2846     		mov	r0, r5
+ 1160 001c 38BD     		pop	{r3, r4, r5, pc}
+ 1161              	.LVL124:
+ 1162              	.L98:
  119:SynaptiX_FDK/app/user/sx_ex_storage/sx_ex_storage.c ****     if (path == NULL)                    return SX_STORAGE_ERR_INVALID;
- 1080              		.loc 1 119 48 discriminator 1 view .LVU268
- 1081 001e 6FF00405 		mvn	r5, #4
- 1082 0022 FAE7     		b	.L97
- 1083              	.L99:
+ 1163              		.loc 1 119 48 discriminator 1 view .LVU278
+ 1164 001e 6FF00405 		mvn	r5, #4
+ 1165 0022 FAE7     		b	.L97
+ 1166              	.L99:
  120:SynaptiX_FDK/app/user/sx_ex_storage/sx_ex_storage.c **** 
- 1084              		.loc 1 120 49 discriminator 1 view .LVU269
- 1085 0024 4FF0FF35 		mov	r5, #-1
- 1086 0028 F7E7     		b	.L97
- 1087              	.L102:
+ 1167              		.loc 1 120 49 discriminator 1 view .LVU279
+ 1168 0024 4FF0FF35 		mov	r5, #-1
+ 1169 0028 F7E7     		b	.L97
+ 1170              	.L102:
  122:SynaptiX_FDK/app/user/sx_ex_storage/sx_ex_storage.c ****     return SX_STORAGE_OK;
- 1088              		.loc 1 122 34 discriminator 1 view .LVU270
- 1089 002a 6FF00205 		mvn	r5, #2
- 1090 002e F4E7     		b	.L97
- 1091              	.L104:
- 1092              		.align	2
- 1093              	.L103:
- 1094 0030 00000000 		.word	lfs
- 1095              		.cfi_endproc
- 1096              	.LFE536:
- 1098              		.section	.text.sx_storage_exists,"ax",%progbits
- 1099              		.align	1
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccUTIJQG.s 			page 27
+ 1171              		.loc 1 122 34 discriminator 1 view .LVU280
+ 1172 002a 6FF00205 		mvn	r5, #2
+ 1173 002e F4E7     		b	.L97
+ 1174              	.L104:
+ 1175              		.align	2
+ 1176              	.L103:
+ 1177 0030 00000000 		.word	lfs
+ 1178              		.cfi_endproc
+ 1179              	.LFE536:
+ 1181              		.section	.text.sx_storage_exists,"ax",%progbits
+ 1182              		.align	1
+ 1183              		.global	sx_storage_exists
+ 1184              		.syntax unified
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccc7byMl.s 			page 29
 
 
- 1100              		.global	sx_storage_exists
- 1101              		.syntax unified
- 1102              		.thumb
- 1103              		.thumb_func
- 1105              	sx_storage_exists:
- 1106              	.LVL110:
- 1107              	.LFB537:
+ 1185              		.thumb
+ 1186              		.thumb_func
+ 1188              	sx_storage_exists:
+ 1189              	.LVL125:
+ 1190              	.LFB537:
  125:SynaptiX_FDK/app/user/sx_ex_storage/sx_ex_storage.c **** 
  126:SynaptiX_FDK/app/user/sx_ex_storage/sx_ex_storage.c **** bool sx_storage_exists(const char *path){
- 1108              		.loc 1 126 41 is_stmt 1 view -0
- 1109              		.cfi_startproc
- 1110              		@ args = 0, pretend = 0, frame = 0
- 1111              		@ frame_needed = 0, uses_anonymous_args = 0
- 1112              		.loc 1 126 41 is_stmt 0 view .LVU272
- 1113 0000 38B5     		push	{r3, r4, r5, lr}
- 1114              	.LCFI10:
- 1115              		.cfi_def_cfa_offset 16
- 1116              		.cfi_offset 3, -16
- 1117              		.cfi_offset 4, -12
- 1118              		.cfi_offset 5, -8
- 1119              		.cfi_offset 14, -4
+ 1191              		.loc 1 126 41 is_stmt 1 view -0
+ 1192              		.cfi_startproc
+ 1193              		@ args = 0, pretend = 0, frame = 0
+ 1194              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1195              		.loc 1 126 41 is_stmt 0 view .LVU282
+ 1196 0000 38B5     		push	{r3, r4, r5, lr}
+ 1197              	.LCFI13:
+ 1198              		.cfi_def_cfa_offset 16
+ 1199              		.cfi_offset 3, -16
+ 1200              		.cfi_offset 4, -12
+ 1201              		.cfi_offset 5, -8
+ 1202              		.cfi_offset 14, -4
  127:SynaptiX_FDK/app/user/sx_ex_storage/sx_ex_storage.c ****     if (!s_initialized || path == NULL) return false;
- 1120              		.loc 1 127 5 is_stmt 1 view .LVU273
- 1121              		.loc 1 127 9 is_stmt 0 view .LVU274
- 1122 0002 0B4B     		ldr	r3, .L110
- 1123 0004 1C78     		ldrb	r4, [r3]	@ zero_extendqisi2
- 1124              		.loc 1 127 8 view .LVU275
- 1125 0006 64B1     		cbz	r4, .L106
- 1126              		.loc 1 127 24 discriminator 2 view .LVU276
- 1127 0008 68B1     		cbz	r0, .L107
+ 1203              		.loc 1 127 5 is_stmt 1 view .LVU283
+ 1204              		.loc 1 127 9 is_stmt 0 view .LVU284
+ 1205 0002 0B4B     		ldr	r3, .L110
+ 1206 0004 1C78     		ldrb	r4, [r3]	@ zero_extendqisi2
+ 1207              		.loc 1 127 8 view .LVU285
+ 1208 0006 64B1     		cbz	r4, .L106
+ 1209              		.loc 1 127 24 discriminator 2 view .LVU286
+ 1210 0008 68B1     		cbz	r0, .L107
  128:SynaptiX_FDK/app/user/sx_ex_storage/sx_ex_storage.c **** 
  129:SynaptiX_FDK/app/user/sx_ex_storage/sx_ex_storage.c ****     FILE *f = fopen(path, "r");
- 1128              		.loc 1 129 5 is_stmt 1 view .LVU277
- 1129              		.loc 1 129 15 is_stmt 0 view .LVU278
- 1130 000a 0A49     		ldr	r1, .L110+4
- 1131 000c FFF7FEFF 		bl	file_open
- 1132              	.LVL111:
+ 1211              		.loc 1 129 5 is_stmt 1 view .LVU287
+ 1212              		.loc 1 129 15 is_stmt 0 view .LVU288
+ 1213 000a 0A49     		ldr	r1, .L110+4
+ 1214 000c FFF7FEFF 		bl	file_open
+ 1215              	.LVL126:
  130:SynaptiX_FDK/app/user/sx_ex_storage/sx_ex_storage.c ****     if (f == NULL) return false;
- 1133              		.loc 1 130 5 is_stmt 1 view .LVU279
- 1134              		.loc 1 130 8 is_stmt 0 view .LVU280
- 1135 0010 0546     		mov	r5, r0
- 1136 0012 50B1     		cbz	r0, .L108
+ 1216              		.loc 1 130 5 is_stmt 1 view .LVU289
+ 1217              		.loc 1 130 8 is_stmt 0 view .LVU290
+ 1218 0010 0546     		mov	r5, r0
+ 1219 0012 50B1     		cbz	r0, .L108
  131:SynaptiX_FDK/app/user/sx_ex_storage/sx_ex_storage.c ****     fclose(f);
- 1137              		.loc 1 131 5 is_stmt 1 view .LVU281
- 1138              		.loc 1 131 5 view .LVU282
- 1139 0014 0146     		mov	r1, r0
- 1140 0016 0848     		ldr	r0, .L110+8
- 1141              	.LVL112:
- 1142              		.loc 1 131 5 is_stmt 0 view .LVU283
- 1143 0018 FFF7FEFF 		bl	lfs_file_close
- 1144              	.LVL113:
- 1145              		.loc 1 131 5 is_stmt 1 discriminator 1 view .LVU284
- 1146 001c 2846     		mov	r0, r5
- 1147 001e FFF7FEFF 		bl	free
- 1148              	.LVL114:
- 1149              		.loc 1 131 5 discriminator 2 view .LVU285
+ 1220              		.loc 1 131 5 is_stmt 1 view .LVU291
+ 1221              		.loc 1 131 5 view .LVU292
+ 1222 0014 0146     		mov	r1, r0
+ 1223 0016 0848     		ldr	r0, .L110+8
+ 1224              	.LVL127:
+ 1225              		.loc 1 131 5 is_stmt 0 view .LVU293
+ 1226 0018 FFF7FEFF 		bl	lfs_file_close
+ 1227              	.LVL128:
+ 1228              		.loc 1 131 5 is_stmt 1 discriminator 1 view .LVU294
+ 1229 001c 2846     		mov	r0, r5
+ 1230 001e FFF7FEFF 		bl	free
+ 1231              	.LVL129:
+ 1232              		.loc 1 131 5 discriminator 2 view .LVU295
  132:SynaptiX_FDK/app/user/sx_ex_storage/sx_ex_storage.c ****     return true;
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccUTIJQG.s 			page 28
+ 1233              		.loc 1 132 5 view .LVU296
+ 1234              	.L106:
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccc7byMl.s 			page 30
 
 
- 1150              		.loc 1 132 5 view .LVU286
- 1151              	.L106:
  133:SynaptiX_FDK/app/user/sx_ex_storage/sx_ex_storage.c **** }
- 1152              		.loc 1 133 1 is_stmt 0 view .LVU287
- 1153 0022 2046     		mov	r0, r4
- 1154 0024 38BD     		pop	{r3, r4, r5, pc}
- 1155              	.LVL115:
- 1156              	.L107:
+ 1235              		.loc 1 133 1 is_stmt 0 view .LVU297
+ 1236 0022 2046     		mov	r0, r4
+ 1237 0024 38BD     		pop	{r3, r4, r5, pc}
+ 1238              	.LVL130:
+ 1239              	.L107:
  127:SynaptiX_FDK/app/user/sx_ex_storage/sx_ex_storage.c **** 
- 1157              		.loc 1 127 48 discriminator 3 view .LVU288
- 1158 0026 0024     		movs	r4, #0
- 1159 0028 FBE7     		b	.L106
- 1160              	.LVL116:
- 1161              	.L108:
+ 1240              		.loc 1 127 48 discriminator 3 view .LVU298
+ 1241 0026 0024     		movs	r4, #0
+ 1242 0028 FBE7     		b	.L106
+ 1243              	.LVL131:
+ 1244              	.L108:
  130:SynaptiX_FDK/app/user/sx_ex_storage/sx_ex_storage.c ****     fclose(f);
- 1162              		.loc 1 130 27 discriminator 1 view .LVU289
- 1163 002a 0024     		movs	r4, #0
- 1164 002c F9E7     		b	.L106
- 1165              	.L111:
- 1166 002e 00BF     		.align	2
- 1167              	.L110:
- 1168 0030 00000000 		.word	s_initialized
- 1169 0034 00000000 		.word	.LC7
- 1170 0038 00000000 		.word	lfs
- 1171              		.cfi_endproc
- 1172              	.LFE537:
- 1174              		.section	.text.sx_storage_size,"ax",%progbits
- 1175              		.align	1
- 1176              		.global	sx_storage_size
- 1177              		.syntax unified
- 1178              		.thumb
- 1179              		.thumb_func
- 1181              	sx_storage_size:
- 1182              	.LVL117:
- 1183              	.LFB538:
+ 1245              		.loc 1 130 27 discriminator 1 view .LVU299
+ 1246 002a 0024     		movs	r4, #0
+ 1247 002c F9E7     		b	.L106
+ 1248              	.L111:
+ 1249 002e 00BF     		.align	2
+ 1250              	.L110:
+ 1251 0030 00000000 		.word	s_initialized
+ 1252 0034 00000000 		.word	.LC12
+ 1253 0038 00000000 		.word	lfs
+ 1254              		.cfi_endproc
+ 1255              	.LFE537:
+ 1257              		.section	.text.sx_storage_size,"ax",%progbits
+ 1258              		.align	1
+ 1259              		.global	sx_storage_size
+ 1260              		.syntax unified
+ 1261              		.thumb
+ 1262              		.thumb_func
+ 1264              	sx_storage_size:
+ 1265              	.LVL132:
+ 1266              	.LFB538:
  134:SynaptiX_FDK/app/user/sx_ex_storage/sx_ex_storage.c **** 
  135:SynaptiX_FDK/app/user/sx_ex_storage/sx_ex_storage.c **** int32_t sx_storage_size(const char *path)
  136:SynaptiX_FDK/app/user/sx_ex_storage/sx_ex_storage.c **** {
- 1184              		.loc 1 136 1 is_stmt 1 view -0
- 1185              		.cfi_startproc
- 1186              		@ args = 0, pretend = 0, frame = 0
- 1187              		@ frame_needed = 0, uses_anonymous_args = 0
- 1188              		.loc 1 136 1 is_stmt 0 view .LVU291
- 1189 0000 70B5     		push	{r4, r5, r6, lr}
- 1190              	.LCFI11:
- 1191              		.cfi_def_cfa_offset 16
- 1192              		.cfi_offset 4, -16
- 1193              		.cfi_offset 5, -12
- 1194              		.cfi_offset 6, -8
- 1195              		.cfi_offset 14, -4
+ 1267              		.loc 1 136 1 is_stmt 1 view -0
+ 1268              		.cfi_startproc
+ 1269              		@ args = 0, pretend = 0, frame = 0
+ 1270              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1271              		.loc 1 136 1 is_stmt 0 view .LVU301
+ 1272 0000 70B5     		push	{r4, r5, r6, lr}
+ 1273              	.LCFI14:
+ 1274              		.cfi_def_cfa_offset 16
+ 1275              		.cfi_offset 4, -16
+ 1276              		.cfi_offset 5, -12
+ 1277              		.cfi_offset 6, -8
+ 1278              		.cfi_offset 14, -4
  137:SynaptiX_FDK/app/user/sx_ex_storage/sx_ex_storage.c ****     if (!s_initialized || path == NULL) return -1;
- 1196              		.loc 1 137 5 is_stmt 1 view .LVU292
- 1197              		.loc 1 137 9 is_stmt 0 view .LVU293
- 1198 0002 104B     		ldr	r3, .L118
- 1199 0004 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
- 1200              		.loc 1 137 8 view .LVU294
- 1201 0006 A3B1     		cbz	r3, .L114
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccUTIJQG.s 			page 29
+ 1279              		.loc 1 137 5 is_stmt 1 view .LVU302
+ 1280              		.loc 1 137 9 is_stmt 0 view .LVU303
+ 1281 0002 104B     		ldr	r3, .L118
+ 1282 0004 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 1283              		.loc 1 137 8 view .LVU304
+ 1284 0006 A3B1     		cbz	r3, .L114
+ 1285              		.loc 1 137 24 discriminator 2 view .LVU305
+ 1286 0008 B0B1     		cbz	r0, .L115
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccc7byMl.s 			page 31
 
 
- 1202              		.loc 1 137 24 discriminator 2 view .LVU295
- 1203 0008 B0B1     		cbz	r0, .L115
  138:SynaptiX_FDK/app/user/sx_ex_storage/sx_ex_storage.c **** 
  139:SynaptiX_FDK/app/user/sx_ex_storage/sx_ex_storage.c ****     FILE *f = fopen(path, "r");
- 1204              		.loc 1 139 5 is_stmt 1 view .LVU296
- 1205              		.loc 1 139 15 is_stmt 0 view .LVU297
- 1206 000a 0F49     		ldr	r1, .L118+4
- 1207 000c FFF7FEFF 		bl	file_open
- 1208              	.LVL118:
+ 1287              		.loc 1 139 5 is_stmt 1 view .LVU306
+ 1288              		.loc 1 139 15 is_stmt 0 view .LVU307
+ 1289 000a 0F49     		ldr	r1, .L118+4
+ 1290 000c FFF7FEFF 		bl	file_open
+ 1291              	.LVL133:
  140:SynaptiX_FDK/app/user/sx_ex_storage/sx_ex_storage.c ****     if (f == NULL) return -1;
- 1209              		.loc 1 140 5 is_stmt 1 view .LVU298
- 1210              		.loc 1 140 8 is_stmt 0 view .LVU299
- 1211 0010 0546     		mov	r5, r0
- 1212 0012 A0B1     		cbz	r0, .L116
+ 1292              		.loc 1 140 5 is_stmt 1 view .LVU308
+ 1293              		.loc 1 140 8 is_stmt 0 view .LVU309
+ 1294 0010 0546     		mov	r5, r0
+ 1295 0012 A0B1     		cbz	r0, .L116
  141:SynaptiX_FDK/app/user/sx_ex_storage/sx_ex_storage.c **** 
  142:SynaptiX_FDK/app/user/sx_ex_storage/sx_ex_storage.c ****     int32_t sz = (int32_t)file_size(f);
- 1213              		.loc 1 142 5 is_stmt 1 view .LVU300
- 1214              		.loc 1 142 27 is_stmt 0 view .LVU301
- 1215 0014 0D4E     		ldr	r6, .L118+8
- 1216 0016 0146     		mov	r1, r0
- 1217 0018 3046     		mov	r0, r6
- 1218              	.LVL119:
- 1219              		.loc 1 142 27 view .LVU302
- 1220 001a FFF7FEFF 		bl	lfs_file_size
- 1221              	.LVL120:
- 1222              		.loc 1 142 27 view .LVU303
- 1223 001e 0446     		mov	r4, r0
- 1224              	.LVL121:
+ 1296              		.loc 1 142 5 is_stmt 1 view .LVU310
+ 1297              		.loc 1 142 27 is_stmt 0 view .LVU311
+ 1298 0014 0D4E     		ldr	r6, .L118+8
+ 1299 0016 0146     		mov	r1, r0
+ 1300 0018 3046     		mov	r0, r6
+ 1301              	.LVL134:
+ 1302              		.loc 1 142 27 view .LVU312
+ 1303 001a FFF7FEFF 		bl	lfs_file_size
+ 1304              	.LVL135:
+ 1305              		.loc 1 142 27 view .LVU313
+ 1306 001e 0446     		mov	r4, r0
+ 1307              	.LVL136:
  143:SynaptiX_FDK/app/user/sx_ex_storage/sx_ex_storage.c ****     fclose(f);
- 1225              		.loc 1 143 5 is_stmt 1 view .LVU304
- 1226              		.loc 1 143 5 view .LVU305
- 1227 0020 2946     		mov	r1, r5
- 1228 0022 3046     		mov	r0, r6
- 1229              	.LVL122:
- 1230              		.loc 1 143 5 is_stmt 0 view .LVU306
- 1231 0024 FFF7FEFF 		bl	lfs_file_close
- 1232              	.LVL123:
- 1233              		.loc 1 143 5 is_stmt 1 discriminator 1 view .LVU307
- 1234 0028 2846     		mov	r0, r5
- 1235 002a FFF7FEFF 		bl	free
- 1236              	.LVL124:
- 1237              		.loc 1 143 5 discriminator 2 view .LVU308
+ 1308              		.loc 1 143 5 is_stmt 1 view .LVU314
+ 1309              		.loc 1 143 5 view .LVU315
+ 1310 0020 2946     		mov	r1, r5
+ 1311 0022 3046     		mov	r0, r6
+ 1312              	.LVL137:
+ 1313              		.loc 1 143 5 is_stmt 0 view .LVU316
+ 1314 0024 FFF7FEFF 		bl	lfs_file_close
+ 1315              	.LVL138:
+ 1316              		.loc 1 143 5 is_stmt 1 discriminator 1 view .LVU317
+ 1317 0028 2846     		mov	r0, r5
+ 1318 002a FFF7FEFF 		bl	free
+ 1319              	.LVL139:
+ 1320              		.loc 1 143 5 discriminator 2 view .LVU318
  144:SynaptiX_FDK/app/user/sx_ex_storage/sx_ex_storage.c ****     return sz;
- 1238              		.loc 1 144 5 view .LVU309
- 1239              	.L112:
+ 1321              		.loc 1 144 5 view .LVU319
+ 1322              	.L112:
  145:SynaptiX_FDK/app/user/sx_ex_storage/sx_ex_storage.c **** }
- 1240              		.loc 1 145 1 is_stmt 0 view .LVU310
- 1241 002e 2046     		mov	r0, r4
- 1242 0030 70BD     		pop	{r4, r5, r6, pc}
- 1243              	.LVL125:
- 1244              	.L114:
+ 1323              		.loc 1 145 1 is_stmt 0 view .LVU320
+ 1324 002e 2046     		mov	r0, r4
+ 1325 0030 70BD     		pop	{r4, r5, r6, pc}
+ 1326              	.LVL140:
+ 1327              	.L114:
  137:SynaptiX_FDK/app/user/sx_ex_storage/sx_ex_storage.c **** 
- 1245              		.loc 1 137 48 discriminator 3 view .LVU311
- 1246 0032 4FF0FF34 		mov	r4, #-1
- 1247 0036 FAE7     		b	.L112
- 1248              	.L115:
- 1249 0038 4FF0FF34 		mov	r4, #-1
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccUTIJQG.s 			page 30
+ 1328              		.loc 1 137 48 discriminator 3 view .LVU321
+ 1329 0032 4FF0FF34 		mov	r4, #-1
+ 1330 0036 FAE7     		b	.L112
+ 1331              	.L115:
+ 1332 0038 4FF0FF34 		mov	r4, #-1
+ 1333 003c F7E7     		b	.L112
+ 1334              	.LVL141:
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccc7byMl.s 			page 32
 
 
- 1250 003c F7E7     		b	.L112
- 1251              	.LVL126:
- 1252              	.L116:
+ 1335              	.L116:
  140:SynaptiX_FDK/app/user/sx_ex_storage/sx_ex_storage.c **** 
- 1253              		.loc 1 140 27 discriminator 1 view .LVU312
- 1254 003e 4FF0FF34 		mov	r4, #-1
- 1255 0042 F4E7     		b	.L112
- 1256              	.L119:
- 1257              		.align	2
- 1258              	.L118:
- 1259 0044 00000000 		.word	s_initialized
- 1260 0048 00000000 		.word	.LC7
- 1261 004c 00000000 		.word	lfs
- 1262              		.cfi_endproc
- 1263              	.LFE538:
- 1265              		.section	.text.sx_storage_mkdir,"ax",%progbits
- 1266              		.align	1
- 1267              		.global	sx_storage_mkdir
- 1268              		.syntax unified
- 1269              		.thumb
- 1270              		.thumb_func
- 1272              	sx_storage_mkdir:
- 1273              	.LVL127:
- 1274              	.LFB539:
+ 1336              		.loc 1 140 27 discriminator 1 view .LVU322
+ 1337 003e 4FF0FF34 		mov	r4, #-1
+ 1338 0042 F4E7     		b	.L112
+ 1339              	.L119:
+ 1340              		.align	2
+ 1341              	.L118:
+ 1342 0044 00000000 		.word	s_initialized
+ 1343 0048 00000000 		.word	.LC12
+ 1344 004c 00000000 		.word	lfs
+ 1345              		.cfi_endproc
+ 1346              	.LFE538:
+ 1348              		.section	.text.sx_storage_mkdir,"ax",%progbits
+ 1349              		.align	1
+ 1350              		.global	sx_storage_mkdir
+ 1351              		.syntax unified
+ 1352              		.thumb
+ 1353              		.thumb_func
+ 1355              	sx_storage_mkdir:
+ 1356              	.LVL142:
+ 1357              	.LFB539:
  146:SynaptiX_FDK/app/user/sx_ex_storage/sx_ex_storage.c **** 
  147:SynaptiX_FDK/app/user/sx_ex_storage/sx_ex_storage.c **** sx_storage_err_t sx_storage_mkdir(const char *path)
  148:SynaptiX_FDK/app/user/sx_ex_storage/sx_ex_storage.c **** {
- 1275              		.loc 1 148 1 is_stmt 1 view -0
- 1276              		.cfi_startproc
- 1277              		@ args = 0, pretend = 0, frame = 0
- 1278              		@ frame_needed = 0, uses_anonymous_args = 0
- 1279              		.loc 1 148 1 is_stmt 0 view .LVU314
- 1280 0000 38B5     		push	{r3, r4, r5, lr}
- 1281              	.LCFI12:
- 1282              		.cfi_def_cfa_offset 16
- 1283              		.cfi_offset 3, -16
- 1284              		.cfi_offset 4, -12
- 1285              		.cfi_offset 5, -8
- 1286              		.cfi_offset 14, -4
- 1287 0002 0446     		mov	r4, r0
+ 1358              		.loc 1 148 1 is_stmt 1 view -0
+ 1359              		.cfi_startproc
+ 1360              		@ args = 0, pretend = 0, frame = 0
+ 1361              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1362              		.loc 1 148 1 is_stmt 0 view .LVU324
+ 1363 0000 38B5     		push	{r3, r4, r5, lr}
+ 1364              	.LCFI15:
+ 1365              		.cfi_def_cfa_offset 16
+ 1366              		.cfi_offset 3, -16
+ 1367              		.cfi_offset 4, -12
+ 1368              		.cfi_offset 5, -8
+ 1369              		.cfi_offset 14, -4
+ 1370 0002 0446     		mov	r4, r0
  149:SynaptiX_FDK/app/user/sx_ex_storage/sx_ex_storage.c ****     if (_check_init() != SX_STORAGE_OK) return SX_STORAGE_ERR_NOT_INIT;
- 1288              		.loc 1 149 5 is_stmt 1 view .LVU315
- 1289              		.loc 1 149 9 is_stmt 0 view .LVU316
- 1290 0004 FFF7FEFF 		bl	_check_init
- 1291              	.LVL128:
- 1292              		.loc 1 149 8 discriminator 1 view .LVU317
- 1293 0008 48B9     		cbnz	r0, .L122
- 1294 000a 0546     		mov	r5, r0
+ 1371              		.loc 1 149 5 is_stmt 1 view .LVU325
+ 1372              		.loc 1 149 9 is_stmt 0 view .LVU326
+ 1373 0004 FFF7FEFF 		bl	_check_init
+ 1374              	.LVL143:
+ 1375              		.loc 1 149 8 discriminator 1 view .LVU327
+ 1376 0008 48B9     		cbnz	r0, .L122
+ 1377 000a 0546     		mov	r5, r0
  150:SynaptiX_FDK/app/user/sx_ex_storage/sx_ex_storage.c ****     if (path == NULL)                    return SX_STORAGE_ERR_INVALID;
- 1295              		.loc 1 150 5 is_stmt 1 view .LVU318
- 1296              		.loc 1 150 8 is_stmt 0 view .LVU319
- 1297 000c 54B1     		cbz	r4, .L123
+ 1378              		.loc 1 150 5 is_stmt 1 view .LVU328
+ 1379              		.loc 1 150 8 is_stmt 0 view .LVU329
+ 1380 000c 54B1     		cbz	r4, .L123
  151:SynaptiX_FDK/app/user/sx_ex_storage/sx_ex_storage.c **** 
  152:SynaptiX_FDK/app/user/sx_ex_storage/sx_ex_storage.c ****     if (mkdir(path) < 0) return SX_STORAGE_ERR_IO;
- 1298              		.loc 1 152 5 is_stmt 1 view .LVU320
- 1299              		.loc 1 152 9 is_stmt 0 view .LVU321
- 1300 000e 2146     		mov	r1, r4
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccUTIJQG.s 			page 31
+ 1381              		.loc 1 152 5 is_stmt 1 view .LVU330
+ 1382              		.loc 1 152 9 is_stmt 0 view .LVU331
+ 1383 000e 2146     		mov	r1, r4
+ 1384 0010 0748     		ldr	r0, .L127
+ 1385 0012 FFF7FEFF 		bl	lfs_mkdir
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccc7byMl.s 			page 33
 
 
- 1301 0010 0748     		ldr	r0, .L127
- 1302 0012 FFF7FEFF 		bl	lfs_mkdir
- 1303              	.LVL129:
- 1304              		.loc 1 152 8 discriminator 1 view .LVU322
- 1305 0016 0028     		cmp	r0, #0
- 1306 0018 07DB     		blt	.L126
- 1307              	.L121:
+ 1386              	.LVL144:
+ 1387              		.loc 1 152 8 discriminator 1 view .LVU332
+ 1388 0016 0028     		cmp	r0, #0
+ 1389 0018 07DB     		blt	.L126
+ 1390              	.L121:
  153:SynaptiX_FDK/app/user/sx_ex_storage/sx_ex_storage.c ****     return SX_STORAGE_OK;
  154:SynaptiX_FDK/app/user/sx_ex_storage/sx_ex_storage.c **** }
- 1308              		.loc 1 154 1 view .LVU323
- 1309 001a 2846     		mov	r0, r5
- 1310 001c 38BD     		pop	{r3, r4, r5, pc}
- 1311              	.LVL130:
- 1312              	.L122:
+ 1391              		.loc 1 154 1 view .LVU333
+ 1392 001a 2846     		mov	r0, r5
+ 1393 001c 38BD     		pop	{r3, r4, r5, pc}
+ 1394              	.LVL145:
+ 1395              	.L122:
  149:SynaptiX_FDK/app/user/sx_ex_storage/sx_ex_storage.c ****     if (path == NULL)                    return SX_STORAGE_ERR_INVALID;
- 1313              		.loc 1 149 48 discriminator 1 view .LVU324
- 1314 001e 6FF00405 		mvn	r5, #4
- 1315 0022 FAE7     		b	.L121
- 1316              	.L123:
+ 1396              		.loc 1 149 48 discriminator 1 view .LVU334
+ 1397 001e 6FF00405 		mvn	r5, #4
+ 1398 0022 FAE7     		b	.L121
+ 1399              	.L123:
  150:SynaptiX_FDK/app/user/sx_ex_storage/sx_ex_storage.c **** 
- 1317              		.loc 1 150 49 discriminator 1 view .LVU325
- 1318 0024 4FF0FF35 		mov	r5, #-1
- 1319 0028 F7E7     		b	.L121
- 1320              	.L126:
+ 1400              		.loc 1 150 49 discriminator 1 view .LVU335
+ 1401 0024 4FF0FF35 		mov	r5, #-1
+ 1402 0028 F7E7     		b	.L121
+ 1403              	.L126:
  152:SynaptiX_FDK/app/user/sx_ex_storage/sx_ex_storage.c ****     return SX_STORAGE_OK;
- 1321              		.loc 1 152 33 discriminator 1 view .LVU326
- 1322 002a 6FF00105 		mvn	r5, #1
- 1323 002e F4E7     		b	.L121
- 1324              	.L128:
- 1325              		.align	2
- 1326              	.L127:
- 1327 0030 00000000 		.word	lfs
- 1328              		.cfi_endproc
- 1329              	.LFE539:
- 1331              		.section	.text.sx_storage_list_dir,"ax",%progbits
- 1332              		.align	1
- 1333              		.global	sx_storage_list_dir
- 1334              		.syntax unified
- 1335              		.thumb
- 1336              		.thumb_func
- 1338              	sx_storage_list_dir:
- 1339              	.LVL131:
- 1340              	.LFB540:
+ 1404              		.loc 1 152 33 discriminator 1 view .LVU336
+ 1405 002a 6FF00105 		mvn	r5, #1
+ 1406 002e F4E7     		b	.L121
+ 1407              	.L128:
+ 1408              		.align	2
+ 1409              	.L127:
+ 1410 0030 00000000 		.word	lfs
+ 1411              		.cfi_endproc
+ 1412              	.LFE539:
+ 1414              		.section	.text.sx_storage_list_dir,"ax",%progbits
+ 1415              		.align	1
+ 1416              		.global	sx_storage_list_dir
+ 1417              		.syntax unified
+ 1418              		.thumb
+ 1419              		.thumb_func
+ 1421              	sx_storage_list_dir:
+ 1422              	.LVL146:
+ 1423              	.LFB540:
  155:SynaptiX_FDK/app/user/sx_ex_storage/sx_ex_storage.c **** 
  156:SynaptiX_FDK/app/user/sx_ex_storage/sx_ex_storage.c **** void sx_storage_list_dir(const char *path)
  157:SynaptiX_FDK/app/user/sx_ex_storage/sx_ex_storage.c **** {
- 1341              		.loc 1 157 1 is_stmt 1 view -0
- 1342              		.cfi_startproc
- 1343              		@ args = 0, pretend = 0, frame = 0
- 1344              		@ frame_needed = 0, uses_anonymous_args = 0
- 1345              		.loc 1 157 1 is_stmt 0 view .LVU328
- 1346 0000 08B5     		push	{r3, lr}
- 1347              	.LCFI13:
- 1348              		.cfi_def_cfa_offset 8
- 1349              		.cfi_offset 3, -8
- 1350              		.cfi_offset 14, -4
+ 1424              		.loc 1 157 1 is_stmt 1 view -0
+ 1425              		.cfi_startproc
+ 1426              		@ args = 0, pretend = 0, frame = 0
+ 1427              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1428              		.loc 1 157 1 is_stmt 0 view .LVU338
+ 1429 0000 08B5     		push	{r3, lr}
+ 1430              	.LCFI16:
+ 1431              		.cfi_def_cfa_offset 8
+ 1432              		.cfi_offset 3, -8
+ 1433              		.cfi_offset 14, -4
  158:SynaptiX_FDK/app/user/sx_ex_storage/sx_ex_storage.c ****     if (!s_initialized || path == NULL) return;
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccUTIJQG.s 			page 32
+ 1434              		.loc 1 158 5 is_stmt 1 view .LVU339
+ 1435              		.loc 1 158 9 is_stmt 0 view .LVU340
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccc7byMl.s 			page 34
 
 
- 1351              		.loc 1 158 5 is_stmt 1 view .LVU329
- 1352              		.loc 1 158 9 is_stmt 0 view .LVU330
- 1353 0002 034B     		ldr	r3, .L132
- 1354 0004 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
- 1355              		.loc 1 158 8 view .LVU331
- 1356 0006 13B1     		cbz	r3, .L129
- 1357              		.loc 1 158 24 discriminator 2 view .LVU332
- 1358 0008 08B1     		cbz	r0, .L129
+ 1436 0002 034B     		ldr	r3, .L132
+ 1437 0004 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 1438              		.loc 1 158 8 view .LVU341
+ 1439 0006 13B1     		cbz	r3, .L129
+ 1440              		.loc 1 158 24 discriminator 2 view .LVU342
+ 1441 0008 08B1     		cbz	r0, .L129
  159:SynaptiX_FDK/app/user/sx_ex_storage/sx_ex_storage.c ****     fs_list_dir(path);
- 1359              		.loc 1 159 5 is_stmt 1 view .LVU333
- 1360 000a FFF7FEFF 		bl	fs_list_dir
- 1361              	.LVL132:
- 1362              	.L129:
+ 1442              		.loc 1 159 5 is_stmt 1 view .LVU343
+ 1443 000a FFF7FEFF 		bl	fs_list_dir
+ 1444              	.LVL147:
+ 1445              	.L129:
  160:SynaptiX_FDK/app/user/sx_ex_storage/sx_ex_storage.c **** }
- 1363              		.loc 1 160 1 is_stmt 0 view .LVU334
- 1364 000e 08BD     		pop	{r3, pc}
- 1365              	.L133:
- 1366              		.align	2
- 1367              	.L132:
- 1368 0010 00000000 		.word	s_initialized
- 1369              		.cfi_endproc
- 1370              	.LFE540:
- 1372              		.section	.text.sx_storage_free_space,"ax",%progbits
- 1373              		.align	1
- 1374              		.global	sx_storage_free_space
- 1375              		.syntax unified
- 1376              		.thumb
- 1377              		.thumb_func
- 1379              	sx_storage_free_space:
- 1380              	.LFB541:
+ 1446              		.loc 1 160 1 is_stmt 0 view .LVU344
+ 1447 000e 08BD     		pop	{r3, pc}
+ 1448              	.L133:
+ 1449              		.align	2
+ 1450              	.L132:
+ 1451 0010 00000000 		.word	s_initialized
+ 1452              		.cfi_endproc
+ 1453              	.LFE540:
+ 1455              		.section	.text.sx_storage_free_space,"ax",%progbits
+ 1456              		.align	1
+ 1457              		.global	sx_storage_free_space
+ 1458              		.syntax unified
+ 1459              		.thumb
+ 1460              		.thumb_func
+ 1462              	sx_storage_free_space:
+ 1463              	.LFB541:
  161:SynaptiX_FDK/app/user/sx_ex_storage/sx_ex_storage.c **** 
  162:SynaptiX_FDK/app/user/sx_ex_storage/sx_ex_storage.c **** int32_t sx_storage_free_space(void)
  163:SynaptiX_FDK/app/user/sx_ex_storage/sx_ex_storage.c **** {
- 1381              		.loc 1 163 1 is_stmt 1 view -0
- 1382              		.cfi_startproc
- 1383              		@ args = 0, pretend = 0, frame = 0
- 1384              		@ frame_needed = 0, uses_anonymous_args = 0
- 1385 0000 08B5     		push	{r3, lr}
- 1386              	.LCFI14:
- 1387              		.cfi_def_cfa_offset 8
- 1388              		.cfi_offset 3, -8
- 1389              		.cfi_offset 14, -4
+ 1464              		.loc 1 163 1 is_stmt 1 view -0
+ 1465              		.cfi_startproc
+ 1466              		@ args = 0, pretend = 0, frame = 0
+ 1467              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1468 0000 08B5     		push	{r3, lr}
+ 1469              	.LCFI17:
+ 1470              		.cfi_def_cfa_offset 8
+ 1471              		.cfi_offset 3, -8
+ 1472              		.cfi_offset 14, -4
  164:SynaptiX_FDK/app/user/sx_ex_storage/sx_ex_storage.c ****     if (!s_initialized) return -1;
- 1390              		.loc 1 164 5 view .LVU336
- 1391              		.loc 1 164 9 is_stmt 0 view .LVU337
- 1392 0002 094B     		ldr	r3, .L139
- 1393 0004 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
- 1394              		.loc 1 164 8 view .LVU338
- 1395 0006 43B1     		cbz	r3, .L136
+ 1473              		.loc 1 164 5 view .LVU346
+ 1474              		.loc 1 164 9 is_stmt 0 view .LVU347
+ 1475 0002 094B     		ldr	r3, .L139
+ 1476 0004 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 1477              		.loc 1 164 8 view .LVU348
+ 1478 0006 43B1     		cbz	r3, .L136
  165:SynaptiX_FDK/app/user/sx_ex_storage/sx_ex_storage.c ****     int32_t used = (int32_t)fs_size();
- 1396              		.loc 1 165 5 is_stmt 1 view .LVU339
- 1397              		.loc 1 165 29 is_stmt 0 view .LVU340
- 1398 0008 0848     		ldr	r0, .L139+4
- 1399 000a FFF7FEFF 		bl	lfs_fs_size
- 1400              	.LVL133:
+ 1479              		.loc 1 165 5 is_stmt 1 view .LVU349
+ 1480              		.loc 1 165 29 is_stmt 0 view .LVU350
+ 1481 0008 0848     		ldr	r0, .L139+4
+ 1482 000a FFF7FEFF 		bl	lfs_fs_size
+ 1483              	.LVL148:
  166:SynaptiX_FDK/app/user/sx_ex_storage/sx_ex_storage.c ****     if (used < 0) return -1;
- 1401              		.loc 1 166 5 is_stmt 1 view .LVU341
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccUTIJQG.s 			page 33
+ 1484              		.loc 1 166 5 is_stmt 1 view .LVU351
+ 1485              		.loc 1 166 8 is_stmt 0 view .LVU352
+ 1486 000e 0028     		cmp	r0, #0
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccc7byMl.s 			page 35
 
 
- 1402              		.loc 1 166 8 is_stmt 0 view .LVU342
- 1403 000e 0028     		cmp	r0, #0
- 1404              		.loc 1 166 8 view .LVU343
- 1405 0010 06DB     		blt	.L137
+ 1487              		.loc 1 166 8 view .LVU353
+ 1488 0010 06DB     		blt	.L137
  167:SynaptiX_FDK/app/user/sx_ex_storage/sx_ex_storage.c ****     return (int32_t)sx_W25Q128_info.total_bytes - used;
- 1406              		.loc 1 167 5 is_stmt 1 view .LVU344
- 1407              		.loc 1 167 36 is_stmt 0 view .LVU345
- 1408 0012 074B     		ldr	r3, .L139+8
- 1409 0014 DB68     		ldr	r3, [r3, #12]
- 1410              		.loc 1 167 49 view .LVU346
- 1411 0016 181A     		subs	r0, r3, r0
- 1412              	.LVL134:
- 1413              	.L134:
+ 1489              		.loc 1 167 5 is_stmt 1 view .LVU354
+ 1490              		.loc 1 167 36 is_stmt 0 view .LVU355
+ 1491 0012 074B     		ldr	r3, .L139+8
+ 1492 0014 DB68     		ldr	r3, [r3, #12]
+ 1493              		.loc 1 167 49 view .LVU356
+ 1494 0016 181A     		subs	r0, r3, r0
+ 1495              	.LVL149:
+ 1496              	.L134:
  168:SynaptiX_FDK/app/user/sx_ex_storage/sx_ex_storage.c **** }
- 1414              		.loc 1 168 1 view .LVU347
- 1415 0018 08BD     		pop	{r3, pc}
- 1416              	.L136:
+ 1497              		.loc 1 168 1 view .LVU357
+ 1498 0018 08BD     		pop	{r3, pc}
+ 1499              	.L136:
  164:SynaptiX_FDK/app/user/sx_ex_storage/sx_ex_storage.c ****     int32_t used = (int32_t)fs_size();
- 1417              		.loc 1 164 32 discriminator 1 view .LVU348
- 1418 001a 4FF0FF30 		mov	r0, #-1
- 1419 001e FBE7     		b	.L134
- 1420              	.LVL135:
- 1421              	.L137:
+ 1500              		.loc 1 164 32 discriminator 1 view .LVU358
+ 1501 001a 4FF0FF30 		mov	r0, #-1
+ 1502 001e FBE7     		b	.L134
+ 1503              	.LVL150:
+ 1504              	.L137:
  166:SynaptiX_FDK/app/user/sx_ex_storage/sx_ex_storage.c ****     return (int32_t)sx_W25Q128_info.total_bytes - used;
- 1422              		.loc 1 166 26 discriminator 1 view .LVU349
- 1423 0020 4FF0FF30 		mov	r0, #-1
- 1424              	.LVL136:
+ 1505              		.loc 1 166 26 discriminator 1 view .LVU359
+ 1506 0020 4FF0FF30 		mov	r0, #-1
+ 1507              	.LVL151:
  166:SynaptiX_FDK/app/user/sx_ex_storage/sx_ex_storage.c ****     return (int32_t)sx_W25Q128_info.total_bytes - used;
- 1425              		.loc 1 166 26 discriminator 1 view .LVU350
- 1426 0024 F8E7     		b	.L134
- 1427              	.L140:
- 1428 0026 00BF     		.align	2
- 1429              	.L139:
- 1430 0028 00000000 		.word	s_initialized
- 1431 002c 00000000 		.word	lfs
- 1432 0030 00000000 		.word	sx_W25Q128_info
- 1433              		.cfi_endproc
- 1434              	.LFE541:
- 1436              		.section	.text.sx_storage_total_space,"ax",%progbits
- 1437              		.align	1
- 1438              		.global	sx_storage_total_space
- 1439              		.syntax unified
- 1440              		.thumb
- 1441              		.thumb_func
- 1443              	sx_storage_total_space:
- 1444              	.LFB542:
+ 1508              		.loc 1 166 26 discriminator 1 view .LVU360
+ 1509 0024 F8E7     		b	.L134
+ 1510              	.L140:
+ 1511 0026 00BF     		.align	2
+ 1512              	.L139:
+ 1513 0028 00000000 		.word	s_initialized
+ 1514 002c 00000000 		.word	lfs
+ 1515 0030 00000000 		.word	sx_W25Q128_info
+ 1516              		.cfi_endproc
+ 1517              	.LFE541:
+ 1519              		.section	.text.sx_storage_total_space,"ax",%progbits
+ 1520              		.align	1
+ 1521              		.global	sx_storage_total_space
+ 1522              		.syntax unified
+ 1523              		.thumb
+ 1524              		.thumb_func
+ 1526              	sx_storage_total_space:
+ 1527              	.LFB542:
  169:SynaptiX_FDK/app/user/sx_ex_storage/sx_ex_storage.c **** 
  170:SynaptiX_FDK/app/user/sx_ex_storage/sx_ex_storage.c **** int32_t sx_storage_total_space(void)
  171:SynaptiX_FDK/app/user/sx_ex_storage/sx_ex_storage.c **** {
- 1445              		.loc 1 171 1 is_stmt 1 view -0
- 1446              		.cfi_startproc
- 1447              		@ args = 0, pretend = 0, frame = 0
- 1448              		@ frame_needed = 0, uses_anonymous_args = 0
- 1449              		@ link register save eliminated.
+ 1528              		.loc 1 171 1 is_stmt 1 view -0
+ 1529              		.cfi_startproc
+ 1530              		@ args = 0, pretend = 0, frame = 0
+ 1531              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1532              		@ link register save eliminated.
  172:SynaptiX_FDK/app/user/sx_ex_storage/sx_ex_storage.c ****     return (int32_t)sx_W25Q128_info.total_bytes;
- 1450              		.loc 1 172 5 view .LVU352
+ 1533              		.loc 1 172 5 view .LVU362
  173:SynaptiX_FDK/app/user/sx_ex_storage/sx_ex_storage.c **** }
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccUTIJQG.s 			page 34
+ 1534              		.loc 1 173 1 is_stmt 0 view .LVU363
+ 1535 0000 014B     		ldr	r3, .L142
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccc7byMl.s 			page 36
 
 
- 1451              		.loc 1 173 1 is_stmt 0 view .LVU353
- 1452 0000 014B     		ldr	r3, .L142
- 1453 0002 D868     		ldr	r0, [r3, #12]
- 1454 0004 7047     		bx	lr
- 1455              	.L143:
- 1456 0006 00BF     		.align	2
- 1457              	.L142:
- 1458 0008 00000000 		.word	sx_W25Q128_info
- 1459              		.cfi_endproc
- 1460              	.LFE542:
- 1462              		.section	.rodata.sx_storage_format.str1.4,"aMS",%progbits,1
- 1463              		.align	2
- 1464              	.LC8:
- 1465 0000 466F726D 		.ascii	"Format failed\000"
- 1465      61742066 
- 1465      61696C65 
- 1465      6400
- 1466 000e 0000     		.align	2
- 1467              	.LC9:
- 1468 0010 466F726D 		.ascii	"Format OK\000"
- 1468      6174204F 
- 1468      4B00
- 1469              		.section	.text.sx_storage_format,"ax",%progbits
- 1470              		.align	1
- 1471              		.global	sx_storage_format
- 1472              		.syntax unified
- 1473              		.thumb
- 1474              		.thumb_func
- 1476              	sx_storage_format:
- 1477              	.LFB543:
+ 1536 0002 D868     		ldr	r0, [r3, #12]
+ 1537 0004 7047     		bx	lr
+ 1538              	.L143:
+ 1539 0006 00BF     		.align	2
+ 1540              	.L142:
+ 1541 0008 00000000 		.word	sx_W25Q128_info
+ 1542              		.cfi_endproc
+ 1543              	.LFE542:
+ 1545              		.section	.rodata.sx_storage_format.str1.4,"aMS",%progbits,1
+ 1546              		.align	2
+ 1547              	.LC13:
+ 1548 0000 466F726D 		.ascii	"Format failed\000"
+ 1548      61742066 
+ 1548      61696C65 
+ 1548      6400
+ 1549 000e 0000     		.align	2
+ 1550              	.LC14:
+ 1551 0010 466F726D 		.ascii	"Format OK\000"
+ 1551      6174204F 
+ 1551      4B00
+ 1552              		.section	.text.sx_storage_format,"ax",%progbits
+ 1553              		.align	1
+ 1554              		.global	sx_storage_format
+ 1555              		.syntax unified
+ 1556              		.thumb
+ 1557              		.thumb_func
+ 1559              	sx_storage_format:
+ 1560              	.LFB543:
  174:SynaptiX_FDK/app/user/sx_ex_storage/sx_ex_storage.c **** 
  175:SynaptiX_FDK/app/user/sx_ex_storage/sx_ex_storage.c **** sx_storage_err_t sx_storage_format(void)
  176:SynaptiX_FDK/app/user/sx_ex_storage/sx_ex_storage.c **** {
- 1478              		.loc 1 176 1 is_stmt 1 view -0
- 1479              		.cfi_startproc
- 1480              		@ args = 0, pretend = 0, frame = 0
- 1481              		@ frame_needed = 0, uses_anonymous_args = 0
- 1482 0000 10B5     		push	{r4, lr}
- 1483              	.LCFI15:
- 1484              		.cfi_def_cfa_offset 8
- 1485              		.cfi_offset 4, -8
- 1486              		.cfi_offset 14, -4
+ 1561              		.loc 1 176 1 is_stmt 1 view -0
+ 1562              		.cfi_startproc
+ 1563              		@ args = 0, pretend = 0, frame = 0
+ 1564              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1565 0000 10B5     		push	{r4, lr}
+ 1566              	.LCFI18:
+ 1567              		.cfi_def_cfa_offset 8
+ 1568              		.cfi_offset 4, -8
+ 1569              		.cfi_offset 14, -4
  177:SynaptiX_FDK/app/user/sx_ex_storage/sx_ex_storage.c ****     if (_check_init() != SX_STORAGE_OK) return SX_STORAGE_ERR_NOT_INIT;
- 1487              		.loc 1 177 5 view .LVU355
- 1488              		.loc 1 177 9 is_stmt 0 view .LVU356
- 1489 0002 FFF7FEFF 		bl	_check_init
- 1490              	.LVL137:
- 1491              		.loc 1 177 8 discriminator 1 view .LVU357
- 1492 0006 C8B9     		cbnz	r0, .L147
- 1493 0008 0446     		mov	r4, r0
+ 1570              		.loc 1 177 5 view .LVU365
+ 1571              		.loc 1 177 9 is_stmt 0 view .LVU366
+ 1572 0002 FFF7FEFF 		bl	_check_init
+ 1573              	.LVL152:
+ 1574              		.loc 1 177 8 discriminator 1 view .LVU367
+ 1575 0006 C8B9     		cbnz	r0, .L147
+ 1576 0008 0446     		mov	r4, r0
  178:SynaptiX_FDK/app/user/sx_ex_storage/sx_ex_storage.c **** 
  179:SynaptiX_FDK/app/user/sx_ex_storage/sx_ex_storage.c ****     s_initialized = false;
- 1494              		.loc 1 179 5 is_stmt 1 view .LVU358
- 1495              		.loc 1 179 19 is_stmt 0 view .LVU359
- 1496 000a 0E4B     		ldr	r3, .L150
- 1497 000c 0022     		movs	r2, #0
- 1498 000e 1A70     		strb	r2, [r3]
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccUTIJQG.s 			page 35
-
-
+ 1577              		.loc 1 179 5 is_stmt 1 view .LVU368
+ 1578              		.loc 1 179 19 is_stmt 0 view .LVU369
+ 1579 000a 0E4B     		ldr	r3, .L150
+ 1580 000c 0022     		movs	r2, #0
+ 1581 000e 1A70     		strb	r2, [r3]
  180:SynaptiX_FDK/app/user/sx_ex_storage/sx_ex_storage.c ****     if (sx_fs_init(&s_flash) != 0) {
- 1499              		.loc 1 180 5 is_stmt 1 view .LVU360
- 1500              		.loc 1 180 9 is_stmt 0 view .LVU361
- 1501 0010 0D48     		ldr	r0, .L150+4
- 1502 0012 FFF7FEFF 		bl	sx_fs_init
- 1503              	.LVL138:
- 1504              		.loc 1 180 8 discriminator 1 view .LVU362
- 1505 0016 48B9     		cbnz	r0, .L149
+ 1582              		.loc 1 180 5 is_stmt 1 view .LVU370
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccc7byMl.s 			page 37
+
+
+ 1583              		.loc 1 180 9 is_stmt 0 view .LVU371
+ 1584 0010 0D48     		ldr	r0, .L150+4
+ 1585 0012 FFF7FEFF 		bl	sx_fs_init
+ 1586              	.LVL153:
+ 1587              		.loc 1 180 8 discriminator 1 view .LVU372
+ 1588 0016 48B9     		cbnz	r0, .L149
  181:SynaptiX_FDK/app/user/sx_ex_storage/sx_ex_storage.c ****         log_error(TAG, "Format failed");
  182:SynaptiX_FDK/app/user/sx_ex_storage/sx_ex_storage.c ****         return SX_STORAGE_ERR_IO;
  183:SynaptiX_FDK/app/user/sx_ex_storage/sx_ex_storage.c ****     }
  184:SynaptiX_FDK/app/user/sx_ex_storage/sx_ex_storage.c **** 
  185:SynaptiX_FDK/app/user/sx_ex_storage/sx_ex_storage.c ****     s_initialized = true;
- 1506              		.loc 1 185 5 is_stmt 1 view .LVU363
- 1507              		.loc 1 185 19 is_stmt 0 view .LVU364
- 1508 0018 0A4B     		ldr	r3, .L150
- 1509 001a 0122     		movs	r2, #1
- 1510 001c 1A70     		strb	r2, [r3]
+ 1589              		.loc 1 185 5 is_stmt 1 view .LVU373
+ 1590              		.loc 1 185 19 is_stmt 0 view .LVU374
+ 1591 0018 0A4B     		ldr	r3, .L150
+ 1592 001a 0122     		movs	r2, #1
+ 1593 001c 1A70     		strb	r2, [r3]
  186:SynaptiX_FDK/app/user/sx_ex_storage/sx_ex_storage.c ****     log_info(TAG, "Format OK");
- 1511              		.loc 1 186 5 is_stmt 1 view .LVU365
- 1512 001e 0B4A     		ldr	r2, .L150+8
- 1513 0020 0B49     		ldr	r1, .L150+12
- 1514 0022 0320     		movs	r0, #3
- 1515 0024 FFF7FEFF 		bl	log_func
- 1516              	.LVL139:
+ 1594              		.loc 1 186 5 is_stmt 1 view .LVU375
+ 1595 001e 0B4A     		ldr	r2, .L150+8
+ 1596 0020 0B49     		ldr	r1, .L150+12
+ 1597 0022 0320     		movs	r0, #3
+ 1598 0024 FFF7FEFF 		bl	log_func
+ 1599              	.LVL154:
  187:SynaptiX_FDK/app/user/sx_ex_storage/sx_ex_storage.c ****     return SX_STORAGE_OK;
- 1517              		.loc 1 187 5 view .LVU366
- 1518              	.L145:
+ 1600              		.loc 1 187 5 view .LVU376
+ 1601              	.L145:
  188:SynaptiX_FDK/app/user/sx_ex_storage/sx_ex_storage.c **** }
- 1519              		.loc 1 188 1 is_stmt 0 view .LVU367
- 1520 0028 2046     		mov	r0, r4
- 1521 002a 10BD     		pop	{r4, pc}
- 1522              	.L149:
+ 1602              		.loc 1 188 1 is_stmt 0 view .LVU377
+ 1603 0028 2046     		mov	r0, r4
+ 1604 002a 10BD     		pop	{r4, pc}
+ 1605              	.L149:
  181:SynaptiX_FDK/app/user/sx_ex_storage/sx_ex_storage.c ****         return SX_STORAGE_ERR_IO;
- 1523              		.loc 1 181 9 is_stmt 1 view .LVU368
- 1524 002c 094A     		ldr	r2, .L150+16
- 1525 002e 0849     		ldr	r1, .L150+12
- 1526 0030 0120     		movs	r0, #1
- 1527 0032 FFF7FEFF 		bl	log_func
- 1528              	.LVL140:
+ 1606              		.loc 1 181 9 is_stmt 1 view .LVU378
+ 1607 002c 094A     		ldr	r2, .L150+16
+ 1608 002e 0849     		ldr	r1, .L150+12
+ 1609 0030 0120     		movs	r0, #1
+ 1610 0032 FFF7FEFF 		bl	log_func
+ 1611              	.LVL155:
  182:SynaptiX_FDK/app/user/sx_ex_storage/sx_ex_storage.c ****     }
- 1529              		.loc 1 182 9 view .LVU369
+ 1612              		.loc 1 182 9 view .LVU379
  182:SynaptiX_FDK/app/user/sx_ex_storage/sx_ex_storage.c ****     }
- 1530              		.loc 1 182 16 is_stmt 0 view .LVU370
- 1531 0036 6FF00104 		mvn	r4, #1
- 1532 003a F5E7     		b	.L145
- 1533              	.L147:
+ 1613              		.loc 1 182 16 is_stmt 0 view .LVU380
+ 1614 0036 6FF00104 		mvn	r4, #1
+ 1615 003a F5E7     		b	.L145
+ 1616              	.L147:
  177:SynaptiX_FDK/app/user/sx_ex_storage/sx_ex_storage.c **** 
- 1534              		.loc 1 177 48 discriminator 1 view .LVU371
- 1535 003c 6FF00404 		mvn	r4, #4
- 1536 0040 F2E7     		b	.L145
- 1537              	.L151:
- 1538 0042 00BF     		.align	2
- 1539              	.L150:
- 1540 0044 00000000 		.word	s_initialized
- 1541 0048 00000000 		.word	s_flash
- 1542 004c 10000000 		.word	.LC9
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccUTIJQG.s 			page 36
+ 1617              		.loc 1 177 48 discriminator 1 view .LVU381
+ 1618 003c 6FF00404 		mvn	r4, #4
+ 1619 0040 F2E7     		b	.L145
+ 1620              	.L151:
+ 1621 0042 00BF     		.align	2
+ 1622              	.L150:
+ 1623 0044 00000000 		.word	s_initialized
+ 1624 0048 00000000 		.word	s_flash
+ 1625 004c 10000000 		.word	.LC14
+ 1626 0050 10000000 		.word	.LC1
+ 1627 0054 00000000 		.word	.LC13
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccc7byMl.s 			page 38
 
 
- 1543 0050 10000000 		.word	.LC1
- 1544 0054 00000000 		.word	.LC8
- 1545              		.cfi_endproc
- 1546              	.LFE543:
- 1548              		.section	.rodata.sx_storage_factory_reset.str1.4,"aMS",%progbits,1
- 1549              		.align	2
- 1550              	.LC10:
- 1551 0000 46616374 		.ascii	"Factory reset start...\000"
- 1551      6F727920 
- 1551      72657365 
- 1551      74207374 
- 1551      6172742E 
- 1552 0017 00       		.align	2
- 1553              	.LC11:
- 1554 0018 46616374 		.ascii	"Factory reset: fs init failed\000"
- 1554      6F727920 
- 1554      72657365 
- 1554      743A2066 
- 1554      7320696E 
- 1555 0036 0000     		.align	2
- 1556              	.LC12:
- 1557 0038 46616374 		.ascii	"Factory reset done\000"
- 1557      6F727920 
- 1557      72657365 
- 1557      7420646F 
- 1557      6E6500
- 1558              		.section	.text.sx_storage_factory_reset,"ax",%progbits
- 1559              		.align	1
- 1560              		.global	sx_storage_factory_reset
- 1561              		.syntax unified
- 1562              		.thumb
- 1563              		.thumb_func
- 1565              	sx_storage_factory_reset:
- 1566              	.LFB544:
+ 1628              		.cfi_endproc
+ 1629              	.LFE543:
+ 1631              		.section	.rodata.sx_storage_factory_reset.str1.4,"aMS",%progbits,1
+ 1632              		.align	2
+ 1633              	.LC15:
+ 1634 0000 46616374 		.ascii	"Factory reset start...\000"
+ 1634      6F727920 
+ 1634      72657365 
+ 1634      74207374 
+ 1634      6172742E 
+ 1635 0017 00       		.align	2
+ 1636              	.LC16:
+ 1637 0018 46616374 		.ascii	"Factory reset: fs init failed\000"
+ 1637      6F727920 
+ 1637      72657365 
+ 1637      743A2066 
+ 1637      7320696E 
+ 1638 0036 0000     		.align	2
+ 1639              	.LC17:
+ 1640 0038 46616374 		.ascii	"Factory reset done\000"
+ 1640      6F727920 
+ 1640      72657365 
+ 1640      7420646F 
+ 1640      6E6500
+ 1641              		.section	.text.sx_storage_factory_reset,"ax",%progbits
+ 1642              		.align	1
+ 1643              		.global	sx_storage_factory_reset
+ 1644              		.syntax unified
+ 1645              		.thumb
+ 1646              		.thumb_func
+ 1648              	sx_storage_factory_reset:
+ 1649              	.LFB544:
  189:SynaptiX_FDK/app/user/sx_ex_storage/sx_ex_storage.c **** 
  190:SynaptiX_FDK/app/user/sx_ex_storage/sx_ex_storage.c **** sx_storage_err_t sx_storage_factory_reset(void)
  191:SynaptiX_FDK/app/user/sx_ex_storage/sx_ex_storage.c **** {
- 1567              		.loc 1 191 1 is_stmt 1 view -0
- 1568              		.cfi_startproc
- 1569              		@ args = 0, pretend = 0, frame = 0
- 1570              		@ frame_needed = 0, uses_anonymous_args = 0
- 1571 0000 10B5     		push	{r4, lr}
- 1572              	.LCFI16:
- 1573              		.cfi_def_cfa_offset 8
- 1574              		.cfi_offset 4, -8
- 1575              		.cfi_offset 14, -4
+ 1650              		.loc 1 191 1 is_stmt 1 view -0
+ 1651              		.cfi_startproc
+ 1652              		@ args = 0, pretend = 0, frame = 0
+ 1653              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1654 0000 10B5     		push	{r4, lr}
+ 1655              	.LCFI19:
+ 1656              		.cfi_def_cfa_offset 8
+ 1657              		.cfi_offset 4, -8
+ 1658              		.cfi_offset 14, -4
  192:SynaptiX_FDK/app/user/sx_ex_storage/sx_ex_storage.c ****     if (_check_init() != SX_STORAGE_OK) return SX_STORAGE_ERR_NOT_INIT;
- 1576              		.loc 1 192 5 view .LVU373
- 1577              		.loc 1 192 9 is_stmt 0 view .LVU374
- 1578 0002 FFF7FEFF 		bl	_check_init
- 1579              	.LVL141:
- 1580              		.loc 1 192 8 discriminator 1 view .LVU375
- 1581 0006 08BB     		cbnz	r0, .L155
- 1582 0008 0446     		mov	r4, r0
+ 1659              		.loc 1 192 5 view .LVU383
+ 1660              		.loc 1 192 9 is_stmt 0 view .LVU384
+ 1661 0002 FFF7FEFF 		bl	_check_init
+ 1662              	.LVL156:
+ 1663              		.loc 1 192 8 discriminator 1 view .LVU385
+ 1664 0006 08BB     		cbnz	r0, .L155
+ 1665 0008 0446     		mov	r4, r0
  193:SynaptiX_FDK/app/user/sx_ex_storage/sx_ex_storage.c **** 
  194:SynaptiX_FDK/app/user/sx_ex_storage/sx_ex_storage.c ****     s_initialized = false;
- 1583              		.loc 1 194 5 is_stmt 1 view .LVU376
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccUTIJQG.s 			page 37
+ 1666              		.loc 1 194 5 is_stmt 1 view .LVU386
+ 1667              		.loc 1 194 19 is_stmt 0 view .LVU387
+ 1668 000a 124B     		ldr	r3, .L158
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccc7byMl.s 			page 39
 
 
- 1584              		.loc 1 194 19 is_stmt 0 view .LVU377
- 1585 000a 124B     		ldr	r3, .L158
- 1586 000c 0022     		movs	r2, #0
- 1587 000e 1A70     		strb	r2, [r3]
+ 1669 000c 0022     		movs	r2, #0
+ 1670 000e 1A70     		strb	r2, [r3]
  195:SynaptiX_FDK/app/user/sx_ex_storage/sx_ex_storage.c ****     log_info(TAG, "Factory reset start...");
- 1588              		.loc 1 195 5 is_stmt 1 view .LVU378
- 1589 0010 114A     		ldr	r2, .L158+4
- 1590 0012 1249     		ldr	r1, .L158+8
- 1591 0014 0320     		movs	r0, #3
- 1592 0016 FFF7FEFF 		bl	log_func
- 1593              	.LVL142:
+ 1671              		.loc 1 195 5 is_stmt 1 view .LVU388
+ 1672 0010 114A     		ldr	r2, .L158+4
+ 1673 0012 1249     		ldr	r1, .L158+8
+ 1674 0014 0320     		movs	r0, #3
+ 1675 0016 FFF7FEFF 		bl	log_func
+ 1676              	.LVL157:
  196:SynaptiX_FDK/app/user/sx_ex_storage/sx_ex_storage.c **** 
  197:SynaptiX_FDK/app/user/sx_ex_storage/sx_ex_storage.c ****     sx_W25Q128_chip_erase(&s_w25q128);
- 1594              		.loc 1 197 5 view .LVU379
- 1595 001a 1148     		ldr	r0, .L158+12
- 1596 001c FFF7FEFF 		bl	sx_W25Q128_chip_erase
- 1597              	.LVL143:
+ 1677              		.loc 1 197 5 view .LVU389
+ 1678 001a 1148     		ldr	r0, .L158+12
+ 1679 001c FFF7FEFF 		bl	sx_W25Q128_chip_erase
+ 1680              	.LVL158:
  198:SynaptiX_FDK/app/user/sx_ex_storage/sx_ex_storage.c **** 
  199:SynaptiX_FDK/app/user/sx_ex_storage/sx_ex_storage.c ****     if (sx_fs_init(&s_flash) != 0) {
- 1598              		.loc 1 199 5 view .LVU380
- 1599              		.loc 1 199 9 is_stmt 0 view .LVU381
- 1600 0020 1048     		ldr	r0, .L158+16
- 1601 0022 FFF7FEFF 		bl	sx_fs_init
- 1602              	.LVL144:
- 1603              		.loc 1 199 8 discriminator 1 view .LVU382
- 1604 0026 48B9     		cbnz	r0, .L157
+ 1681              		.loc 1 199 5 view .LVU390
+ 1682              		.loc 1 199 9 is_stmt 0 view .LVU391
+ 1683 0020 1048     		ldr	r0, .L158+16
+ 1684 0022 FFF7FEFF 		bl	sx_fs_init
+ 1685              	.LVL159:
+ 1686              		.loc 1 199 8 discriminator 1 view .LVU392
+ 1687 0026 48B9     		cbnz	r0, .L157
  200:SynaptiX_FDK/app/user/sx_ex_storage/sx_ex_storage.c ****         log_error(TAG, "Factory reset: fs init failed");
  201:SynaptiX_FDK/app/user/sx_ex_storage/sx_ex_storage.c ****         return SX_STORAGE_ERR_IO;
  202:SynaptiX_FDK/app/user/sx_ex_storage/sx_ex_storage.c ****     }
  203:SynaptiX_FDK/app/user/sx_ex_storage/sx_ex_storage.c **** 
  204:SynaptiX_FDK/app/user/sx_ex_storage/sx_ex_storage.c ****     s_initialized = true;
- 1605              		.loc 1 204 5 is_stmt 1 view .LVU383
- 1606              		.loc 1 204 19 is_stmt 0 view .LVU384
- 1607 0028 0A4B     		ldr	r3, .L158
- 1608 002a 0122     		movs	r2, #1
- 1609 002c 1A70     		strb	r2, [r3]
+ 1688              		.loc 1 204 5 is_stmt 1 view .LVU393
+ 1689              		.loc 1 204 19 is_stmt 0 view .LVU394
+ 1690 0028 0A4B     		ldr	r3, .L158
+ 1691 002a 0122     		movs	r2, #1
+ 1692 002c 1A70     		strb	r2, [r3]
  205:SynaptiX_FDK/app/user/sx_ex_storage/sx_ex_storage.c ****     log_info(TAG, "Factory reset done");
- 1610              		.loc 1 205 5 is_stmt 1 view .LVU385
- 1611 002e 0E4A     		ldr	r2, .L158+20
- 1612 0030 0A49     		ldr	r1, .L158+8
- 1613 0032 0320     		movs	r0, #3
- 1614 0034 FFF7FEFF 		bl	log_func
- 1615              	.LVL145:
+ 1693              		.loc 1 205 5 is_stmt 1 view .LVU395
+ 1694 002e 0E4A     		ldr	r2, .L158+20
+ 1695 0030 0A49     		ldr	r1, .L158+8
+ 1696 0032 0320     		movs	r0, #3
+ 1697 0034 FFF7FEFF 		bl	log_func
+ 1698              	.LVL160:
  206:SynaptiX_FDK/app/user/sx_ex_storage/sx_ex_storage.c ****     return SX_STORAGE_OK;
- 1616              		.loc 1 206 5 view .LVU386
- 1617              	.L153:
+ 1699              		.loc 1 206 5 view .LVU396
+ 1700              	.L153:
  207:SynaptiX_FDK/app/user/sx_ex_storage/sx_ex_storage.c **** }
- 1618              		.loc 1 207 1 is_stmt 0 view .LVU387
- 1619 0038 2046     		mov	r0, r4
- 1620 003a 10BD     		pop	{r4, pc}
- 1621              	.L157:
+ 1701              		.loc 1 207 1 is_stmt 0 view .LVU397
+ 1702 0038 2046     		mov	r0, r4
+ 1703 003a 10BD     		pop	{r4, pc}
+ 1704              	.L157:
  200:SynaptiX_FDK/app/user/sx_ex_storage/sx_ex_storage.c ****         return SX_STORAGE_ERR_IO;
- 1622              		.loc 1 200 9 is_stmt 1 view .LVU388
- 1623 003c 0B4A     		ldr	r2, .L158+24
- 1624 003e 0749     		ldr	r1, .L158+8
- 1625 0040 0120     		movs	r0, #1
- 1626 0042 FFF7FEFF 		bl	log_func
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccUTIJQG.s 			page 38
+ 1705              		.loc 1 200 9 is_stmt 1 view .LVU398
+ 1706 003c 0B4A     		ldr	r2, .L158+24
+ 1707 003e 0749     		ldr	r1, .L158+8
+ 1708 0040 0120     		movs	r0, #1
+ 1709 0042 FFF7FEFF 		bl	log_func
+ 1710              	.LVL161:
+ 201:SynaptiX_FDK/app/user/sx_ex_storage/sx_ex_storage.c ****     }
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccc7byMl.s 			page 40
 
 
- 1627              	.LVL146:
+ 1711              		.loc 1 201 9 view .LVU399
  201:SynaptiX_FDK/app/user/sx_ex_storage/sx_ex_storage.c ****     }
- 1628              		.loc 1 201 9 view .LVU389
- 201:SynaptiX_FDK/app/user/sx_ex_storage/sx_ex_storage.c ****     }
- 1629              		.loc 1 201 16 is_stmt 0 view .LVU390
- 1630 0046 6FF00104 		mvn	r4, #1
- 1631 004a F5E7     		b	.L153
- 1632              	.L155:
+ 1712              		.loc 1 201 16 is_stmt 0 view .LVU400
+ 1713 0046 6FF00104 		mvn	r4, #1
+ 1714 004a F5E7     		b	.L153
+ 1715              	.L155:
  192:SynaptiX_FDK/app/user/sx_ex_storage/sx_ex_storage.c **** 
- 1633              		.loc 1 192 48 discriminator 1 view .LVU391
- 1634 004c 6FF00404 		mvn	r4, #4
- 1635 0050 F2E7     		b	.L153
- 1636              	.L159:
- 1637 0052 00BF     		.align	2
- 1638              	.L158:
- 1639 0054 00000000 		.word	s_initialized
- 1640 0058 00000000 		.word	.LC10
- 1641 005c 10000000 		.word	.LC1
- 1642 0060 00000000 		.word	s_w25q128
- 1643 0064 00000000 		.word	s_flash
- 1644 0068 38000000 		.word	.LC12
- 1645 006c 18000000 		.word	.LC11
- 1646              		.cfi_endproc
- 1647              	.LFE544:
- 1649              		.section	.text.sx_storage_sleep,"ax",%progbits
- 1650              		.align	1
- 1651              		.global	sx_storage_sleep
- 1652              		.syntax unified
- 1653              		.thumb
- 1654              		.thumb_func
- 1656              	sx_storage_sleep:
- 1657              	.LFB545:
+ 1716              		.loc 1 192 48 discriminator 1 view .LVU401
+ 1717 004c 6FF00404 		mvn	r4, #4
+ 1718 0050 F2E7     		b	.L153
+ 1719              	.L159:
+ 1720 0052 00BF     		.align	2
+ 1721              	.L158:
+ 1722 0054 00000000 		.word	s_initialized
+ 1723 0058 00000000 		.word	.LC15
+ 1724 005c 10000000 		.word	.LC1
+ 1725 0060 00000000 		.word	s_w25q128
+ 1726 0064 00000000 		.word	s_flash
+ 1727 0068 38000000 		.word	.LC17
+ 1728 006c 18000000 		.word	.LC16
+ 1729              		.cfi_endproc
+ 1730              	.LFE544:
+ 1732              		.section	.text.sx_storage_sleep,"ax",%progbits
+ 1733              		.align	1
+ 1734              		.global	sx_storage_sleep
+ 1735              		.syntax unified
+ 1736              		.thumb
+ 1737              		.thumb_func
+ 1739              	sx_storage_sleep:
+ 1740              	.LFB545:
  208:SynaptiX_FDK/app/user/sx_ex_storage/sx_ex_storage.c **** 
  209:SynaptiX_FDK/app/user/sx_ex_storage/sx_ex_storage.c **** void sx_storage_sleep(void){
- 1658              		.loc 1 209 28 is_stmt 1 view -0
- 1659              		.cfi_startproc
- 1660              		@ args = 0, pretend = 0, frame = 0
- 1661              		@ frame_needed = 0, uses_anonymous_args = 0
- 1662              		@ link register save eliminated.
+ 1741              		.loc 1 209 28 is_stmt 1 view -0
+ 1742              		.cfi_startproc
+ 1743              		@ args = 0, pretend = 0, frame = 0
+ 1744              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1745              		@ link register save eliminated.
  210:SynaptiX_FDK/app/user/sx_ex_storage/sx_ex_storage.c **** 
  211:SynaptiX_FDK/app/user/sx_ex_storage/sx_ex_storage.c **** }
- 1663              		.loc 1 211 1 view .LVU393
- 1664 0000 7047     		bx	lr
- 1665              		.cfi_endproc
- 1666              	.LFE545:
- 1668              		.section	.text.sx_storage_wake,"ax",%progbits
- 1669              		.align	1
- 1670              		.global	sx_storage_wake
- 1671              		.syntax unified
- 1672              		.thumb
- 1673              		.thumb_func
- 1675              	sx_storage_wake:
- 1676              	.LFB546:
+ 1746              		.loc 1 211 1 view .LVU403
+ 1747 0000 7047     		bx	lr
+ 1748              		.cfi_endproc
+ 1749              	.LFE545:
+ 1751              		.section	.text.sx_storage_wake,"ax",%progbits
+ 1752              		.align	1
+ 1753              		.global	sx_storage_wake
+ 1754              		.syntax unified
+ 1755              		.thumb
+ 1756              		.thumb_func
+ 1758              	sx_storage_wake:
+ 1759              	.LFB546:
  212:SynaptiX_FDK/app/user/sx_ex_storage/sx_ex_storage.c **** 
  213:SynaptiX_FDK/app/user/sx_ex_storage/sx_ex_storage.c **** void sx_storage_wake(void){
- 1677              		.loc 1 213 27 view -0
- 1678              		.cfi_startproc
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccUTIJQG.s 			page 39
+ 1760              		.loc 1 213 27 view -0
+ 1761              		.cfi_startproc
+ 1762              		@ args = 0, pretend = 0, frame = 0
+ 1763              		@ frame_needed = 0, uses_anonymous_args = 0
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccc7byMl.s 			page 41
 
 
- 1679              		@ args = 0, pretend = 0, frame = 0
- 1680              		@ frame_needed = 0, uses_anonymous_args = 0
- 1681              		@ link register save eliminated.
+ 1764              		@ link register save eliminated.
  214:SynaptiX_FDK/app/user/sx_ex_storage/sx_ex_storage.c ****     
  215:SynaptiX_FDK/app/user/sx_ex_storage/sx_ex_storage.c **** }...
- 1682              		.loc 1 215 1 view .LVU395
- 1683 0000 7047     		bx	lr
- 1684              		.cfi_endproc
- 1685              	.LFE546:
- 1687              		.section	.bss.s_initialized,"aw",%nobits
- 1690              	s_initialized:
- 1691 0000 00       		.space	1
- 1692              		.section	.bss.s_flash,"aw",%nobits
- 1693              		.align	2
- 1696              	s_flash:
- 1697 0000 00000000 		.space	20
- 1697      00000000 
- 1697      00000000 
- 1697      00000000 
- 1697      00000000 
- 1698              		.section	.bss.s_w25q128,"aw",%nobits
- 1699              		.align	2
- 1702              	s_w25q128:
- 1703 0000 00000000 		.space	20
- 1703      00000000 
- 1703      00000000 
- 1703      00000000 
- 1703      00000000 
- 1704              		.text
- 1705              	.Letext0:
- 1706              		.file 6 "C:\\ST\\STM32CubeCLT_1.20.0\\GNU-tools-for-STM32\\bin/../lib/gcc/arm-none-eabi/13.3.1/../
- 1707              		.file 7 "C:\\ST\\STM32CubeCLT_1.20.0\\GNU-tools-for-STM32\\bin/../lib/gcc/arm-none-eabi/13.3.1/../
- 1708              		.file 8 "C:\\ST\\STM32CubeCLT_1.20.0\\GNU-tools-for-STM32\\bin/../lib/gcc/arm-none-eabi/13.3.1/inc
- 1709              		.file 9 "C:\\ST\\STM32CubeCLT_1.20.0\\GNU-tools-for-STM32\\bin/../lib/gcc/arm-none-eabi/13.3.1/../
- 1710              		.file 10 "C:\\ST\\STM32CubeCLT_1.20.0\\GNU-tools-for-STM32\\bin/../lib/gcc/arm-none-eabi/13.3.1/..
- 1711              		.file 11 "C:\\ST\\STM32CubeCLT_1.20.0\\GNU-tools-for-STM32\\bin/../lib/gcc/arm-none-eabi/13.3.1/..
- 1712              		.file 12 "Drivers/CMSIS/Device/ST/STM32H5xx/Include/stm32h563xx.h"
- 1713              		.file 13 "Drivers/STM32H5xx_HAL_Driver/Inc/stm32h5xx_hal_def.h"
- 1714              		.file 14 "Drivers/STM32H5xx_HAL_Driver/Inc/stm32h5xx_hal_dma.h"
- 1715              		.file 15 "Drivers/STM32H5xx_HAL_Driver/Inc/stm32h5xx_hal_dma_ex.h"
- 1716              		.file 16 "Drivers/STM32H5xx_HAL_Driver/Inc/stm32h5xx_ll_lptim.h"
- 1717              		.file 17 "Drivers/STM32H5xx_HAL_Driver/Inc/stm32h5xx_hal_spi.h"
- 1718              		.file 18 "SynaptiX_FDK/app/user/sx_ex_storage/sx_ex_storage.h"
- 1719              		.file 19 "C:\\ST\\STM32CubeCLT_1.20.0\\GNU-tools-for-STM32\\bin/../lib/gcc/arm-none-eabi/13.3.1/..
- 1720              		.file 20 "SynaptiX_FDK/components/external_flash/sx_W25Q128.h"
- 1721              		.file 21 "SynaptiX_FDK/services/littlefs/lfs.h"
- 1722              		.file 22 "SynaptiX_FDK/services/logger/logger.h"
- 1723              		.file 23 "C:\\ST\\STM32CubeCLT_1.20.0\\GNU-tools-for-STM32\\bin/../lib/gcc/arm-none-eabi/13.3.1/..
- 1724              		.file 24 "SynaptiX_FDK/services/filesystem/sx_fs.h"
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccUTIJQG.s 			page 40
+ 1765              		.loc 1 215 1 view .LVU405
+ 1766 0000 7047     		bx	lr
+ 1767              		.cfi_endproc
+ 1768              	.LFE546:
+ 1770              		.section	.bss.s_initialized,"aw",%nobits
+ 1773              	s_initialized:
+ 1774 0000 00       		.space	1
+ 1775              		.section	.bss.s_flash,"aw",%nobits
+ 1776              		.align	2
+ 1779              	s_flash:
+ 1780 0000 00000000 		.space	20
+ 1780      00000000 
+ 1780      00000000 
+ 1780      00000000 
+ 1780      00000000 
+ 1781              		.section	.bss.s_w25q128,"aw",%nobits
+ 1782              		.align	2
+ 1785              	s_w25q128:
+ 1786 0000 00000000 		.space	20
+ 1786      00000000 
+ 1786      00000000 
+ 1786      00000000 
+ 1786      00000000 
+ 1787              		.text
+ 1788              	.Letext0:
+ 1789              		.file 6 "C:\\ST\\STM32CubeCLT_1.20.0\\GNU-tools-for-STM32\\bin/../lib/gcc/arm-none-eabi/13.3.1/../
+ 1790              		.file 7 "C:\\ST\\STM32CubeCLT_1.20.0\\GNU-tools-for-STM32\\bin/../lib/gcc/arm-none-eabi/13.3.1/../
+ 1791              		.file 8 "C:\\ST\\STM32CubeCLT_1.20.0\\GNU-tools-for-STM32\\bin/../lib/gcc/arm-none-eabi/13.3.1/inc
+ 1792              		.file 9 "C:\\ST\\STM32CubeCLT_1.20.0\\GNU-tools-for-STM32\\bin/../lib/gcc/arm-none-eabi/13.3.1/../
+ 1793              		.file 10 "C:\\ST\\STM32CubeCLT_1.20.0\\GNU-tools-for-STM32\\bin/../lib/gcc/arm-none-eabi/13.3.1/..
+ 1794              		.file 11 "C:\\ST\\STM32CubeCLT_1.20.0\\GNU-tools-for-STM32\\bin/../lib/gcc/arm-none-eabi/13.3.1/..
+ 1795              		.file 12 "Drivers/CMSIS/Device/ST/STM32H5xx/Include/stm32h563xx.h"
+ 1796              		.file 13 "Drivers/STM32H5xx_HAL_Driver/Inc/stm32h5xx_hal_def.h"
+ 1797              		.file 14 "Drivers/STM32H5xx_HAL_Driver/Inc/stm32h5xx_hal_dma.h"
+ 1798              		.file 15 "Drivers/STM32H5xx_HAL_Driver/Inc/stm32h5xx_hal_dma_ex.h"
+ 1799              		.file 16 "Drivers/STM32H5xx_HAL_Driver/Inc/stm32h5xx_ll_lptim.h"
+ 1800              		.file 17 "Drivers/STM32H5xx_HAL_Driver/Inc/stm32h5xx_hal_spi.h"
+ 1801              		.file 18 "SynaptiX_FDK/app/user/sx_ex_storage/sx_ex_storage.h"
+ 1802              		.file 19 "C:\\ST\\STM32CubeCLT_1.20.0\\GNU-tools-for-STM32\\bin/../lib/gcc/arm-none-eabi/13.3.1/..
+ 1803              		.file 20 "SynaptiX_FDK/services/logger/logger.h"
+ 1804              		.file 21 "SynaptiX_FDK/components/external_flash/sx_W25Q128.h"
+ 1805              		.file 22 "SynaptiX_FDK/services/littlefs/lfs.h"
+ 1806              		.file 23 "C:\\ST\\STM32CubeCLT_1.20.0\\GNU-tools-for-STM32\\bin/../lib/gcc/arm-none-eabi/13.3.1/..
+ 1807              		.file 24 "SynaptiX_FDK/services/filesystem/sx_fs.h"
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccc7byMl.s 			page 42
 
 
 DEFINED SYMBOLS
                             *ABS*:00000000 sx_ex_storage.c
-C:\Users\LENOVO\AppData\Local\Temp\ccUTIJQG.s:22     .text.sx_gpio_write:00000000 $t
-C:\Users\LENOVO\AppData\Local\Temp\ccUTIJQG.s:27     .text.sx_gpio_write:00000000 sx_gpio_write
-C:\Users\LENOVO\AppData\Local\Temp\ccUTIJQG.s:90     .rodata._check_init.str1.4:00000000 $d
-C:\Users\LENOVO\AppData\Local\Temp\ccUTIJQG.s:97     .text._check_init:00000000 $t
-C:\Users\LENOVO\AppData\Local\Temp\ccUTIJQG.s:102    .text._check_init:00000000 _check_init
-C:\Users\LENOVO\AppData\Local\Temp\ccUTIJQG.s:138    .text._check_init:0000001c $d
-C:\Users\LENOVO\AppData\Local\Temp\ccUTIJQG.s:1690   .bss.s_initialized:00000000 s_initialized
-C:\Users\LENOVO\AppData\Local\Temp\ccUTIJQG.s:145    .text.file_open:00000000 $t
-C:\Users\LENOVO\AppData\Local\Temp\ccUTIJQG.s:150    .text.file_open:00000000 file_open
-C:\Users\LENOVO\AppData\Local\Temp\ccUTIJQG.s:293    .text.file_open:00000080 $d
-C:\Users\LENOVO\AppData\Local\Temp\ccUTIJQG.s:298    .rodata.sx_storage_init.str1.4:00000000 $d
-C:\Users\LENOVO\AppData\Local\Temp\ccUTIJQG.s:308    .text.sx_storage_init:00000000 $t
-C:\Users\LENOVO\AppData\Local\Temp\ccUTIJQG.s:314    .text.sx_storage_init:00000000 sx_storage_init
-C:\Users\LENOVO\AppData\Local\Temp\ccUTIJQG.s:488    .text.sx_storage_init:00000090 $d
-C:\Users\LENOVO\AppData\Local\Temp\ccUTIJQG.s:1702   .bss.s_w25q128:00000000 s_w25q128
-C:\Users\LENOVO\AppData\Local\Temp\ccUTIJQG.s:1696   .bss.s_flash:00000000 s_flash
-C:\Users\LENOVO\AppData\Local\Temp\ccUTIJQG.s:503    .rodata.sx_storage_write.str1.4:00000000 $d
-C:\Users\LENOVO\AppData\Local\Temp\ccUTIJQG.s:507    .text.sx_storage_write:00000000 $t
-C:\Users\LENOVO\AppData\Local\Temp\ccUTIJQG.s:513    .text.sx_storage_write:00000000 sx_storage_write
-C:\Users\LENOVO\AppData\Local\Temp\ccUTIJQG.s:623    .text.sx_storage_write:00000074 $d
-C:\Users\LENOVO\AppData\Local\Temp\ccUTIJQG.s:629    .rodata.sx_storage_append.str1.4:00000000 $d
-C:\Users\LENOVO\AppData\Local\Temp\ccUTIJQG.s:633    .text.sx_storage_append:00000000 $t
-C:\Users\LENOVO\AppData\Local\Temp\ccUTIJQG.s:639    .text.sx_storage_append:00000000 sx_storage_append
-C:\Users\LENOVO\AppData\Local\Temp\ccUTIJQG.s:749    .text.sx_storage_append:00000074 $d
-C:\Users\LENOVO\AppData\Local\Temp\ccUTIJQG.s:755    .rodata.sx_storage_read.str1.4:00000000 $d
-C:\Users\LENOVO\AppData\Local\Temp\ccUTIJQG.s:759    .text.sx_storage_read:00000000 $t
-C:\Users\LENOVO\AppData\Local\Temp\ccUTIJQG.s:765    .text.sx_storage_read:00000000 sx_storage_read
-C:\Users\LENOVO\AppData\Local\Temp\ccUTIJQG.s:875    .text.sx_storage_read:00000074 $d
-C:\Users\LENOVO\AppData\Local\Temp\ccUTIJQG.s:881    .text.sx_storage_read_partial:00000000 $t
-C:\Users\LENOVO\AppData\Local\Temp\ccUTIJQG.s:887    .text.sx_storage_read_partial:00000000 sx_storage_read_partial
-C:\Users\LENOVO\AppData\Local\Temp\ccUTIJQG.s:1027   .text.sx_storage_read_partial:00000098 $d
-C:\Users\LENOVO\AppData\Local\Temp\ccUTIJQG.s:1033   .text.sx_storage_delete:00000000 $t
-C:\Users\LENOVO\AppData\Local\Temp\ccUTIJQG.s:1039   .text.sx_storage_delete:00000000 sx_storage_delete
-C:\Users\LENOVO\AppData\Local\Temp\ccUTIJQG.s:1094   .text.sx_storage_delete:00000030 $d
-C:\Users\LENOVO\AppData\Local\Temp\ccUTIJQG.s:1099   .text.sx_storage_exists:00000000 $t
-C:\Users\LENOVO\AppData\Local\Temp\ccUTIJQG.s:1105   .text.sx_storage_exists:00000000 sx_storage_exists
-C:\Users\LENOVO\AppData\Local\Temp\ccUTIJQG.s:1168   .text.sx_storage_exists:00000030 $d
-C:\Users\LENOVO\AppData\Local\Temp\ccUTIJQG.s:1175   .text.sx_storage_size:00000000 $t
-C:\Users\LENOVO\AppData\Local\Temp\ccUTIJQG.s:1181   .text.sx_storage_size:00000000 sx_storage_size
-C:\Users\LENOVO\AppData\Local\Temp\ccUTIJQG.s:1259   .text.sx_storage_size:00000044 $d
-C:\Users\LENOVO\AppData\Local\Temp\ccUTIJQG.s:1266   .text.sx_storage_mkdir:00000000 $t
-C:\Users\LENOVO\AppData\Local\Temp\ccUTIJQG.s:1272   .text.sx_storage_mkdir:00000000 sx_storage_mkdir
-C:\Users\LENOVO\AppData\Local\Temp\ccUTIJQG.s:1327   .text.sx_storage_mkdir:00000030 $d
-C:\Users\LENOVO\AppData\Local\Temp\ccUTIJQG.s:1332   .text.sx_storage_list_dir:00000000 $t
-C:\Users\LENOVO\AppData\Local\Temp\ccUTIJQG.s:1338   .text.sx_storage_list_dir:00000000 sx_storage_list_dir
-C:\Users\LENOVO\AppData\Local\Temp\ccUTIJQG.s:1368   .text.sx_storage_list_dir:00000010 $d
-C:\Users\LENOVO\AppData\Local\Temp\ccUTIJQG.s:1373   .text.sx_storage_free_space:00000000 $t
-C:\Users\LENOVO\AppData\Local\Temp\ccUTIJQG.s:1379   .text.sx_storage_free_space:00000000 sx_storage_free_space
-C:\Users\LENOVO\AppData\Local\Temp\ccUTIJQG.s:1430   .text.sx_storage_free_space:00000028 $d
-C:\Users\LENOVO\AppData\Local\Temp\ccUTIJQG.s:1437   .text.sx_storage_total_space:00000000 $t
-C:\Users\LENOVO\AppData\Local\Temp\ccUTIJQG.s:1443   .text.sx_storage_total_space:00000000 sx_storage_total_space
-C:\Users\LENOVO\AppData\Local\Temp\ccUTIJQG.s:1458   .text.sx_storage_total_space:00000008 $d
-C:\Users\LENOVO\AppData\Local\Temp\ccUTIJQG.s:1463   .rodata.sx_storage_format.str1.4:00000000 $d
-C:\Users\LENOVO\AppData\Local\Temp\ccUTIJQG.s:1470   .text.sx_storage_format:00000000 $t
-C:\Users\LENOVO\AppData\Local\Temp\ccUTIJQG.s:1476   .text.sx_storage_format:00000000 sx_storage_format
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccUTIJQG.s 			page 41
+C:\Users\LENOVO\AppData\Local\Temp\ccc7byMl.s:22     .text.sx_gpio_write:00000000 $t
+C:\Users\LENOVO\AppData\Local\Temp\ccc7byMl.s:27     .text.sx_gpio_write:00000000 sx_gpio_write
+C:\Users\LENOVO\AppData\Local\Temp\ccc7byMl.s:90     .rodata._check_init.str1.4:00000000 $d
+C:\Users\LENOVO\AppData\Local\Temp\ccc7byMl.s:97     .text._check_init:00000000 $t
+C:\Users\LENOVO\AppData\Local\Temp\ccc7byMl.s:102    .text._check_init:00000000 _check_init
+C:\Users\LENOVO\AppData\Local\Temp\ccc7byMl.s:138    .text._check_init:0000001c $d
+C:\Users\LENOVO\AppData\Local\Temp\ccc7byMl.s:1773   .bss.s_initialized:00000000 s_initialized
+C:\Users\LENOVO\AppData\Local\Temp\ccc7byMl.s:145    .rodata.file_open.str1.4:00000000 $d
+C:\Users\LENOVO\AppData\Local\Temp\ccc7byMl.s:161    .text.file_open:00000000 $t
+C:\Users\LENOVO\AppData\Local\Temp\ccc7byMl.s:166    .text.file_open:00000000 file_open
+C:\Users\LENOVO\AppData\Local\Temp\ccc7byMl.s:371    .text.file_open:000000c0 $d
+C:\Users\LENOVO\AppData\Local\Temp\ccc7byMl.s:381    .rodata.sx_storage_init.str1.4:00000000 $d
+C:\Users\LENOVO\AppData\Local\Temp\ccc7byMl.s:391    .text.sx_storage_init:00000000 $t
+C:\Users\LENOVO\AppData\Local\Temp\ccc7byMl.s:397    .text.sx_storage_init:00000000 sx_storage_init
+C:\Users\LENOVO\AppData\Local\Temp\ccc7byMl.s:571    .text.sx_storage_init:00000090 $d
+C:\Users\LENOVO\AppData\Local\Temp\ccc7byMl.s:1785   .bss.s_w25q128:00000000 s_w25q128
+C:\Users\LENOVO\AppData\Local\Temp\ccc7byMl.s:1779   .bss.s_flash:00000000 s_flash
+C:\Users\LENOVO\AppData\Local\Temp\ccc7byMl.s:586    .rodata.sx_storage_write.str1.4:00000000 $d
+C:\Users\LENOVO\AppData\Local\Temp\ccc7byMl.s:590    .text.sx_storage_write:00000000 $t
+C:\Users\LENOVO\AppData\Local\Temp\ccc7byMl.s:596    .text.sx_storage_write:00000000 sx_storage_write
+C:\Users\LENOVO\AppData\Local\Temp\ccc7byMl.s:706    .text.sx_storage_write:00000074 $d
+C:\Users\LENOVO\AppData\Local\Temp\ccc7byMl.s:712    .rodata.sx_storage_append.str1.4:00000000 $d
+C:\Users\LENOVO\AppData\Local\Temp\ccc7byMl.s:716    .text.sx_storage_append:00000000 $t
+C:\Users\LENOVO\AppData\Local\Temp\ccc7byMl.s:722    .text.sx_storage_append:00000000 sx_storage_append
+C:\Users\LENOVO\AppData\Local\Temp\ccc7byMl.s:832    .text.sx_storage_append:00000074 $d
+C:\Users\LENOVO\AppData\Local\Temp\ccc7byMl.s:838    .rodata.sx_storage_read.str1.4:00000000 $d
+C:\Users\LENOVO\AppData\Local\Temp\ccc7byMl.s:842    .text.sx_storage_read:00000000 $t
+C:\Users\LENOVO\AppData\Local\Temp\ccc7byMl.s:848    .text.sx_storage_read:00000000 sx_storage_read
+C:\Users\LENOVO\AppData\Local\Temp\ccc7byMl.s:958    .text.sx_storage_read:00000074 $d
+C:\Users\LENOVO\AppData\Local\Temp\ccc7byMl.s:964    .text.sx_storage_read_partial:00000000 $t
+C:\Users\LENOVO\AppData\Local\Temp\ccc7byMl.s:970    .text.sx_storage_read_partial:00000000 sx_storage_read_partial
+C:\Users\LENOVO\AppData\Local\Temp\ccc7byMl.s:1110   .text.sx_storage_read_partial:00000098 $d
+C:\Users\LENOVO\AppData\Local\Temp\ccc7byMl.s:1116   .text.sx_storage_delete:00000000 $t
+C:\Users\LENOVO\AppData\Local\Temp\ccc7byMl.s:1122   .text.sx_storage_delete:00000000 sx_storage_delete
+C:\Users\LENOVO\AppData\Local\Temp\ccc7byMl.s:1177   .text.sx_storage_delete:00000030 $d
+C:\Users\LENOVO\AppData\Local\Temp\ccc7byMl.s:1182   .text.sx_storage_exists:00000000 $t
+C:\Users\LENOVO\AppData\Local\Temp\ccc7byMl.s:1188   .text.sx_storage_exists:00000000 sx_storage_exists
+C:\Users\LENOVO\AppData\Local\Temp\ccc7byMl.s:1251   .text.sx_storage_exists:00000030 $d
+C:\Users\LENOVO\AppData\Local\Temp\ccc7byMl.s:1258   .text.sx_storage_size:00000000 $t
+C:\Users\LENOVO\AppData\Local\Temp\ccc7byMl.s:1264   .text.sx_storage_size:00000000 sx_storage_size
+C:\Users\LENOVO\AppData\Local\Temp\ccc7byMl.s:1342   .text.sx_storage_size:00000044 $d
+C:\Users\LENOVO\AppData\Local\Temp\ccc7byMl.s:1349   .text.sx_storage_mkdir:00000000 $t
+C:\Users\LENOVO\AppData\Local\Temp\ccc7byMl.s:1355   .text.sx_storage_mkdir:00000000 sx_storage_mkdir
+C:\Users\LENOVO\AppData\Local\Temp\ccc7byMl.s:1410   .text.sx_storage_mkdir:00000030 $d
+C:\Users\LENOVO\AppData\Local\Temp\ccc7byMl.s:1415   .text.sx_storage_list_dir:00000000 $t
+C:\Users\LENOVO\AppData\Local\Temp\ccc7byMl.s:1421   .text.sx_storage_list_dir:00000000 sx_storage_list_dir
+C:\Users\LENOVO\AppData\Local\Temp\ccc7byMl.s:1451   .text.sx_storage_list_dir:00000010 $d
+C:\Users\LENOVO\AppData\Local\Temp\ccc7byMl.s:1456   .text.sx_storage_free_space:00000000 $t
+C:\Users\LENOVO\AppData\Local\Temp\ccc7byMl.s:1462   .text.sx_storage_free_space:00000000 sx_storage_free_space
+C:\Users\LENOVO\AppData\Local\Temp\ccc7byMl.s:1513   .text.sx_storage_free_space:00000028 $d
+C:\Users\LENOVO\AppData\Local\Temp\ccc7byMl.s:1520   .text.sx_storage_total_space:00000000 $t
+C:\Users\LENOVO\AppData\Local\Temp\ccc7byMl.s:1526   .text.sx_storage_total_space:00000000 sx_storage_total_space
+C:\Users\LENOVO\AppData\Local\Temp\ccc7byMl.s:1541   .text.sx_storage_total_space:00000008 $d
+C:\Users\LENOVO\AppData\Local\Temp\ccc7byMl.s:1546   .rodata.sx_storage_format.str1.4:00000000 $d
+C:\Users\LENOVO\AppData\Local\Temp\ccc7byMl.s:1553   .text.sx_storage_format:00000000 $t
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccc7byMl.s 			page 43
 
 
-C:\Users\LENOVO\AppData\Local\Temp\ccUTIJQG.s:1540   .text.sx_storage_format:00000044 $d
-C:\Users\LENOVO\AppData\Local\Temp\ccUTIJQG.s:1549   .rodata.sx_storage_factory_reset.str1.4:00000000 $d
-C:\Users\LENOVO\AppData\Local\Temp\ccUTIJQG.s:1559   .text.sx_storage_factory_reset:00000000 $t
-C:\Users\LENOVO\AppData\Local\Temp\ccUTIJQG.s:1565   .text.sx_storage_factory_reset:00000000 sx_storage_factory_reset
-C:\Users\LENOVO\AppData\Local\Temp\ccUTIJQG.s:1639   .text.sx_storage_factory_reset:00000054 $d
-C:\Users\LENOVO\AppData\Local\Temp\ccUTIJQG.s:1650   .text.sx_storage_sleep:00000000 $t
-C:\Users\LENOVO\AppData\Local\Temp\ccUTIJQG.s:1656   .text.sx_storage_sleep:00000000 sx_storage_sleep
-C:\Users\LENOVO\AppData\Local\Temp\ccUTIJQG.s:1669   .text.sx_storage_wake:00000000 $t
-C:\Users\LENOVO\AppData\Local\Temp\ccUTIJQG.s:1675   .text.sx_storage_wake:00000000 sx_storage_wake
-C:\Users\LENOVO\AppData\Local\Temp\ccUTIJQG.s:1691   .bss.s_initialized:00000000 $d
-C:\Users\LENOVO\AppData\Local\Temp\ccUTIJQG.s:1693   .bss.s_flash:00000000 $d
-C:\Users\LENOVO\AppData\Local\Temp\ccUTIJQG.s:1699   .bss.s_w25q128:00000000 $d
+C:\Users\LENOVO\AppData\Local\Temp\ccc7byMl.s:1559   .text.sx_storage_format:00000000 sx_storage_format
+C:\Users\LENOVO\AppData\Local\Temp\ccc7byMl.s:1623   .text.sx_storage_format:00000044 $d
+C:\Users\LENOVO\AppData\Local\Temp\ccc7byMl.s:1632   .rodata.sx_storage_factory_reset.str1.4:00000000 $d
+C:\Users\LENOVO\AppData\Local\Temp\ccc7byMl.s:1642   .text.sx_storage_factory_reset:00000000 $t
+C:\Users\LENOVO\AppData\Local\Temp\ccc7byMl.s:1648   .text.sx_storage_factory_reset:00000000 sx_storage_factory_reset
+C:\Users\LENOVO\AppData\Local\Temp\ccc7byMl.s:1722   .text.sx_storage_factory_reset:00000054 $d
+C:\Users\LENOVO\AppData\Local\Temp\ccc7byMl.s:1733   .text.sx_storage_sleep:00000000 $t
+C:\Users\LENOVO\AppData\Local\Temp\ccc7byMl.s:1739   .text.sx_storage_sleep:00000000 sx_storage_sleep
+C:\Users\LENOVO\AppData\Local\Temp\ccc7byMl.s:1752   .text.sx_storage_wake:00000000 $t
+C:\Users\LENOVO\AppData\Local\Temp\ccc7byMl.s:1758   .text.sx_storage_wake:00000000 sx_storage_wake
+C:\Users\LENOVO\AppData\Local\Temp\ccc7byMl.s:1774   .bss.s_initialized:00000000 $d
+C:\Users\LENOVO\AppData\Local\Temp\ccc7byMl.s:1776   .bss.s_flash:00000000 $d
+C:\Users\LENOVO\AppData\Local\Temp\ccc7byMl.s:1782   .bss.s_w25q128:00000000 $d
 
 UNDEFINED SYMBOLS
 log_func
