@@ -4185,8 +4185,8 @@ END GROUP
 LOAD C:/ST/STM32CubeCLT_1.20.0/GNU-tools-for-STM32/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v8-m.main+fp/hard/crtend.o
 LOAD C:/ST/STM32CubeCLT_1.20.0/GNU-tools-for-STM32/bin/../lib/gcc/arm-none-eabi/13.3.1/thumb/v8-m.main+fp/hard/crtn.o
                 0x200a0000                        _estack = (ORIGIN (RAM) + LENGTH (RAM))
-                0x00000600                        _Min_Heap_Size = 0x600
-                0x00000600                        _Min_Stack_Size = 0x600
+                0x00001000                        _Min_Heap_Size = 0x1000
+                0x00001000                        _Min_Stack_Size = 0x1000
 
 .isr_vector     0x08010000      0x24c
                 0x08010000                        . = ALIGN (0x4)
@@ -8354,16 +8354,16 @@ LOAD C:/ST/STM32CubeCLT_1.20.0/GNU-tools-for-STM32/bin/../lib/gcc/arm-none-eabi/
                 [!provide]                        PROVIDE (__bss_size = (__bss_end - __bss_start))
 
 ._user_heap_stack
-                0x200086e4      0xc04 load address 0x08038d38
+                0x200086e4     0x2004 load address 0x08038d38
                 0x200086e8                        . = ALIGN (0x8)
  *fill*         0x200086e4        0x4 
                 [!provide]                        PROVIDE (end = .)
                 0x200086e8                        PROVIDE (_end = .)
-                0x20008ce8                        . = (. + _Min_Heap_Size)
- *fill*         0x200086e8      0x600 
-                0x200092e8                        . = (. + _Min_Stack_Size)
- *fill*         0x20008ce8      0x600 
-                0x200092e8                        . = ALIGN (0x8)
+                0x200096e8                        . = (. + _Min_Heap_Size)
+ *fill*         0x200086e8     0x1000 
+                0x2000a6e8                        . = (. + _Min_Stack_Size)
+ *fill*         0x200096e8     0x1000 
+                0x2000a6e8                        . = ALIGN (0x8)
 
 /DISCARD/
  libc.a:*(*)

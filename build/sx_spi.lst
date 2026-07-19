@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cc1nX1Ej.s 			page 1
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccoYhHJj.s 			page 1
 
 
    1              		.cpu cortex-m33
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cc1nX1Ej.s 			page 1
   26:SynaptiX_FDK/components/gpio/sx_gpio.h **** 
   27:SynaptiX_FDK/components/gpio/sx_gpio.h **** typedef struct sx_gpio{
   28:SynaptiX_FDK/components/gpio/sx_gpio.h ****     sx_gpio_ops_t *ops;
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cc1nX1Ej.s 			page 2
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccoYhHJj.s 			page 2
 
 
   29:SynaptiX_FDK/components/gpio/sx_gpio.h ****     void *pDriver;
@@ -118,7 +118,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cc1nX1Ej.s 			page 1
   68              		.loc 2 45 9 is_stmt 0 view .LVU14
   69              	.LBE2:
   46:SynaptiX_FDK/components/gpio/sx_gpio.h ****     }
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cc1nX1Ej.s 			page 3
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccoYhHJj.s 			page 3
 
 
   47:SynaptiX_FDK/components/gpio/sx_gpio.h ****     return -1;
@@ -178,7 +178,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cc1nX1Ej.s 			page 1
   22:SynaptiX_FDK/components/spi/sx_spi.h ****     void *pDriver;
   23:SynaptiX_FDK/components/spi/sx_spi.h ****     sx_gpio_t *cs;
   24:SynaptiX_FDK/components/spi/sx_spi.h **** };
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cc1nX1Ej.s 			page 4
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccoYhHJj.s 			page 4
 
 
   25:SynaptiX_FDK/components/spi/sx_spi.h **** 
@@ -238,7 +238,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cc1nX1Ej.s 			page 1
  121              	.L10:
  122              	.LCFI2:
  123              		.cfi_def_cfa_offset 0
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cc1nX1Ej.s 			page 5
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccoYhHJj.s 			page 5
 
 
  124              		.cfi_restore 3
@@ -298,7 +298,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cc1nX1Ej.s 			page 1
  178              	.LFB506:
    1:SynaptiX_FDK/components/spi/sx_spi.c **** #include "sx_config.h"
    2:SynaptiX_FDK/components/spi/sx_spi.c **** #include "sx_delay.h"
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cc1nX1Ej.s 			page 6
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccoYhHJj.s 			page 6
 
 
    3:SynaptiX_FDK/components/spi/sx_spi.c **** #include "logger.h" // DEBUG: needed for log_info added for hang investigation
@@ -358,7 +358,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cc1nX1Ej.s 			page 1
  188              		.cfi_offset 5, -12
  189              		.cfi_offset 6, -8
  190              		.cfi_offset 14, -4
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cc1nX1Ej.s 			page 7
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccoYhHJj.s 			page 7
 
 
  191 0002 0446     		mov	r4, r0
@@ -418,7 +418,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cc1nX1Ej.s 			page 1
  238              		.cfi_startproc
  239              		@ args = 0, pretend = 0, frame = 0
  240              		@ frame_needed = 0, uses_anonymous_args = 0
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cc1nX1Ej.s 			page 8
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccoYhHJj.s 			page 8
 
 
  241              		.loc 1 54 68 is_stmt 0 view .LVU46
@@ -478,7 +478,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cc1nX1Ej.s 			page 1
  289              		.thumb
  290              		.thumb_func
  292              	_sx_spi_write_read:
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cc1nX1Ej.s 			page 9
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccoYhHJj.s 			page 9
 
 
  293              	.LVL27:
@@ -538,7 +538,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cc1nX1Ej.s 			page 1
   66:SynaptiX_FDK/components/spi/sx_spi.c ****     return ret;
  341              		.loc 1 66 5 is_stmt 1 view .LVU66
   67:SynaptiX_FDK/components/spi/sx_spi.c **** }...
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cc1nX1Ej.s 			page 10
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccoYhHJj.s 			page 10
 
 
  342              		.loc 1 67 1 is_stmt 0 view .LVU67
@@ -579,25 +579,25 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cc1nX1Ej.s 			page 1
  378              		.file 9 "Drivers/STM32H5xx_HAL_Driver/Inc/stm32h5xx_hal_dma_ex.h"
  379              		.file 10 "Drivers/STM32H5xx_HAL_Driver/Inc/stm32h5xx_ll_lptim.h"
  380              		.file 11 "Drivers/STM32H5xx_HAL_Driver/Inc/stm32h5xx_hal_spi.h"
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cc1nX1Ej.s 			page 11
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccoYhHJj.s 			page 11
 
 
 DEFINED SYMBOLS
                             *ABS*:00000000 sx_spi.c
-C:\Users\LENOVO\AppData\Local\Temp\cc1nX1Ej.s:22     .text.sx_gpio_write:00000000 $t
-C:\Users\LENOVO\AppData\Local\Temp\cc1nX1Ej.s:27     .text.sx_gpio_write:00000000 sx_gpio_write
-C:\Users\LENOVO\AppData\Local\Temp\cc1nX1Ej.s:90     .text.sx_spi_cs_low:00000000 $t
-C:\Users\LENOVO\AppData\Local\Temp\cc1nX1Ej.s:95     .text.sx_spi_cs_low:00000000 sx_spi_cs_low
-C:\Users\LENOVO\AppData\Local\Temp\cc1nX1Ej.s:131    .text.sx_spi_cs_high:00000000 $t
-C:\Users\LENOVO\AppData\Local\Temp\cc1nX1Ej.s:136    .text.sx_spi_cs_high:00000000 sx_spi_cs_high
-C:\Users\LENOVO\AppData\Local\Temp\cc1nX1Ej.s:171    .text._sx_spi_write:00000000 $t
-C:\Users\LENOVO\AppData\Local\Temp\cc1nX1Ej.s:176    .text._sx_spi_write:00000000 _sx_spi_write
-C:\Users\LENOVO\AppData\Local\Temp\cc1nX1Ej.s:229    .text._sx_spi_read:00000000 $t
-C:\Users\LENOVO\AppData\Local\Temp\cc1nX1Ej.s:234    .text._sx_spi_read:00000000 _sx_spi_read
-C:\Users\LENOVO\AppData\Local\Temp\cc1nX1Ej.s:287    .text._sx_spi_write_read:00000000 $t
-C:\Users\LENOVO\AppData\Local\Temp\cc1nX1Ej.s:292    .text._sx_spi_write_read:00000000 _sx_spi_write_read
-C:\Users\LENOVO\AppData\Local\Temp\cc1nX1Ej.s:367    .data.sx_spi_ops:00000000 sx_spi_ops
-C:\Users\LENOVO\AppData\Local\Temp\cc1nX1Ej.s:364    .data.sx_spi_ops:00000000 $d
+C:\Users\LENOVO\AppData\Local\Temp\ccoYhHJj.s:22     .text.sx_gpio_write:00000000 $t
+C:\Users\LENOVO\AppData\Local\Temp\ccoYhHJj.s:27     .text.sx_gpio_write:00000000 sx_gpio_write
+C:\Users\LENOVO\AppData\Local\Temp\ccoYhHJj.s:90     .text.sx_spi_cs_low:00000000 $t
+C:\Users\LENOVO\AppData\Local\Temp\ccoYhHJj.s:95     .text.sx_spi_cs_low:00000000 sx_spi_cs_low
+C:\Users\LENOVO\AppData\Local\Temp\ccoYhHJj.s:131    .text.sx_spi_cs_high:00000000 $t
+C:\Users\LENOVO\AppData\Local\Temp\ccoYhHJj.s:136    .text.sx_spi_cs_high:00000000 sx_spi_cs_high
+C:\Users\LENOVO\AppData\Local\Temp\ccoYhHJj.s:171    .text._sx_spi_write:00000000 $t
+C:\Users\LENOVO\AppData\Local\Temp\ccoYhHJj.s:176    .text._sx_spi_write:00000000 _sx_spi_write
+C:\Users\LENOVO\AppData\Local\Temp\ccoYhHJj.s:229    .text._sx_spi_read:00000000 $t
+C:\Users\LENOVO\AppData\Local\Temp\ccoYhHJj.s:234    .text._sx_spi_read:00000000 _sx_spi_read
+C:\Users\LENOVO\AppData\Local\Temp\ccoYhHJj.s:287    .text._sx_spi_write_read:00000000 $t
+C:\Users\LENOVO\AppData\Local\Temp\ccoYhHJj.s:292    .text._sx_spi_write_read:00000000 _sx_spi_write_read
+C:\Users\LENOVO\AppData\Local\Temp\ccoYhHJj.s:367    .data.sx_spi_ops:00000000 sx_spi_ops
+C:\Users\LENOVO\AppData\Local\Temp\ccoYhHJj.s:364    .data.sx_spi_ops:00000000 $d
 
 UNDEFINED SYMBOLS
 HAL_SPI_Transmit

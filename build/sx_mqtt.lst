@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccRY5RX6.s 			page 1
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccxrhOTS.s 			page 1
 
 
    1              		.cpu cortex-m33
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccRY5RX6.s 			page 1
    8:SynaptiX_FDK/services/mqtt/sx_mqtt.c **** #define SX_MQTT_RECONNECT_DELAY_MAX     5000U
    9:SynaptiX_FDK/services/mqtt/sx_mqtt.c **** 
   10:SynaptiX_FDK/services/mqtt/sx_mqtt.c **** static const char *TAG = "SX_MQTT";
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccRY5RX6.s 			page 2
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccxrhOTS.s 			page 2
 
 
   11:SynaptiX_FDK/services/mqtt/sx_mqtt.c **** 
@@ -118,7 +118,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccRY5RX6.s 			page 1
   65:SynaptiX_FDK/services/mqtt/sx_mqtt.c **** //         if (data_next) {
   66:SynaptiX_FDK/services/mqtt/sx_mqtt.c **** //             strncpy(mqtt->urc_topic, data_next, sizeof(mqtt->urc_topic) - 1);
   67:SynaptiX_FDK/services/mqtt/sx_mqtt.c **** //             // trim \r\n
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccRY5RX6.s 			page 3
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccxrhOTS.s 			page 3
 
 
   68:SynaptiX_FDK/services/mqtt/sx_mqtt.c **** //             char *end = mqtt->urc_topic + strlen(mqtt->urc_topic) - 1;
@@ -178,7 +178,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccRY5RX6.s 			page 1
  122:SynaptiX_FDK/services/mqtt/sx_mqtt.c ****         if (data_next) {
  123:SynaptiX_FDK/services/mqtt/sx_mqtt.c ****             char *end = strstr(data_next, "\r\n");
  124:SynaptiX_FDK/services/mqtt/sx_mqtt.c ****             size_t len = end ? (size_t)(end - data_next) : strlen(data_next);
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccRY5RX6.s 			page 4
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccxrhOTS.s 			page 4
 
 
  125:SynaptiX_FDK/services/mqtt/sx_mqtt.c ****             if (len >= sizeof(mqtt->urc_topic)) len = sizeof(mqtt->urc_topic) - 1;
@@ -238,7 +238,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccRY5RX6.s 			page 1
  179:SynaptiX_FDK/services/mqtt/sx_mqtt.c ****         return;
  180:SynaptiX_FDK/services/mqtt/sx_mqtt.c ****     }
  181:SynaptiX_FDK/services/mqtt/sx_mqtt.c **** 
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccRY5RX6.s 			page 5
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccxrhOTS.s 			page 5
 
 
  182:SynaptiX_FDK/services/mqtt/sx_mqtt.c ****     static char tmp[MODEM_RX_BUFFER_SIZE];
@@ -298,7 +298,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccRY5RX6.s 			page 1
  236:SynaptiX_FDK/services/mqtt/sx_mqtt.c ****         s_start_retry = 0;
  237:SynaptiX_FDK/services/mqtt/sx_mqtt.c ****         log_error(TAG, "CMQTTSTART failed sau retry");
  238:SynaptiX_FDK/services/mqtt/sx_mqtt.c ****         do_error(mqtt);
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccRY5RX6.s 			page 6
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccxrhOTS.s 			page 6
 
 
  239:SynaptiX_FDK/services/mqtt/sx_mqtt.c ****         return;
@@ -358,7 +358,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccRY5RX6.s 			page 1
  293:SynaptiX_FDK/services/mqtt/sx_mqtt.c ****     if (res != MODEM_RESPONSE_SUCCESS) {
  294:SynaptiX_FDK/services/mqtt/sx_mqtt.c ****         log_error(TAG, "CMQTTACCQ failed");
  295:SynaptiX_FDK/services/mqtt/sx_mqtt.c ****         do_error(mqtt);
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccRY5RX6.s 			page 7
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccxrhOTS.s 			page 7
 
 
  296:SynaptiX_FDK/services/mqtt/sx_mqtt.c ****         return;
@@ -418,7 +418,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccRY5RX6.s 			page 1
  350:SynaptiX_FDK/services/mqtt/sx_mqtt.c **** 
  351:SynaptiX_FDK/services/mqtt/sx_mqtt.c ****     if (mqtt->config.ssl_auth_mode == 2 && mqtt->config.client_cert) {
  352:SynaptiX_FDK/services/mqtt/sx_mqtt.c ****         mqtt->state = SX_MQTT_STATE_CERT_CLIENT;
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccRY5RX6.s 			page 8
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccxrhOTS.s 			page 8
 
 
  353:SynaptiX_FDK/services/mqtt/sx_mqtt.c ****         sim76xx_cert_download(mqtt->dce,
@@ -478,7 +478,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccRY5RX6.s 			page 1
  407:SynaptiX_FDK/services/mqtt/sx_mqtt.c ****     sx_mqtt_t *mqtt = s_instance;
  408:SynaptiX_FDK/services/mqtt/sx_mqtt.c ****     if (res != MODEM_RESPONSE_SUCCESS) {
  409:SynaptiX_FDK/services/mqtt/sx_mqtt.c ****         log_error(TAG, "CCERTDOWN key prompt failed");
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccRY5RX6.s 			page 9
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccxrhOTS.s 			page 9
 
 
  410:SynaptiX_FDK/services/mqtt/sx_mqtt.c ****         do_error(mqtt);
@@ -538,7 +538,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccRY5RX6.s 			page 1
  464:SynaptiX_FDK/services/mqtt/sx_mqtt.c ****                                modem_response_st_t res, void *arg)
  465:SynaptiX_FDK/services/mqtt/sx_mqtt.c **** {
  466:SynaptiX_FDK/services/mqtt/sx_mqtt.c ****     (void)modem; (void)arg;
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccRY5RX6.s 			page 10
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccxrhOTS.s 			page 10
 
 
  467:SynaptiX_FDK/services/mqtt/sx_mqtt.c ****     sx_mqtt_t *mqtt = s_instance;
@@ -598,7 +598,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccRY5RX6.s 			page 1
   56              		.loc 1 504 16 view .LVU6
   57 0004 1C68     		ldr	r4, [r3]
   58              	.LVL2:
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccRY5RX6.s 			page 11
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccxrhOTS.s 			page 11
 
 
  505:SynaptiX_FDK/services/mqtt/sx_mqtt.c **** 
@@ -658,7 +658,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccRY5RX6.s 			page 1
  101              	.L7:
  102              		.align	2
  103              	.L6:
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccRY5RX6.s 			page 12
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccxrhOTS.s 			page 12
 
 
  104 0030 00000000 		.word	s_instance
@@ -718,7 +718,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccRY5RX6.s 			page 1
  146 0004 1C68     		ldr	r4, [r3]
  147              	.LVL13:
  522:SynaptiX_FDK/services/mqtt/sx_mqtt.c ****     int ok = (res == MODEM_RESPONSE_SUCCESS);
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccRY5RX6.s 			page 13
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccxrhOTS.s 			page 13
 
 
  148              		.loc 1 522 5 is_stmt 1 view .LVU28
@@ -778,7 +778,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccRY5RX6.s 			page 1
  193 002c 0120     		movs	r0, #1
  194              	.LVL23:
  525:SynaptiX_FDK/services/mqtt/sx_mqtt.c ****     else    log_error(TAG, "Publish failed");
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccRY5RX6.s 			page 14
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccxrhOTS.s 			page 14
 
 
  195              		.loc 1 525 13 view .LVU44
@@ -838,7 +838,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccRY5RX6.s 			page 1
  533:SynaptiX_FDK/services/mqtt/sx_mqtt.c ****         log_debug(TAG, "Subscribe OK");
  240              		.loc 1 533 9 is_stmt 1 view .LVU51
  241 0004 054A     		ldr	r2, .L19
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccRY5RX6.s 			page 15
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccxrhOTS.s 			page 15
 
 
  242              	.LVL26:
@@ -898,7 +898,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccRY5RX6.s 			page 1
  286      54545258 
  286      544F5049 
  286      433A00
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccRY5RX6.s 			page 16
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccxrhOTS.s 			page 16
 
 
  287 001f 00       		.align	2
@@ -958,7 +958,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccRY5RX6.s 			page 1
  109:SynaptiX_FDK/services/mqtt/sx_mqtt.c ****     if (!line || *line == '\0') return;
  322              		.loc 1 109 87 view .LVU64
  323 0006 F0B5     		push	{r4, r5, r6, r7, lr}
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccRY5RX6.s 			page 17
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccxrhOTS.s 			page 17
 
 
  324              	.LCFI3:
@@ -1018,7 +1018,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccRY5RX6.s 			page 1
  365              		.loc 1 147 5 is_stmt 1 view .LVU77
  147:SynaptiX_FDK/services/mqtt/sx_mqtt.c ****         strstr(line, "+CMQTTRXEND:"))
  366              		.loc 1 147 8 is_stmt 0 view .LVU78
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccRY5RX6.s 			page 18
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccxrhOTS.s 			page 18
 
 
  367 002a 032F     		cmp	r7, #3
@@ -1078,7 +1078,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccRY5RX6.s 			page 1
  406 005a 84F82D30 		strb	r3, [r4, #45]
  114:SynaptiX_FDK/services/mqtt/sx_mqtt.c ****         memset(mqtt->urc_payload, 0, sizeof(mqtt->urc_payload));
  407              		.loc 1 114 9 is_stmt 1 view .LVU94
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccRY5RX6.s 			page 19
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccxrhOTS.s 			page 19
 
 
  408 005e 8022     		movs	r2, #128
@@ -1138,7 +1138,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccRY5RX6.s 			page 1
  451              		.loc 1 124 58 is_stmt 0 view .LVU105
  452 0092 88B1     		cbz	r0, .L26
  124:SynaptiX_FDK/services/mqtt/sx_mqtt.c ****             if (len >= sizeof(mqtt->urc_topic)) len = sizeof(mqtt->urc_topic) - 1;
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccRY5RX6.s 			page 20
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccxrhOTS.s 			page 20
 
 
  453              		.loc 1 124 45 discriminator 1 view .LVU106
@@ -1198,7 +1198,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccRY5RX6.s 			page 1
  494              		.loc 1 124 60 discriminator 2 view .LVU119
  495 00ba FFF7FEFF 		bl	strlen
  496              	.LVL54:
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccRY5RX6.s 			page 21
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccxrhOTS.s 			page 21
 
 
  497 00be 0546     		mov	r5, r0
@@ -1258,7 +1258,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccRY5RX6.s 			page 1
  537              	.L33:
  140:SynaptiX_FDK/services/mqtt/sx_mqtt.c ****             mqtt->urc_payload[len] = '\0';
  538              		.loc 1 140 13 is_stmt 1 view .LVU134
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccRY5RX6.s 			page 22
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccxrhOTS.s 			page 22
 
 
  539 00e6 2A46     		mov	r2, r5
@@ -1318,7 +1318,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccRY5RX6.s 			page 1
  581 0110 FFF7FEFF 		bl	strstr
  582              	.LVL69:
  147:SynaptiX_FDK/services/mqtt/sx_mqtt.c ****         strstr(line, "+CMQTTRXEND:"))
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccRY5RX6.s 			page 23
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccxrhOTS.s 			page 23
 
 
  583              		.loc 1 147 48 discriminator 1 view .LVU147
@@ -1378,7 +1378,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccRY5RX6.s 			page 1
  155:SynaptiX_FDK/services/mqtt/sx_mqtt.c ****     }
  627              		.loc 1 155 9 is_stmt 0 view .LVU158
  628 0144 7047     		bx	lr
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccRY5RX6.s 			page 24
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccxrhOTS.s 			page 24
 
 
  629              	.L48:
@@ -1438,7 +1438,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccRY5RX6.s 			page 1
  671              		.cfi_offset 4, -16
  672              		.cfi_offset 5, -12
  673              		.cfi_offset 6, -8
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccRY5RX6.s 			page 25
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccxrhOTS.s 			page 25
 
 
  674              		.cfi_offset 14, -4
@@ -1498,7 +1498,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccRY5RX6.s 			page 1
  713              		.loc 1 174 9 view .LVU175
  174:SynaptiX_FDK/services/mqtt/sx_mqtt.c ****         mqtt->reconnect_elapsed = 0;
  714              		.loc 1 174 21 is_stmt 0 view .LVU176
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccRY5RX6.s 			page 26
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccxrhOTS.s 			page 26
 
 
  715 002a 0023     		movs	r3, #0
@@ -1558,7 +1558,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccRY5RX6.s 			page 1
  186:SynaptiX_FDK/services/mqtt/sx_mqtt.c ****     while (line && *line) {
  754              		.loc 1 186 5 is_stmt 1 view .LVU192
  755              	.LVL86:
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccRY5RX6.s 			page 27
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccxrhOTS.s 			page 27
 
 
  187:SynaptiX_FDK/services/mqtt/sx_mqtt.c ****         char *eol = strstr(line, "\r\n");
@@ -1618,7 +1618,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccRY5RX6.s 			page 1
  187:SynaptiX_FDK/services/mqtt/sx_mqtt.c ****         char *eol = strstr(line, "\r\n");
  796              		.loc 1 187 17 is_stmt 1 view .LVU207
  797 007e 002C     		cmp	r4, #0
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccRY5RX6.s 			page 28
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccxrhOTS.s 			page 28
 
 
  798 0080 E2D0     		beq	.L49
@@ -1678,7 +1678,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccRY5RX6.s 			page 1
  842              		.thumb
  843              		.thumb_func
  845              	cb_start_after_stop:
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccRY5RX6.s 			page 29
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccxrhOTS.s 			page 29
 
 
  846              	.LVL95:
@@ -1738,7 +1738,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccRY5RX6.s 			page 1
  890      54434647 
  890      20766572 
  890      73696F6E 
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccRY5RX6.s 			page 30
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccxrhOTS.s 			page 30
 
 
  890      20666169 
@@ -1798,7 +1798,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccRY5RX6.s 			page 1
  933              		.loc 1 267 5 is_stmt 1 view .LVU240
  267:SynaptiX_FDK/services/mqtt/sx_mqtt.c ****                          mqtt->config.broker, mqtt->config.port,
  934              		.loc 1 267 30 is_stmt 0 view .LVU241
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccRY5RX6.s 			page 31
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccxrhOTS.s 			page 31
 
 
  935 0010 2068     		ldr	r0, [r4]
@@ -1858,7 +1858,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccRY5RX6.s 			page 1
  982              	.L68:
  983 0048 00000000 		.word	s_instance
  984 004c 00000000 		.word	cb_conn
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccRY5RX6.s 			page 32
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccxrhOTS.s 			page 32
 
 
  985 0050 00000000 		.word	.LC18
@@ -1918,7 +1918,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccRY5RX6.s 			page 1
  1029 000c 0068     		ldr	r0, [r0]
  1030              	.LVL114:
  438:SynaptiX_FDK/services/mqtt/sx_mqtt.c ****                          mqtt->config.client_cert ? "client.crt" : NULL,
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccRY5RX6.s 			page 33
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccxrhOTS.s 			page 33
 
 
  1031              		.loc 1 438 49 view .LVU255
@@ -1978,7 +1978,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccRY5RX6.s 			page 1
  1076              		.section	.rodata.do_error.str1.4,"aMS",%progbits,1
  1077              		.align	2
  1078              	.LC22:
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccRY5RX6.s 			page 34
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccxrhOTS.s 			page 34
 
 
  1079 0000 546F6F20 		.ascii	"Too many retries \342\200\224 restarting modem init"
@@ -2038,7 +2038,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccRY5RX6.s 			page 1
  1094              		.loc 1 568 38 is_stmt 1 view -0
  1095              		.cfi_startproc
  1096              		@ args = 0, pretend = 0, frame = 0
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccRY5RX6.s 			page 35
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccxrhOTS.s 			page 35
 
 
  1097              		@ frame_needed = 0, uses_anonymous_args = 0
@@ -2098,7 +2098,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccRY5RX6.s 			page 1
  1136 002e 0093     		str	r3, [sp]
  1137 0030 D4F8B432 		ldr	r3, [r4, #692]
  1138 0034 0F4A     		ldr	r2, .L82
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccRY5RX6.s 			page 36
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccxrhOTS.s 			page 36
 
 
  1139 0036 1049     		ldr	r1, .L82+4
@@ -2158,7 +2158,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccRY5RX6.s 			page 1
  1183              		.loc 1 580 9 view .LVU293
  1184 0066 2068     		ldr	r0, [r4]
  1185 0068 FFF7FEFF 		bl	sim76xx_power_on
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccRY5RX6.s 			page 37
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccxrhOTS.s 			page 37
 
 
  1186              	.LVL125:
@@ -2218,7 +2218,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccRY5RX6.s 			page 1
  1220      742E2E2E 
  1221              		.section	.text.cb_start,"ax",%progbits
  1222              		.align	1
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccRY5RX6.s 			page 38
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccxrhOTS.s 			page 38
 
 
  1223              		.syntax unified
@@ -2278,7 +2278,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccRY5RX6.s 			page 1
  1267 0014 0320     		movs	r0, #3
  1268              	.LVL132:
  228:SynaptiX_FDK/services/mqtt/sx_mqtt.c ****     if (res != MODEM_RESPONSE_SUCCESS) {
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccRY5RX6.s 			page 39
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccxrhOTS.s 			page 39
 
 
  1269              		.loc 1 228 5 discriminator 4 view .LVU306
@@ -2338,7 +2338,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccRY5RX6.s 			page 1
  1311              		.loc 1 228 5 discriminator 2 view .LVU318
  1312 0042 2B4B     		ldr	r3, .L94+24
  1313 0044 E3E7     		b	.L85
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccRY5RX6.s 			page 40
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccxrhOTS.s 			page 40
 
 
  1314              	.LVL137:
@@ -2398,7 +2398,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccRY5RX6.s 			page 1
  1354              		.loc 1 245 9 is_stmt 1 view .LVU332
  1355 0076 214A     		ldr	r2, .L94+36
  1356 0078 1949     		ldr	r1, .L94+8
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccRY5RX6.s 			page 41
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccxrhOTS.s 			page 41
 
 
  1357 007a 0320     		movs	r0, #3
@@ -2458,7 +2458,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccRY5RX6.s 			page 1
  1399 00ba FFF7FEFF 		bl	sim76xx_mqtt_ssl_cfg
  1400              	.LVL145:
  1401 00be BEE7     		b	.L84
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccRY5RX6.s 			page 42
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccxrhOTS.s 			page 42
 
 
  1402              	.L90:
@@ -2518,7 +2518,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccRY5RX6.s 			page 1
  1444      20736574 
  1445 003e 3100     		.ascii	"1\000"
  1446              		.align	2
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccRY5RX6.s 			page 43
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccxrhOTS.s 			page 43
 
 
  1447              	.LC32:
@@ -2578,7 +2578,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccRY5RX6.s 			page 1
  1487 000a 0D4A     		ldr	r2, .L101+4
  1488              	.LVL150:
  298:SynaptiX_FDK/services/mqtt/sx_mqtt.c ****     sim76xx_mqtt_send_raw_cmd(mqtt->dce,
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccRY5RX6.s 			page 44
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccxrhOTS.s 			page 44
 
 
  1489              		.loc 1 298 5 is_stmt 0 view .LVU360
@@ -2638,7 +2638,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccRY5RX6.s 			page 1
  295:SynaptiX_FDK/services/mqtt/sx_mqtt.c ****         return;
  1533              		.loc 1 295 9 is_stmt 1 view .LVU371
  1534 0034 2046     		mov	r0, r4
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccRY5RX6.s 			page 45
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccxrhOTS.s 			page 45
 
 
  1535 0036 FFF7FEFF 		bl	do_error
@@ -2698,7 +2698,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccRY5RX6.s 			page 1
  1577              	.LCFI29:
  1578              		.cfi_def_cfa_offset 8
  1579              		.cfi_offset 4, -8
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccRY5RX6.s 			page 46
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccxrhOTS.s 			page 46
 
 
  1580              		.cfi_offset 14, -4
@@ -2758,7 +2758,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccRY5RX6.s 			page 1
  1619              	.L103:
  321:SynaptiX_FDK/services/mqtt/sx_mqtt.c **** 
  1620              		.loc 1 321 1 is_stmt 0 view .LVU390
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccRY5RX6.s 			page 47
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccxrhOTS.s 			page 47
 
 
  1621 0020 10BD     		pop	{r4, pc}
@@ -2818,7 +2818,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccRY5RX6.s 			page 1
  1664              	.LVL182:
  319:SynaptiX_FDK/services/mqtt/sx_mqtt.c ****     if (mqtt->on_connected) mqtt->on_connected(mqtt);
  1665              		.loc 1 319 5 is_stmt 1 view .LVU402
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccRY5RX6.s 			page 48
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccxrhOTS.s 			page 48
 
 
  319:SynaptiX_FDK/services/mqtt/sx_mqtt.c ****     if (mqtt->on_connected) mqtt->on_connected(mqtt);
@@ -2878,7 +2878,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccRY5RX6.s 			page 1
  1711              		@ frame_needed = 0, uses_anonymous_args = 0
  539:SynaptiX_FDK/services/mqtt/sx_mqtt.c ****     (void)modem; (void)arg;
  1712              		.loc 1 539 92 is_stmt 0 view .LVU409
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccRY5RX6.s 			page 49
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccxrhOTS.s 			page 49
 
 
  1713 0000 10B5     		push	{r4, lr}
@@ -2938,7 +2938,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccRY5RX6.s 			page 1
  1753              		.loc 1 543 9 is_stmt 1 view .LVU423
  1754 0020 084A     		ldr	r2, .L123+16
  1755              	.LVL193:
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccRY5RX6.s 			page 50
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccxrhOTS.s 			page 50
 
 
  543:SynaptiX_FDK/services/mqtt/sx_mqtt.c ****         do_error(mqtt);
@@ -2998,7 +2998,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccRY5RX6.s 			page 1
  1800              		@ args = 0, pretend = 0, frame = 0
  1801              		@ frame_needed = 0, uses_anonymous_args = 0
  551:SynaptiX_FDK/services/mqtt/sx_mqtt.c ****     (void)modem; (void)arg;
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccRY5RX6.s 			page 51
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccxrhOTS.s 			page 51
 
 
  1802              		.loc 1 551 93 is_stmt 0 view .LVU430
@@ -3058,7 +3058,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccRY5RX6.s 			page 1
  1841 001a 2068     		ldr	r0, [r4]
  561:SynaptiX_FDK/services/mqtt/sx_mqtt.c **** }
  1842              		.loc 1 561 5 view .LVU446
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccRY5RX6.s 			page 52
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccxrhOTS.s 			page 52
 
 
  1843 001c 227F     		ldrb	r2, [r4, #28]	@ zero_extendqisi2
@@ -3118,7 +3118,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccRY5RX6.s 			page 1
  1891              		.section	.rodata.cb_cert_ca_prompt.str1.4,"aMS",%progbits,1
  1892              		.align	2
  1893              	.LC41:
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccRY5RX6.s 			page 53
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccxrhOTS.s 			page 53
 
 
  1894 0000 43434552 		.ascii	"CCERTDOWN CA prompt failed\000"
@@ -3178,7 +3178,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccRY5RX6.s 			page 1
  1933              		.loc 1 334 39 view .LVU465
  1934 000c 246A     		ldr	r4, [r4, #32]
  1935              	.LVL215:
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccRY5RX6.s 			page 54
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccxrhOTS.s 			page 54
 
 
  335:SynaptiX_FDK/services/mqtt/sx_mqtt.c ****                           "\r\nOK\r\n",cb_cert_ca_done, SX_MQTT_TIMEOUT_CONF);
@@ -3238,7 +3238,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccRY5RX6.s 			page 1
  1980 003a FFF7FEFF 		bl	do_error
  1981              	.LVL224:
  331:SynaptiX_FDK/services/mqtt/sx_mqtt.c ****     }
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccRY5RX6.s 			page 55
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccxrhOTS.s 			page 55
 
 
  1982              		.loc 1 331 9 view .LVU476
@@ -3298,7 +3298,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccRY5RX6.s 			page 1
  2026              		.loc 1 342 18 view .LVU480
  343:SynaptiX_FDK/services/mqtt/sx_mqtt.c ****     if (res != MODEM_RESPONSE_SUCCESS) {
  2027              		.loc 1 343 5 view .LVU481
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccRY5RX6.s 			page 56
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccxrhOTS.s 			page 56
 
 
  343:SynaptiX_FDK/services/mqtt/sx_mqtt.c ****     if (res != MODEM_RESPONSE_SUCCESS) {
@@ -3358,7 +3358,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccRY5RX6.s 			page 1
  2065 0024 2468     		ldr	r4, [r4]
  2066              	.LVL232:
  356:SynaptiX_FDK/services/mqtt/sx_mqtt.c ****                               cb_cert_client_prompt,
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccRY5RX6.s 			page 57
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccxrhOTS.s 			page 57
 
 
  2067              		.loc 1 356 31 view .LVU499
@@ -3418,7 +3418,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccRY5RX6.s 			page 1
  2112              		.cfi_def_cfa_offset 12
  2113              		@ sp needed
  2114 005e 30BD     		pop	{r4, r5, pc}
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccRY5RX6.s 			page 58
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccxrhOTS.s 			page 58
 
 
  2115              	.L146:
@@ -3478,7 +3478,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccRY5RX6.s 			page 1
  2160              		.loc 1 368 16 view .LVU515
  2161 0006 1C68     		ldr	r4, [r3]
  2162              	.LVL244:
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccRY5RX6.s 			page 59
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccxrhOTS.s 			page 59
 
 
  369:SynaptiX_FDK/services/mqtt/sx_mqtt.c ****         log_error(TAG, "CCERTDOWN client cert prompt failed");
@@ -3538,7 +3538,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccRY5RX6.s 			page 1
  2205              		.loc 1 370 9 is_stmt 0 view .LVU527
  2206 0030 0749     		ldr	r1, .L152+16
  2207              	.LVL251:
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccRY5RX6.s 			page 60
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccxrhOTS.s 			page 60
 
 
  370:SynaptiX_FDK/services/mqtt/sx_mqtt.c ****         do_error(mqtt);
@@ -3598,7 +3598,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccRY5RX6.s 			page 1
  384:SynaptiX_FDK/services/mqtt/sx_mqtt.c ****     (void)modem; (void)arg;
  2251              		.loc 1 384 1 is_stmt 0 view .LVU533
  2252 0000 30B5     		push	{r4, r5, lr}
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccRY5RX6.s 			page 61
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccxrhOTS.s 			page 61
 
 
  2253              	.LCFI46:
@@ -3658,7 +3658,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccRY5RX6.s 			page 1
  397:SynaptiX_FDK/services/mqtt/sx_mqtt.c ****                           strlen(mqtt->config.client_key),
  2292              		.loc 1 397 39 view .LVU549
  2293 001c A46A     		ldr	r4, [r4, #40]
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccRY5RX6.s 			page 62
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccxrhOTS.s 			page 62
 
 
  2294              	.LVL262:
@@ -3718,7 +3718,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccRY5RX6.s 			page 1
  2339 004e F4E7     		b	.L154
  2340              	.L160:
  2341              		.align	2
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccRY5RX6.s 			page 63
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccxrhOTS.s 			page 63
 
 
  2342              	.L159:
@@ -3778,7 +3778,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccRY5RX6.s 			page 1
  2387              	.LVL273:
  408:SynaptiX_FDK/services/mqtt/sx_mqtt.c ****         log_error(TAG, "CCERTDOWN key prompt failed");
  2388              		.loc 1 408 5 is_stmt 1 view .LVU566
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccRY5RX6.s 			page 64
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccxrhOTS.s 			page 64
 
 
  408:SynaptiX_FDK/services/mqtt/sx_mqtt.c ****         log_error(TAG, "CCERTDOWN key prompt failed");
@@ -3838,7 +3838,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccRY5RX6.s 			page 1
  2432              	.LVL280:
  409:SynaptiX_FDK/services/mqtt/sx_mqtt.c ****         do_error(mqtt);
  2433              		.loc 1 409 9 view .LVU578
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccRY5RX6.s 			page 65
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccxrhOTS.s 			page 65
 
 
  2434 0032 0120     		movs	r0, #1
@@ -3898,7 +3898,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccRY5RX6.s 			page 1
  2477 0000 10B5     		push	{r4, lr}
  2478              	.LCFI54:
  2479              		.cfi_def_cfa_offset 8
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccRY5RX6.s 			page 66
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccxrhOTS.s 			page 66
 
 
  2480              		.cfi_offset 4, -8
@@ -3958,7 +3958,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccRY5RX6.s 			page 1
  2519 001c 0549     		ldr	r1, .L173+8
  2520              	.LVL294:
  427:SynaptiX_FDK/services/mqtt/sx_mqtt.c ****         do_error(mqtt);
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccRY5RX6.s 			page 67
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccxrhOTS.s 			page 67
 
 
  2521              		.loc 1 427 9 view .LVU599
@@ -4018,7 +4018,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccRY5RX6.s 			page 1
  2564 0000 70B5     		push	{r4, r5, r6, lr}
  2565              	.LCFI55:
  2566              		.cfi_def_cfa_offset 16
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccRY5RX6.s 			page 68
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccxrhOTS.s 			page 68
 
 
  2567              		.cfi_offset 4, -16
@@ -4078,7 +4078,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccRY5RX6.s 			page 1
  2609 003a 3146     		mov	r1, r6
  2610 003c FFF7FEFF 		bl	sim76xx_mqtt_send_raw_cmd
  2611              	.LVL302:
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccRY5RX6.s 			page 69
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccxrhOTS.s 			page 69
 
 
  2612              	.L175:
@@ -4138,7 +4138,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccRY5RX6.s 			page 1
  2659 0000 53534C20 		.ascii	"SSL clientkey bind failed\000"
  2659      636C6965 
  2659      6E746B65 
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccRY5RX6.s 			page 70
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccxrhOTS.s 			page 70
 
 
  2659      79206269 
@@ -4198,7 +4198,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccRY5RX6.s 			page 1
  2699 000a 0E4D     		ldr	r5, .L187+4
  2700 000c 637F     		ldrb	r3, [r4, #29]	@ zero_extendqisi2
  2701 000e 0E4A     		ldr	r2, .L187+8
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccRY5RX6.s 			page 71
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccxrhOTS.s 			page 71
 
 
  2702              	.LVL312:
@@ -4258,7 +4258,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccRY5RX6.s 			page 1
  2745 0034 FFF7FEFF 		bl	log_func
  2746              	.LVL321:
  481:SynaptiX_FDK/services/mqtt/sx_mqtt.c ****     }
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccRY5RX6.s 			page 72
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccxrhOTS.s 			page 72
 
 
  2747              		.loc 1 481 54 is_stmt 1 discriminator 1 view .LVU646
@@ -4318,7 +4318,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccRY5RX6.s 			page 1
  2792              		.loc 1 491 5 view .LVU653
  491:SynaptiX_FDK/services/mqtt/sx_mqtt.c ****     if (res != MODEM_RESPONSE_SUCCESS) {
  2793              		.loc 1 491 16 is_stmt 0 view .LVU654
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccRY5RX6.s 			page 73
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccxrhOTS.s 			page 73
 
 
  2794 0002 094B     		ldr	r3, .L194
@@ -4378,7 +4378,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccRY5RX6.s 			page 1
  493:SynaptiX_FDK/services/mqtt/sx_mqtt.c ****     }
  2835              		.loc 1 493 64 discriminator 2 view .LVU668
  493:SynaptiX_FDK/services/mqtt/sx_mqtt.c ****     }
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccRY5RX6.s 			page 74
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccxrhOTS.s 			page 74
 
 
  2836              		.loc 1 493 64 is_stmt 0 view .LVU669
@@ -4438,7 +4438,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccRY5RX6.s 			page 1
  2880              		.loc 1 448 18 view .LVU673
  449:SynaptiX_FDK/services/mqtt/sx_mqtt.c ****     if (res != MODEM_RESPONSE_SUCCESS) {
  2881              		.loc 1 449 5 view .LVU674
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccRY5RX6.s 			page 75
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccxrhOTS.s 			page 75
 
 
  449:SynaptiX_FDK/services/mqtt/sx_mqtt.c ****     if (res != MODEM_RESPONSE_SUCCESS) {
@@ -4498,7 +4498,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccRY5RX6.s 			page 1
  2923 0020 104A     		ldr	r2, .L203+4
  2924              	.LVL344:
  451:SynaptiX_FDK/services/mqtt/sx_mqtt.c ****     }
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccRY5RX6.s 			page 76
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccxrhOTS.s 			page 76
 
 
  2925              		.loc 1 451 9 is_stmt 0 view .LVU688
@@ -4558,7 +4558,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccRY5RX6.s 			page 1
  2969              	.L203:
  2970 0060 00000000 		.word	s_instance
  2971 0064 00000000 		.word	.LC55
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccRY5RX6.s 			page 77
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccxrhOTS.s 			page 77
 
 
  2972 0068 28000000 		.word	.LC1
@@ -4618,7 +4618,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccRY5RX6.s 			page 1
  3018              		.loc 1 594 5 is_stmt 1 view .LVU705
  595:SynaptiX_FDK/services/mqtt/sx_mqtt.c ****     mqtt->urc_state = URC_IDLE;
  3019              		.loc 1 595 5 view .LVU706
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccRY5RX6.s 			page 78
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccxrhOTS.s 			page 78
 
 
  596:SynaptiX_FDK/services/mqtt/sx_mqtt.c ****     s_instance      = mqtt;
@@ -4678,7 +4678,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccRY5RX6.s 			page 1
   44:SynaptiX_FDK/components/sim76xx/sim76xx.h **** 
   45:SynaptiX_FDK/components/sim76xx/sim76xx.h **** struct sim76xx
   46:SynaptiX_FDK/components/sim76xx/sim76xx.h **** {
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccRY5RX6.s 			page 79
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccxrhOTS.s 			page 79
 
 
   47:SynaptiX_FDK/components/sim76xx/sim76xx.h ****     /* data */
@@ -4738,7 +4738,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccRY5RX6.s 			page 1
  3037              	.LBE22:
  3038              	.LBE21:
  598:SynaptiX_FDK/services/mqtt/sx_mqtt.c ****     log_info(TAG, "init OK");
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccRY5RX6.s 			page 80
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccxrhOTS.s 			page 80
 
 
  3039              		.loc 1 598 5 is_stmt 1 view .LVU714
@@ -4798,7 +4798,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccRY5RX6.s 			page 1
  3087              		.loc 1 602 5 is_stmt 1 view .LVU719
  3088              		.loc 1 602 18 is_stmt 0 view .LVU720
  3089 0006 00F1040C 		add	ip, r0, #4
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccRY5RX6.s 			page 81
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccxrhOTS.s 			page 81
 
 
  3090 000a 8E46     		mov	lr, r1
@@ -4858,7 +4858,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccRY5RX6.s 			page 1
  3136      65616479 
  3136      20636F6E 
  3137 0046 0000     		.align	2
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccRY5RX6.s 			page 82
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccxrhOTS.s 			page 82
 
 
  3138              	.LC61:
@@ -4918,7 +4918,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccRY5RX6.s 			page 1
  611:SynaptiX_FDK/services/mqtt/sx_mqtt.c ****     if (mqtt->state != SX_MQTT_STATE_DISCONNECTED &&
  3179              		.loc 1 611 5 is_stmt 1 view .LVU736
  3180              		.loc 1 611 13 is_stmt 0 view .LVU737
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccRY5RX6.s 			page 83
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccxrhOTS.s 			page 83
 
 
  3181 000e 90F82C30 		ldrb	r3, [r0, #44]	@ zero_extendqisi2
@@ -4978,7 +4978,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccRY5RX6.s 			page 1
  3222 0040 4FF0FF30 		mov	r0, #-1
  3223 0044 F6E7     		b	.L213
  3224              	.LVL374:
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccRY5RX6.s 			page 84
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccxrhOTS.s 			page 84
 
 
  3225              	.L219:
@@ -5038,7 +5038,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccRY5RX6.s 			page 1
  3271              		.cfi_offset 3, -8
  3272              		.cfi_offset 14, -4
  623:SynaptiX_FDK/services/mqtt/sx_mqtt.c ****     if (!sx_mqtt_is_connected(mqtt)) {
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccRY5RX6.s 			page 85
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccxrhOTS.s 			page 85
 
 
  3273              		.loc 1 623 5 is_stmt 1 view .LVU757
@@ -5098,7 +5098,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccRY5RX6.s 			page 1
   50:SynaptiX_FDK/services/mqtt/sx_mqtt.h **** 
   51:SynaptiX_FDK/services/mqtt/sx_mqtt.h **** typedef struct{
   52:SynaptiX_FDK/services/mqtt/sx_mqtt.h ****     const char *broker;
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccRY5RX6.s 			page 86
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccxrhOTS.s 			page 86
 
 
   53:SynaptiX_FDK/services/mqtt/sx_mqtt.h ****     uint16_t port;
@@ -5158,7 +5158,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccRY5RX6.s 			page 1
  3281              		.loc 3 103 17 is_stmt 0 view .LVU760
  3282 0002 90F82C30 		ldrb	r3, [r0, #44]	@ zero_extendqisi2
  3283              	.LVL379:
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccRY5RX6.s 			page 87
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccxrhOTS.s 			page 87
 
 
  3284              		.loc 3 103 17 view .LVU761
@@ -5218,7 +5218,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccRY5RX6.s 			page 1
  3329              		.section	.rodata.sx_mqtt_publish.str1.4,"aMS",%progbits,1
  3330              		.align	2
  3331              	.LC63:
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccRY5RX6.s 			page 88
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccxrhOTS.s 			page 88
 
 
  3332 0000 7075626C 		.ascii	"publish: not connected\000"
@@ -5278,7 +5278,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccRY5RX6.s 			page 1
  3375              		.loc 1 636 16 discriminator 2 view .LVU783
  3376 0010 BAB1     		cbz	r2, .L233
  637:SynaptiX_FDK/services/mqtt/sx_mqtt.c ****     return sim76xx_mqtt_publish(mqtt->dce, topic, message, qos, retain,  cb_pub, SX_MQTT_TIMEOUT_PU
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccRY5RX6.s 			page 89
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccxrhOTS.s 			page 89
 
 
  3377              		.loc 1 637 5 is_stmt 1 view .LVU784
@@ -5338,7 +5338,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccRY5RX6.s 			page 1
  636:SynaptiX_FDK/services/mqtt/sx_mqtt.c ****     return sim76xx_mqtt_publish(mqtt->dce, topic, message, qos, retain,  cb_pub, SX_MQTT_TIMEOUT_PU
  3423              		.loc 1 636 36 discriminator 3 view .LVU795
  3424 0040 F2E7     		b	.L229
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccRY5RX6.s 			page 90
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccxrhOTS.s 			page 90
 
 
  3425              	.LVL397:
@@ -5398,7 +5398,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccRY5RX6.s 			page 1
  3471              		.loc 3 102 23 view .LVU801
  3472              	.LBB30:
  3473              		.loc 3 103 5 view .LVU802
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccRY5RX6.s 			page 91
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccxrhOTS.s 			page 91
 
 
  3474              		.loc 3 103 17 is_stmt 0 view .LVU803
@@ -5458,7 +5458,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccRY5RX6.s 			page 1
  3518 0028 FFF7FEFF 		bl	log_func
  3519              	.LVL408:
  643:SynaptiX_FDK/services/mqtt/sx_mqtt.c ****     }
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccRY5RX6.s 			page 92
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccxrhOTS.s 			page 92
 
 
  3520              		.loc 1 643 9 is_stmt 1 view .LVU816
@@ -5518,7 +5518,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccRY5RX6.s 			page 1
  3567 0004 0D46     		mov	r5, r1
  650:SynaptiX_FDK/services/mqtt/sx_mqtt.c ****     sim76xx_poll(mqtt->dce, ts);
  3568              		.loc 1 650 5 is_stmt 1 view .LVU822
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccRY5RX6.s 			page 93
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccxrhOTS.s 			page 93
 
 
  3569 0006 0068     		ldr	r0, [r0]
@@ -5578,7 +5578,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccRY5RX6.s 			page 1
  665:SynaptiX_FDK/services/mqtt/sx_mqtt.c ****     }
  666:SynaptiX_FDK/services/mqtt/sx_mqtt.c **** }...
  3608              		.loc 1 666 1 view .LVU837
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccRY5RX6.s 			page 94
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccxrhOTS.s 			page 94
 
 
  3609 0028 38BD     		pop	{r3, r4, r5, pc}
@@ -5638,7 +5638,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccRY5RX6.s 			page 1
  3649              	.L252:
  663:SynaptiX_FDK/services/mqtt/sx_mqtt.c ****         mqtt->reconnect_count = 0;
  3650              		.loc 1 663 9 view .LVU852
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccRY5RX6.s 			page 95
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccxrhOTS.s 			page 95
 
 
  663:SynaptiX_FDK/services/mqtt/sx_mqtt.c ****         mqtt->reconnect_count = 0;
@@ -5696,148 +5696,148 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccRY5RX6.s 			page 1
  3701              		.file 12 "C:\\ST\\STM32CubeCLT_1.20.0\\GNU-tools-for-STM32\\bin/../lib/gcc/arm-none-eabi/13.3.1/..
  3702              		.file 13 "C:\\ST\\STM32CubeCLT_1.20.0\\GNU-tools-for-STM32\\bin/../lib/gcc/arm-none-eabi/13.3.1/..
  3703              		.file 14 "<built-in>"
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccRY5RX6.s 			page 96
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccxrhOTS.s 			page 96
 
 
 DEFINED SYMBOLS
                             *ABS*:00000000 sx_mqtt.c
-C:\Users\LENOVO\AppData\Local\Temp\ccRY5RX6.s:22     .rodata.cb_disc.str1.4:00000000 $d
-C:\Users\LENOVO\AppData\Local\Temp\ccRY5RX6.s:32     .text.cb_disc:00000000 $t
-C:\Users\LENOVO\AppData\Local\Temp\ccRY5RX6.s:37     .text.cb_disc:00000000 cb_disc
-C:\Users\LENOVO\AppData\Local\Temp\ccRY5RX6.s:104    .text.cb_disc:00000030 $d
-C:\Users\LENOVO\AppData\Local\Temp\ccRY5RX6.s:3689   .bss.s_instance:00000000 s_instance
-C:\Users\LENOVO\AppData\Local\Temp\ccRY5RX6.s:112    .rodata.cb_pub.str1.4:00000000 $d
-C:\Users\LENOVO\AppData\Local\Temp\ccRY5RX6.s:119    .text.cb_pub:00000000 $t
-C:\Users\LENOVO\AppData\Local\Temp\ccRY5RX6.s:124    .text.cb_pub:00000000 cb_pub
-C:\Users\LENOVO\AppData\Local\Temp\ccRY5RX6.s:202    .text.cb_pub:00000034 $d
-C:\Users\LENOVO\AppData\Local\Temp\ccRY5RX6.s:210    .rodata.cb_sub.str1.4:00000000 $d
-C:\Users\LENOVO\AppData\Local\Temp\ccRY5RX6.s:217    .text.cb_sub:00000000 $t
-C:\Users\LENOVO\AppData\Local\Temp\ccRY5RX6.s:222    .text.cb_sub:00000000 cb_sub
-C:\Users\LENOVO\AppData\Local\Temp\ccRY5RX6.s:274    .text.cb_sub:0000001c $d
-C:\Users\LENOVO\AppData\Local\Temp\ccRY5RX6.s:281    .rodata.process_urc_line.str1.4:00000000 $d
-C:\Users\LENOVO\AppData\Local\Temp\ccRY5RX6.s:306    .text.process_urc_line:00000000 $t
-C:\Users\LENOVO\AppData\Local\Temp\ccRY5RX6.s:311    .text.process_urc_line:00000000 process_urc_line
-C:\Users\LENOVO\AppData\Local\Temp\ccRY5RX6.s:632    .text.process_urc_line:00000148 $d
-C:\Users\LENOVO\AppData\Local\Temp\ccRY5RX6.s:645    .rodata.urc_handler.str1.4:00000000 $d
-C:\Users\LENOVO\AppData\Local\Temp\ccRY5RX6.s:655    .text.urc_handler:00000000 $t
-C:\Users\LENOVO\AppData\Local\Temp\ccRY5RX6.s:660    .text.urc_handler:00000000 urc_handler
-C:\Users\LENOVO\AppData\Local\Temp\ccRY5RX6.s:828    .text.urc_handler:000000a0 $d
-C:\Users\LENOVO\AppData\Local\Temp\ccRY5RX6.s:3672   .bss.tmp.0:00000000 tmp.0
-C:\Users\LENOVO\AppData\Local\Temp\ccRY5RX6.s:840    .text.cb_start_after_stop:00000000 $t
-C:\Users\LENOVO\AppData\Local\Temp\ccRY5RX6.s:845    .text.cb_start_after_stop:00000000 cb_start_after_stop
-C:\Users\LENOVO\AppData\Local\Temp\ccRY5RX6.s:882    .text.cb_start_after_stop:00000014 $d
-C:\Users\LENOVO\AppData\Local\Temp\ccRY5RX6.s:1227   .text.cb_start:00000000 cb_start
-C:\Users\LENOVO\AppData\Local\Temp\ccRY5RX6.s:888    .rodata.cb_version.str1.4:00000000 $d
-C:\Users\LENOVO\AppData\Local\Temp\ccRY5RX6.s:893    .text.cb_version:00000000 $t
-C:\Users\LENOVO\AppData\Local\Temp\ccRY5RX6.s:898    .text.cb_version:00000000 cb_version
-C:\Users\LENOVO\AppData\Local\Temp\ccRY5RX6.s:983    .text.cb_version:00000048 $d
-C:\Users\LENOVO\AppData\Local\Temp\ccRY5RX6.s:1568   .text.cb_conn:00000000 cb_conn
-C:\Users\LENOVO\AppData\Local\Temp\ccRY5RX6.s:991    .rodata.goto_ssl_cfg.str1.4:00000000 $d
-C:\Users\LENOVO\AppData\Local\Temp\ccRY5RX6.s:1001   .text.goto_ssl_cfg:00000000 $t
-C:\Users\LENOVO\AppData\Local\Temp\ccRY5RX6.s:1006   .text.goto_ssl_cfg:00000000 goto_ssl_cfg
-C:\Users\LENOVO\AppData\Local\Temp\ccRY5RX6.s:1069   .text.goto_ssl_cfg:00000034 $d
-C:\Users\LENOVO\AppData\Local\Temp\ccRY5RX6.s:2861   .text.cb_ssl_cacert:00000000 cb_ssl_cacert
-C:\Users\LENOVO\AppData\Local\Temp\ccRY5RX6.s:1077   .rodata.do_error.str1.4:00000000 $d
-C:\Users\LENOVO\AppData\Local\Temp\ccRY5RX6.s:1086   .text.do_error:00000000 $t
-C:\Users\LENOVO\AppData\Local\Temp\ccRY5RX6.s:1091   .text.do_error:00000000 do_error
-C:\Users\LENOVO\AppData\Local\Temp\ccRY5RX6.s:1195   .text.do_error:00000074 $d
-C:\Users\LENOVO\AppData\Local\Temp\ccRY5RX6.s:1202   .rodata.cb_start.str1.4:00000000 $d
-C:\Users\LENOVO\AppData\Local\Temp\ccRY5RX6.s:1222   .text.cb_start:00000000 $t
-C:\Users\LENOVO\AppData\Local\Temp\ccRY5RX6.s:1421   .text.cb_start:000000d8 $d
-C:\Users\LENOVO\AppData\Local\Temp\ccRY5RX6.s:3677   .bss.s_start_retry:00000000 s_start_retry
-C:\Users\LENOVO\AppData\Local\Temp\ccRY5RX6.s:1901   .text.cb_cert_ca_prompt:00000000 cb_cert_ca_prompt
-C:\Users\LENOVO\AppData\Local\Temp\ccRY5RX6.s:1705   .text.cb_sslcfg:00000000 cb_sslcfg
-C:\Users\LENOVO\AppData\Local\Temp\ccRY5RX6.s:1458   .text.cb_accq:00000000 cb_accq
-C:\Users\LENOVO\AppData\Local\Temp\ccRY5RX6.s:1439   .rodata.cb_accq.str1.4:00000000 $d
-C:\Users\LENOVO\AppData\Local\Temp\ccRY5RX6.s:1453   .text.cb_accq:00000000 $t
-C:\Users\LENOVO\AppData\Local\Temp\ccRY5RX6.s:1542   .text.cb_accq:0000003c $d
-C:\Users\LENOVO\AppData\Local\Temp\ccRY5RX6.s:1553   .rodata.cb_conn.str1.4:00000000 $d
-C:\Users\LENOVO\AppData\Local\Temp\ccRY5RX6.s:1563   .text.cb_conn:00000000 $t
-C:\Users\LENOVO\AppData\Local\Temp\ccRY5RX6.s:1683   .text.cb_conn:00000058 $d
-C:\Users\LENOVO\AppData\Local\Temp\ccRY5RX6.s:1693   .rodata.cb_sslcfg.str1.4:00000000 $d
-C:\Users\LENOVO\AppData\Local\Temp\ccRY5RX6.s:1700   .text.cb_sslcfg:00000000 $t
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccRY5RX6.s 			page 97
+C:\Users\LENOVO\AppData\Local\Temp\ccxrhOTS.s:22     .rodata.cb_disc.str1.4:00000000 $d
+C:\Users\LENOVO\AppData\Local\Temp\ccxrhOTS.s:32     .text.cb_disc:00000000 $t
+C:\Users\LENOVO\AppData\Local\Temp\ccxrhOTS.s:37     .text.cb_disc:00000000 cb_disc
+C:\Users\LENOVO\AppData\Local\Temp\ccxrhOTS.s:104    .text.cb_disc:00000030 $d
+C:\Users\LENOVO\AppData\Local\Temp\ccxrhOTS.s:3689   .bss.s_instance:00000000 s_instance
+C:\Users\LENOVO\AppData\Local\Temp\ccxrhOTS.s:112    .rodata.cb_pub.str1.4:00000000 $d
+C:\Users\LENOVO\AppData\Local\Temp\ccxrhOTS.s:119    .text.cb_pub:00000000 $t
+C:\Users\LENOVO\AppData\Local\Temp\ccxrhOTS.s:124    .text.cb_pub:00000000 cb_pub
+C:\Users\LENOVO\AppData\Local\Temp\ccxrhOTS.s:202    .text.cb_pub:00000034 $d
+C:\Users\LENOVO\AppData\Local\Temp\ccxrhOTS.s:210    .rodata.cb_sub.str1.4:00000000 $d
+C:\Users\LENOVO\AppData\Local\Temp\ccxrhOTS.s:217    .text.cb_sub:00000000 $t
+C:\Users\LENOVO\AppData\Local\Temp\ccxrhOTS.s:222    .text.cb_sub:00000000 cb_sub
+C:\Users\LENOVO\AppData\Local\Temp\ccxrhOTS.s:274    .text.cb_sub:0000001c $d
+C:\Users\LENOVO\AppData\Local\Temp\ccxrhOTS.s:281    .rodata.process_urc_line.str1.4:00000000 $d
+C:\Users\LENOVO\AppData\Local\Temp\ccxrhOTS.s:306    .text.process_urc_line:00000000 $t
+C:\Users\LENOVO\AppData\Local\Temp\ccxrhOTS.s:311    .text.process_urc_line:00000000 process_urc_line
+C:\Users\LENOVO\AppData\Local\Temp\ccxrhOTS.s:632    .text.process_urc_line:00000148 $d
+C:\Users\LENOVO\AppData\Local\Temp\ccxrhOTS.s:645    .rodata.urc_handler.str1.4:00000000 $d
+C:\Users\LENOVO\AppData\Local\Temp\ccxrhOTS.s:655    .text.urc_handler:00000000 $t
+C:\Users\LENOVO\AppData\Local\Temp\ccxrhOTS.s:660    .text.urc_handler:00000000 urc_handler
+C:\Users\LENOVO\AppData\Local\Temp\ccxrhOTS.s:828    .text.urc_handler:000000a0 $d
+C:\Users\LENOVO\AppData\Local\Temp\ccxrhOTS.s:3672   .bss.tmp.0:00000000 tmp.0
+C:\Users\LENOVO\AppData\Local\Temp\ccxrhOTS.s:840    .text.cb_start_after_stop:00000000 $t
+C:\Users\LENOVO\AppData\Local\Temp\ccxrhOTS.s:845    .text.cb_start_after_stop:00000000 cb_start_after_stop
+C:\Users\LENOVO\AppData\Local\Temp\ccxrhOTS.s:882    .text.cb_start_after_stop:00000014 $d
+C:\Users\LENOVO\AppData\Local\Temp\ccxrhOTS.s:1227   .text.cb_start:00000000 cb_start
+C:\Users\LENOVO\AppData\Local\Temp\ccxrhOTS.s:888    .rodata.cb_version.str1.4:00000000 $d
+C:\Users\LENOVO\AppData\Local\Temp\ccxrhOTS.s:893    .text.cb_version:00000000 $t
+C:\Users\LENOVO\AppData\Local\Temp\ccxrhOTS.s:898    .text.cb_version:00000000 cb_version
+C:\Users\LENOVO\AppData\Local\Temp\ccxrhOTS.s:983    .text.cb_version:00000048 $d
+C:\Users\LENOVO\AppData\Local\Temp\ccxrhOTS.s:1568   .text.cb_conn:00000000 cb_conn
+C:\Users\LENOVO\AppData\Local\Temp\ccxrhOTS.s:991    .rodata.goto_ssl_cfg.str1.4:00000000 $d
+C:\Users\LENOVO\AppData\Local\Temp\ccxrhOTS.s:1001   .text.goto_ssl_cfg:00000000 $t
+C:\Users\LENOVO\AppData\Local\Temp\ccxrhOTS.s:1006   .text.goto_ssl_cfg:00000000 goto_ssl_cfg
+C:\Users\LENOVO\AppData\Local\Temp\ccxrhOTS.s:1069   .text.goto_ssl_cfg:00000034 $d
+C:\Users\LENOVO\AppData\Local\Temp\ccxrhOTS.s:2861   .text.cb_ssl_cacert:00000000 cb_ssl_cacert
+C:\Users\LENOVO\AppData\Local\Temp\ccxrhOTS.s:1077   .rodata.do_error.str1.4:00000000 $d
+C:\Users\LENOVO\AppData\Local\Temp\ccxrhOTS.s:1086   .text.do_error:00000000 $t
+C:\Users\LENOVO\AppData\Local\Temp\ccxrhOTS.s:1091   .text.do_error:00000000 do_error
+C:\Users\LENOVO\AppData\Local\Temp\ccxrhOTS.s:1195   .text.do_error:00000074 $d
+C:\Users\LENOVO\AppData\Local\Temp\ccxrhOTS.s:1202   .rodata.cb_start.str1.4:00000000 $d
+C:\Users\LENOVO\AppData\Local\Temp\ccxrhOTS.s:1222   .text.cb_start:00000000 $t
+C:\Users\LENOVO\AppData\Local\Temp\ccxrhOTS.s:1421   .text.cb_start:000000d8 $d
+C:\Users\LENOVO\AppData\Local\Temp\ccxrhOTS.s:3677   .bss.s_start_retry:00000000 s_start_retry
+C:\Users\LENOVO\AppData\Local\Temp\ccxrhOTS.s:1901   .text.cb_cert_ca_prompt:00000000 cb_cert_ca_prompt
+C:\Users\LENOVO\AppData\Local\Temp\ccxrhOTS.s:1705   .text.cb_sslcfg:00000000 cb_sslcfg
+C:\Users\LENOVO\AppData\Local\Temp\ccxrhOTS.s:1458   .text.cb_accq:00000000 cb_accq
+C:\Users\LENOVO\AppData\Local\Temp\ccxrhOTS.s:1439   .rodata.cb_accq.str1.4:00000000 $d
+C:\Users\LENOVO\AppData\Local\Temp\ccxrhOTS.s:1453   .text.cb_accq:00000000 $t
+C:\Users\LENOVO\AppData\Local\Temp\ccxrhOTS.s:1542   .text.cb_accq:0000003c $d
+C:\Users\LENOVO\AppData\Local\Temp\ccxrhOTS.s:1553   .rodata.cb_conn.str1.4:00000000 $d
+C:\Users\LENOVO\AppData\Local\Temp\ccxrhOTS.s:1563   .text.cb_conn:00000000 $t
+C:\Users\LENOVO\AppData\Local\Temp\ccxrhOTS.s:1683   .text.cb_conn:00000058 $d
+C:\Users\LENOVO\AppData\Local\Temp\ccxrhOTS.s:1693   .rodata.cb_sslcfg.str1.4:00000000 $d
+C:\Users\LENOVO\AppData\Local\Temp\ccxrhOTS.s:1700   .text.cb_sslcfg:00000000 $t
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccxrhOTS.s 			page 97
 
 
-C:\Users\LENOVO\AppData\Local\Temp\ccRY5RX6.s:1774   .text.cb_sslcfg:00000034 $d
-C:\Users\LENOVO\AppData\Local\Temp\ccRY5RX6.s:1795   .text.cb_sslbind:00000000 cb_sslbind
-C:\Users\LENOVO\AppData\Local\Temp\ccRY5RX6.s:1783   .rodata.cb_sslbind.str1.4:00000000 $d
-C:\Users\LENOVO\AppData\Local\Temp\ccRY5RX6.s:1790   .text.cb_sslbind:00000000 $t
-C:\Users\LENOVO\AppData\Local\Temp\ccRY5RX6.s:1883   .text.cb_sslbind:00000044 $d
-C:\Users\LENOVO\AppData\Local\Temp\ccRY5RX6.s:1892   .rodata.cb_cert_ca_prompt.str1.4:00000000 $d
-C:\Users\LENOVO\AppData\Local\Temp\ccRY5RX6.s:1896   .text.cb_cert_ca_prompt:00000000 $t
-C:\Users\LENOVO\AppData\Local\Temp\ccRY5RX6.s:1987   .text.cb_cert_ca_prompt:00000040 $d
-C:\Users\LENOVO\AppData\Local\Temp\ccRY5RX6.s:2008   .text.cb_cert_ca_done:00000000 cb_cert_ca_done
-C:\Users\LENOVO\AppData\Local\Temp\ccRY5RX6.s:1996   .rodata.cb_cert_ca_done.str1.4:00000000 $d
-C:\Users\LENOVO\AppData\Local\Temp\ccRY5RX6.s:2003   .text.cb_cert_ca_done:00000000 $t
-C:\Users\LENOVO\AppData\Local\Temp\ccRY5RX6.s:2118   .text.cb_cert_ca_done:00000060 $d
-C:\Users\LENOVO\AppData\Local\Temp\ccRY5RX6.s:2137   .text.cb_cert_client_prompt:00000000 cb_cert_client_prompt
-C:\Users\LENOVO\AppData\Local\Temp\ccRY5RX6.s:2128   .rodata.cb_cert_client_prompt.str1.4:00000000 $d
-C:\Users\LENOVO\AppData\Local\Temp\ccRY5RX6.s:2132   .text.cb_cert_client_prompt:00000000 $t
-C:\Users\LENOVO\AppData\Local\Temp\ccRY5RX6.s:2223   .text.cb_cert_client_prompt:00000040 $d
-C:\Users\LENOVO\AppData\Local\Temp\ccRY5RX6.s:2244   .text.cb_cert_client_done:00000000 cb_cert_client_done
-C:\Users\LENOVO\AppData\Local\Temp\ccRY5RX6.s:2232   .rodata.cb_cert_client_done.str1.4:00000000 $d
-C:\Users\LENOVO\AppData\Local\Temp\ccRY5RX6.s:2239   .text.cb_cert_client_done:00000000 $t
-C:\Users\LENOVO\AppData\Local\Temp\ccRY5RX6.s:2343   .text.cb_cert_client_done:00000050 $d
-C:\Users\LENOVO\AppData\Local\Temp\ccRY5RX6.s:2362   .text.cb_cert_key_prompt:00000000 cb_cert_key_prompt
-C:\Users\LENOVO\AppData\Local\Temp\ccRY5RX6.s:2353   .rodata.cb_cert_key_prompt.str1.4:00000000 $d
-C:\Users\LENOVO\AppData\Local\Temp\ccRY5RX6.s:2357   .text.cb_cert_key_prompt:00000000 $t
-C:\Users\LENOVO\AppData\Local\Temp\ccRY5RX6.s:2448   .text.cb_cert_key_prompt:00000040 $d
-C:\Users\LENOVO\AppData\Local\Temp\ccRY5RX6.s:2469   .text.cb_cert_key_done:00000000 cb_cert_key_done
-C:\Users\LENOVO\AppData\Local\Temp\ccRY5RX6.s:2457   .rodata.cb_cert_key_done.str1.4:00000000 $d
-C:\Users\LENOVO\AppData\Local\Temp\ccRY5RX6.s:2464   .text.cb_cert_key_done:00000000 $t
-C:\Users\LENOVO\AppData\Local\Temp\ccRY5RX6.s:2536   .text.cb_cert_key_done:0000002c $d
-C:\Users\LENOVO\AppData\Local\Temp\ccRY5RX6.s:2544   .rodata.cb_ssl_clientcert.str1.4:00000000 $d
-C:\Users\LENOVO\AppData\Local\Temp\ccRY5RX6.s:2551   .text.cb_ssl_clientcert:00000000 $t
-C:\Users\LENOVO\AppData\Local\Temp\ccRY5RX6.s:2556   .text.cb_ssl_clientcert:00000000 cb_ssl_clientcert
-C:\Users\LENOVO\AppData\Local\Temp\ccRY5RX6.s:2646   .text.cb_ssl_clientcert:00000058 $d
-C:\Users\LENOVO\AppData\Local\Temp\ccRY5RX6.s:3683   .bss.s_ssl_cmd_buf:00000000 s_ssl_cmd_buf
-C:\Users\LENOVO\AppData\Local\Temp\ccRY5RX6.s:2669   .text.cb_ssl_clientkey:00000000 cb_ssl_clientkey
-C:\Users\LENOVO\AppData\Local\Temp\ccRY5RX6.s:2657   .rodata.cb_ssl_clientkey.str1.4:00000000 $d
-C:\Users\LENOVO\AppData\Local\Temp\ccRY5RX6.s:2664   .text.cb_ssl_clientkey:00000000 $t
-C:\Users\LENOVO\AppData\Local\Temp\ccRY5RX6.s:2757   .text.cb_ssl_clientkey:00000040 $d
-C:\Users\LENOVO\AppData\Local\Temp\ccRY5RX6.s:2777   .text.cb_ssl_authmode:00000000 cb_ssl_authmode
-C:\Users\LENOVO\AppData\Local\Temp\ccRY5RX6.s:2768   .rodata.cb_ssl_authmode.str1.4:00000000 $d
-C:\Users\LENOVO\AppData\Local\Temp\ccRY5RX6.s:2772   .text.cb_ssl_authmode:00000000 $t
-C:\Users\LENOVO\AppData\Local\Temp\ccRY5RX6.s:2841   .text.cb_ssl_authmode:00000028 $d
-C:\Users\LENOVO\AppData\Local\Temp\ccRY5RX6.s:2849   .rodata.cb_ssl_cacert.str1.4:00000000 $d
-C:\Users\LENOVO\AppData\Local\Temp\ccRY5RX6.s:2856   .text.cb_ssl_cacert:00000000 $t
-C:\Users\LENOVO\AppData\Local\Temp\ccRY5RX6.s:2970   .text.cb_ssl_cacert:00000060 $d
-C:\Users\LENOVO\AppData\Local\Temp\ccRY5RX6.s:2981   .rodata.sx_mqtt_init.str1.4:00000000 $d
-C:\Users\LENOVO\AppData\Local\Temp\ccRY5RX6.s:2985   .text.sx_mqtt_init:00000000 $t
-C:\Users\LENOVO\AppData\Local\Temp\ccRY5RX6.s:2991   .text.sx_mqtt_init:00000000 sx_mqtt_init
-C:\Users\LENOVO\AppData\Local\Temp\ccRY5RX6.s:3052   .text.sx_mqtt_init:00000028 $d
-C:\Users\LENOVO\AppData\Local\Temp\ccRY5RX6.s:3060   .rodata.sx_mqtt_set_config.str1.4:00000000 $d
-C:\Users\LENOVO\AppData\Local\Temp\ccRY5RX6.s:3064   .text.sx_mqtt_set_config:00000000 $t
-C:\Users\LENOVO\AppData\Local\Temp\ccRY5RX6.s:3070   .text.sx_mqtt_set_config:00000000 sx_mqtt_set_config
-C:\Users\LENOVO\AppData\Local\Temp\ccRY5RX6.s:3125   .text.sx_mqtt_set_config:0000003c $d
-C:\Users\LENOVO\AppData\Local\Temp\ccRY5RX6.s:3131   .rodata.sx_mqtt_connect.str1.4:00000000 $d
-C:\Users\LENOVO\AppData\Local\Temp\ccRY5RX6.s:3141   .text.sx_mqtt_connect:00000000 $t
-C:\Users\LENOVO\AppData\Local\Temp\ccRY5RX6.s:3147   .text.sx_mqtt_connect:00000000 sx_mqtt_connect
-C:\Users\LENOVO\AppData\Local\Temp\ccRY5RX6.s:3241   .text.sx_mqtt_connect:00000058 $d
-C:\Users\LENOVO\AppData\Local\Temp\ccRY5RX6.s:3250   .rodata.sx_mqtt_disconnect.str1.4:00000000 $d
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccRY5RX6.s 			page 98
+C:\Users\LENOVO\AppData\Local\Temp\ccxrhOTS.s:1774   .text.cb_sslcfg:00000034 $d
+C:\Users\LENOVO\AppData\Local\Temp\ccxrhOTS.s:1795   .text.cb_sslbind:00000000 cb_sslbind
+C:\Users\LENOVO\AppData\Local\Temp\ccxrhOTS.s:1783   .rodata.cb_sslbind.str1.4:00000000 $d
+C:\Users\LENOVO\AppData\Local\Temp\ccxrhOTS.s:1790   .text.cb_sslbind:00000000 $t
+C:\Users\LENOVO\AppData\Local\Temp\ccxrhOTS.s:1883   .text.cb_sslbind:00000044 $d
+C:\Users\LENOVO\AppData\Local\Temp\ccxrhOTS.s:1892   .rodata.cb_cert_ca_prompt.str1.4:00000000 $d
+C:\Users\LENOVO\AppData\Local\Temp\ccxrhOTS.s:1896   .text.cb_cert_ca_prompt:00000000 $t
+C:\Users\LENOVO\AppData\Local\Temp\ccxrhOTS.s:1987   .text.cb_cert_ca_prompt:00000040 $d
+C:\Users\LENOVO\AppData\Local\Temp\ccxrhOTS.s:2008   .text.cb_cert_ca_done:00000000 cb_cert_ca_done
+C:\Users\LENOVO\AppData\Local\Temp\ccxrhOTS.s:1996   .rodata.cb_cert_ca_done.str1.4:00000000 $d
+C:\Users\LENOVO\AppData\Local\Temp\ccxrhOTS.s:2003   .text.cb_cert_ca_done:00000000 $t
+C:\Users\LENOVO\AppData\Local\Temp\ccxrhOTS.s:2118   .text.cb_cert_ca_done:00000060 $d
+C:\Users\LENOVO\AppData\Local\Temp\ccxrhOTS.s:2137   .text.cb_cert_client_prompt:00000000 cb_cert_client_prompt
+C:\Users\LENOVO\AppData\Local\Temp\ccxrhOTS.s:2128   .rodata.cb_cert_client_prompt.str1.4:00000000 $d
+C:\Users\LENOVO\AppData\Local\Temp\ccxrhOTS.s:2132   .text.cb_cert_client_prompt:00000000 $t
+C:\Users\LENOVO\AppData\Local\Temp\ccxrhOTS.s:2223   .text.cb_cert_client_prompt:00000040 $d
+C:\Users\LENOVO\AppData\Local\Temp\ccxrhOTS.s:2244   .text.cb_cert_client_done:00000000 cb_cert_client_done
+C:\Users\LENOVO\AppData\Local\Temp\ccxrhOTS.s:2232   .rodata.cb_cert_client_done.str1.4:00000000 $d
+C:\Users\LENOVO\AppData\Local\Temp\ccxrhOTS.s:2239   .text.cb_cert_client_done:00000000 $t
+C:\Users\LENOVO\AppData\Local\Temp\ccxrhOTS.s:2343   .text.cb_cert_client_done:00000050 $d
+C:\Users\LENOVO\AppData\Local\Temp\ccxrhOTS.s:2362   .text.cb_cert_key_prompt:00000000 cb_cert_key_prompt
+C:\Users\LENOVO\AppData\Local\Temp\ccxrhOTS.s:2353   .rodata.cb_cert_key_prompt.str1.4:00000000 $d
+C:\Users\LENOVO\AppData\Local\Temp\ccxrhOTS.s:2357   .text.cb_cert_key_prompt:00000000 $t
+C:\Users\LENOVO\AppData\Local\Temp\ccxrhOTS.s:2448   .text.cb_cert_key_prompt:00000040 $d
+C:\Users\LENOVO\AppData\Local\Temp\ccxrhOTS.s:2469   .text.cb_cert_key_done:00000000 cb_cert_key_done
+C:\Users\LENOVO\AppData\Local\Temp\ccxrhOTS.s:2457   .rodata.cb_cert_key_done.str1.4:00000000 $d
+C:\Users\LENOVO\AppData\Local\Temp\ccxrhOTS.s:2464   .text.cb_cert_key_done:00000000 $t
+C:\Users\LENOVO\AppData\Local\Temp\ccxrhOTS.s:2536   .text.cb_cert_key_done:0000002c $d
+C:\Users\LENOVO\AppData\Local\Temp\ccxrhOTS.s:2544   .rodata.cb_ssl_clientcert.str1.4:00000000 $d
+C:\Users\LENOVO\AppData\Local\Temp\ccxrhOTS.s:2551   .text.cb_ssl_clientcert:00000000 $t
+C:\Users\LENOVO\AppData\Local\Temp\ccxrhOTS.s:2556   .text.cb_ssl_clientcert:00000000 cb_ssl_clientcert
+C:\Users\LENOVO\AppData\Local\Temp\ccxrhOTS.s:2646   .text.cb_ssl_clientcert:00000058 $d
+C:\Users\LENOVO\AppData\Local\Temp\ccxrhOTS.s:3683   .bss.s_ssl_cmd_buf:00000000 s_ssl_cmd_buf
+C:\Users\LENOVO\AppData\Local\Temp\ccxrhOTS.s:2669   .text.cb_ssl_clientkey:00000000 cb_ssl_clientkey
+C:\Users\LENOVO\AppData\Local\Temp\ccxrhOTS.s:2657   .rodata.cb_ssl_clientkey.str1.4:00000000 $d
+C:\Users\LENOVO\AppData\Local\Temp\ccxrhOTS.s:2664   .text.cb_ssl_clientkey:00000000 $t
+C:\Users\LENOVO\AppData\Local\Temp\ccxrhOTS.s:2757   .text.cb_ssl_clientkey:00000040 $d
+C:\Users\LENOVO\AppData\Local\Temp\ccxrhOTS.s:2777   .text.cb_ssl_authmode:00000000 cb_ssl_authmode
+C:\Users\LENOVO\AppData\Local\Temp\ccxrhOTS.s:2768   .rodata.cb_ssl_authmode.str1.4:00000000 $d
+C:\Users\LENOVO\AppData\Local\Temp\ccxrhOTS.s:2772   .text.cb_ssl_authmode:00000000 $t
+C:\Users\LENOVO\AppData\Local\Temp\ccxrhOTS.s:2841   .text.cb_ssl_authmode:00000028 $d
+C:\Users\LENOVO\AppData\Local\Temp\ccxrhOTS.s:2849   .rodata.cb_ssl_cacert.str1.4:00000000 $d
+C:\Users\LENOVO\AppData\Local\Temp\ccxrhOTS.s:2856   .text.cb_ssl_cacert:00000000 $t
+C:\Users\LENOVO\AppData\Local\Temp\ccxrhOTS.s:2970   .text.cb_ssl_cacert:00000060 $d
+C:\Users\LENOVO\AppData\Local\Temp\ccxrhOTS.s:2981   .rodata.sx_mqtt_init.str1.4:00000000 $d
+C:\Users\LENOVO\AppData\Local\Temp\ccxrhOTS.s:2985   .text.sx_mqtt_init:00000000 $t
+C:\Users\LENOVO\AppData\Local\Temp\ccxrhOTS.s:2991   .text.sx_mqtt_init:00000000 sx_mqtt_init
+C:\Users\LENOVO\AppData\Local\Temp\ccxrhOTS.s:3052   .text.sx_mqtt_init:00000028 $d
+C:\Users\LENOVO\AppData\Local\Temp\ccxrhOTS.s:3060   .rodata.sx_mqtt_set_config.str1.4:00000000 $d
+C:\Users\LENOVO\AppData\Local\Temp\ccxrhOTS.s:3064   .text.sx_mqtt_set_config:00000000 $t
+C:\Users\LENOVO\AppData\Local\Temp\ccxrhOTS.s:3070   .text.sx_mqtt_set_config:00000000 sx_mqtt_set_config
+C:\Users\LENOVO\AppData\Local\Temp\ccxrhOTS.s:3125   .text.sx_mqtt_set_config:0000003c $d
+C:\Users\LENOVO\AppData\Local\Temp\ccxrhOTS.s:3131   .rodata.sx_mqtt_connect.str1.4:00000000 $d
+C:\Users\LENOVO\AppData\Local\Temp\ccxrhOTS.s:3141   .text.sx_mqtt_connect:00000000 $t
+C:\Users\LENOVO\AppData\Local\Temp\ccxrhOTS.s:3147   .text.sx_mqtt_connect:00000000 sx_mqtt_connect
+C:\Users\LENOVO\AppData\Local\Temp\ccxrhOTS.s:3241   .text.sx_mqtt_connect:00000058 $d
+C:\Users\LENOVO\AppData\Local\Temp\ccxrhOTS.s:3250   .rodata.sx_mqtt_disconnect.str1.4:00000000 $d
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccxrhOTS.s 			page 98
 
 
-C:\Users\LENOVO\AppData\Local\Temp\ccRY5RX6.s:3254   .text.sx_mqtt_disconnect:00000000 $t
-C:\Users\LENOVO\AppData\Local\Temp\ccRY5RX6.s:3260   .text.sx_mqtt_disconnect:00000000 sx_mqtt_disconnect
-C:\Users\LENOVO\AppData\Local\Temp\ccRY5RX6.s:3323   .text.sx_mqtt_disconnect:00000030 $d
-C:\Users\LENOVO\AppData\Local\Temp\ccRY5RX6.s:3330   .rodata.sx_mqtt_publish.str1.4:00000000 $d
-C:\Users\LENOVO\AppData\Local\Temp\ccRY5RX6.s:3334   .text.sx_mqtt_publish:00000000 $t
-C:\Users\LENOVO\AppData\Local\Temp\ccRY5RX6.s:3340   .text.sx_mqtt_publish:00000000 sx_mqtt_publish
-C:\Users\LENOVO\AppData\Local\Temp\ccRY5RX6.s:3435   .text.sx_mqtt_publish:00000048 $d
-C:\Users\LENOVO\AppData\Local\Temp\ccRY5RX6.s:3442   .rodata.sx_mqtt_subscribe.str1.4:00000000 $d
-C:\Users\LENOVO\AppData\Local\Temp\ccRY5RX6.s:3446   .text.sx_mqtt_subscribe:00000000 $t
-C:\Users\LENOVO\AppData\Local\Temp\ccRY5RX6.s:3452   .text.sx_mqtt_subscribe:00000000 sx_mqtt_subscribe
-C:\Users\LENOVO\AppData\Local\Temp\ccRY5RX6.s:3534   .text.sx_mqtt_subscribe:00000038 $d
-C:\Users\LENOVO\AppData\Local\Temp\ccRY5RX6.s:3541   .rodata.sx_mqtt_poll.str1.4:00000000 $d
-C:\Users\LENOVO\AppData\Local\Temp\ccRY5RX6.s:3545   .text.sx_mqtt_poll:00000000 $t
-C:\Users\LENOVO\AppData\Local\Temp\ccRY5RX6.s:3551   .text.sx_mqtt_poll:00000000 sx_mqtt_poll
-C:\Users\LENOVO\AppData\Local\Temp\ccRY5RX6.s:3663   .text.sx_mqtt_poll:00000074 $d
-C:\Users\LENOVO\AppData\Local\Temp\ccRY5RX6.s:3669   .bss.tmp.0:00000000 $d
-C:\Users\LENOVO\AppData\Local\Temp\ccRY5RX6.s:3678   .bss.s_start_retry:00000000 $d
-C:\Users\LENOVO\AppData\Local\Temp\ccRY5RX6.s:3680   .bss.s_ssl_cmd_buf:00000000 $d
-C:\Users\LENOVO\AppData\Local\Temp\ccRY5RX6.s:3686   .bss.s_instance:00000000 $d
+C:\Users\LENOVO\AppData\Local\Temp\ccxrhOTS.s:3254   .text.sx_mqtt_disconnect:00000000 $t
+C:\Users\LENOVO\AppData\Local\Temp\ccxrhOTS.s:3260   .text.sx_mqtt_disconnect:00000000 sx_mqtt_disconnect
+C:\Users\LENOVO\AppData\Local\Temp\ccxrhOTS.s:3323   .text.sx_mqtt_disconnect:00000030 $d
+C:\Users\LENOVO\AppData\Local\Temp\ccxrhOTS.s:3330   .rodata.sx_mqtt_publish.str1.4:00000000 $d
+C:\Users\LENOVO\AppData\Local\Temp\ccxrhOTS.s:3334   .text.sx_mqtt_publish:00000000 $t
+C:\Users\LENOVO\AppData\Local\Temp\ccxrhOTS.s:3340   .text.sx_mqtt_publish:00000000 sx_mqtt_publish
+C:\Users\LENOVO\AppData\Local\Temp\ccxrhOTS.s:3435   .text.sx_mqtt_publish:00000048 $d
+C:\Users\LENOVO\AppData\Local\Temp\ccxrhOTS.s:3442   .rodata.sx_mqtt_subscribe.str1.4:00000000 $d
+C:\Users\LENOVO\AppData\Local\Temp\ccxrhOTS.s:3446   .text.sx_mqtt_subscribe:00000000 $t
+C:\Users\LENOVO\AppData\Local\Temp\ccxrhOTS.s:3452   .text.sx_mqtt_subscribe:00000000 sx_mqtt_subscribe
+C:\Users\LENOVO\AppData\Local\Temp\ccxrhOTS.s:3534   .text.sx_mqtt_subscribe:00000038 $d
+C:\Users\LENOVO\AppData\Local\Temp\ccxrhOTS.s:3541   .rodata.sx_mqtt_poll.str1.4:00000000 $d
+C:\Users\LENOVO\AppData\Local\Temp\ccxrhOTS.s:3545   .text.sx_mqtt_poll:00000000 $t
+C:\Users\LENOVO\AppData\Local\Temp\ccxrhOTS.s:3551   .text.sx_mqtt_poll:00000000 sx_mqtt_poll
+C:\Users\LENOVO\AppData\Local\Temp\ccxrhOTS.s:3663   .text.sx_mqtt_poll:00000074 $d
+C:\Users\LENOVO\AppData\Local\Temp\ccxrhOTS.s:3669   .bss.tmp.0:00000000 $d
+C:\Users\LENOVO\AppData\Local\Temp\ccxrhOTS.s:3678   .bss.s_start_retry:00000000 $d
+C:\Users\LENOVO\AppData\Local\Temp\ccxrhOTS.s:3680   .bss.s_ssl_cmd_buf:00000000 $d
+C:\Users\LENOVO\AppData\Local\Temp\ccxrhOTS.s:3686   .bss.s_instance:00000000 $d
 
 UNDEFINED SYMBOLS
 log_func

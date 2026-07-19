@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccQXKGB0.s 			page 1
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccLlWarT.s 			page 1
 
 
    1              		.cpu cortex-m33
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccQXKGB0.s 			page 1
   26:SynaptiX_FDK/components/gpio/sx_gpio.h **** 
   27:SynaptiX_FDK/components/gpio/sx_gpio.h **** typedef struct sx_gpio{
   28:SynaptiX_FDK/components/gpio/sx_gpio.h ****     sx_gpio_ops_t *ops;
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccQXKGB0.s 			page 2
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccLlWarT.s 			page 2
 
 
   29:SynaptiX_FDK/components/gpio/sx_gpio.h ****     void *pDriver;
@@ -118,7 +118,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccQXKGB0.s 			page 1
   68              		.loc 2 45 9 is_stmt 0 view .LVU14
   69              	.LBE18:
   46:SynaptiX_FDK/components/gpio/sx_gpio.h ****     }
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccQXKGB0.s 			page 3
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccLlWarT.s 			page 3
 
 
   47:SynaptiX_FDK/components/gpio/sx_gpio.h ****     return -1;
@@ -178,7 +178,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccQXKGB0.s 			page 1
   23:SynaptiX_FDK/board/sx_board.c **** static sx_uart_t *bsp_uart[3];
   24:SynaptiX_FDK/board/sx_board.c **** static uint8_t uart_rx_char[3];
   25:SynaptiX_FDK/board/sx_board.c **** 
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccQXKGB0.s 			page 4
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccLlWarT.s 			page 4
 
 
   26:SynaptiX_FDK/board/sx_board.c **** static void set_enter_sleep_mode(void);
@@ -238,7 +238,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccQXKGB0.s 			page 1
   80:SynaptiX_FDK/board/sx_board.c **** 
   81:SynaptiX_FDK/board/sx_board.c ****     sx_storage_init(&board.storage_cfg);
   82:SynaptiX_FDK/board/sx_board.c **** }
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccQXKGB0.s 			page 5
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccLlWarT.s 			page 5
 
 
   83:SynaptiX_FDK/board/sx_board.c **** 
@@ -298,7 +298,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccQXKGB0.s 			page 1
  142              		@ frame_needed = 0, uses_anonymous_args = 0
  143 0000 08B5     		push	{r3, lr}
  144              	.LCFI2:
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccQXKGB0.s 			page 6
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccLlWarT.s 			page 6
 
 
  145              		.cfi_def_cfa_offset 8
@@ -358,7 +358,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccQXKGB0.s 			page 1
   98:SynaptiX_FDK/board/sx_board.c ****     static sx_uart_config_t uart_config[3];
   99:SynaptiX_FDK/board/sx_board.c ****     uart_config[UART_LOG].pDriver = hal_uart[UART_LOG];
  100:SynaptiX_FDK/board/sx_board.c ****     uart_config[UART_LOG].baudrate = 115200;
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccQXKGB0.s 			page 7
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccLlWarT.s 			page 7
 
 
  101:SynaptiX_FDK/board/sx_board.c ****     uart_config[UART_LOG].bits = 8;
@@ -418,7 +418,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccQXKGB0.s 			page 1
  155:SynaptiX_FDK/board/sx_board.c ****     sx_gpio_init(&board.sim76xx.base.powerPin, &sx_gpio_ops, &s_lte_power_pin);
  156:SynaptiX_FDK/board/sx_board.c ****     sx_gpio_init(&board.sim76xx.base.pwrPin, &sx_gpio_ops, &s_lte_pwrkey_pin);
  157:SynaptiX_FDK/board/sx_board.c ****     sx_uart_init(&board.sim76xx.base.uart, &uart_config[UART_LTE], 512, 512);
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccQXKGB0.s 			page 8
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccLlWarT.s 			page 8
 
 
  158:SynaptiX_FDK/board/sx_board.c ****     sim76xx_init(&board.sim76xx);
@@ -478,7 +478,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccQXKGB0.s 			page 1
  177:SynaptiX_FDK/board/sx_board.c ****     HAL_UART_Abort(hal_uart[UART_LTE]);
  219              		.loc 1 177 39 is_stmt 1 view -0
  220              		.cfi_startproc
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccQXKGB0.s 			page 9
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccLlWarT.s 			page 9
 
 
  221              		@ args = 0, pretend = 0, frame = 0
@@ -538,7 +538,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccQXKGB0.s 			page 1
  265              		.loc 1 32 1 is_stmt 0 view .LVU44
  266 0000 10B5     		push	{r4, lr}
  267              	.LCFI5:
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccQXKGB0.s 			page 10
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccLlWarT.s 			page 10
 
 
  268              		.cfi_def_cfa_offset 8
@@ -598,7 +598,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccQXKGB0.s 			page 1
  314              		.global	USB_DRD_FS_IRQHandler
  315              		.syntax unified
  316              		.thumb
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccQXKGB0.s 			page 11
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccLlWarT.s 			page 11
 
 
  317              		.thumb_func
@@ -658,7 +658,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccQXKGB0.s 			page 1
  367              	.L31:
  368 0010 01000000 		.word	uart_rx_char+1
  369 0014 00000000 		.word	huart2
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccQXKGB0.s 			page 12
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccLlWarT.s 			page 12
 
 
  370              		.cfi_endproc
@@ -718,7 +718,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccQXKGB0.s 			page 1
  416      20637265 
  416      61746564 
  416      00
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccQXKGB0.s 			page 13
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccLlWarT.s 			page 13
 
 
  417 002d 000000   		.align	2
@@ -778,7 +778,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccQXKGB0.s 			page 1
  461 0016 85F82090 		strb	r9, [r5, #32]
  102:SynaptiX_FDK/board/sx_board.c ****     uart_config[UART_LOG].stopbits = 1;
  462              		.loc 1 102 5 is_stmt 1 view .LVU71
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccQXKGB0.s 			page 14
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccLlWarT.s 			page 14
 
 
  102:SynaptiX_FDK/board/sx_board.c ****     uart_config[UART_LOG].stopbits = 1;
@@ -838,7 +838,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccQXKGB0.s 			page 1
   35:SynaptiX_FDK/components/gpio/sx_gpio.h ****     gpio->value = SX_GPIO_LOW;
  504              		.loc 2 35 19 is_stmt 0 view .LVU85
  505 005e 6D4B     		ldr	r3, .L39+28
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccQXKGB0.s 			page 15
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccLlWarT.s 			page 15
 
 
  506 0060 4360     		str	r3, [r0, #4]
@@ -898,7 +898,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccQXKGB0.s 			page 1
  545 0082 FFF7FEFF 		bl	sx_delay_ms
  546              	.LVL30:
  121:SynaptiX_FDK/board/sx_board.c ****     sx_user_msc_create_disk(USER_DISK_LABEL_CREATE);
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccQXKGB0.s 			page 16
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccLlWarT.s 			page 16
 
 
  547              		.loc 1 121 5 view .LVU101
@@ -958,7 +958,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccQXKGB0.s 			page 1
  588              		.loc 1 132 36 is_stmt 0 view .LVU114
  589 00ca 4FF4E133 		mov	r3, #115200
  590 00ce 6B60     		str	r3, [r5, #4]
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccQXKGB0.s 			page 17
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccLlWarT.s 			page 17
 
 
  133:SynaptiX_FDK/board/sx_board.c ****     uart_config[UART_LTE].parity = 0;
@@ -1018,7 +1018,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccQXKGB0.s 			page 1
  147:SynaptiX_FDK/board/sx_board.c ****     // RTC
  625              		.loc 1 147 5 is_stmt 1 view .LVU135
  626              	.LVL37:
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccQXKGB0.s 			page 18
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccLlWarT.s 			page 18
 
 
  627              	.LBB23:
@@ -1078,7 +1078,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccQXKGB0.s 			page 1
  651 010a 4C4A     		ldr	r2, .L39+68
  652 010c C2F800A0 		str	r10, [r2]
   35:SynaptiX_FDK/components/gpio/sx_gpio.h ****     gpio->value = SX_GPIO_LOW;
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccQXKGB0.s 			page 19
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccLlWarT.s 			page 19
 
 
  653              		.loc 2 35 5 is_stmt 1 view .LVU146
@@ -1138,7 +1138,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccQXKGB0.s 			page 1
   33:SynaptiX_FDK/components/gpio/sx_gpio.h ****     gpio->ops = ops;
  692              		.loc 2 33 20 view .LVU162
  693              	.LBB30:
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccQXKGB0.s 			page 20
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccLlWarT.s 			page 20
 
 
   34:SynaptiX_FDK/components/gpio/sx_gpio.h ****     gpio->pDriver = pDriver;
@@ -1198,7 +1198,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccQXKGB0.s 			page 1
   33:SynaptiX_FDK/components/gpio/sx_gpio.h ****     gpio->ops = ops;
  731              		.loc 2 33 20 view .LVU180
  732              	.LBB34:
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccQXKGB0.s 			page 21
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccLlWarT.s 			page 21
 
 
   34:SynaptiX_FDK/components/gpio/sx_gpio.h ****     gpio->pDriver = pDriver;
@@ -1258,7 +1258,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccQXKGB0.s 			page 1
  775 0192 FFF7FEFF 		bl	gps_init
  776              	.LVL49:
  162:SynaptiX_FDK/board/sx_board.c ****     gps_it_handle();
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccQXKGB0.s 			page 22
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccLlWarT.s 			page 22
 
 
  777              		.loc 1 162 5 view .LVU193
@@ -1318,7 +1318,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccQXKGB0.s 			page 1
  822 01e4 FFF7FEFF 		bl	HAL_ADC_Start
  823              	.LVL59:
  174:SynaptiX_FDK/board/sx_board.c **** }
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccQXKGB0.s 			page 23
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccLlWarT.s 			page 23
 
 
  824              		.loc 1 174 5 view .LVU203
@@ -1378,7 +1378,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccQXKGB0.s 			page 1
  192:SynaptiX_FDK/board/sx_board.c **** 
  193:SynaptiX_FDK/board/sx_board.c **** void board_gps_uart_resume_it(void){
  879              		.loc 1 193 36 is_stmt 1 view -0
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccQXKGB0.s 			page 24
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccLlWarT.s 			page 24
 
 
  880              		.cfi_startproc
@@ -1438,7 +1438,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccQXKGB0.s 			page 1
  929              		.align	1
  930              		.global	sx_board_uart_resume_it
  931              		.syntax unified
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccQXKGB0.s 			page 25
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccLlWarT.s 			page 25
 
 
  932              		.thumb
@@ -1498,7 +1498,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccQXKGB0.s 			page 1
  967              		.loc 1 223 40 is_stmt 1 view -0
  968              		.cfi_startproc
  969              		@ args = 0, pretend = 0, frame = 0
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccQXKGB0.s 			page 26
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccLlWarT.s 			page 26
 
 
  970              		@ frame_needed = 0, uses_anonymous_args = 0
@@ -1558,7 +1558,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccQXKGB0.s 			page 1
  1016              		@ args = 0, pretend = 0, frame = 0
  1017              		@ frame_needed = 0, uses_anonymous_args = 0
  1018 0000 08B5     		push	{r3, lr}
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccQXKGB0.s 			page 27
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccLlWarT.s 			page 27
 
 
  1019              	.LCFI16:
@@ -1618,7 +1618,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccQXKGB0.s 			page 1
  1059 0000 10B5     		push	{r4, lr}
  1060              	.LCFI17:
  1061              		.cfi_def_cfa_offset 8
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccQXKGB0.s 			page 28
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccLlWarT.s 			page 28
 
 
  1062              		.cfi_offset 4, -8
@@ -1678,7 +1678,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccQXKGB0.s 			page 1
  1107              		.thumb
  1108              		.thumb_func
  1110              	tud_suspend_cb:
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccQXKGB0.s 			page 29
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccLlWarT.s 			page 29
 
 
  1111              	.LVL76:
@@ -1738,7 +1738,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccQXKGB0.s 			page 1
  1153              		.thumb
  1154              		.thumb_func
  1156              	tud_resume_cb:
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccQXKGB0.s 			page 30
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccLlWarT.s 			page 30
 
 
  1157              	.LFB660:
@@ -1798,7 +1798,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccQXKGB0.s 			page 1
  1201              		.loc 1 269 5 view .LVU245
  1202              		.loc 1 269 19 is_stmt 0 view .LVU246
  1203 0002 0221     		movs	r1, #2
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccQXKGB0.s 			page 31
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccLlWarT.s 			page 31
 
 
  1204 0004 0748     		ldr	r0, .L72
@@ -1858,7 +1858,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccQXKGB0.s 			page 1
  1253              		.loc 1 274 1 is_stmt 0 view .LVU255
  1254 0000 10B5     		push	{r4, lr}
  1255              	.LCFI21:
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccQXKGB0.s 			page 32
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccLlWarT.s 			page 32
 
 
  1256              		.cfi_def_cfa_offset 8
@@ -1918,7 +1918,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccQXKGB0.s 			page 1
  1296 002e F1E7     		b	.L74
  1297              	.LVL93:
  1298              	.L80:
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccQXKGB0.s 			page 33
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccLlWarT.s 			page 33
 
 
  279:SynaptiX_FDK/board/sx_board.c ****         HAL_UART_Receive_IT(hal_uart[UART_GPS], &uart_rx_char[UART_GPS], 1);
@@ -1978,7 +1978,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccQXKGB0.s 			page 1
  1347              	.LFE662:
  1349              		.section	.rodata.HAL_GPIO_EXTI_Rising_Callback.str1.4,"aMS",%progbits,1
  1350              		.align	2
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccQXKGB0.s 			page 34
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccLlWarT.s 			page 34
 
 
  1351              	.LC11:
@@ -2038,7 +2038,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccQXKGB0.s 			page 1
  297:SynaptiX_FDK/board/sx_board.c ****         app_sync_gps_log_to_disk();
  1392              		.loc 1 297 9 view .LVU280
  1393 001c FFF7FEFF 		bl	app_sync_gps_log_to_disk
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccQXKGB0.s 			page 35
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccLlWarT.s 			page 35
 
 
  1394              	.LVL105:
@@ -2098,7 +2098,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccQXKGB0.s 			page 1
  1441              	.LCFI23:
  1442              		.cfi_def_cfa_offset 8
  1443              		.cfi_offset 3, -8
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccQXKGB0.s 			page 36
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccLlWarT.s 			page 36
 
 
  1444              		.cfi_offset 14, -4
@@ -2158,7 +2158,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccQXKGB0.s 			page 1
  1488              		.syntax unified
  1489              		.thumb
  1490              		.thumb_func
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccQXKGB0.s 			page 37
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccLlWarT.s 			page 37
 
 
  1492              	tud_cdc_line_state_cb:
@@ -2218,7 +2218,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccQXKGB0.s 			page 1
  1541              		.section	.rodata.s_spi_pw_pin,"a"
  1542              		.align	2
  1545              	s_spi_pw_pin:
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccQXKGB0.s 			page 38
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccLlWarT.s 			page 38
 
 
  1546 0000 00080242 		.word	1107429376
@@ -2278,7 +2278,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccQXKGB0.s 			page 1
  1612 0000 00000000 		.space	12
  1612      00000000 
  1612      00000000 
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccQXKGB0.s 			page 39
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccLlWarT.s 			page 39
 
 
  1613              		.section	.data.s_charge_pin,"aw"
@@ -2338,7 +2338,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccQXKGB0.s 			page 1
  1675              		.file 7 "Drivers/CMSIS/Device/ST/STM32H5xx/Include/stm32h563xx.h"
  1676              		.file 8 "Drivers/CMSIS/Device/ST/STM32H5xx/Include/stm32h5xx.h"
  1677              		.file 9 "Drivers/STM32H5xx_HAL_Driver/Inc/stm32h5xx_hal_def.h"
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccQXKGB0.s 			page 40
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccLlWarT.s 			page 40
 
 
  1678              		.file 10 "Drivers/STM32H5xx_HAL_Driver/Inc/stm32h5xx_hal_gpio.h"
@@ -2381,127 +2381,127 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccQXKGB0.s 			page 1
  1715              		.file 47 "SynaptiX_FDK/utils/delay/sx_delay.h"
  1716              		.file 48 "SynaptiX_FDK/lib/tinyusb/src/device/usbd.h"
  1717              		.file 49 "Drivers/STM32H5xx_HAL_Driver/Inc/stm32h5xx_hal.h"
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccQXKGB0.s 			page 41
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccLlWarT.s 			page 41
 
 
 DEFINED SYMBOLS
                             *ABS*:00000000 sx_board.c
-C:\Users\LENOVO\AppData\Local\Temp\ccQXKGB0.s:22     .text.sx_gpio_write:00000000 $t
-C:\Users\LENOVO\AppData\Local\Temp\ccQXKGB0.s:27     .text.sx_gpio_write:00000000 sx_gpio_write
-C:\Users\LENOVO\AppData\Local\Temp\ccQXKGB0.s:90     .text.log_print:00000000 $t
-C:\Users\LENOVO\AppData\Local\Temp\ccQXKGB0.s:95     .text.log_print:00000000 log_print
-C:\Users\LENOVO\AppData\Local\Temp\ccQXKGB0.s:127    .text.log_print:00000014 $d
-C:\Users\LENOVO\AppData\Local\Temp\ccQXKGB0.s:1668   .bss.board:00000000 board
-C:\Users\LENOVO\AppData\Local\Temp\ccQXKGB0.s:132    .text.spi_storage_init:00000000 $t
-C:\Users\LENOVO\AppData\Local\Temp\ccQXKGB0.s:137    .text.spi_storage_init:00000000 spi_storage_init
-C:\Users\LENOVO\AppData\Local\Temp\ccQXKGB0.s:174    .text.spi_storage_init:0000002c $d
-C:\Users\LENOVO\AppData\Local\Temp\ccQXKGB0.s:1553   .rodata.s_spi_cs_pin:00000000 s_spi_cs_pin
-C:\Users\LENOVO\AppData\Local\Temp\ccQXKGB0.s:1545   .rodata.s_spi_pw_pin:00000000 s_spi_pw_pin
-C:\Users\LENOVO\AppData\Local\Temp\ccQXKGB0.s:182    .text.sx_gps_uart_abort:00000000 $t
-C:\Users\LENOVO\AppData\Local\Temp\ccQXKGB0.s:187    .text.sx_gps_uart_abort:00000000 sx_gps_uart_abort
-C:\Users\LENOVO\AppData\Local\Temp\ccQXKGB0.s:207    .text.sx_gps_uart_abort:0000000c $d
-C:\Users\LENOVO\AppData\Local\Temp\ccQXKGB0.s:212    .text.sx_sim76_uart_abort:00000000 $t
-C:\Users\LENOVO\AppData\Local\Temp\ccQXKGB0.s:217    .text.sx_sim76_uart_abort:00000000 sx_sim76_uart_abort
-C:\Users\LENOVO\AppData\Local\Temp\ccQXKGB0.s:237    .text.sx_sim76_uart_abort:0000000c $d
-C:\Users\LENOVO\AppData\Local\Temp\ccQXKGB0.s:242    .rodata.dcd_fs_msp_init.str1.4:00000000 $d
-C:\Users\LENOVO\AppData\Local\Temp\ccQXKGB0.s:252    .text.dcd_fs_msp_init:00000000 $t
-C:\Users\LENOVO\AppData\Local\Temp\ccQXKGB0.s:258    .text.dcd_fs_msp_init:00000000 dcd_fs_msp_init
-C:\Users\LENOVO\AppData\Local\Temp\ccQXKGB0.s:304    .text.dcd_fs_msp_init:0000002c $d
-C:\Users\LENOVO\AppData\Local\Temp\ccQXKGB0.s:313    .text.USB_DRD_FS_IRQHandler:00000000 $t
-C:\Users\LENOVO\AppData\Local\Temp\ccQXKGB0.s:319    .text.USB_DRD_FS_IRQHandler:00000000 USB_DRD_FS_IRQHandler
-C:\Users\LENOVO\AppData\Local\Temp\ccQXKGB0.s:340    .text.gps_it_handle:00000000 $t
-C:\Users\LENOVO\AppData\Local\Temp\ccQXKGB0.s:346    .text.gps_it_handle:00000000 gps_it_handle
-C:\Users\LENOVO\AppData\Local\Temp\ccQXKGB0.s:368    .text.gps_it_handle:00000010 $d
-C:\Users\LENOVO\AppData\Local\Temp\ccQXKGB0.s:1655   .bss.uart_rx_char:00000000 uart_rx_char
-C:\Users\LENOVO\AppData\Local\Temp\ccQXKGB0.s:374    .text.sim_it_handle:00000000 $t
-C:\Users\LENOVO\AppData\Local\Temp\ccQXKGB0.s:380    .text.sim_it_handle:00000000 sim_it_handle
-C:\Users\LENOVO\AppData\Local\Temp\ccQXKGB0.s:402    .text.sim_it_handle:00000010 $d
-C:\Users\LENOVO\AppData\Local\Temp\ccQXKGB0.s:408    .rodata.sx_board_init.str1.4:00000000 $d
-C:\Users\LENOVO\AppData\Local\Temp\ccQXKGB0.s:421    .text.sx_board_init:00000000 $t
-C:\Users\LENOVO\AppData\Local\Temp\ccQXKGB0.s:427    .text.sx_board_init:00000000 sx_board_init
-C:\Users\LENOVO\AppData\Local\Temp\ccQXKGB0.s:837    .text.sx_board_init:000001f8 $d
-C:\Users\LENOVO\AppData\Local\Temp\ccQXKGB0.s:1539   .bss.uart_config.0:00000000 uart_config.0
-C:\Users\LENOVO\AppData\Local\Temp\ccQXKGB0.s:1625   .bss.s_charge:00000000 s_charge
-C:\Users\LENOVO\AppData\Local\Temp\ccQXKGB0.s:1617   .data.s_charge_pin:00000000 s_charge_pin
-C:\Users\LENOVO\AppData\Local\Temp\ccQXKGB0.s:1611   .bss.s_dis_charge:00000000 s_dis_charge
-C:\Users\LENOVO\AppData\Local\Temp\ccQXKGB0.s:1603   .data.s_dis_charge_pin:00000000 s_dis_charge_pin
-C:\Users\LENOVO\AppData\Local\Temp\ccQXKGB0.s:1589   .bss.s_rtc_pwr:00000000 s_rtc_pwr
-C:\Users\LENOVO\AppData\Local\Temp\ccQXKGB0.s:1595   .data.s_rtc_pwr_pin:00000000 s_rtc_pwr_pin
-C:\Users\LENOVO\AppData\Local\Temp\ccQXKGB0.s:1567   .bss.s_imu_en:00000000 s_imu_en
-C:\Users\LENOVO\AppData\Local\Temp\ccQXKGB0.s:1581   .data.s_imu_en_pin:00000000 s_imu_en_pin
-C:\Users\LENOVO\AppData\Local\Temp\ccQXKGB0.s:1573   .data.s_imu_reset_pin:00000000 s_imu_reset_pin
-C:\Users\LENOVO\AppData\Local\Temp\ccQXKGB0.s:1647   .data.s_lte_power_pin:00000000 s_lte_power_pin
-C:\Users\LENOVO\AppData\Local\Temp\ccQXKGB0.s:1639   .data.s_lte_pwrkey_pin:00000000 s_lte_pwrkey_pin
-C:\Users\LENOVO\AppData\Local\Temp\ccQXKGB0.s:1631   .data.s_gps_power_pin:00000000 s_gps_power_pin
-C:\Users\LENOVO\AppData\Local\Temp\ccQXKGB0.s:1661   .bss.bsp_uart:00000000 bsp_uart
-C:\Users\LENOVO\AppData\Local\Temp\ccQXKGB0.s:1561   .bss.s_imu_reset:00000000 s_imu_reset
-C:\Users\LENOVO\AppData\Local\Temp\ccQXKGB0.s:871    .text.board_gps_uart_resume_it:00000000 $t
-C:\Users\LENOVO\AppData\Local\Temp\ccQXKGB0.s:877    .text.board_gps_uart_resume_it:00000000 board_gps_uart_resume_it
-C:\Users\LENOVO\AppData\Local\Temp\ccQXKGB0.s:900    .text.board_sim_uart_resume_it:00000000 $t
-C:\Users\LENOVO\AppData\Local\Temp\ccQXKGB0.s:906    .text.board_sim_uart_resume_it:00000000 board_sim_uart_resume_it
-C:\Users\LENOVO\AppData\Local\Temp\ccQXKGB0.s:929    .text.sx_board_uart_resume_it:00000000 $t
-C:\Users\LENOVO\AppData\Local\Temp\ccQXKGB0.s:935    .text.sx_board_uart_resume_it:00000000 sx_board_uart_resume_it
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccQXKGB0.s 			page 42
+C:\Users\LENOVO\AppData\Local\Temp\ccLlWarT.s:22     .text.sx_gpio_write:00000000 $t
+C:\Users\LENOVO\AppData\Local\Temp\ccLlWarT.s:27     .text.sx_gpio_write:00000000 sx_gpio_write
+C:\Users\LENOVO\AppData\Local\Temp\ccLlWarT.s:90     .text.log_print:00000000 $t
+C:\Users\LENOVO\AppData\Local\Temp\ccLlWarT.s:95     .text.log_print:00000000 log_print
+C:\Users\LENOVO\AppData\Local\Temp\ccLlWarT.s:127    .text.log_print:00000014 $d
+C:\Users\LENOVO\AppData\Local\Temp\ccLlWarT.s:1668   .bss.board:00000000 board
+C:\Users\LENOVO\AppData\Local\Temp\ccLlWarT.s:132    .text.spi_storage_init:00000000 $t
+C:\Users\LENOVO\AppData\Local\Temp\ccLlWarT.s:137    .text.spi_storage_init:00000000 spi_storage_init
+C:\Users\LENOVO\AppData\Local\Temp\ccLlWarT.s:174    .text.spi_storage_init:0000002c $d
+C:\Users\LENOVO\AppData\Local\Temp\ccLlWarT.s:1553   .rodata.s_spi_cs_pin:00000000 s_spi_cs_pin
+C:\Users\LENOVO\AppData\Local\Temp\ccLlWarT.s:1545   .rodata.s_spi_pw_pin:00000000 s_spi_pw_pin
+C:\Users\LENOVO\AppData\Local\Temp\ccLlWarT.s:182    .text.sx_gps_uart_abort:00000000 $t
+C:\Users\LENOVO\AppData\Local\Temp\ccLlWarT.s:187    .text.sx_gps_uart_abort:00000000 sx_gps_uart_abort
+C:\Users\LENOVO\AppData\Local\Temp\ccLlWarT.s:207    .text.sx_gps_uart_abort:0000000c $d
+C:\Users\LENOVO\AppData\Local\Temp\ccLlWarT.s:212    .text.sx_sim76_uart_abort:00000000 $t
+C:\Users\LENOVO\AppData\Local\Temp\ccLlWarT.s:217    .text.sx_sim76_uart_abort:00000000 sx_sim76_uart_abort
+C:\Users\LENOVO\AppData\Local\Temp\ccLlWarT.s:237    .text.sx_sim76_uart_abort:0000000c $d
+C:\Users\LENOVO\AppData\Local\Temp\ccLlWarT.s:242    .rodata.dcd_fs_msp_init.str1.4:00000000 $d
+C:\Users\LENOVO\AppData\Local\Temp\ccLlWarT.s:252    .text.dcd_fs_msp_init:00000000 $t
+C:\Users\LENOVO\AppData\Local\Temp\ccLlWarT.s:258    .text.dcd_fs_msp_init:00000000 dcd_fs_msp_init
+C:\Users\LENOVO\AppData\Local\Temp\ccLlWarT.s:304    .text.dcd_fs_msp_init:0000002c $d
+C:\Users\LENOVO\AppData\Local\Temp\ccLlWarT.s:313    .text.USB_DRD_FS_IRQHandler:00000000 $t
+C:\Users\LENOVO\AppData\Local\Temp\ccLlWarT.s:319    .text.USB_DRD_FS_IRQHandler:00000000 USB_DRD_FS_IRQHandler
+C:\Users\LENOVO\AppData\Local\Temp\ccLlWarT.s:340    .text.gps_it_handle:00000000 $t
+C:\Users\LENOVO\AppData\Local\Temp\ccLlWarT.s:346    .text.gps_it_handle:00000000 gps_it_handle
+C:\Users\LENOVO\AppData\Local\Temp\ccLlWarT.s:368    .text.gps_it_handle:00000010 $d
+C:\Users\LENOVO\AppData\Local\Temp\ccLlWarT.s:1655   .bss.uart_rx_char:00000000 uart_rx_char
+C:\Users\LENOVO\AppData\Local\Temp\ccLlWarT.s:374    .text.sim_it_handle:00000000 $t
+C:\Users\LENOVO\AppData\Local\Temp\ccLlWarT.s:380    .text.sim_it_handle:00000000 sim_it_handle
+C:\Users\LENOVO\AppData\Local\Temp\ccLlWarT.s:402    .text.sim_it_handle:00000010 $d
+C:\Users\LENOVO\AppData\Local\Temp\ccLlWarT.s:408    .rodata.sx_board_init.str1.4:00000000 $d
+C:\Users\LENOVO\AppData\Local\Temp\ccLlWarT.s:421    .text.sx_board_init:00000000 $t
+C:\Users\LENOVO\AppData\Local\Temp\ccLlWarT.s:427    .text.sx_board_init:00000000 sx_board_init
+C:\Users\LENOVO\AppData\Local\Temp\ccLlWarT.s:837    .text.sx_board_init:000001f8 $d
+C:\Users\LENOVO\AppData\Local\Temp\ccLlWarT.s:1539   .bss.uart_config.0:00000000 uart_config.0
+C:\Users\LENOVO\AppData\Local\Temp\ccLlWarT.s:1625   .bss.s_charge:00000000 s_charge
+C:\Users\LENOVO\AppData\Local\Temp\ccLlWarT.s:1617   .data.s_charge_pin:00000000 s_charge_pin
+C:\Users\LENOVO\AppData\Local\Temp\ccLlWarT.s:1611   .bss.s_dis_charge:00000000 s_dis_charge
+C:\Users\LENOVO\AppData\Local\Temp\ccLlWarT.s:1603   .data.s_dis_charge_pin:00000000 s_dis_charge_pin
+C:\Users\LENOVO\AppData\Local\Temp\ccLlWarT.s:1589   .bss.s_rtc_pwr:00000000 s_rtc_pwr
+C:\Users\LENOVO\AppData\Local\Temp\ccLlWarT.s:1595   .data.s_rtc_pwr_pin:00000000 s_rtc_pwr_pin
+C:\Users\LENOVO\AppData\Local\Temp\ccLlWarT.s:1567   .bss.s_imu_en:00000000 s_imu_en
+C:\Users\LENOVO\AppData\Local\Temp\ccLlWarT.s:1581   .data.s_imu_en_pin:00000000 s_imu_en_pin
+C:\Users\LENOVO\AppData\Local\Temp\ccLlWarT.s:1573   .data.s_imu_reset_pin:00000000 s_imu_reset_pin
+C:\Users\LENOVO\AppData\Local\Temp\ccLlWarT.s:1647   .data.s_lte_power_pin:00000000 s_lte_power_pin
+C:\Users\LENOVO\AppData\Local\Temp\ccLlWarT.s:1639   .data.s_lte_pwrkey_pin:00000000 s_lte_pwrkey_pin
+C:\Users\LENOVO\AppData\Local\Temp\ccLlWarT.s:1631   .data.s_gps_power_pin:00000000 s_gps_power_pin
+C:\Users\LENOVO\AppData\Local\Temp\ccLlWarT.s:1661   .bss.bsp_uart:00000000 bsp_uart
+C:\Users\LENOVO\AppData\Local\Temp\ccLlWarT.s:1561   .bss.s_imu_reset:00000000 s_imu_reset
+C:\Users\LENOVO\AppData\Local\Temp\ccLlWarT.s:871    .text.board_gps_uart_resume_it:00000000 $t
+C:\Users\LENOVO\AppData\Local\Temp\ccLlWarT.s:877    .text.board_gps_uart_resume_it:00000000 board_gps_uart_resume_it
+C:\Users\LENOVO\AppData\Local\Temp\ccLlWarT.s:900    .text.board_sim_uart_resume_it:00000000 $t
+C:\Users\LENOVO\AppData\Local\Temp\ccLlWarT.s:906    .text.board_sim_uart_resume_it:00000000 board_sim_uart_resume_it
+C:\Users\LENOVO\AppData\Local\Temp\ccLlWarT.s:929    .text.sx_board_uart_resume_it:00000000 $t
+C:\Users\LENOVO\AppData\Local\Temp\ccLlWarT.s:935    .text.sx_board_uart_resume_it:00000000 sx_board_uart_resume_it
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccLlWarT.s 			page 42
 
 
-C:\Users\LENOVO\AppData\Local\Temp\ccQXKGB0.s:958    .text.read_vol_pin:00000000 $t
-C:\Users\LENOVO\AppData\Local\Temp\ccQXKGB0.s:964    .text.read_vol_pin:00000000 read_vol_pin
-C:\Users\LENOVO\AppData\Local\Temp\ccQXKGB0.s:996    .text.read_vol_pin:00000018 $d
-C:\Users\LENOVO\AppData\Local\Temp\ccQXKGB0.s:1002   .rodata.tud_mount_cb.str1.4:00000000 $d
-C:\Users\LENOVO\AppData\Local\Temp\ccQXKGB0.s:1006   .text.tud_mount_cb:00000000 $t
-C:\Users\LENOVO\AppData\Local\Temp\ccQXKGB0.s:1012   .text.tud_mount_cb:00000000 tud_mount_cb
-C:\Users\LENOVO\AppData\Local\Temp\ccQXKGB0.s:1034   .text.tud_mount_cb:00000010 $d
-C:\Users\LENOVO\AppData\Local\Temp\ccQXKGB0.s:1040   .rodata.tud_umount_cb.str1.4:00000000 $d
-C:\Users\LENOVO\AppData\Local\Temp\ccQXKGB0.s:1047   .text.tud_umount_cb:00000000 $t
-C:\Users\LENOVO\AppData\Local\Temp\ccQXKGB0.s:1053   .text.tud_umount_cb:00000000 tud_umount_cb
-C:\Users\LENOVO\AppData\Local\Temp\ccQXKGB0.s:1095   .text.tud_umount_cb:00000030 $d
-C:\Users\LENOVO\AppData\Local\Temp\ccQXKGB0.s:1104   .text.tud_suspend_cb:00000000 $t
-C:\Users\LENOVO\AppData\Local\Temp\ccQXKGB0.s:1110   .text.tud_suspend_cb:00000000 tud_suspend_cb
-C:\Users\LENOVO\AppData\Local\Temp\ccQXKGB0.s:1140   .text.tud_suspend_cb:00000014 $d
-C:\Users\LENOVO\AppData\Local\Temp\ccQXKGB0.s:1146   .rodata.tud_resume_cb.str1.4:00000000 $d
-C:\Users\LENOVO\AppData\Local\Temp\ccQXKGB0.s:1150   .text.tud_resume_cb:00000000 $t
-C:\Users\LENOVO\AppData\Local\Temp\ccQXKGB0.s:1156   .text.tud_resume_cb:00000000 tud_resume_cb
-C:\Users\LENOVO\AppData\Local\Temp\ccQXKGB0.s:1178   .text.tud_resume_cb:00000010 $d
-C:\Users\LENOVO\AppData\Local\Temp\ccQXKGB0.s:1184   .text.check_charge:00000000 $t
-C:\Users\LENOVO\AppData\Local\Temp\ccQXKGB0.s:1190   .text.check_charge:00000000 check_charge
-C:\Users\LENOVO\AppData\Local\Temp\ccQXKGB0.s:1234   .text.check_charge:00000024 $d
-C:\Users\LENOVO\AppData\Local\Temp\ccQXKGB0.s:1240   .text.HAL_UART_RxCpltCallback:00000000 $t
-C:\Users\LENOVO\AppData\Local\Temp\ccQXKGB0.s:1246   .text.HAL_UART_RxCpltCallback:00000000 HAL_UART_RxCpltCallback
-C:\Users\LENOVO\AppData\Local\Temp\ccQXKGB0.s:1339   .text.HAL_UART_RxCpltCallback:00000064 $d
-C:\Users\LENOVO\AppData\Local\Temp\ccQXKGB0.s:1350   .rodata.HAL_GPIO_EXTI_Rising_Callback.str1.4:00000000 $d
-C:\Users\LENOVO\AppData\Local\Temp\ccQXKGB0.s:1354   .text.HAL_GPIO_EXTI_Rising_Callback:00000000 $t
-C:\Users\LENOVO\AppData\Local\Temp\ccQXKGB0.s:1360   .text.HAL_GPIO_EXTI_Rising_Callback:00000000 HAL_GPIO_EXTI_Rising_Callback
-C:\Users\LENOVO\AppData\Local\Temp\ccQXKGB0.s:1412   .text.HAL_GPIO_EXTI_Rising_Callback:00000034 $d
-C:\Users\LENOVO\AppData\Local\Temp\ccQXKGB0.s:1420   .text.HAL_GPIO_EXTI_Falling_Callback:00000000 $t
-C:\Users\LENOVO\AppData\Local\Temp\ccQXKGB0.s:1426   .text.HAL_GPIO_EXTI_Falling_Callback:00000000 HAL_GPIO_EXTI_Falling_Callback
-C:\Users\LENOVO\AppData\Local\Temp\ccQXKGB0.s:1471   .text.HAL_GPIO_EXTI_Falling_Callback:00000028 $d
-C:\Users\LENOVO\AppData\Local\Temp\ccQXKGB0.s:1479   .rodata.tud_cdc_line_state_cb.str1.4:00000000 $d
-C:\Users\LENOVO\AppData\Local\Temp\ccQXKGB0.s:1486   .text.tud_cdc_line_state_cb:00000000 $t
-C:\Users\LENOVO\AppData\Local\Temp\ccQXKGB0.s:1492   .text.tud_cdc_line_state_cb:00000000 tud_cdc_line_state_cb
-C:\Users\LENOVO\AppData\Local\Temp\ccQXKGB0.s:1530   .text.tud_cdc_line_state_cb:00000018 $d
-C:\Users\LENOVO\AppData\Local\Temp\ccQXKGB0.s:1536   .bss.uart_config.0:00000000 $d
-C:\Users\LENOVO\AppData\Local\Temp\ccQXKGB0.s:1542   .rodata.s_spi_pw_pin:00000000 $d
-C:\Users\LENOVO\AppData\Local\Temp\ccQXKGB0.s:1550   .rodata.s_spi_cs_pin:00000000 $d
-C:\Users\LENOVO\AppData\Local\Temp\ccQXKGB0.s:1558   .bss.s_imu_reset:00000000 $d
-C:\Users\LENOVO\AppData\Local\Temp\ccQXKGB0.s:1564   .bss.s_imu_en:00000000 $d
-C:\Users\LENOVO\AppData\Local\Temp\ccQXKGB0.s:1570   .data.s_imu_reset_pin:00000000 $d
-C:\Users\LENOVO\AppData\Local\Temp\ccQXKGB0.s:1578   .data.s_imu_en_pin:00000000 $d
-C:\Users\LENOVO\AppData\Local\Temp\ccQXKGB0.s:1586   .bss.s_rtc_pwr:00000000 $d
-C:\Users\LENOVO\AppData\Local\Temp\ccQXKGB0.s:1592   .data.s_rtc_pwr_pin:00000000 $d
-C:\Users\LENOVO\AppData\Local\Temp\ccQXKGB0.s:1600   .data.s_dis_charge_pin:00000000 $d
-C:\Users\LENOVO\AppData\Local\Temp\ccQXKGB0.s:1608   .bss.s_dis_charge:00000000 $d
-C:\Users\LENOVO\AppData\Local\Temp\ccQXKGB0.s:1614   .data.s_charge_pin:00000000 $d
-C:\Users\LENOVO\AppData\Local\Temp\ccQXKGB0.s:1622   .bss.s_charge:00000000 $d
-C:\Users\LENOVO\AppData\Local\Temp\ccQXKGB0.s:1628   .data.s_gps_power_pin:00000000 $d
-C:\Users\LENOVO\AppData\Local\Temp\ccQXKGB0.s:1636   .data.s_lte_pwrkey_pin:00000000 $d
-C:\Users\LENOVO\AppData\Local\Temp\ccQXKGB0.s:1644   .data.s_lte_power_pin:00000000 $d
-C:\Users\LENOVO\AppData\Local\Temp\ccQXKGB0.s:1652   .bss.uart_rx_char:00000000 $d
-C:\Users\LENOVO\AppData\Local\Temp\ccQXKGB0.s:1658   .bss.bsp_uart:00000000 $d
-C:\Users\LENOVO\AppData\Local\Temp\ccQXKGB0.s:1665   .bss.board:00000000 $d
+C:\Users\LENOVO\AppData\Local\Temp\ccLlWarT.s:958    .text.read_vol_pin:00000000 $t
+C:\Users\LENOVO\AppData\Local\Temp\ccLlWarT.s:964    .text.read_vol_pin:00000000 read_vol_pin
+C:\Users\LENOVO\AppData\Local\Temp\ccLlWarT.s:996    .text.read_vol_pin:00000018 $d
+C:\Users\LENOVO\AppData\Local\Temp\ccLlWarT.s:1002   .rodata.tud_mount_cb.str1.4:00000000 $d
+C:\Users\LENOVO\AppData\Local\Temp\ccLlWarT.s:1006   .text.tud_mount_cb:00000000 $t
+C:\Users\LENOVO\AppData\Local\Temp\ccLlWarT.s:1012   .text.tud_mount_cb:00000000 tud_mount_cb
+C:\Users\LENOVO\AppData\Local\Temp\ccLlWarT.s:1034   .text.tud_mount_cb:00000010 $d
+C:\Users\LENOVO\AppData\Local\Temp\ccLlWarT.s:1040   .rodata.tud_umount_cb.str1.4:00000000 $d
+C:\Users\LENOVO\AppData\Local\Temp\ccLlWarT.s:1047   .text.tud_umount_cb:00000000 $t
+C:\Users\LENOVO\AppData\Local\Temp\ccLlWarT.s:1053   .text.tud_umount_cb:00000000 tud_umount_cb
+C:\Users\LENOVO\AppData\Local\Temp\ccLlWarT.s:1095   .text.tud_umount_cb:00000030 $d
+C:\Users\LENOVO\AppData\Local\Temp\ccLlWarT.s:1104   .text.tud_suspend_cb:00000000 $t
+C:\Users\LENOVO\AppData\Local\Temp\ccLlWarT.s:1110   .text.tud_suspend_cb:00000000 tud_suspend_cb
+C:\Users\LENOVO\AppData\Local\Temp\ccLlWarT.s:1140   .text.tud_suspend_cb:00000014 $d
+C:\Users\LENOVO\AppData\Local\Temp\ccLlWarT.s:1146   .rodata.tud_resume_cb.str1.4:00000000 $d
+C:\Users\LENOVO\AppData\Local\Temp\ccLlWarT.s:1150   .text.tud_resume_cb:00000000 $t
+C:\Users\LENOVO\AppData\Local\Temp\ccLlWarT.s:1156   .text.tud_resume_cb:00000000 tud_resume_cb
+C:\Users\LENOVO\AppData\Local\Temp\ccLlWarT.s:1178   .text.tud_resume_cb:00000010 $d
+C:\Users\LENOVO\AppData\Local\Temp\ccLlWarT.s:1184   .text.check_charge:00000000 $t
+C:\Users\LENOVO\AppData\Local\Temp\ccLlWarT.s:1190   .text.check_charge:00000000 check_charge
+C:\Users\LENOVO\AppData\Local\Temp\ccLlWarT.s:1234   .text.check_charge:00000024 $d
+C:\Users\LENOVO\AppData\Local\Temp\ccLlWarT.s:1240   .text.HAL_UART_RxCpltCallback:00000000 $t
+C:\Users\LENOVO\AppData\Local\Temp\ccLlWarT.s:1246   .text.HAL_UART_RxCpltCallback:00000000 HAL_UART_RxCpltCallback
+C:\Users\LENOVO\AppData\Local\Temp\ccLlWarT.s:1339   .text.HAL_UART_RxCpltCallback:00000064 $d
+C:\Users\LENOVO\AppData\Local\Temp\ccLlWarT.s:1350   .rodata.HAL_GPIO_EXTI_Rising_Callback.str1.4:00000000 $d
+C:\Users\LENOVO\AppData\Local\Temp\ccLlWarT.s:1354   .text.HAL_GPIO_EXTI_Rising_Callback:00000000 $t
+C:\Users\LENOVO\AppData\Local\Temp\ccLlWarT.s:1360   .text.HAL_GPIO_EXTI_Rising_Callback:00000000 HAL_GPIO_EXTI_Rising_Callback
+C:\Users\LENOVO\AppData\Local\Temp\ccLlWarT.s:1412   .text.HAL_GPIO_EXTI_Rising_Callback:00000034 $d
+C:\Users\LENOVO\AppData\Local\Temp\ccLlWarT.s:1420   .text.HAL_GPIO_EXTI_Falling_Callback:00000000 $t
+C:\Users\LENOVO\AppData\Local\Temp\ccLlWarT.s:1426   .text.HAL_GPIO_EXTI_Falling_Callback:00000000 HAL_GPIO_EXTI_Falling_Callback
+C:\Users\LENOVO\AppData\Local\Temp\ccLlWarT.s:1471   .text.HAL_GPIO_EXTI_Falling_Callback:00000028 $d
+C:\Users\LENOVO\AppData\Local\Temp\ccLlWarT.s:1479   .rodata.tud_cdc_line_state_cb.str1.4:00000000 $d
+C:\Users\LENOVO\AppData\Local\Temp\ccLlWarT.s:1486   .text.tud_cdc_line_state_cb:00000000 $t
+C:\Users\LENOVO\AppData\Local\Temp\ccLlWarT.s:1492   .text.tud_cdc_line_state_cb:00000000 tud_cdc_line_state_cb
+C:\Users\LENOVO\AppData\Local\Temp\ccLlWarT.s:1530   .text.tud_cdc_line_state_cb:00000018 $d
+C:\Users\LENOVO\AppData\Local\Temp\ccLlWarT.s:1536   .bss.uart_config.0:00000000 $d
+C:\Users\LENOVO\AppData\Local\Temp\ccLlWarT.s:1542   .rodata.s_spi_pw_pin:00000000 $d
+C:\Users\LENOVO\AppData\Local\Temp\ccLlWarT.s:1550   .rodata.s_spi_cs_pin:00000000 $d
+C:\Users\LENOVO\AppData\Local\Temp\ccLlWarT.s:1558   .bss.s_imu_reset:00000000 $d
+C:\Users\LENOVO\AppData\Local\Temp\ccLlWarT.s:1564   .bss.s_imu_en:00000000 $d
+C:\Users\LENOVO\AppData\Local\Temp\ccLlWarT.s:1570   .data.s_imu_reset_pin:00000000 $d
+C:\Users\LENOVO\AppData\Local\Temp\ccLlWarT.s:1578   .data.s_imu_en_pin:00000000 $d
+C:\Users\LENOVO\AppData\Local\Temp\ccLlWarT.s:1586   .bss.s_rtc_pwr:00000000 $d
+C:\Users\LENOVO\AppData\Local\Temp\ccLlWarT.s:1592   .data.s_rtc_pwr_pin:00000000 $d
+C:\Users\LENOVO\AppData\Local\Temp\ccLlWarT.s:1600   .data.s_dis_charge_pin:00000000 $d
+C:\Users\LENOVO\AppData\Local\Temp\ccLlWarT.s:1608   .bss.s_dis_charge:00000000 $d
+C:\Users\LENOVO\AppData\Local\Temp\ccLlWarT.s:1614   .data.s_charge_pin:00000000 $d
+C:\Users\LENOVO\AppData\Local\Temp\ccLlWarT.s:1622   .bss.s_charge:00000000 $d
+C:\Users\LENOVO\AppData\Local\Temp\ccLlWarT.s:1628   .data.s_gps_power_pin:00000000 $d
+C:\Users\LENOVO\AppData\Local\Temp\ccLlWarT.s:1636   .data.s_lte_pwrkey_pin:00000000 $d
+C:\Users\LENOVO\AppData\Local\Temp\ccLlWarT.s:1644   .data.s_lte_power_pin:00000000 $d
+C:\Users\LENOVO\AppData\Local\Temp\ccLlWarT.s:1652   .bss.uart_rx_char:00000000 $d
+C:\Users\LENOVO\AppData\Local\Temp\ccLlWarT.s:1658   .bss.bsp_uart:00000000 $d
+C:\Users\LENOVO\AppData\Local\Temp\ccLlWarT.s:1665   .bss.board:00000000 $d
 
 UNDEFINED SYMBOLS
 strlen
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccQXKGB0.s 			page 43
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccLlWarT.s 			page 43
 
 
 sx_uart_write

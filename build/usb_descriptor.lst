@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccSzkTK0.s 			page 1
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccAzHU0j.s 			page 1
 
 
    1              		.cpu cortex-m33
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccSzkTK0.s 			page 1
   27:SynaptiX_FDK/components/usb_cdc_tiny/usb_descriptor.c **** /* ── Device Descriptor ── */
   28:SynaptiX_FDK/components/usb_cdc_tiny/usb_descriptor.c **** static tusb_desc_device_t const desc_device = {
   29:SynaptiX_FDK/components/usb_cdc_tiny/usb_descriptor.c ****     .bLength            = sizeof(tusb_desc_device_t),
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccSzkTK0.s 			page 2
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccAzHU0j.s 			page 2
 
 
   30:SynaptiX_FDK/components/usb_cdc_tiny/usb_descriptor.c ****     .bDescriptorType    = TUSB_DESC_DEVICE,
@@ -118,7 +118,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccSzkTK0.s 			page 1
   60:SynaptiX_FDK/components/usb_cdc_tiny/usb_descriptor.c **** #endif
   61:SynaptiX_FDK/components/usb_cdc_tiny/usb_descriptor.c **** 
   62:SynaptiX_FDK/components/usb_cdc_tiny/usb_descriptor.c **** /* ── Interface Numbers ── */
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccSzkTK0.s 			page 3
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccAzHU0j.s 			page 3
 
 
   63:SynaptiX_FDK/components/usb_cdc_tiny/usb_descriptor.c **** enum {
@@ -178,7 +178,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccSzkTK0.s 			page 1
  117:SynaptiX_FDK/components/usb_cdc_tiny/usb_descriptor.c **** 
  118:SynaptiX_FDK/components/usb_cdc_tiny/usb_descriptor.c **** uint8_t const *tud_descriptor_configuration_cb(uint8_t index) {
   56              		.loc 1 118 63 is_stmt 1 view -0
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccSzkTK0.s 			page 4
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccAzHU0j.s 			page 4
 
 
   57              		.cfi_startproc
@@ -238,7 +238,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccSzkTK0.s 			page 1
  140:SynaptiX_FDK/components/usb_cdc_tiny/usb_descriptor.c ****           "+HID"
  141:SynaptiX_FDK/components/usb_cdc_tiny/usb_descriptor.c ****           #endif
  142:SynaptiX_FDK/components/usb_cdc_tiny/usb_descriptor.c ****           " Demo",
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccSzkTK0.s 			page 5
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccAzHU0j.s 			page 5
 
 
  143:SynaptiX_FDK/components/usb_cdc_tiny/usb_descriptor.c ****     [3] = NULL,                    // Serial từ UID
@@ -298,7 +298,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccSzkTK0.s 			page 1
  110 0008 0628     		cmp	r0, #6
  111 000a 2DD8     		bhi	.L18
  112              		.loc 1 175 52 discriminator 1 view .LVU16
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccSzkTK0.s 			page 6
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccAzHU0j.s 			page 6
 
 
  113 000c 174A     		ldr	r2, .L22
@@ -358,7 +358,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccSzkTK0.s 			page 1
  182:SynaptiX_FDK/components/usb_cdc_tiny/usb_descriptor.c ****             break;
  183:SynaptiX_FDK/components/usb_cdc_tiny/usb_descriptor.c ****         }
  184:SynaptiX_FDK/components/usb_cdc_tiny/usb_descriptor.c ****     }
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccSzkTK0.s 			page 7
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccAzHU0j.s 			page 7
 
 
  185:SynaptiX_FDK/components/usb_cdc_tiny/usb_descriptor.c **** 
@@ -418,7 +418,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccSzkTK0.s 			page 1
  199              	.LVL16:
  200              	.L17:
  167:SynaptiX_FDK/components/usb_cdc_tiny/usb_descriptor.c ****           chr_count = strlen(ser);
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccSzkTK0.s 			page 8
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccAzHU0j.s 			page 8
 
 
  201              		.loc 1 167 23 view .LVU48
@@ -478,7 +478,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccSzkTK0.s 			page 1
  248      00000000 
  248      00000000 
  248      00000000 
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccSzkTK0.s 			page 9
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccAzHU0j.s 			page 9
 
 
  248      00000000 
@@ -538,7 +538,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccSzkTK0.s 			page 1
  287      02000405 
  287      2400
  288 001d 20010524 		.ascii	" \001\005$\001\000\001\004$\002\006\005$\006\000\001"
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccSzkTK0.s 			page 10
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccAzHU0j.s 			page 10
 
 
  288      01000104 
@@ -586,32 +586,32 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccSzkTK0.s 			page 1
  319              		.file 7 "SynaptiX_FDK/lib/tinyusb/src/class/cdc/cdc.h"
  320              		.file 8 "SynaptiX_FDK/lib/tinyusb/src/class/msc/msc.h"
  321              		.file 9 "C:\\ST\\STM32CubeCLT_1.20.0\\GNU-tools-for-STM32\\bin/../lib/gcc/arm-none-eabi/13.3.1/../
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccSzkTK0.s 			page 11
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccAzHU0j.s 			page 11
 
 
 DEFINED SYMBOLS
                             *ABS*:00000000 usb_descriptor.c
-C:\Users\LENOVO\AppData\Local\Temp\ccSzkTK0.s:22     .text.tud_descriptor_device_cb:00000000 $t
-C:\Users\LENOVO\AppData\Local\Temp\ccSzkTK0.s:28     .text.tud_descriptor_device_cb:00000000 tud_descriptor_device_cb
-C:\Users\LENOVO\AppData\Local\Temp\ccSzkTK0.s:42     .text.tud_descriptor_device_cb:00000004 $d
-C:\Users\LENOVO\AppData\Local\Temp\ccSzkTK0.s:297    .rodata.desc_device:00000000 desc_device
-C:\Users\LENOVO\AppData\Local\Temp\ccSzkTK0.s:47     .text.tud_descriptor_configuration_cb:00000000 $t
-C:\Users\LENOVO\AppData\Local\Temp\ccSzkTK0.s:53     .text.tud_descriptor_configuration_cb:00000000 tud_descriptor_configuration_cb
-C:\Users\LENOVO\AppData\Local\Temp\ccSzkTK0.s:71     .text.tud_descriptor_configuration_cb:00000004 $d
-C:\Users\LENOVO\AppData\Local\Temp\ccSzkTK0.s:285    .rodata.desc_fs_configuration:00000000 desc_fs_configuration
-C:\Users\LENOVO\AppData\Local\Temp\ccSzkTK0.s:76     .rodata.tud_descriptor_string_cb.str1.4:00000000 $d
-C:\Users\LENOVO\AppData\Local\Temp\ccSzkTK0.s:80     .text.tud_descriptor_string_cb:00000000 $t
-C:\Users\LENOVO\AppData\Local\Temp\ccSzkTK0.s:86     .text.tud_descriptor_string_cb:00000000 tud_descriptor_string_cb
-C:\Users\LENOVO\AppData\Local\Temp\ccSzkTK0.s:236    .text.tud_descriptor_string_cb:0000006c $d
-C:\Users\LENOVO\AppData\Local\Temp\ccSzkTK0.s:266    .rodata.string_desc_arr:00000000 string_desc_arr
-C:\Users\LENOVO\AppData\Local\Temp\ccSzkTK0.s:247    .bss._desc_str:00000000 _desc_str
-C:\Users\LENOVO\AppData\Local\Temp\ccSzkTK0.s:244    .bss._desc_str:00000000 $d
-C:\Users\LENOVO\AppData\Local\Temp\ccSzkTK0.s:250    .rodata.str1.4:00000000 $d
-C:\Users\LENOVO\AppData\Local\Temp\ccSzkTK0.s:263    .rodata.string_desc_arr:00000000 $d
-C:\Users\LENOVO\AppData\Local\Temp\ccSzkTK0.s:278    .rodata.__compound_literal.0:00000000 __compound_literal.0
-C:\Users\LENOVO\AppData\Local\Temp\ccSzkTK0.s:275    .rodata.__compound_literal.0:00000000 $d
-C:\Users\LENOVO\AppData\Local\Temp\ccSzkTK0.s:282    .rodata.desc_fs_configuration:00000000 $d
-C:\Users\LENOVO\AppData\Local\Temp\ccSzkTK0.s:294    .rodata.desc_device:00000000 $d
+C:\Users\LENOVO\AppData\Local\Temp\ccAzHU0j.s:22     .text.tud_descriptor_device_cb:00000000 $t
+C:\Users\LENOVO\AppData\Local\Temp\ccAzHU0j.s:28     .text.tud_descriptor_device_cb:00000000 tud_descriptor_device_cb
+C:\Users\LENOVO\AppData\Local\Temp\ccAzHU0j.s:42     .text.tud_descriptor_device_cb:00000004 $d
+C:\Users\LENOVO\AppData\Local\Temp\ccAzHU0j.s:297    .rodata.desc_device:00000000 desc_device
+C:\Users\LENOVO\AppData\Local\Temp\ccAzHU0j.s:47     .text.tud_descriptor_configuration_cb:00000000 $t
+C:\Users\LENOVO\AppData\Local\Temp\ccAzHU0j.s:53     .text.tud_descriptor_configuration_cb:00000000 tud_descriptor_configuration_cb
+C:\Users\LENOVO\AppData\Local\Temp\ccAzHU0j.s:71     .text.tud_descriptor_configuration_cb:00000004 $d
+C:\Users\LENOVO\AppData\Local\Temp\ccAzHU0j.s:285    .rodata.desc_fs_configuration:00000000 desc_fs_configuration
+C:\Users\LENOVO\AppData\Local\Temp\ccAzHU0j.s:76     .rodata.tud_descriptor_string_cb.str1.4:00000000 $d
+C:\Users\LENOVO\AppData\Local\Temp\ccAzHU0j.s:80     .text.tud_descriptor_string_cb:00000000 $t
+C:\Users\LENOVO\AppData\Local\Temp\ccAzHU0j.s:86     .text.tud_descriptor_string_cb:00000000 tud_descriptor_string_cb
+C:\Users\LENOVO\AppData\Local\Temp\ccAzHU0j.s:236    .text.tud_descriptor_string_cb:0000006c $d
+C:\Users\LENOVO\AppData\Local\Temp\ccAzHU0j.s:266    .rodata.string_desc_arr:00000000 string_desc_arr
+C:\Users\LENOVO\AppData\Local\Temp\ccAzHU0j.s:247    .bss._desc_str:00000000 _desc_str
+C:\Users\LENOVO\AppData\Local\Temp\ccAzHU0j.s:244    .bss._desc_str:00000000 $d
+C:\Users\LENOVO\AppData\Local\Temp\ccAzHU0j.s:250    .rodata.str1.4:00000000 $d
+C:\Users\LENOVO\AppData\Local\Temp\ccAzHU0j.s:263    .rodata.string_desc_arr:00000000 $d
+C:\Users\LENOVO\AppData\Local\Temp\ccAzHU0j.s:278    .rodata.__compound_literal.0:00000000 __compound_literal.0
+C:\Users\LENOVO\AppData\Local\Temp\ccAzHU0j.s:275    .rodata.__compound_literal.0:00000000 $d
+C:\Users\LENOVO\AppData\Local\Temp\ccAzHU0j.s:282    .rodata.desc_fs_configuration:00000000 $d
+C:\Users\LENOVO\AppData\Local\Temp\ccAzHU0j.s:294    .rodata.desc_device:00000000 $d
 
 UNDEFINED SYMBOLS
 strlen
