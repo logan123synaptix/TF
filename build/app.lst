@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccCVDUJY.s 			page 1
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccCYBIQg.s 			page 1
 
 
    1              		.cpu cortex-m33
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccCVDUJY.s 			page 1
    4:SynaptiX_FDK/app/app.c **** #include "sx_user_mqtt.h"
    5:SynaptiX_FDK/app/app.c **** #include "sx_sleep_manager.h"
    6:SynaptiX_FDK/app/app.c **** #include "sx_sleep.h"
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccCVDUJY.s 			page 2
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccCYBIQg.s 			page 2
 
 
    7:SynaptiX_FDK/app/app.c **** #include "sx_ex_storage.h"
@@ -118,7 +118,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccCVDUJY.s 			page 1
   61:SynaptiX_FDK/app/app.c **** 
   62:SynaptiX_FDK/app/app.c ****     // last gps
   63:SynaptiX_FDK/app/app.c ****     float last_lat;
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccCVDUJY.s 			page 3
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccCYBIQg.s 			page 3
 
 
   64:SynaptiX_FDK/app/app.c ****     float last_lon;
@@ -178,7 +178,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccCVDUJY.s 			page 1
  118:SynaptiX_FDK/app/app.c ****     g_app.app_mode = APP_MODE_FULL_POWER;
  119:SynaptiX_FDK/app/app.c **** }
  120:SynaptiX_FDK/app/app.c **** 
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccCVDUJY.s 			page 4
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccCYBIQg.s 			page 4
 
 
  121:SynaptiX_FDK/app/app.c **** void app_mode_enter_sleep(void){
@@ -238,7 +238,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccCVDUJY.s 			page 1
  175:SynaptiX_FDK/app/app.c ****              cal.gyr_x, cal.gyr_y, cal.gyr_z,
  176:SynaptiX_FDK/app/app.c ****              cal.acc_radius, cal.mag_radius);
  177:SynaptiX_FDK/app/app.c ****     sx_storage_write(IMU_CALIB_FILE_PATH, line, strlen(line));
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccCVDUJY.s 			page 5
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccCYBIQg.s 			page 5
 
 
  178:SynaptiX_FDK/app/app.c ****     log_info(TAG, "calib saved: %s", line);
@@ -298,7 +298,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccCVDUJY.s 			page 1
  232:SynaptiX_FDK/app/app.c ****     sx_sleep_manager_reset_wake(&g_app.sleep_mgr);
  233:SynaptiX_FDK/app/app.c ****     sx_user_mqtt_force_disconnect();
  234:SynaptiX_FDK/app/app.c **** 
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccCVDUJY.s 			page 6
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccCYBIQg.s 			page 6
 
 
  235:SynaptiX_FDK/app/app.c ****     g_app.board->sim76xx.base.isBusy = 0;
@@ -358,7 +358,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccCVDUJY.s 			page 1
   57 0002 88B1     		cbz	r0, .L5
   58              		.loc 1 277 5 is_stmt 0 discriminator 1 view .LVU3
   59 0004 164B     		ldr	r3, .L8
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccCVDUJY.s 			page 7
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccCYBIQg.s 			page 7
 
 
   60              	.L2:
@@ -418,7 +418,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccCVDUJY.s 			page 1
   98              	.L7:
  281:SynaptiX_FDK/app/app.c ****         log_debug(TAG, "publish_count = %d", g_app.publish_count);
   99              		.loc 1 281 9 is_stmt 1 view .LVU16
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccCVDUJY.s 			page 8
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccCYBIQg.s 			page 8
 
 
  281:SynaptiX_FDK/app/app.c ****         log_debug(TAG, "publish_count = %d", g_app.publish_count);
@@ -478,7 +478,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccCVDUJY.s 			page 1
  145 0000 53554220 		.ascii	"SUB [%s] = %s\000"
  145      5B25735D 
  145      203D2025 
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccCVDUJY.s 			page 9
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccCYBIQg.s 			page 9
 
 
  145      7300
@@ -538,7 +538,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccCVDUJY.s 			page 1
  190 001a 03B0     		add	sp, sp, #12
  191              	.LCFI3:
  192              		.cfi_def_cfa_offset 4
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccCVDUJY.s 			page 10
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccCYBIQg.s 			page 10
 
 
  193              		@ sp needed
@@ -598,7 +598,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccCVDUJY.s 			page 1
  263:SynaptiX_FDK/app/app.c ****         g_app.sleep_mgr.published = 0;
  239              		.loc 1 263 8 view .LVU43
  240 0018 032B     		cmp	r3, #3
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccCVDUJY.s 			page 11
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccCYBIQg.s 			page 11
 
 
  241 001a 00D0     		beq	.L22
@@ -658,7 +658,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccCVDUJY.s 			page 1
  287              		.cfi_offset 14, -4
  253:SynaptiX_FDK/app/app.c ****     g_app.subscribed = 0;
  288              		.loc 1 253 5 view .LVU51
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccCVDUJY.s 			page 12
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccCYBIQg.s 			page 12
 
 
  289 0002 054A     		ldr	r2, .L27
@@ -718,7 +718,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccCVDUJY.s 			page 1
  335              		.cfi_offset 14, -4
  216:SynaptiX_FDK/app/app.c **** }
  336              		.loc 1 216 5 is_stmt 1 view .LVU57
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccCVDUJY.s 			page 13
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccCYBIQg.s 			page 13
 
 
  337 0002 034A     		ldr	r2, .L31
@@ -778,7 +778,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccCVDUJY.s 			page 1
  371      69672E6A 
  371      736F6E20 
  371      666F756E 
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccCVDUJY.s 			page 14
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccCYBIQg.s 			page 14
 
 
  371      642C2073 
@@ -838,7 +838,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccCVDUJY.s 			page 1
  400      20202020 
  400      3A202573 
  400      00
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccCVDUJY.s 			page 15
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccCYBIQg.s 			page 15
 
 
  401 0171 000000   		.align	2
@@ -898,7 +898,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccCVDUJY.s 			page 1
  430      656E745F 
  430      69643A20 
  430      257300
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccCVDUJY.s 			page 16
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccCYBIQg.s 			page 16
 
 
  431 020f 00       		.align	2
@@ -958,7 +958,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccCVDUJY.s 			page 1
  456      63652049 
  456      44202020 
  456      20203A20 
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccCVDUJY.s 			page 17
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccCYBIQg.s 			page 17
 
 
  456      257300
@@ -1018,7 +1018,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccCVDUJY.s 			page 1
  309:SynaptiX_FDK/app/app.c **** };
  310:SynaptiX_FDK/app/app.c **** 
  311:SynaptiX_FDK/app/app.c **** static void read_last_gps(void);
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccCVDUJY.s 			page 18
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccCYBIQg.s 			page 18
 
 
  312:SynaptiX_FDK/app/app.c **** 
@@ -1078,7 +1078,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccCVDUJY.s 			page 1
  366:SynaptiX_FDK/app/app.c ****         sat = gps->satellites;
  367:SynaptiX_FDK/app/app.c ****         fix = 1; 
  368:SynaptiX_FDK/app/app.c ****         set_time_exrtc(board.gps.tim.tm_sec, board.gps.tim.tm_min, board.gps.tim.tm_hour,
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccCVDUJY.s 			page 19
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccCYBIQg.s 			page 19
 
 
  369:SynaptiX_FDK/app/app.c ****                        (board.gps.tim.tm_mday / 7 + 1), board.gps.tim.tm_mday,
@@ -1138,7 +1138,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccCVDUJY.s 			page 1
  423:SynaptiX_FDK/app/app.c ****     while (start > 0 && s_tail_buf[start - 1] != '\n')
  424:SynaptiX_FDK/app/app.c ****         start--;
  425:SynaptiX_FDK/app/app.c **** 
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccCVDUJY.s 			page 20
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccCYBIQg.s 			page 20
 
 
  426:SynaptiX_FDK/app/app.c ****     if (start > end) {
@@ -1198,7 +1198,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccCVDUJY.s 			page 1
  480:SynaptiX_FDK/app/app.c **** //     if (file_size <= 0)
  481:SynaptiX_FDK/app/app.c **** //     {
  482:SynaptiX_FDK/app/app.c **** //         log_warn(TAG, "GPS log empty");
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccCVDUJY.s 			page 21
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccCYBIQg.s 			page 21
 
 
  483:SynaptiX_FDK/app/app.c **** //         sx_user_msc_write(GPS_CSV_FILE_PATH,
@@ -1258,7 +1258,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccCVDUJY.s 			page 1
  537:SynaptiX_FDK/app/app.c **** //     int  rssi = 0;
  538:SynaptiX_FDK/app/app.c **** //     char lat_str[16]  = {0};
  539:SynaptiX_FDK/app/app.c **** //     char lon_str[16]  = {0};
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccCVDUJY.s 			page 22
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccCYBIQg.s 			page 22
 
 
  540:SynaptiX_FDK/app/app.c **** //     char time_str[12] = {0};
@@ -1318,7 +1318,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccCVDUJY.s 			page 1
  594:SynaptiX_FDK/app/app.c ****     {
  595:SynaptiX_FDK/app/app.c ****         log_warn(TAG, "No GPS log on flash");
  596:SynaptiX_FDK/app/app.c ****         sx_user_msc_write(GPS_CSV_FILE_PATH,
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccCVDUJY.s 			page 23
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccCYBIQg.s 			page 23
 
 
  597:SynaptiX_FDK/app/app.c ****                           (const uint8_t *)"no data\n",
@@ -1378,7 +1378,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccCVDUJY.s 			page 1
  479              		.loc 1 650 1 is_stmt 1 view -0
  480              		.cfi_startproc
  481              		@ args = 0, pretend = 0, frame = 288
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccCVDUJY.s 			page 24
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccCYBIQg.s 			page 24
 
 
  482              		@ frame_needed = 0, uses_anonymous_args = 0
@@ -1438,7 +1438,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccCVDUJY.s 			page 1
  521 001c 38BB     		cbnz	r0, .L76
  666:SynaptiX_FDK/app/app.c ****         log_warn("AppCfg", "config.json not found (f_stat=%d) — using default config", fres);
  667:SynaptiX_FDK/app/app.c ****         _apply_default_config(&s_mqtt_cfg);
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccCVDUJY.s 			page 25
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccCYBIQg.s 			page 25
 
 
  668:SynaptiX_FDK/app/app.c ****         return;
@@ -1498,7 +1498,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccCVDUJY.s 			page 1
  561 004e 9A48     		ldr	r0, .L85+20
  562 0050 FFF7FEFF 		bl	_apply_default_config
  563              	.LVL25:
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccCVDUJY.s 			page 26
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccCYBIQg.s 			page 26
 
 
  683:SynaptiX_FDK/app/app.c ****         return;
@@ -1558,7 +1558,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccCVDUJY.s 			page 1
  717:SynaptiX_FDK/app/app.c ****     if (mqtt) {
  718:SynaptiX_FDK/app/app.c ****         cJSON *host      = cJSON_GetObjectItem(mqtt, "host");
  719:SynaptiX_FDK/app/app.c ****         cJSON *port      = cJSON_GetObjectItem(mqtt, "port");
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccCVDUJY.s 			page 27
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccCYBIQg.s 			page 27
 
 
  720:SynaptiX_FDK/app/app.c ****         cJSON *client_id = cJSON_GetObjectItem(mqtt, "client_id");
@@ -1618,7 +1618,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccCVDUJY.s 			page 1
  774:SynaptiX_FDK/app/app.c ****         log_info("AppCfg", "time_publish loaded: %lu ms", config_json.s_time_publish);
  775:SynaptiX_FDK/app/app.c ****     } else {
  776:SynaptiX_FDK/app/app.c ****         log_warn("AppCfg", "No valid 'time_publish' — using default %lu ms",
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccCVDUJY.s 			page 28
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccCYBIQg.s 			page 28
 
 
  777:SynaptiX_FDK/app/app.c ****                 config_json.s_time_publish);
@@ -1678,7 +1678,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccCVDUJY.s 			page 1
  615 0088 8E4A     		ldr	r2, .L85+32
  616 008a 8849     		ldr	r1, .L85+8
  617 008c 0320     		movs	r0, #3
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccCVDUJY.s 			page 29
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccCYBIQg.s 			page 29
 
 
  618              	.LVL34:
@@ -1738,7 +1738,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccCVDUJY.s 			page 1
  657              	.LVL41:
  658 00b8 8046     		mov	r8, r0
  659              	.LVL42:
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccCVDUJY.s 			page 30
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccCYBIQg.s 			page 30
 
 
  701:SynaptiX_FDK/app/app.c **** 
@@ -1798,7 +1798,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccCVDUJY.s 			page 1
  701              	.LVL52:
  702              	.L63:
  703              	.LBB26:
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccCVDUJY.s 			page 31
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccCYBIQg.s 			page 31
 
 
  703:SynaptiX_FDK/app/app.c ****         log_info("AppCfg", "APN user    : %s", (!user || cJSON_IsNull(user))   ? "NULL" : user->val
@@ -1858,7 +1858,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccCVDUJY.s 			page 1
  705:SynaptiX_FDK/app/app.c **** 
  747              		.loc 1 705 9 discriminator 3 view .LVU137
  748 011e 3B69     		ldr	r3, [r7, #16]
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccCVDUJY.s 			page 32
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccCYBIQg.s 			page 32
 
 
  705:SynaptiX_FDK/app/app.c **** 
@@ -1918,7 +1918,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccCVDUJY.s 			page 1
  790 0150 FFF7FEFF 		bl	strncpy
  791              	.LVL62:
  792 0154 06E0     		b	.L44
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccCVDUJY.s 			page 33
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccCYBIQg.s 			page 33
 
 
  793              	.LVL63:
@@ -1978,7 +1978,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccCVDUJY.s 			page 1
  834 017e 3046     		mov	r0, r6
  835              	.LVL70:
  719:SynaptiX_FDK/app/app.c ****         cJSON *client_id = cJSON_GetObjectItem(mqtt, "client_id");
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccCVDUJY.s 			page 34
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccCYBIQg.s 			page 34
 
 
  836              		.loc 1 719 28 view .LVU164
@@ -2038,7 +2038,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccCVDUJY.s 			page 1
  724:SynaptiX_FDK/app/app.c ****         log_info("AppCfg", "MQTT port     : %d", port                                  ? port->valu
  879              		.loc 1 724 9 discriminator 6 view .LVU176
  880 01b2 554A     		ldr	r2, .L85+100
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccCVDUJY.s 			page 35
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccCYBIQg.s 			page 35
 
 
  881 01b4 3D49     		ldr	r1, .L85+8
@@ -2098,7 +2098,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccCVDUJY.s 			page 1
  925 01f6 2D49     		ldr	r1, .L85+8
  926 01f8 0320     		movs	r0, #3
  927 01fa FFF7FEFF 		bl	log_func
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccCVDUJY.s 			page 36
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccCYBIQg.s 			page 36
 
 
  928              	.LVL87:
@@ -2158,7 +2158,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccCVDUJY.s 			page 1
  968 0234 B9F81420 		ldrh	r2, [r9, #20]
  735:SynaptiX_FDK/app/app.c ****         }
  969              		.loc 1 735 29 view .LVU201
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccCVDUJY.s 			page 37
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccCYBIQg.s 			page 37
 
 
  970 0238 1F4B     		ldr	r3, .L85+20
@@ -2218,7 +2218,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccCVDUJY.s 			page 1
  745:SynaptiX_FDK/app/app.c ****             strncpy(config_json.s_mqtt_pass, pass->valuestring, sizeof(config_json.s_mqtt_pass) - 1
  1010              		.loc 1 745 9 is_stmt 1 view .LVU216
  745:SynaptiX_FDK/app/app.c ****             strncpy(config_json.s_mqtt_pass, pass->valuestring, sizeof(config_json.s_mqtt_pass) - 1
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccCVDUJY.s 			page 38
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccCYBIQg.s 			page 38
 
 
  1011              		.loc 1 745 12 is_stmt 0 view .LVU217
@@ -2278,7 +2278,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccCVDUJY.s 			page 1
  1055              	.L81:
  728:SynaptiX_FDK/app/app.c **** 
  1056              		.loc 1 728 9 discriminator 4 view .LVU228
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccCVDUJY.s 			page 39
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccCYBIQg.s 			page 39
 
 
  1057 029e 0F4B     		ldr	r3, .L85+56
@@ -2338,7 +2338,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccCVDUJY.s 			page 1
  1108              	.LVL96:
  750:SynaptiX_FDK/app/app.c ****     }
  1109              		.loc 1 750 9 is_stmt 0 view .LVU232
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccCVDUJY.s 			page 40
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccCYBIQg.s 			page 40
 
 
  1110 0336 FFF7FEFF 		bl	log_func
@@ -2398,7 +2398,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccCVDUJY.s 			page 1
  765:SynaptiX_FDK/app/app.c ****     if (device_t && device_t->valuestring) {
  1152              		.loc 1 765 5 is_stmt 0 view .LVU245
  1153 036c 0028     		cmp	r0, #0
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccCVDUJY.s 			page 41
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccCYBIQg.s 			page 41
 
 
  1154 036e 40D0     		beq	.L73
@@ -2458,7 +2458,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccCVDUJY.s 			page 1
  772:SynaptiX_FDK/app/app.c ****         config_json.s_time_publish = (uint32_t)time_pub_t->valueint * 1000U;
  1196              		.loc 1 772 5 is_stmt 1 view .LVU258
  772:SynaptiX_FDK/app/app.c ****         config_json.s_time_publish = (uint32_t)time_pub_t->valueint * 1000U;
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccCVDUJY.s 			page 42
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccCYBIQg.s 			page 42
 
 
  1197              		.loc 1 772 8 is_stmt 0 view .LVU259
@@ -2518,7 +2518,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccCVDUJY.s 			page 1
  1240              		.loc 1 757 9 is_stmt 1 view .LVU270
  1241 03e2 184A     		ldr	r2, .L87+52
  1242 03e4 0C49     		ldr	r1, .L87+8
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccCVDUJY.s 			page 43
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccCYBIQg.s 			page 43
 
 
  1243 03e6 0320     		movs	r0, #3
@@ -2578,7 +2578,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccCVDUJY.s 			page 1
  1293              		.align	2
  1294              	.LC46:
  1295 0000 72656164 		.ascii	"read_last_gps: enter\000"
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccCVDUJY.s 			page 44
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccCYBIQg.s 			page 44
 
 
  1295      5F6C6173 
@@ -2638,7 +2638,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccCVDUJY.s 			page 1
  1317      2074696D 
  1317      653D2531 
  1318              		.align	2
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccCVDUJY.s 			page 45
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccCYBIQg.s 			page 45
 
 
  1319              	.LC54:
@@ -2698,7 +2698,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccCVDUJY.s 			page 1
  1360              	.LVL118:
  397:SynaptiX_FDK/app/app.c ****     log_info(TAG, "read_last_gps: size=%ld", (long)file_size);
  1361              		.loc 1 397 5 view .LVU278
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccCVDUJY.s 			page 46
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccCYBIQg.s 			page 46
 
 
  397:SynaptiX_FDK/app/app.c ****     log_info(TAG, "read_last_gps: size=%ld", (long)file_size);
@@ -2758,7 +2758,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccCVDUJY.s 			page 1
  1402 003e 50B9     		cbnz	r0, .L111
  416:SynaptiX_FDK/app/app.c **** 
  1403              		.loc 1 416 5 is_stmt 1 view .LVU293
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccCVDUJY.s 			page 47
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccCYBIQg.s 			page 47
 
 
  416:SynaptiX_FDK/app/app.c **** 
@@ -2818,7 +2818,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccCVDUJY.s 			page 1
  1445 0064 002B     		cmp	r3, #0
  1446 0066 07DB     		blt	.L106
  419:SynaptiX_FDK/app/app.c ****         end--;
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccCVDUJY.s 			page 48
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccCYBIQg.s 			page 48
 
 
  1447              		.loc 1 419 35 is_stmt 0 discriminator 1 view .LVU307
@@ -2878,7 +2878,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccCVDUJY.s 			page 1
  1488              		.loc 1 431 25 view .LVU320
  1489 0092 614C     		ldr	r4, .L115+16
  1490              	.LVL137:
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccCVDUJY.s 			page 49
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccCYBIQg.s 			page 49
 
 
  431:SynaptiX_FDK/app/app.c ****     char *last_line = (char *)(s_tail_buf + start);
@@ -2938,7 +2938,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccCVDUJY.s 			page 1
  439:SynaptiX_FDK/app/app.c ****     char  spd_str[16] = {0};
  1530              		.loc 1 439 11 is_stmt 0 view .LVU336
  1531 00bc 1AAA     		add	r2, sp, #104
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccCVDUJY.s 			page 50
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccCYBIQg.s 			page 50
 
 
  1532 00be 1A95     		str	r5, [sp, #104]
@@ -2998,7 +2998,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccCVDUJY.s 			page 1
  1576 0102 FFF7FEFF 		bl	sscanf
  1577              	.LVL143:
  1578 0106 0446     		mov	r4, r0
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccCVDUJY.s 			page 51
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccCYBIQg.s 			page 51
 
 
  1579              	.LVL144:
@@ -3058,7 +3058,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccCVDUJY.s 			page 1
  1622              		.loc 1 450 9 view .LVU357
  450:SynaptiX_FDK/app/app.c ****         g_app.last_lon = strtof(lon_str, NULL);
  1623              		.loc 1 450 26 is_stmt 0 view .LVU358
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccCVDUJY.s 			page 52
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccCYBIQg.s 			page 52
 
 
  1624 012e 2946     		mov	r1, r5
@@ -3118,7 +3118,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccCVDUJY.s 			page 1
  1663              		.loc 1 454 24 discriminator 4 view .LVU373
  1664 0162 C4F8A000 		str	r0, [r4, #160]
  455:SynaptiX_FDK/app/app.c ****         snprintf(g_app.last_date_str, sizeof(g_app.last_date_str), "%s", date_str);
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccCVDUJY.s 			page 53
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccCYBIQg.s 			page 53
 
 
  1665              		.loc 1 455 9 is_stmt 1 view .LVU374
@@ -3178,7 +3178,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccCVDUJY.s 			page 1
  1716 01d6 1AA8     		add	r0, sp, #104
  1717 01d8 FFF7FEFF 		bl	strtof
  1718              	.LVL163:
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccCVDUJY.s 			page 54
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccCYBIQg.s 			page 54
 
 
  452:SynaptiX_FDK/app/app.c ****         g_app.last_spd = (parsed >= 6) ? strtof(spd_str, NULL) : 0.0f;
@@ -3238,7 +3238,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccCVDUJY.s 			page 1
  1765 0240 EC000000 		.word	.LC55
  1766              		.cfi_endproc
  1767              	.LFE565:
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccCVDUJY.s 			page 55
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccCYBIQg.s 			page 55
 
 
  1769              		.section	.rodata.publish_gsm.str1.4,"aMS",%progbits,1
@@ -3298,7 +3298,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccCVDUJY.s 			page 1
  1804              		.cfi_offset 7, -16
  1805              		.cfi_offset 8, -12
  1806              		.cfi_offset 9, -8
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccCVDUJY.s 			page 56
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccCYBIQg.s 			page 56
 
 
  1807              		.cfi_offset 14, -4
@@ -3358,7 +3358,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccCVDUJY.s 			page 1
   14:SynaptiX_FDK/components/sim76xx/sim76xx.h **** #define SIM76XX_TIMEOUT_NETOPEN     10000U
   15:SynaptiX_FDK/components/sim76xx/sim76xx.h **** #define SIM76XX_TIMEOUT_CFUN        15000U 
   16:SynaptiX_FDK/components/sim76xx/sim76xx.h **** 
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccCVDUJY.s 			page 57
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccCYBIQg.s 			page 57
 
 
   17:SynaptiX_FDK/components/sim76xx/sim76xx.h **** /*  Init state machine  */
@@ -3418,7 +3418,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccCVDUJY.s 			page 1
   71:SynaptiX_FDK/components/sim76xx/sim76xx.h **** 
   72:SynaptiX_FDK/components/sim76xx/sim76xx.h **** int sim76xx_start(sim76xx_t *dce);
   73:SynaptiX_FDK/components/sim76xx/sim76xx.h **** void sim76xx_poll(sim76xx_t *dce, uint32_t ts);
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccCVDUJY.s 			page 58
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccCYBIQg.s 			page 58
 
 
   74:SynaptiX_FDK/components/sim76xx/sim76xx.h **** 
@@ -3478,7 +3478,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccCVDUJY.s 			page 1
  107:SynaptiX_FDK/components/sim76xx/sim76xx.h ****     return dce->ip;
  1854              		.loc 2 107 27 is_stmt 1 view .LVU401
  1855              	.LBB31:
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccCVDUJY.s 			page 59
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccCYBIQg.s 			page 59
 
 
  108:SynaptiX_FDK/components/sim76xx/sim76xx.h **** }
@@ -3538,7 +3538,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccCVDUJY.s 			page 1
  1891              		.loc 1 330 59 view .LVU415
  1892 0042 E36C     		ldr	r3, [r4, #76]
  330:SynaptiX_FDK/app/app.c ****              g_app.time.hour, g_app.time.min, g_app.time.sec,
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccCVDUJY.s 			page 60
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccCYBIQg.s 			page 60
 
 
  1893              		.loc 1 330 74 view .LVU416
@@ -3598,7 +3598,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccCVDUJY.s 			page 1
  1938 00a4 0320     		movs	r0, #3
  1939 00a6 FFF7FEFF 		bl	log_func
  1940              	.LVL181:
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccCVDUJY.s 			page 61
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccCYBIQg.s 			page 61
 
 
  336:SynaptiX_FDK/app/app.c **** 
@@ -3658,7 +3658,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccCVDUJY.s 			page 1
  102:SynaptiX_FDK/app/app.c ****     g_app.time.week = week;
  1988              		.loc 1 102 21 is_stmt 0 view .LVU435
  1989 000c 84F85620 		strb	r2, [r4, #86]
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccCVDUJY.s 			page 62
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccCYBIQg.s 			page 62
 
 
  103:SynaptiX_FDK/app/app.c ****     g_app.time.day = day;
@@ -3718,7 +3718,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccCVDUJY.s 			page 1
  2031              	.LC61:
  2032 0000 7075626C 		.ascii	"publish_gps: enter, mode=%s\000"
  2032      6973685F 
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccCVDUJY.s 			page 63
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccCYBIQg.s 			page 63
 
 
  2032      6770733A 
@@ -3778,7 +3778,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccCVDUJY.s 			page 1
  2062              		.loc 1 339 1 is_stmt 0 view .LVU451
  2063 0000 2DE9F041 		push	{r4, r5, r6, r7, r8, lr}
  2064              	.LCFI19:
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccCVDUJY.s 			page 64
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccCYBIQg.s 			page 64
 
 
  2065              		.cfi_def_cfa_offset 24
@@ -3838,7 +3838,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccCVDUJY.s 			page 1
  2108 002a E06C     		ldr	r0, [r4, #76]
  346:SynaptiX_FDK/app/app.c ****     log_info(TAG, "publish_gps: rtc read done");
  2109              		.loc 1 346 5 view .LVU463
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccCVDUJY.s 			page 65
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccCYBIQg.s 			page 65
 
 
  2110 002c 04F15401 		add	r1, r4, #84
@@ -3898,7 +3898,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccCVDUJY.s 			page 1
  353:SynaptiX_FDK/app/app.c ****     time_t unix_ts = mktime(&t);
  2147              		.loc 1 353 5 is_stmt 1 view .LVU481
  353:SynaptiX_FDK/app/app.c ****     time_t unix_ts = mktime(&t);
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccCVDUJY.s 			page 66
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccCYBIQg.s 			page 66
 
 
  2148              		.loc 1 353 27 is_stmt 0 view .LVU482
@@ -3958,7 +3958,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccCVDUJY.s 			page 1
  2188              	.L126:
  374:SynaptiX_FDK/app/app.c ****         
  2189              		.loc 1 374 9 is_stmt 1 view .LVU497
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccCVDUJY.s 			page 67
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccCYBIQg.s 			page 67
 
 
  376:SynaptiX_FDK/app/app.c ****         lat = g_app.last_lat;
@@ -4018,7 +4018,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccCVDUJY.s 			page 1
  2233 00e4 274A     		ldr	r2, .L130+24
  2234 00e6 8021     		movs	r1, #128
  2235 00e8 74A8     		add	r0, sp, #464
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccCVDUJY.s 			page 68
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccCYBIQg.s 			page 68
 
 
  2236 00ea FFF7FEFF 		bl	snprintf
@@ -4078,7 +4078,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccCVDUJY.s 			page 1
  2281              	.LVL216:
  365:SynaptiX_FDK/app/app.c ****         sat = gps->satellites;
  2282              		.loc 1 365 9 is_stmt 1 view .LVU518
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccCVDUJY.s 			page 69
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccCYBIQg.s 			page 69
 
 
  365:SynaptiX_FDK/app/app.c ****         sat = gps->satellites;
@@ -4138,7 +4138,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccCVDUJY.s 			page 1
  2325              	.L130:
  2326 016c 00000000 		.word	g_app
  2327 0170 18000000 		.word	.LC3
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccCVDUJY.s 			page 70
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccCYBIQg.s 			page 70
 
 
  2328 0174 00000000 		.word	.LC61
@@ -4198,7 +4198,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccCVDUJY.s 			page 1
  225:SynaptiX_FDK/app/app.c ****     g_app.publish_count = 0;
  2375              		.loc 1 225 29 is_stmt 0 view .LVU536
  2376 0012 0025     		movs	r5, #0
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccCVDUJY.s 			page 71
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccCYBIQg.s 			page 71
 
 
  2377 0014 84F83D50 		strb	r5, [r4, #61]
@@ -4258,7 +4258,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccCVDUJY.s 			page 1
  2411              		.loc 1 237 17 is_stmt 0 view .LVU556
  2412 0042 E06C     		ldr	r0, [r4, #76]
  237:SynaptiX_FDK/app/app.c ****     g_app.board->sim76xx.state = SIM76XX_STATE_IDLE;
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccCVDUJY.s 			page 72
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccCYBIQg.s 			page 72
 
 
  2413              		.loc 1 237 5 view .LVU557
@@ -4318,7 +4318,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccCVDUJY.s 			page 1
  247:SynaptiX_FDK/app/app.c **** }
  2451              		.loc 1 247 5 is_stmt 1 view .LVU574
  2452 0074 FFF7FEFF 		bl	gps_it_handle
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccCVDUJY.s 			page 73
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccCYBIQg.s 			page 73
 
 
  2453              	.LVL229:
@@ -4378,7 +4378,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccCVDUJY.s 			page 1
  2486      302E3030 
  2486      30303030 
  2486      2C302E30 
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccCVDUJY.s 			page 74
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccCYBIQg.s 			page 74
 
 
  2486      30303030 
@@ -4438,7 +4438,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccCVDUJY.s 			page 1
  2529              		.loc 1 607 5 view .LVU583
  607:SynaptiX_FDK/app/app.c ****     {
  2530              		.loc 1 607 14 is_stmt 0 view .LVU584
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccCVDUJY.s 			page 75
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccCYBIQg.s 			page 75
 
 
  2531 001a 324B     		ldr	r3, .L144+12
@@ -4498,7 +4498,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccCVDUJY.s 			page 1
  2575              		.loc 1 628 1 is_stmt 0 view .LVU594
  2576 0066 0CB0     		add	sp, sp, #48
  2577              	.LCFI28:
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccCVDUJY.s 			page 76
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccCYBIQg.s 			page 76
 
 
  2578              		.cfi_remember_state
@@ -4558,7 +4558,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccCVDUJY.s 			page 1
  2621              	.LVL241:
  2622 00a8 CDE90601 		strd	r0, [sp, #24]
  2623 00ac 3046     		mov	r0, r6	@ float
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccCVDUJY.s 			page 77
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccCYBIQg.s 			page 77
 
 
  2624 00ae FFF7FEFF 		bl	__aeabi_f2d
@@ -4618,7 +4618,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccCVDUJY.s 			page 1
  2668      61743D30 
  2668      2E303030 
  2669 009f 30303030 		.ascii	"000000 spd=0.000000 sat=0 time=%02d:%02d:%02d date="
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccCVDUJY.s 			page 78
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccCYBIQg.s 			page 78
 
 
  2669      30302073 
@@ -4678,7 +4678,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccCVDUJY.s 			page 1
  2708              		.loc 1 133 5 view .LVU610
  133:SynaptiX_FDK/app/app.c **** 
  2709              		.loc 1 133 27 is_stmt 0 view .LVU611
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccCVDUJY.s 			page 79
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccCYBIQg.s 			page 79
 
 
  2710 000c 4649     		ldr	r1, .L151
@@ -4738,7 +4738,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccCVDUJY.s 			page 1
  2750              	.LBE37:
  2751              	.LBE36:
  154:SynaptiX_FDK/app/app.c ****                  g_app.time.day,  g_app.time.month+1, g_app.time.year);
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccCVDUJY.s 			page 80
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccCYBIQg.s 			page 80
 
 
  2752              		.loc 1 154 28 view .LVU626
@@ -4798,7 +4798,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccCVDUJY.s 			page 1
  2796              	.LVL256:
  160:SynaptiX_FDK/app/app.c ****     log_info(TAG, "GPS log written: %s", line);
  2797              		.loc 1 160 5 is_stmt 1 view .LVU637
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccCVDUJY.s 			page 81
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccCYBIQg.s 			page 81
 
 
  160:SynaptiX_FDK/app/app.c ****     log_info(TAG, "GPS log written: %s", line);
@@ -4858,7 +4858,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccCVDUJY.s 			page 1
  2842              		.loc 1 144 21 view .LVU647
  2843 00b2 D4F86473 		ldr	r7, [r4, #868]	@ float
  144:SynaptiX_FDK/app/app.c ****                  g_app.time.hour, g_app.time.min, g_app.time.sec,
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccCVDUJY.s 			page 82
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccCYBIQg.s 			page 82
 
 
  2844              		.loc 1 144 36 view .LVU648
@@ -4918,7 +4918,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccCVDUJY.s 			page 1
  2891              	.L152:
  2892 0126 00BF     		.align	2
  2893              	.L151:
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccCVDUJY.s 			page 83
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccCYBIQg.s 			page 83
 
 
  2894 0128 00000000 		.word	g_app
@@ -4978,7 +4978,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccCVDUJY.s 			page 1
  2946              		.loc 1 122 5 view .LVU661
  122:SynaptiX_FDK/app/app.c **** }
  2947              		.loc 1 122 20 is_stmt 0 view .LVU662
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccCVDUJY.s 			page 84
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccCYBIQg.s 			page 84
 
 
  2948 0000 014B     		ldr	r3, .L157
@@ -5038,7 +5038,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccCVDUJY.s 			page 1
  3000              		@ frame_needed = 0, uses_anonymous_args = 0
  3001              		@ link register save eliminated.
  211:SynaptiX_FDK/app/app.c ****     g_app.app_mode = APP_MODE_FULL_POWER;
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccCVDUJY.s 			page 85
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccCYBIQg.s 			page 85
 
 
  3002              		.loc 1 211 5 view .LVU669
@@ -5098,7 +5098,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccCVDUJY.s 			page 1
  3051 0000 536C6565 		.ascii	"Sleep requested\000"
  3051      70207265 
  3051      71756573 
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccCVDUJY.s 			page 86
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccCYBIQg.s 			page 86
 
 
  3051      74656400 
@@ -5158,7 +5158,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccCVDUJY.s 			page 1
  3093              		.loc 1 642 29 is_stmt 0 view .LVU690
  3094 001c 83F83D20 		strb	r2, [r3, #61]
  643:SynaptiX_FDK/app/app.c ****     g_app.mqtt_stopped = 0;
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccCVDUJY.s 			page 87
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccCYBIQg.s 			page 87
 
 
  3095              		.loc 1 643 5 is_stmt 1 view .LVU691
@@ -5218,7 +5218,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccCVDUJY.s 			page 1
  3132              	.LC83:
  3133 0054 696E6974 		.ascii	"init\000"
  3133      00
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccCVDUJY.s 			page 88
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccCYBIQg.s 			page 88
 
 
  3134 0059 000000   		.align	2
@@ -5278,7 +5278,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccCVDUJY.s 			page 1
  3177              		.loc 1 798 5 is_stmt 1 view .LVU704
  3178              		.loc 1 798 17 is_stmt 0 view .LVU705
  3179 0020 2B4C     		ldr	r4, .L176+16
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccCVDUJY.s 			page 89
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccCYBIQg.s 			page 89
 
 
  3180 0022 2C4B     		ldr	r3, .L176+20
@@ -5338,7 +5338,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccCVDUJY.s 			page 1
  3220 0054 2046     		mov	r0, r4
  3221 0056 FFF7FEFF 		bl	app_read_config_file
  3222              	.LVL269:
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccCVDUJY.s 			page 90
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccCYBIQg.s 			page 90
 
 
  813:SynaptiX_FDK/app/app.c ****     
@@ -5398,7 +5398,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccCVDUJY.s 			page 1
  3239 0062 2573     		strb	r5, [r4, #12]
  3240              	.LVL270:
  3241              		.loc 3 36 22 view .LVU736
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccCVDUJY.s 			page 91
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccCYBIQg.s 			page 91
 
 
  3242              	.LBE41:
@@ -5458,7 +5458,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccCVDUJY.s 			page 1
  3283              	.LVL275:
  827:SynaptiX_FDK/app/app.c **** 
  828:SynaptiX_FDK/app/app.c ****     publish_gps("init");
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccCVDUJY.s 			page 92
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccCYBIQg.s 			page 92
 
 
  3284              		.loc 1 828 5 view .LVU751
@@ -5518,7 +5518,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccCVDUJY.s 			page 1
  3331      54696E79 
  3331      20726563 
  3331      65697665 
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccCVDUJY.s 			page 93
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccCYBIQg.s 			page 93
 
 
  3331      64202564 
@@ -5578,7 +5578,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccCVDUJY.s 			page 1
  3358      56425553 
  3358      20696E74 
  3358      65727275 
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccCVDUJY.s 			page 94
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccCYBIQg.s 			page 94
 
 
  3359 00eb 00       		.align	2
@@ -5638,7 +5638,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccCVDUJY.s 			page 1
  836:SynaptiX_FDK/app/app.c **** 
  837:SynaptiX_FDK/app/app.c **** /*  Process  */
  838:SynaptiX_FDK/app/app.c **** void app_process(uint32_t timestamp)
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccCVDUJY.s 			page 95
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccCYBIQg.s 			page 95
 
 
  839:SynaptiX_FDK/app/app.c **** {
@@ -5698,7 +5698,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccCVDUJY.s 			page 1
  852:SynaptiX_FDK/app/app.c ****     }
  853:SynaptiX_FDK/app/app.c **** 
  854:SynaptiX_FDK/app/app.c ****     if (sx_usb_tiny_available(&g_app.board->usb)) {
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccCVDUJY.s 			page 96
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccCYBIQg.s 			page 96
 
 
  3430              		.loc 1 854 5 is_stmt 1 view .LVU769
@@ -5758,7 +5758,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccCVDUJY.s 			page 1
  844:SynaptiX_FDK/app/app.c ****     }
  3470              		.loc 1 844 9 is_stmt 1 view .LVU780
  3471 005c FFF7FEFF 		bl	_handle_usb_connected
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccCVDUJY.s 			page 97
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccCYBIQg.s 			page 97
 
 
  3472              	.LVL288:
@@ -5818,7 +5818,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccCVDUJY.s 			page 1
  3514 0094 002D     		cmp	r5, #0
  3515 0096 CCDD     		ble	.L181
  859:SynaptiX_FDK/app/app.c ****         }
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccCVDUJY.s 			page 98
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccCYBIQg.s 			page 98
 
 
  3516              		.loc 1 859 13 is_stmt 1 view .LVU793
@@ -5878,7 +5878,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccCVDUJY.s 			page 1
  3558              	.L189:
  878:SynaptiX_FDK/app/app.c ****         }
  879:SynaptiX_FDK/app/app.c ****         if (!g_app.subscribed)
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccCVDUJY.s 			page 99
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccCYBIQg.s 			page 99
 
 
  3559              		.loc 1 879 9 view .LVU808
@@ -5938,7 +5938,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccCVDUJY.s 			page 1
  3600              		.loc 1 881 13 view .LVU822
  881:SynaptiX_FDK/app/app.c ****             sx_user_mqtt_subscribe(MQTT_SUB_TOPIC);
  3601              		.loc 1 881 30 is_stmt 0 view .LVU823
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccCVDUJY.s 			page 100
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccCYBIQg.s 			page 100
 
 
  3602 0102 5F4C     		ldr	r4, .L219
@@ -5998,7 +5998,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccCVDUJY.s 			page 1
  3640              		.loc 1 902 13 is_stmt 1 view .LVU839
  3641 0130 8BE0     		b	.L178
  3642              	.L191:
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccCVDUJY.s 			page 101
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccCYBIQg.s 			page 101
 
 
  903:SynaptiX_FDK/app/app.c ****         }
@@ -6058,7 +6058,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccCVDUJY.s 			page 1
  3681              		.loc 1 918 34 view .LVU855
  3682 0160 474B     		ldr	r3, .L219
  3683 0162 5A6C     		ldr	r2, [r3, #68]
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccCVDUJY.s 			page 102
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccCYBIQg.s 			page 102
 
 
  917:SynaptiX_FDK/app/app.c ****         uint8_t mqtt_down = !sx_user_mqtt_is_connected() &&
@@ -6118,7 +6118,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccCVDUJY.s 			page 1
  3726 0194 526C     		ldr	r2, [r2, #68]
  3727              	.LVL320:
  920:SynaptiX_FDK/app/app.c **** 
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccCVDUJY.s 			page 103
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccCYBIQg.s 			page 103
 
 
  921:SynaptiX_FDK/app/app.c ****         if (!pub_done && !mqtt_down && !timed_out)
@@ -6178,7 +6178,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccCVDUJY.s 			page 1
  3767              		.loc 1 932 9 is_stmt 1 view .LVU882
  3768              		.loc 1 932 31 is_stmt 0 view .LVU883
  3769 01bc 304B     		ldr	r3, .L219
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccCVDUJY.s 			page 104
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccCYBIQg.s 			page 104
 
 
  3770 01be 0022     		movs	r2, #0
@@ -6238,7 +6238,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccCVDUJY.s 			page 1
  944:SynaptiX_FDK/app/app.c ****         sx_user_mqtt_queue_flush();
  3810              		.loc 1 944 9 view .LVU901
  3811 01ec FFF7FEFF 		bl	sx_user_mqtt_queue_flush
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccCVDUJY.s 			page 105
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccCYBIQg.s 			page 105
 
 
  3812              	.LVL332:
@@ -6298,7 +6298,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccCVDUJY.s 			page 1
   29:SynaptiX_FDK/services/sleepmanager/sx_sleep_manager.h **** }module_t;
   30:SynaptiX_FDK/services/sleepmanager/sx_sleep_manager.h **** 
   31:SynaptiX_FDK/services/sleepmanager/sx_sleep_manager.h **** typedef struct {
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccCVDUJY.s 			page 106
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccCYBIQg.s 			page 106
 
 
   32:SynaptiX_FDK/services/sleepmanager/sx_sleep_manager.h ****     uint32_t wake_elapsed_ms;
@@ -6358,7 +6358,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccCVDUJY.s 			page 1
   48:SynaptiX_FDK/components/sleep/sx_sleep.h ****     if (mgr->ops && mgr->ops->set_rtc_wake)
   49:SynaptiX_FDK/components/sleep/sx_sleep.h ****         mgr->ops->set_rtc_wake(mgr, period_sec);
   50:SynaptiX_FDK/components/sleep/sx_sleep.h **** }
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccCVDUJY.s 			page 107
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccCYBIQg.s 			page 107
 
 
   51:SynaptiX_FDK/components/sleep/sx_sleep.h **** 
@@ -6418,7 +6418,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccCVDUJY.s 			page 1
  3870 0222 0220     		movs	r0, #2
  3871 0224 FFF7FEFF 		bl	log_func
  3872              	.LVL338:
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccCVDUJY.s 			page 108
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccCYBIQg.s 			page 108
 
 
  965:SynaptiX_FDK/app/app.c ****                 if (HAL_GPIO_ReadPin(VBUS_PORT, VBUS_PIN) == GPIO_PIN_SET) {
@@ -6478,7 +6478,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccCVDUJY.s 			page 1
  989:SynaptiX_FDK/app/app.c ****             g_app.last_publish_done = 0;
  990:SynaptiX_FDK/app/app.c ****             g_app.publish_count = 0;
  991:SynaptiX_FDK/app/app.c ****             g_app.app_mode = APP_MODE_SLEEP;
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccCVDUJY.s 			page 109
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccCYBIQg.s 			page 109
 
 
  992:SynaptiX_FDK/app/app.c ****             break;
@@ -6538,7 +6538,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccCVDUJY.s 			page 1
  956:SynaptiX_FDK/app/app.c ****                 g_app.app_mode = APP_MODE_WAKE_PUBLISH;
  3923              		.loc 1 956 32 is_stmt 0 view .LVU934
  3924 0258 094B     		ldr	r3, .L219
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccCVDUJY.s 			page 110
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccCYBIQg.s 			page 110
 
 
  3925 025a 0322     		movs	r2, #3
@@ -6598,7 +6598,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccCVDUJY.s 			page 1
  3974              	.LBE49:
  979:SynaptiX_FDK/app/app.c ****         gps_process(&g_app.board->gps, timestamp);
  3975              		.loc 1 979 9 is_stmt 1 view .LVU940
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccCVDUJY.s 			page 111
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccCYBIQg.s 			page 111
 
 
  979:SynaptiX_FDK/app/app.c ****         gps_process(&g_app.board->gps, timestamp);
@@ -6658,7 +6658,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccCVDUJY.s 			page 1
  990:SynaptiX_FDK/app/app.c ****             g_app.publish_count = 0;
  4017              		.loc 1 990 33 is_stmt 0 view .LVU954
  4018 0306 83F84020 		strb	r2, [r3, #64]
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccCVDUJY.s 			page 112
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccCYBIQg.s 			page 112
 
 
  991:SynaptiX_FDK/app/app.c ****             g_app.app_mode = APP_MODE_SLEEP;
@@ -6718,7 +6718,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccCVDUJY.s 			page 1
 1009:SynaptiX_FDK/app/app.c ****         if (g_app.sleep_mgr.published && g_app.last_publish_done)
  4059              		.loc 1 1009 39 discriminator 1 view .LVU969
  4060 033c 002B     		cmp	r3, #0
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccCVDUJY.s 			page 113
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccCYBIQg.s 			page 113
 
 
  4061 033e 84D0     		beq	.L178
@@ -6778,7 +6778,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccCVDUJY.s 			page 1
 1016:SynaptiX_FDK/app/app.c ****             g_app.app_mode = APP_MODE_SLEEP;
  4103              		.loc 1 1016 28 is_stmt 0 view .LVU982
  4104 038e 0222     		movs	r2, #2
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccCVDUJY.s 			page 114
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccCYBIQg.s 			page 114
 
 
  4105 0390 1A70     		strb	r2, [r3]
@@ -6838,7 +6838,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccCVDUJY.s 			page 1
  4145 03c8 6439     		subs	r1, r1, #100
  4146 03ca C9B2     		uxtb	r1, r1
  4147 03cc 0291     		str	r1, [sp, #8]
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccCVDUJY.s 			page 115
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccCYBIQg.s 			page 115
 
 
  4148 03ce 90F88013 		ldrb	r1, [r0, #896]	@ zero_extendqisi2
@@ -6898,7 +6898,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccCVDUJY.s 			page 1
  4202 0000 00000000 		.space	256
  4202      00000000 
  4202      00000000 
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccCVDUJY.s 			page 116
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccCYBIQg.s 			page 116
 
 
  4202      00000000 
@@ -6958,7 +6958,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccCVDUJY.s 			page 1
  4238              		.align	2
  4241              	config_json:
  4242 0000 00000000 		.space	820
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccCVDUJY.s 			page 117
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccCYBIQg.s 			page 117
 
 
  4242      00000000 
@@ -7018,115 +7018,115 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccCVDUJY.s 			page 1
  4291              		.file 44 "C:\\ST\\STM32CubeCLT_1.20.0\\GNU-tools-for-STM32\\bin/../lib/gcc/arm-none-eabi/13.3.1/..
  4292              		.file 45 "C:\\ST\\STM32CubeCLT_1.20.0\\GNU-tools-for-STM32\\bin/../lib/gcc/arm-none-eabi/13.3.1/..
  4293              		.file 46 "SynaptiX_FDK/services/sx_fatfs/sx_fatfs.h"
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccCVDUJY.s 			page 118
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccCYBIQg.s 			page 118
 
 
  4294              		.file 47 "<built-in>"
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccCVDUJY.s 			page 119
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccCYBIQg.s 			page 119
 
 
 DEFINED SYMBOLS
                             *ABS*:00000000 app.c
-C:\Users\LENOVO\AppData\Local\Temp\ccCVDUJY.s:22     .rodata._on_publish.str1.4:00000000 $d
-C:\Users\LENOVO\AppData\Local\Temp\ccCVDUJY.s:38     .text._on_publish:00000000 $t
-C:\Users\LENOVO\AppData\Local\Temp\ccCVDUJY.s:43     .text._on_publish:00000000 _on_publish
-C:\Users\LENOVO\AppData\Local\Temp\ccCVDUJY.s:133    .text._on_publish:00000060 $d
-C:\Users\LENOVO\AppData\Local\Temp\ccCVDUJY.s:4248   .bss.g_app:00000000 g_app
-C:\Users\LENOVO\AppData\Local\Temp\ccCVDUJY.s:143    .rodata._on_message.str1.4:00000000 $d
-C:\Users\LENOVO\AppData\Local\Temp\ccCVDUJY.s:147    .text._on_message:00000000 $t
-C:\Users\LENOVO\AppData\Local\Temp\ccCVDUJY.s:152    .text._on_message:00000000 _on_message
-C:\Users\LENOVO\AppData\Local\Temp\ccCVDUJY.s:198    .text._on_message:00000020 $d
-C:\Users\LENOVO\AppData\Local\Temp\ccCVDUJY.s:204    .rodata._on_disconnected.str1.4:00000000 $d
-C:\Users\LENOVO\AppData\Local\Temp\ccCVDUJY.s:208    .text._on_disconnected:00000000 $t
-C:\Users\LENOVO\AppData\Local\Temp\ccCVDUJY.s:213    .text._on_disconnected:00000000 _on_disconnected
-C:\Users\LENOVO\AppData\Local\Temp\ccCVDUJY.s:261    .text._on_disconnected:00000030 $d
-C:\Users\LENOVO\AppData\Local\Temp\ccCVDUJY.s:268    .rodata._on_connected.str1.4:00000000 $d
-C:\Users\LENOVO\AppData\Local\Temp\ccCVDUJY.s:272    .text._on_connected:00000000 $t
-C:\Users\LENOVO\AppData\Local\Temp\ccCVDUJY.s:277    .text._on_connected:00000000 _on_connected
-C:\Users\LENOVO\AppData\Local\Temp\ccCVDUJY.s:304    .text._on_connected:00000018 $d
-C:\Users\LENOVO\AppData\Local\Temp\ccCVDUJY.s:311    .rodata._apply_default_config.str1.4:00000000 $d
-C:\Users\LENOVO\AppData\Local\Temp\ccCVDUJY.s:318    .text._apply_default_config:00000000 $t
-C:\Users\LENOVO\AppData\Local\Temp\ccCVDUJY.s:323    .text._apply_default_config:00000000 _apply_default_config
-C:\Users\LENOVO\AppData\Local\Temp\ccCVDUJY.s:349    .text._apply_default_config:00000010 $d
-C:\Users\LENOVO\AppData\Local\Temp\ccCVDUJY.s:355    .rodata.app_read_config_file.str1.4:00000000 $d
-C:\Users\LENOVO\AppData\Local\Temp\ccCVDUJY.s:471    .text.app_read_config_file:00000000 $t
-C:\Users\LENOVO\AppData\Local\Temp\ccCVDUJY.s:476    .text.app_read_config_file:00000000 app_read_config_file
-C:\Users\LENOVO\AppData\Local\Temp\ccCVDUJY.s:1062   .text.app_read_config_file:000002a4 $d
-C:\Users\LENOVO\AppData\Local\Temp\ccCVDUJY.s:4241   .bss.config_json:00000000 config_json
-C:\Users\LENOVO\AppData\Local\Temp\ccCVDUJY.s:4217   .data.s_mqtt_cfg:00000000 s_mqtt_cfg
-C:\Users\LENOVO\AppData\Local\Temp\ccCVDUJY.s:1098   .text.app_read_config_file:0000032c $t
-C:\Users\LENOVO\AppData\Local\Temp\ccCVDUJY.s:1274   .text.app_read_config_file:00000410 $d
-C:\Users\LENOVO\AppData\Local\Temp\ccCVDUJY.s:1293   .rodata.read_last_gps.str1.4:00000000 $d
-C:\Users\LENOVO\AppData\Local\Temp\ccCVDUJY.s:1330   .text.read_last_gps:00000000 $t
-C:\Users\LENOVO\AppData\Local\Temp\ccCVDUJY.s:1335   .text.read_last_gps:00000000 read_last_gps
-C:\Users\LENOVO\AppData\Local\Temp\ccCVDUJY.s:1751   .text.read_last_gps:00000208 $d
-C:\Users\LENOVO\AppData\Local\Temp\ccCVDUJY.s:4201   .bss.s_tail_buf.2:00000000 s_tail_buf.2
-C:\Users\LENOVO\AppData\Local\Temp\ccCVDUJY.s:1770   .rodata.publish_gsm.str1.4:00000000 $d
-C:\Users\LENOVO\AppData\Local\Temp\ccCVDUJY.s:1785   .text.publish_gsm:00000000 $t
-C:\Users\LENOVO\AppData\Local\Temp\ccCVDUJY.s:1790   .text.publish_gsm:00000000 publish_gsm
-C:\Users\LENOVO\AppData\Local\Temp\ccCVDUJY.s:1952   .text.publish_gsm:000000b0 $d
-C:\Users\LENOVO\AppData\Local\Temp\ccCVDUJY.s:1962   .text.set_time_exrtc:00000000 $t
-C:\Users\LENOVO\AppData\Local\Temp\ccCVDUJY.s:1967   .text.set_time_exrtc:00000000 set_time_exrtc
-C:\Users\LENOVO\AppData\Local\Temp\ccCVDUJY.s:2024   .text.set_time_exrtc:00000038 $d
-C:\Users\LENOVO\AppData\Local\Temp\ccCVDUJY.s:2030   .rodata.publish_gps.str1.4:00000000 $d
-C:\Users\LENOVO\AppData\Local\Temp\ccCVDUJY.s:2050   .text.publish_gps:00000000 $t
-C:\Users\LENOVO\AppData\Local\Temp\ccCVDUJY.s:2055   .text.publish_gps:00000000 publish_gps
-C:\Users\LENOVO\AppData\Local\Temp\ccCVDUJY.s:2326   .text.publish_gps:0000016c $d
-C:\Users\LENOVO\AppData\Local\Temp\ccCVDUJY.s:2341   .rodata._handle_usb_connected.str1.4:00000000 $d
-C:\Users\LENOVO\AppData\Local\Temp\ccCVDUJY.s:2345   .text._handle_usb_connected:00000000 $t
-C:\Users\LENOVO\AppData\Local\Temp\ccCVDUJY.s:2350   .text._handle_usb_connected:00000000 _handle_usb_connected
-C:\Users\LENOVO\AppData\Local\Temp\ccCVDUJY.s:2459   .text._handle_usb_connected:0000007c $d
-C:\Users\LENOVO\AppData\Local\Temp\ccCVDUJY.s:2466   .rodata._sync_gps_log_to_disk.str1.4:00000000 $d
-C:\Users\LENOVO\AppData\Local\Temp\ccCVDUJY.s:2491   .text._sync_gps_log_to_disk:00000000 $t
-C:\Users\LENOVO\AppData\Local\Temp\ccCVDUJY.s:2496   .text._sync_gps_log_to_disk:00000000 _sync_gps_log_to_disk
-C:\Users\LENOVO\AppData\Local\Temp\ccCVDUJY.s:2645   .text._sync_gps_log_to_disk:000000d8 $d
-C:\Users\LENOVO\AppData\Local\Temp\ccCVDUJY.s:4195   .bss.s_csv_line.1:00000000 s_csv_line.1
-C:\Users\LENOVO\AppData\Local\Temp\ccCVDUJY.s:2661   .rodata.write_gps_log.str1.4:00000000 $d
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccCVDUJY.s 			page 120
+C:\Users\LENOVO\AppData\Local\Temp\ccCYBIQg.s:22     .rodata._on_publish.str1.4:00000000 $d
+C:\Users\LENOVO\AppData\Local\Temp\ccCYBIQg.s:38     .text._on_publish:00000000 $t
+C:\Users\LENOVO\AppData\Local\Temp\ccCYBIQg.s:43     .text._on_publish:00000000 _on_publish
+C:\Users\LENOVO\AppData\Local\Temp\ccCYBIQg.s:133    .text._on_publish:00000060 $d
+C:\Users\LENOVO\AppData\Local\Temp\ccCYBIQg.s:4248   .bss.g_app:00000000 g_app
+C:\Users\LENOVO\AppData\Local\Temp\ccCYBIQg.s:143    .rodata._on_message.str1.4:00000000 $d
+C:\Users\LENOVO\AppData\Local\Temp\ccCYBIQg.s:147    .text._on_message:00000000 $t
+C:\Users\LENOVO\AppData\Local\Temp\ccCYBIQg.s:152    .text._on_message:00000000 _on_message
+C:\Users\LENOVO\AppData\Local\Temp\ccCYBIQg.s:198    .text._on_message:00000020 $d
+C:\Users\LENOVO\AppData\Local\Temp\ccCYBIQg.s:204    .rodata._on_disconnected.str1.4:00000000 $d
+C:\Users\LENOVO\AppData\Local\Temp\ccCYBIQg.s:208    .text._on_disconnected:00000000 $t
+C:\Users\LENOVO\AppData\Local\Temp\ccCYBIQg.s:213    .text._on_disconnected:00000000 _on_disconnected
+C:\Users\LENOVO\AppData\Local\Temp\ccCYBIQg.s:261    .text._on_disconnected:00000030 $d
+C:\Users\LENOVO\AppData\Local\Temp\ccCYBIQg.s:268    .rodata._on_connected.str1.4:00000000 $d
+C:\Users\LENOVO\AppData\Local\Temp\ccCYBIQg.s:272    .text._on_connected:00000000 $t
+C:\Users\LENOVO\AppData\Local\Temp\ccCYBIQg.s:277    .text._on_connected:00000000 _on_connected
+C:\Users\LENOVO\AppData\Local\Temp\ccCYBIQg.s:304    .text._on_connected:00000018 $d
+C:\Users\LENOVO\AppData\Local\Temp\ccCYBIQg.s:311    .rodata._apply_default_config.str1.4:00000000 $d
+C:\Users\LENOVO\AppData\Local\Temp\ccCYBIQg.s:318    .text._apply_default_config:00000000 $t
+C:\Users\LENOVO\AppData\Local\Temp\ccCYBIQg.s:323    .text._apply_default_config:00000000 _apply_default_config
+C:\Users\LENOVO\AppData\Local\Temp\ccCYBIQg.s:349    .text._apply_default_config:00000010 $d
+C:\Users\LENOVO\AppData\Local\Temp\ccCYBIQg.s:355    .rodata.app_read_config_file.str1.4:00000000 $d
+C:\Users\LENOVO\AppData\Local\Temp\ccCYBIQg.s:471    .text.app_read_config_file:00000000 $t
+C:\Users\LENOVO\AppData\Local\Temp\ccCYBIQg.s:476    .text.app_read_config_file:00000000 app_read_config_file
+C:\Users\LENOVO\AppData\Local\Temp\ccCYBIQg.s:1062   .text.app_read_config_file:000002a4 $d
+C:\Users\LENOVO\AppData\Local\Temp\ccCYBIQg.s:4241   .bss.config_json:00000000 config_json
+C:\Users\LENOVO\AppData\Local\Temp\ccCYBIQg.s:4217   .data.s_mqtt_cfg:00000000 s_mqtt_cfg
+C:\Users\LENOVO\AppData\Local\Temp\ccCYBIQg.s:1098   .text.app_read_config_file:0000032c $t
+C:\Users\LENOVO\AppData\Local\Temp\ccCYBIQg.s:1274   .text.app_read_config_file:00000410 $d
+C:\Users\LENOVO\AppData\Local\Temp\ccCYBIQg.s:1293   .rodata.read_last_gps.str1.4:00000000 $d
+C:\Users\LENOVO\AppData\Local\Temp\ccCYBIQg.s:1330   .text.read_last_gps:00000000 $t
+C:\Users\LENOVO\AppData\Local\Temp\ccCYBIQg.s:1335   .text.read_last_gps:00000000 read_last_gps
+C:\Users\LENOVO\AppData\Local\Temp\ccCYBIQg.s:1751   .text.read_last_gps:00000208 $d
+C:\Users\LENOVO\AppData\Local\Temp\ccCYBIQg.s:4201   .bss.s_tail_buf.2:00000000 s_tail_buf.2
+C:\Users\LENOVO\AppData\Local\Temp\ccCYBIQg.s:1770   .rodata.publish_gsm.str1.4:00000000 $d
+C:\Users\LENOVO\AppData\Local\Temp\ccCYBIQg.s:1785   .text.publish_gsm:00000000 $t
+C:\Users\LENOVO\AppData\Local\Temp\ccCYBIQg.s:1790   .text.publish_gsm:00000000 publish_gsm
+C:\Users\LENOVO\AppData\Local\Temp\ccCYBIQg.s:1952   .text.publish_gsm:000000b0 $d
+C:\Users\LENOVO\AppData\Local\Temp\ccCYBIQg.s:1962   .text.set_time_exrtc:00000000 $t
+C:\Users\LENOVO\AppData\Local\Temp\ccCYBIQg.s:1967   .text.set_time_exrtc:00000000 set_time_exrtc
+C:\Users\LENOVO\AppData\Local\Temp\ccCYBIQg.s:2024   .text.set_time_exrtc:00000038 $d
+C:\Users\LENOVO\AppData\Local\Temp\ccCYBIQg.s:2030   .rodata.publish_gps.str1.4:00000000 $d
+C:\Users\LENOVO\AppData\Local\Temp\ccCYBIQg.s:2050   .text.publish_gps:00000000 $t
+C:\Users\LENOVO\AppData\Local\Temp\ccCYBIQg.s:2055   .text.publish_gps:00000000 publish_gps
+C:\Users\LENOVO\AppData\Local\Temp\ccCYBIQg.s:2326   .text.publish_gps:0000016c $d
+C:\Users\LENOVO\AppData\Local\Temp\ccCYBIQg.s:2341   .rodata._handle_usb_connected.str1.4:00000000 $d
+C:\Users\LENOVO\AppData\Local\Temp\ccCYBIQg.s:2345   .text._handle_usb_connected:00000000 $t
+C:\Users\LENOVO\AppData\Local\Temp\ccCYBIQg.s:2350   .text._handle_usb_connected:00000000 _handle_usb_connected
+C:\Users\LENOVO\AppData\Local\Temp\ccCYBIQg.s:2459   .text._handle_usb_connected:0000007c $d
+C:\Users\LENOVO\AppData\Local\Temp\ccCYBIQg.s:2466   .rodata._sync_gps_log_to_disk.str1.4:00000000 $d
+C:\Users\LENOVO\AppData\Local\Temp\ccCYBIQg.s:2491   .text._sync_gps_log_to_disk:00000000 $t
+C:\Users\LENOVO\AppData\Local\Temp\ccCYBIQg.s:2496   .text._sync_gps_log_to_disk:00000000 _sync_gps_log_to_disk
+C:\Users\LENOVO\AppData\Local\Temp\ccCYBIQg.s:2645   .text._sync_gps_log_to_disk:000000d8 $d
+C:\Users\LENOVO\AppData\Local\Temp\ccCYBIQg.s:4195   .bss.s_csv_line.1:00000000 s_csv_line.1
+C:\Users\LENOVO\AppData\Local\Temp\ccCYBIQg.s:2661   .rodata.write_gps_log.str1.4:00000000 $d
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccCYBIQg.s 			page 120
 
 
-C:\Users\LENOVO\AppData\Local\Temp\ccCVDUJY.s:2675   .text.write_gps_log:00000000 $t
-C:\Users\LENOVO\AppData\Local\Temp\ccCVDUJY.s:2680   .text.write_gps_log:00000000 write_gps_log
-C:\Users\LENOVO\AppData\Local\Temp\ccCVDUJY.s:2894   .text.write_gps_log:00000128 $d
-C:\Users\LENOVO\AppData\Local\Temp\ccCVDUJY.s:4189   .bss.s_log_count.0:00000000 s_log_count.0
-C:\Users\LENOVO\AppData\Local\Temp\ccCVDUJY.s:2905   .text.app_mode_full_pw:00000000 $t
-C:\Users\LENOVO\AppData\Local\Temp\ccCVDUJY.s:2911   .text.app_mode_full_pw:00000000 app_mode_full_pw
-C:\Users\LENOVO\AppData\Local\Temp\ccCVDUJY.s:2928   .text.app_mode_full_pw:00000008 $d
-C:\Users\LENOVO\AppData\Local\Temp\ccCVDUJY.s:2933   .text.app_mode_enter_sleep:00000000 $t
-C:\Users\LENOVO\AppData\Local\Temp\ccCVDUJY.s:2939   .text.app_mode_enter_sleep:00000000 app_mode_enter_sleep
-C:\Users\LENOVO\AppData\Local\Temp\ccCVDUJY.s:2956   .text.app_mode_enter_sleep:00000008 $d
-C:\Users\LENOVO\AppData\Local\Temp\ccCVDUJY.s:2961   .text.app_mode_sleep:00000000 $t
-C:\Users\LENOVO\AppData\Local\Temp\ccCVDUJY.s:2967   .text.app_mode_sleep:00000000 app_mode_sleep
-C:\Users\LENOVO\AppData\Local\Temp\ccCVDUJY.s:2984   .text.app_mode_sleep:00000008 $d
-C:\Users\LENOVO\AppData\Local\Temp\ccCVDUJY.s:2989   .text.app_notify_usb_connected:00000000 $t
-C:\Users\LENOVO\AppData\Local\Temp\ccCVDUJY.s:2995   .text.app_notify_usb_connected:00000000 app_notify_usb_connected
-C:\Users\LENOVO\AppData\Local\Temp\ccCVDUJY.s:3016   .text.app_notify_usb_connected:00000010 $d
-C:\Users\LENOVO\AppData\Local\Temp\ccCVDUJY.s:3021   .text.app_sync_gps_log_to_disk:00000000 $t
-C:\Users\LENOVO\AppData\Local\Temp\ccCVDUJY.s:3027   .text.app_sync_gps_log_to_disk:00000000 app_sync_gps_log_to_disk
-C:\Users\LENOVO\AppData\Local\Temp\ccCVDUJY.s:3044   .text.app_sync_gps_log_to_disk:0000000c $d
-C:\Users\LENOVO\AppData\Local\Temp\ccCVDUJY.s:3049   .rodata.app_request_sleep.str1.4:00000000 $d
-C:\Users\LENOVO\AppData\Local\Temp\ccCVDUJY.s:3053   .text.app_request_sleep:00000000 $t
-C:\Users\LENOVO\AppData\Local\Temp\ccCVDUJY.s:3059   .text.app_request_sleep:00000000 app_request_sleep
-C:\Users\LENOVO\AppData\Local\Temp\ccCVDUJY.s:3114   .text.app_request_sleep:00000038 $d
-C:\Users\LENOVO\AppData\Local\Temp\ccCVDUJY.s:3121   .rodata.app_init.str1.4:00000000 $d
-C:\Users\LENOVO\AppData\Local\Temp\ccCVDUJY.s:3138   .text.app_init:00000000 $t
-C:\Users\LENOVO\AppData\Local\Temp\ccCVDUJY.s:3144   .text.app_init:00000000 app_init
-C:\Users\LENOVO\AppData\Local\Temp\ccCVDUJY.s:3312   .text.app_init:000000c0 $d
-C:\Users\LENOVO\AppData\Local\Temp\ccCVDUJY.s:3329   .rodata.app_process.str1.4:00000000 $d
-C:\Users\LENOVO\AppData\Local\Temp\ccCVDUJY.s:3380   .text.app_process:00000000 $t
-C:\Users\LENOVO\AppData\Local\Temp\ccCVDUJY.s:3386   .text.app_process:00000000 app_process
-C:\Users\LENOVO\AppData\Local\Temp\ccCVDUJY.s:3458   .text.app_process:0000004c $d
-C:\Users\LENOVO\AppData\Local\Temp\ccCVDUJY.s:3463   .text.app_process:00000054 $t
-C:\Users\LENOVO\AppData\Local\Temp\ccCVDUJY.s:3953   .text.app_process:00000280 $d
-C:\Users\LENOVO\AppData\Local\Temp\ccCVDUJY.s:3977   .text.app_process:000002c8 $t
-C:\Users\LENOVO\AppData\Local\Temp\ccCVDUJY.s:4173   .text.app_process:000003fc $d
-C:\Users\LENOVO\AppData\Local\Temp\ccCVDUJY.s:4186   .bss.s_log_count.0:00000000 $d
-C:\Users\LENOVO\AppData\Local\Temp\ccCVDUJY.s:4192   .bss.s_csv_line.1:00000000 $d
-C:\Users\LENOVO\AppData\Local\Temp\ccCVDUJY.s:4198   .bss.s_tail_buf.2:00000000 $d
-C:\Users\LENOVO\AppData\Local\Temp\ccCVDUJY.s:4204   .rodata.str1.4:00000000 $d
-C:\Users\LENOVO\AppData\Local\Temp\ccCVDUJY.s:4214   .data.s_mqtt_cfg:00000000 $d
-C:\Users\LENOVO\AppData\Local\Temp\ccCVDUJY.s:4238   .bss.config_json:00000000 $d
-C:\Users\LENOVO\AppData\Local\Temp\ccCVDUJY.s:4245   .bss.g_app:00000000 $d
+C:\Users\LENOVO\AppData\Local\Temp\ccCYBIQg.s:2675   .text.write_gps_log:00000000 $t
+C:\Users\LENOVO\AppData\Local\Temp\ccCYBIQg.s:2680   .text.write_gps_log:00000000 write_gps_log
+C:\Users\LENOVO\AppData\Local\Temp\ccCYBIQg.s:2894   .text.write_gps_log:00000128 $d
+C:\Users\LENOVO\AppData\Local\Temp\ccCYBIQg.s:4189   .bss.s_log_count.0:00000000 s_log_count.0
+C:\Users\LENOVO\AppData\Local\Temp\ccCYBIQg.s:2905   .text.app_mode_full_pw:00000000 $t
+C:\Users\LENOVO\AppData\Local\Temp\ccCYBIQg.s:2911   .text.app_mode_full_pw:00000000 app_mode_full_pw
+C:\Users\LENOVO\AppData\Local\Temp\ccCYBIQg.s:2928   .text.app_mode_full_pw:00000008 $d
+C:\Users\LENOVO\AppData\Local\Temp\ccCYBIQg.s:2933   .text.app_mode_enter_sleep:00000000 $t
+C:\Users\LENOVO\AppData\Local\Temp\ccCYBIQg.s:2939   .text.app_mode_enter_sleep:00000000 app_mode_enter_sleep
+C:\Users\LENOVO\AppData\Local\Temp\ccCYBIQg.s:2956   .text.app_mode_enter_sleep:00000008 $d
+C:\Users\LENOVO\AppData\Local\Temp\ccCYBIQg.s:2961   .text.app_mode_sleep:00000000 $t
+C:\Users\LENOVO\AppData\Local\Temp\ccCYBIQg.s:2967   .text.app_mode_sleep:00000000 app_mode_sleep
+C:\Users\LENOVO\AppData\Local\Temp\ccCYBIQg.s:2984   .text.app_mode_sleep:00000008 $d
+C:\Users\LENOVO\AppData\Local\Temp\ccCYBIQg.s:2989   .text.app_notify_usb_connected:00000000 $t
+C:\Users\LENOVO\AppData\Local\Temp\ccCYBIQg.s:2995   .text.app_notify_usb_connected:00000000 app_notify_usb_connected
+C:\Users\LENOVO\AppData\Local\Temp\ccCYBIQg.s:3016   .text.app_notify_usb_connected:00000010 $d
+C:\Users\LENOVO\AppData\Local\Temp\ccCYBIQg.s:3021   .text.app_sync_gps_log_to_disk:00000000 $t
+C:\Users\LENOVO\AppData\Local\Temp\ccCYBIQg.s:3027   .text.app_sync_gps_log_to_disk:00000000 app_sync_gps_log_to_disk
+C:\Users\LENOVO\AppData\Local\Temp\ccCYBIQg.s:3044   .text.app_sync_gps_log_to_disk:0000000c $d
+C:\Users\LENOVO\AppData\Local\Temp\ccCYBIQg.s:3049   .rodata.app_request_sleep.str1.4:00000000 $d
+C:\Users\LENOVO\AppData\Local\Temp\ccCYBIQg.s:3053   .text.app_request_sleep:00000000 $t
+C:\Users\LENOVO\AppData\Local\Temp\ccCYBIQg.s:3059   .text.app_request_sleep:00000000 app_request_sleep
+C:\Users\LENOVO\AppData\Local\Temp\ccCYBIQg.s:3114   .text.app_request_sleep:00000038 $d
+C:\Users\LENOVO\AppData\Local\Temp\ccCYBIQg.s:3121   .rodata.app_init.str1.4:00000000 $d
+C:\Users\LENOVO\AppData\Local\Temp\ccCYBIQg.s:3138   .text.app_init:00000000 $t
+C:\Users\LENOVO\AppData\Local\Temp\ccCYBIQg.s:3144   .text.app_init:00000000 app_init
+C:\Users\LENOVO\AppData\Local\Temp\ccCYBIQg.s:3312   .text.app_init:000000c0 $d
+C:\Users\LENOVO\AppData\Local\Temp\ccCYBIQg.s:3329   .rodata.app_process.str1.4:00000000 $d
+C:\Users\LENOVO\AppData\Local\Temp\ccCYBIQg.s:3380   .text.app_process:00000000 $t
+C:\Users\LENOVO\AppData\Local\Temp\ccCYBIQg.s:3386   .text.app_process:00000000 app_process
+C:\Users\LENOVO\AppData\Local\Temp\ccCYBIQg.s:3458   .text.app_process:0000004c $d
+C:\Users\LENOVO\AppData\Local\Temp\ccCYBIQg.s:3463   .text.app_process:00000054 $t
+C:\Users\LENOVO\AppData\Local\Temp\ccCYBIQg.s:3953   .text.app_process:00000280 $d
+C:\Users\LENOVO\AppData\Local\Temp\ccCYBIQg.s:3977   .text.app_process:000002c8 $t
+C:\Users\LENOVO\AppData\Local\Temp\ccCYBIQg.s:4173   .text.app_process:000003fc $d
+C:\Users\LENOVO\AppData\Local\Temp\ccCYBIQg.s:4186   .bss.s_log_count.0:00000000 $d
+C:\Users\LENOVO\AppData\Local\Temp\ccCYBIQg.s:4192   .bss.s_csv_line.1:00000000 $d
+C:\Users\LENOVO\AppData\Local\Temp\ccCYBIQg.s:4198   .bss.s_tail_buf.2:00000000 $d
+C:\Users\LENOVO\AppData\Local\Temp\ccCYBIQg.s:4204   .rodata.str1.4:00000000 $d
+C:\Users\LENOVO\AppData\Local\Temp\ccCYBIQg.s:4214   .data.s_mqtt_cfg:00000000 $d
+C:\Users\LENOVO\AppData\Local\Temp\ccCYBIQg.s:4238   .bss.config_json:00000000 $d
+C:\Users\LENOVO\AppData\Local\Temp\ccCYBIQg.s:4245   .bss.g_app:00000000 $d
 
 UNDEFINED SYMBOLS
 log_func
@@ -7142,7 +7142,7 @@ cJSON_IsNumber
 cJSON_Delete
 __aeabi_f2d
 sx_storage_size
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccCVDUJY.s 			page 121
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccCYBIQg.s 			page 121
 
 
 sx_storage_read_partial

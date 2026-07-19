@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s 			page 1
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cc1fxqS0.s 			page 1
 
 
    1              		.cpu cortex-m33
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s 			page 1
   26:SynaptiX_FDK/components/gpio/sx_gpio.h **** 
   27:SynaptiX_FDK/components/gpio/sx_gpio.h **** typedef struct sx_gpio{
   28:SynaptiX_FDK/components/gpio/sx_gpio.h ****     sx_gpio_ops_t *ops;
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s 			page 2
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cc1fxqS0.s 			page 2
 
 
   29:SynaptiX_FDK/components/gpio/sx_gpio.h ****     void *pDriver;
@@ -118,7 +118,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s 			page 1
   68              		.loc 2 45 9 is_stmt 0 view .LVU14
   69              	.LBE8:
   46:SynaptiX_FDK/components/gpio/sx_gpio.h ****     }
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s 			page 3
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cc1fxqS0.s 			page 3
 
 
   47:SynaptiX_FDK/components/gpio/sx_gpio.h ****     return -1;
@@ -178,7 +178,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s 			page 1
   23:SynaptiX_FDK/components/sim76xx/sim76xx.c **** #define CMD_CGATT       6
   24:SynaptiX_FDK/components/sim76xx/sim76xx.c **** #define CMD_CGREG       7
   25:SynaptiX_FDK/components/sim76xx/sim76xx.c **** #define CMD_NETOPEN     8
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s 			page 4
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cc1fxqS0.s 			page 4
 
 
   26:SynaptiX_FDK/components/sim76xx/sim76xx.c **** #define CMD_IPADDR      9
@@ -238,7 +238,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s 			page 1
   80:SynaptiX_FDK/components/sim76xx/sim76xx.c **** static void cb_cgdcont (modem_t *modem, const char *response, modem_response_st_t res, void *arg);
   81:SynaptiX_FDK/components/sim76xx/sim76xx.c **** static void cb_cgauth (modem_t *modem, const char *response, modem_response_st_t res, void *arg);
   82:SynaptiX_FDK/components/sim76xx/sim76xx.c **** static void cb_cgdcont_query(modem_t *modem, const char *response, modem_response_st_t res, void *a
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s 			page 5
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cc1fxqS0.s 			page 5
 
 
   83:SynaptiX_FDK/components/sim76xx/sim76xx.c **** static void cb_cgreg   (modem_t *modem, const char *response, modem_response_st_t res, void *arg);
@@ -298,7 +298,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s 			page 1
  137:SynaptiX_FDK/components/sim76xx/sim76xx.c ****     s_mqtt_cmd.res_fail      = "\r\nERROR\r\n";
  138:SynaptiX_FDK/components/sim76xx/sim76xx.c ****     s_mqtt_cmd.callback      = cb;
  139:SynaptiX_FDK/components/sim76xx/sim76xx.c ****     s_mqtt_cmd.arg           = dce;
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s 			page 6
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cc1fxqS0.s 			page 6
 
 
  140:SynaptiX_FDK/components/sim76xx/sim76xx.c ****     log_debug(TAG, "MQTT CMD: %s", cmd_str);
@@ -358,7 +358,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s 			page 1
  133              		.loc 1 158 5 view .LVU33
  134              	.LBE9:
  154:SynaptiX_FDK/components/sim76xx/sim76xx.c ****     else if (seconds % 60   == 0) { val = (0b101 << 5) | (seconds / 60);    }  // 1min unit
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s 			page 7
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cc1fxqS0.s 			page 7
 
 
  135              		.loc 1 154 10 is_stmt 1 view .LVU34
@@ -418,7 +418,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s 			page 1
  175 0064 40F08000 		orr	r0, r0, #128
  176              	.LVL15:
  155:SynaptiX_FDK/components/sim76xx/sim76xx.c ****     else                          { val = (0b011 << 5) | (seconds / 2);      }  // 2s unit
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s 			page 8
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cc1fxqS0.s 			page 8
 
 
  177              		.loc 1 155 41 discriminator 1 view .LVU49
@@ -478,7 +478,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s 			page 1
  223 0098 0B72     		strb	r3, [r1, #8]
  161:SynaptiX_FDK/components/sim76xx/sim76xx.c **** }
  224              		.loc 1 161 1 view .LVU66
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s 			page 9
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cc1fxqS0.s 			page 9
 
 
  225 009a 7047     		bx	lr
@@ -538,7 +538,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s 			page 1
  273              		.loc 1 169 5 view .LVU79
  274 0022 0EE0     		b	.L22
  275              	.LVL24:
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s 			page 10
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cc1fxqS0.s 			page 10
 
 
  276              	.L20:
@@ -598,7 +598,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s 			page 1
  321              	.LBE12:
  171:SynaptiX_FDK/components/sim76xx/sim76xx.c ****     out[8] = '\0';
  322              		.loc 1 171 5 is_stmt 1 view .LVU96
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s 			page 11
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cc1fxqS0.s 			page 11
 
 
  323              		.loc 1 171 12 is_stmt 0 view .LVU97
@@ -658,7 +658,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s 			page 1
  186:SynaptiX_FDK/components/sim76xx/sim76xx.c **** }
  187:SynaptiX_FDK/components/sim76xx/sim76xx.c **** void sim76xx_power_on(sim76xx_t *dce)
  188:SynaptiX_FDK/components/sim76xx/sim76xx.c **** {
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s 			page 12
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cc1fxqS0.s 			page 12
 
 
  189:SynaptiX_FDK/components/sim76xx/sim76xx.c ****     log_info(TAG, "Power On");
@@ -718,7 +718,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s 			page 1
  243:SynaptiX_FDK/components/sim76xx/sim76xx.c ****                 s_urc_buf_id += n;
  244:SynaptiX_FDK/components/sim76xx/sim76xx.c ****                 s_urc_buf[s_urc_buf_id] = '\0';
  245:SynaptiX_FDK/components/sim76xx/sim76xx.c **** 
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s 			page 13
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cc1fxqS0.s 			page 13
 
 
  246:SynaptiX_FDK/components/sim76xx/sim76xx.c ****                 if (strstr(s_urc_buf, "+CMQTTRXEND:")) {
@@ -778,7 +778,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s 			page 1
  300:SynaptiX_FDK/components/sim76xx/sim76xx.c ****         dce->state = SIM76XX_STATE_ERROR;
  301:SynaptiX_FDK/components/sim76xx/sim76xx.c ****         sim76xx_reset(dce);
  302:SynaptiX_FDK/components/sim76xx/sim76xx.c ****         if (dce->on_error) dce->on_error(dce);
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s 			page 14
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cc1fxqS0.s 			page 14
 
 
  303:SynaptiX_FDK/components/sim76xx/sim76xx.c ****         sim76xx_start(dce);
@@ -838,7 +838,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s 			page 1
  357:SynaptiX_FDK/components/sim76xx/sim76xx.c **** //         dce->state = SIM76XX_STATE_CSQ;
  358:SynaptiX_FDK/components/sim76xx/sim76xx.c **** //         send_cmd(dce, CMD_CSQ, cb_csq, SIM76XX_TIMEOUT_NETWORK);
  359:SynaptiX_FDK/components/sim76xx/sim76xx.c **** //         return;
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s 			page 15
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cc1fxqS0.s 			page 15
 
 
  360:SynaptiX_FDK/components/sim76xx/sim76xx.c **** //     }
@@ -898,7 +898,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s 			page 1
  414:SynaptiX_FDK/components/sim76xx/sim76xx.c ****         }
  415:SynaptiX_FDK/components/sim76xx/sim76xx.c ****         return;
  416:SynaptiX_FDK/components/sim76xx/sim76xx.c ****     }
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s 			page 16
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cc1fxqS0.s 			page 16
 
 
  417:SynaptiX_FDK/components/sim76xx/sim76xx.c ****     restart_at(dce);
@@ -958,7 +958,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s 			page 1
  471:SynaptiX_FDK/components/sim76xx/sim76xx.c ****     }
  472:SynaptiX_FDK/components/sim76xx/sim76xx.c ****     restart_at(dce);
  473:SynaptiX_FDK/components/sim76xx/sim76xx.c **** }
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s 			page 17
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cc1fxqS0.s 			page 17
 
 
  474:SynaptiX_FDK/components/sim76xx/sim76xx.c **** 
@@ -1018,7 +1018,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s 			page 1
  528:SynaptiX_FDK/components/sim76xx/sim76xx.c ****             }
  529:SynaptiX_FDK/components/sim76xx/sim76xx.c ****             dce->apn[i] = '\0';
  530:SynaptiX_FDK/components/sim76xx/sim76xx.c ****         }
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s 			page 18
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cc1fxqS0.s 			page 18
 
 
  531:SynaptiX_FDK/components/sim76xx/sim76xx.c ****     }
@@ -1078,7 +1078,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s 			page 1
  585:SynaptiX_FDK/components/sim76xx/sim76xx.c ****     snprintf(s_mqtt_cmd_buf, sizeof(s_mqtt_cmd_buf), "AT+CMQTTSTART\r");
  586:SynaptiX_FDK/components/sim76xx/sim76xx.c ****     return mqtt_send_cmd(dce, s_mqtt_cmd_buf, "+CMQTTSTART: 0", cb, timeout_ms);
  587:SynaptiX_FDK/components/sim76xx/sim76xx.c **** }
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s 			page 19
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cc1fxqS0.s 			page 19
 
 
  588:SynaptiX_FDK/components/sim76xx/sim76xx.c **** 
@@ -1138,7 +1138,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s 			page 1
  642:SynaptiX_FDK/components/sim76xx/sim76xx.c **** }
  643:SynaptiX_FDK/components/sim76xx/sim76xx.c **** 
  644:SynaptiX_FDK/components/sim76xx/sim76xx.c **** int sim76xx_mqtt_disconnect(sim76xx_t *dce, modem_command_response_callback_t cb, uint32_t timeout_
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s 			page 20
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cc1fxqS0.s 			page 20
 
 
  645:SynaptiX_FDK/components/sim76xx/sim76xx.c ****     snprintf(s_mqtt_cmd_buf, sizeof(s_mqtt_cmd_buf), "AT+CMQTTDISC=0,120\r");
@@ -1198,7 +1198,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s 			page 1
  379              		.loc 1 675 9 is_stmt 1 view .LVU105
  380 000e 0B4B     		ldr	r3, .L35
  381              	.LVL32:
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s 			page 21
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cc1fxqS0.s 			page 21
 
 
  382              		.loc 1 675 9 is_stmt 0 view .LVU106
@@ -1258,7 +1258,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s 			page 1
  427              	.L36:
  428 003a 00BF     		.align	2
  429              	.L35:
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s 			page 22
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cc1fxqS0.s 			page 22
 
 
  430 003c 00000000 		.word	s_sub_topic
@@ -1318,7 +1318,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s 			page 1
  694:SynaptiX_FDK/components/sim76xx/sim76xx.c ****     if (res != MODEM_RESPONSE_SUCCESS) {
  695:SynaptiX_FDK/components/sim76xx/sim76xx.c ****         log_error(TAG, "MQTT pub: topic write failed");
  696:SynaptiX_FDK/components/sim76xx/sim76xx.c ****         if (s_pub_final_cb) s_pub_final_cb(modem, response, res, dce);
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s 			page 23
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cc1fxqS0.s 			page 23
 
 
  697:SynaptiX_FDK/components/sim76xx/sim76xx.c ****         return;
@@ -1378,7 +1378,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s 			page 1
  484 000e B9B1     		cbz	r1, .L42
  485              		.loc 1 726 5 is_stmt 0 discriminator 1 view .LVU124
  486 0010 0B46     		mov	r3, r1
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s 			page 24
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cc1fxqS0.s 			page 24
 
 
  487              	.LVL45:
@@ -1438,7 +1438,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s 			page 1
  535              	.LCFI5:
  536              		.cfi_restore_state
  726:SynaptiX_FDK/components/sim76xx/sim76xx.c ****     if (res == MODEM_RESPONSE_SUCCESS)
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s 			page 25
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cc1fxqS0.s 			page 25
 
 
  537              		.loc 1 726 5 discriminator 2 view .LVU137
@@ -1498,7 +1498,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s 			page 1
  586              		.cfi_def_cfa_offset 8
  587              		.cfi_offset 4, -8
  588              		.cfi_offset 14, -4
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s 			page 26
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cc1fxqS0.s 			page 26
 
 
  589 0002 1C46     		mov	r4, r3
@@ -1558,7 +1558,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s 			page 1
  626              		.loc 1 522 17 view .LVU158
  627 001e FFF7FEFF 		bl	strchr
  628              	.LVL64:
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s 			page 27
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cc1fxqS0.s 			page 27
 
 
  522:SynaptiX_FDK/components/sim76xx/sim76xx.c ****             p = strchr(p, '"'); if (!p) goto done; p++; // 
@@ -1618,7 +1618,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s 			page 1
  665              	.LVL70:
  527:SynaptiX_FDK/components/sim76xx/sim76xx.c ****             }
  666              		.loc 1 527 22 is_stmt 1 view .LVU177
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s 			page 28
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cc1fxqS0.s 			page 28
 
 
  527:SynaptiX_FDK/components/sim76xx/sim76xx.c ****             }
@@ -1678,7 +1678,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s 			page 1
  707 0068 0023     		movs	r3, #0
  708 006a 84F87132 		strb	r3, [r4, #625]
  536:SynaptiX_FDK/components/sim76xx/sim76xx.c **** }
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s 			page 29
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cc1fxqS0.s 			page 29
 
 
  709              		.loc 1 536 5 is_stmt 1 view .LVU192
@@ -1738,7 +1738,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s 			page 1
  754              		@ frame_needed = 0, uses_anonymous_args = 0
  114:SynaptiX_FDK/components/sim76xx/sim76xx.c ****     modem_t *m = pModem(dce);
  755              		.loc 1 114 1 is_stmt 0 view .LVU199
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s 			page 30
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cc1fxqS0.s 			page 30
 
 
  756 0000 2DE9F041 		push	{r4, r5, r6, r7, r8, lr}
@@ -1798,7 +1798,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s 			page 1
  797              		.loc 1 120 40 is_stmt 0 view .LVU212
  798 002a C4F81081 		str	r8, [r4, #272]
  121:SynaptiX_FDK/components/sim76xx/sim76xx.c ****     log_debug(TAG, "CMD : %s", cmd_str);
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s 			page 31
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cc1fxqS0.s 			page 31
 
 
  799              		.loc 1 121 5 is_stmt 1 view .LVU213
@@ -1858,7 +1858,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s 			page 1
  846              	.LVL87:
  847              	.LFB544:
  130:SynaptiX_FDK/components/sim76xx/sim76xx.c ****     if (!sim76xx_is_ready(dce)) return -1;
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s 			page 32
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cc1fxqS0.s 			page 32
 
 
  848              		.loc 1 130 1 is_stmt 1 view -0
@@ -1918,7 +1918,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s 			page 1
   33:SynaptiX_FDK/components/sim76xx/sim76xx.h ****     SIM76XX_STATE_ERROR,
   34:SynaptiX_FDK/components/sim76xx/sim76xx.h ****     SIM76XX_STATE_CGDCONT_QUERY,
   35:SynaptiX_FDK/components/sim76xx/sim76xx.h **** } sim76xx_state_t;
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s 			page 33
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cc1fxqS0.s 			page 33
 
 
   36:SynaptiX_FDK/components/sim76xx/sim76xx.h **** 
@@ -1978,7 +1978,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s 			page 1
   90:SynaptiX_FDK/components/sim76xx/sim76xx.h **** 
   91:SynaptiX_FDK/components/sim76xx/sim76xx.h **** static inline void sim76xx_set_on_urc(sim76xx_t *dce, sim76xx_on_urc_cb_t cb){
   92:SynaptiX_FDK/components/sim76xx/sim76xx.h ****     dce->on_urc = cb;
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s 			page 34
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cc1fxqS0.s 			page 34
 
 
   93:SynaptiX_FDK/components/sim76xx/sim76xx.h **** }
@@ -2038,7 +2038,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s 			page 1
  908              	.L64:
  136:SynaptiX_FDK/components/sim76xx/sim76xx.c ****     s_mqtt_cmd.res_fail      = "\r\nERROR\r\n";
  909              		.loc 1 136 30 discriminator 4 view .LVU237
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s 			page 35
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cc1fxqS0.s 			page 35
 
 
  910 0034 0D4D     		ldr	r5, .L69+4
@@ -2098,7 +2098,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s 			page 1
  131:SynaptiX_FDK/components/sim76xx/sim76xx.c ****     memset(pModem(dce)->buff, 0x00, MODEM_RX_BUFFER_SIZE);
  951              		.loc 1 131 40 discriminator 1 view .LVU251
  952 0064 F8E7     		b	.L62
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s 			page 36
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cc1fxqS0.s 			page 36
 
 
  953              	.L70:
@@ -2158,7 +2158,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s 			page 1
  999              		.loc 1 663 5 is_stmt 1 view .LVU254
  1000              	.LVL101:
  664:SynaptiX_FDK/components/sim76xx/sim76xx.c ****         log_error(TAG, "MQTT sub: CMQTTSUB prompt failed");
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s 			page 37
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cc1fxqS0.s 			page 37
 
 
  1001              		.loc 1 664 5 view .LVU255
@@ -2218,7 +2218,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s 			page 1
  1044              		.loc 1 665 9 view .LVU266
  1045 002c 0120     		movs	r0, #1
  1046              	.LVL110:
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s 			page 38
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cc1fxqS0.s 			page 38
 
 
  665:SynaptiX_FDK/components/sim76xx/sim76xx.c ****         if (s_sub_final_cb) s_sub_final_cb(modem, response, res, dce);
@@ -2278,7 +2278,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s 			page 1
  1092              		.loc 1 681 106 view -0
  1093              		.cfi_startproc
  1094              		@ args = 0, pretend = 0, frame = 0
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s 			page 39
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cc1fxqS0.s 			page 39
 
 
  1095              		@ frame_needed = 0, uses_anonymous_args = 0
@@ -2338,7 +2338,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s 			page 1
  1139              		@ sp needed
  1140 001e BDE8F081 		pop	{r4, r5, r6, r7, r8, pc}
  1141              	.LVL120:
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s 			page 40
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cc1fxqS0.s 			page 40
 
 
  1142              	.L84:
@@ -2398,7 +2398,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s 			page 1
  1186 0064 00000000 		.word	s_pub_final_cb
  1187              		.cfi_endproc
  1188              	.LFE579:
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s 			page 41
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cc1fxqS0.s 			page 41
 
 
  1190              		.section	.rodata.cb_pub_payload_prompt.str1.4,"aMS",%progbits,1
@@ -2458,7 +2458,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s 			page 1
  1234              	.LVL129:
  710:SynaptiX_FDK/components/sim76xx/sim76xx.c **** }
  1235              		.loc 1 710 5 view .LVU301
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s 			page 42
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cc1fxqS0.s 			page 42
 
 
  1236 0014 1049     		ldr	r1, .L93+12
@@ -2518,7 +2518,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s 			page 1
  707:SynaptiX_FDK/components/sim76xx/sim76xx.c ****         return;
  1279              		.loc 1 707 29 is_stmt 1 discriminator 1 view .LVU313
  1280 003e 2B46     		mov	r3, r5
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s 			page 43
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cc1fxqS0.s 			page 43
 
 
  1281 0040 3A46     		mov	r2, r7
@@ -2578,7 +2578,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s 			page 1
  713:SynaptiX_FDK/components/sim76xx/sim76xx.c ****     sim76xx_t *dce = pDCE(arg);
  1324              		.loc 1 713 106 is_stmt 0 view .LVU316
  1325 0000 2DE9F041 		push	{r4, r5, r6, r7, r8, lr}
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s 			page 44
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cc1fxqS0.s 			page 44
 
 
  1326              	.LCFI21:
@@ -2638,7 +2638,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s 			page 1
  1371 0030 FFF7FEFF 		bl	mqtt_send_cmd
  1372              	.LVL146:
  1373              	.L95:
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s 			page 45
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cc1fxqS0.s 			page 45
 
 
  722:SynaptiX_FDK/components/sim76xx/sim76xx.c **** 
@@ -2698,7 +2698,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s 			page 1
  1417              	.L102:
  1418 0062 00BF     		.align	2
  1419              	.L101:
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s 			page 46
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cc1fxqS0.s 			page 46
 
 
  1420 0064 00000000 		.word	s_mqtt_cmd_buf
@@ -2758,7 +2758,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s 			page 1
  1471 001a 2046     		mov	r0, r4
  1472 001c FFF7FEFF 		bl	memset
  1473              	.LVL156:
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s 			page 47
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cc1fxqS0.s 			page 47
 
 
  104:SynaptiX_FDK/components/sim76xx/sim76xx.c ****     command[idx].callback      = cb;
@@ -2818,7 +2818,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s 			page 1
  1518      4444523A 
  1518      00
  1519 0009 000000   		.align	2
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s 			page 48
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cc1fxqS0.s 			page 48
 
 
  1520              	.LC21:
@@ -2878,7 +2878,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s 			page 1
  1560              		.loc 1 566 12 is_stmt 0 view .LVU362
  1561 0010 0246     		mov	r2, r0
  1562 0012 C0B1     		cbz	r0, .L108
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s 			page 49
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cc1fxqS0.s 			page 49
 
 
  1563              	.LBB18:
@@ -2938,7 +2938,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s 			page 1
  570:SynaptiX_FDK/components/sim76xx/sim76xx.c ****                 dce->ip[i] = *p;
  1601              		.loc 1 570 64 is_stmt 1 view .LVU379
  1602 002e 0E2B     		cmp	r3, #14
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s 			page 50
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cc1fxqS0.s 			page 50
 
 
  1603 0030 05D8     		bhi	.L112
@@ -2998,7 +2998,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s 			page 1
  1644 0062 2046     		mov	r0, r4
  1645 0064 FFF7FEFF 		bl	send_cmd
  1646              	.LVL174:
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s 			page 51
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cc1fxqS0.s 			page 51
 
 
  581:SynaptiX_FDK/components/sim76xx/sim76xx.c **** 
@@ -3058,7 +3058,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s 			page 1
  1695 0018 00000000 		.word	cb_at
  1696              		.cfi_endproc
  1697              	.LFE545:
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s 			page 52
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cc1fxqS0.s 			page 52
 
 
  1699              		.section	.rodata.cb_cgatt.str1.4,"aMS",%progbits,1
@@ -3118,7 +3118,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s 			page 1
  1742              		.cfi_remember_state
  1743              		.cfi_def_cfa_offset 12
  1744              		@ sp needed
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s 			page 53
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cc1fxqS0.s 			page 53
 
 
  1745 0010 30BD     		pop	{r4, r5, pc}
@@ -3178,7 +3178,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s 			page 1
  1791              		.section	.rodata.cb_cgsn.str1.4,"aMS",%progbits,1
  1792              		.align	2
  1793              	.LC23:
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s 			page 54
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cc1fxqS0.s 			page 54
 
 
  1794 0000 41542B43 		.ascii	"AT+CGSN\000"
@@ -3238,7 +3238,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s 			page 1
  315:SynaptiX_FDK/components/sim76xx/sim76xx.c ****         if (p) {
  1838              		.loc 1 315 25 view .LVU426
  1839 0010 2046     		mov	r0, r4
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s 			page 55
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cc1fxqS0.s 			page 55
 
 
  1840              	.LVL192:
@@ -3298,7 +3298,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s 			page 1
  1877              		.loc 1 322 33 discriminator 4 view .LVU443
  1878 0030 0A2A     		cmp	r2, #10
  1879 0032 F8D0     		beq	.L133
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s 			page 56
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cc1fxqS0.s 			page 56
 
 
  1880 0034 0022     		movs	r2, #0
@@ -3358,7 +3358,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s 			page 1
  1921              	.LVL201:
  331:SynaptiX_FDK/components/sim76xx/sim76xx.c ****         send_cmd(dce, CMD_COPS_QUERY, cb_cops_q, SIM76XX_TIMEOUT_AT);
  1922              		.loc 1 331 9 view .LVU457
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s 			page 57
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cc1fxqS0.s 			page 57
 
 
  331:SynaptiX_FDK/components/sim76xx/sim76xx.c ****         send_cmd(dce, CMD_COPS_QUERY, cb_cops_q, SIM76XX_TIMEOUT_AT);
@@ -3418,7 +3418,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s 			page 1
  1969              		.thumb
  1970              		.thumb_func
  1972              	cb_cops_q:
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s 			page 58
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cc1fxqS0.s 			page 58
 
 
  1973              	.LVL208:
@@ -3478,7 +3478,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s 			page 1
  2014 001e F4E7     		b	.L142
  2015              	.L148:
  2016              		.align	2
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s 			page 59
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cc1fxqS0.s 			page 59
 
 
  2017              	.L147:
@@ -3538,7 +3538,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s 			page 1
  388:SynaptiX_FDK/components/sim76xx/sim76xx.c ****         return;
  2063              		.loc 1 388 9 is_stmt 0 view .LVU490
  2064 0018 0421     		movs	r1, #4
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s 			page 60
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cc1fxqS0.s 			page 60
 
 
  2065              	.LVL220:
@@ -3598,7 +3598,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s 			page 1
  396:SynaptiX_FDK/components/sim76xx/sim76xx.c ****         const char *p = strstr(response, "+CSQ:");
  2111              		.loc 1 396 5 view .LVU496
  396:SynaptiX_FDK/components/sim76xx/sim76xx.c ****         const char *p = strstr(response, "+CSQ:");
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s 			page 61
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cc1fxqS0.s 			page 61
 
 
  2112              		.loc 1 396 8 is_stmt 0 view .LVU497
@@ -3658,7 +3658,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s 			page 1
  401:SynaptiX_FDK/components/sim76xx/sim76xx.c ****             p = strchr(p, ',');
  2151              		.loc 1 401 13 is_stmt 1 view .LVU513
  401:SynaptiX_FDK/components/sim76xx/sim76xx.c ****             p = strchr(p, ',');
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s 			page 62
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cc1fxqS0.s 			page 62
 
 
  2152              		.loc 1 401 30 is_stmt 0 view .LVU514
@@ -3718,7 +3718,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s 			page 1
  407:SynaptiX_FDK/components/sim76xx/sim76xx.c ****             dce->state = SIM76XX_STATE_CGSN;
  2194              		.loc 1 407 11 view .LVU527
  2195 0064 0E2B     		cmp	r3, #14
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s 			page 63
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cc1fxqS0.s 			page 63
 
 
  2196 0066 01DD     		ble	.L161
@@ -3778,7 +3778,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s 			page 1
  2239              		.cfi_def_cfa_offset 12
  2240              		@ sp needed
  2241 00a0 30BD     		pop	{r4, r5, pc}
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s 			page 64
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cc1fxqS0.s 			page 64
 
 
  2242              	.LVL239:
@@ -3838,7 +3838,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s 			page 1
  423:SynaptiX_FDK/components/sim76xx/sim76xx.c ****         //sx_delay_ms(3000);
  2289              		.loc 1 423 20 is_stmt 0 view .LVU548
  2290 000c 0723     		movs	r3, #7
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s 			page 65
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cc1fxqS0.s 			page 65
 
 
  2291 000e 80F87032 		strb	r3, [r0, #624]
@@ -3898,7 +3898,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s 			page 1
  2333              	.LCFI39:
  2334              		.cfi_def_cfa_offset 12
  2335              		.cfi_offset 4, -12
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s 			page 66
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cc1fxqS0.s 			page 66
 
 
  2336              		.cfi_offset 5, -8
@@ -3958,7 +3958,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s 			page 1
  2374              		.loc 1 489 13 is_stmt 0 view .LVU570
  2375 002a 4FF48071 		mov	r1, #256
  2376              	.LVL251:
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s 			page 67
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cc1fxqS0.s 			page 67
 
 
  489:SynaptiX_FDK/components/sim76xx/sim76xx.c ****                      "AT+CGAUTH=1,2,\"%s\"\r",
@@ -4018,7 +4018,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s 			page 1
  2421              	.LVL260:
  2422 0072 0DE0     		b	.L175
  2423              	.LVL261:
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s 			page 68
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cc1fxqS0.s 			page 68
 
 
  2424              	.L179:
@@ -4078,7 +4078,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s 			page 1
  2467 00a0 00000000 		.word	.LC9
  2468 00a4 00000000 		.word	.LC28
  2469 00a8 00000000 		.word	cb_cgreg
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s 			page 69
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cc1fxqS0.s 			page 69
 
 
  2470              		.cfi_endproc
@@ -4138,7 +4138,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s 			page 1
  2515 0018 0821     		movs	r1, #8
  2516              	.LVL275:
  543:SynaptiX_FDK/components/sim76xx/sim76xx.c ****         return;
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s 			page 70
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cc1fxqS0.s 			page 70
 
 
  2517              		.loc 1 543 9 view .LVU603
@@ -4198,7 +4198,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s 			page 1
  2562 0004 32B1     		cbz	r2, .L193
  2563 0006 0C46     		mov	r4, r1
  551:SynaptiX_FDK/components/sim76xx/sim76xx.c ****         (response && strstr(response, "+NETOPEN: 1")) ||
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s 			page 71
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cc1fxqS0.s 			page 71
 
 
  2564              		.loc 1 551 39 discriminator 1 view .LVU610
@@ -4258,7 +4258,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s 			page 1
  2606 0036 2846     		mov	r0, r5
  2607 0038 FFF7FEFF 		bl	restart_at
  2608              	.LVL286:
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s 			page 72
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cc1fxqS0.s 			page 72
 
 
  2609 003c F4E7     		b	.L192
@@ -4318,7 +4318,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s 			page 1
  2654              	.L200:
  513:SynaptiX_FDK/components/sim76xx/sim76xx.c **** 
  2655              		.loc 1 513 1 view .LVU630
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s 			page 73
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cc1fxqS0.s 			page 73
 
 
  2656 000c 10BD     		pop	{r4, pc}
@@ -4378,7 +4378,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s 			page 1
  2699      65733D25 
  2699      64207265 
  2700              		.align	2
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s 			page 74
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cc1fxqS0.s 			page 74
 
 
  2701              	.LC34:
@@ -4438,7 +4438,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s 			page 1
  2743              		.loc 1 693 5 is_stmt 0 discriminator 1 view .LVU644
  2744 0010 0A46     		mov	r2, r1
  2745              	.LVL300:
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s 			page 75
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cc1fxqS0.s 			page 75
 
 
  2746              	.L208:
@@ -4498,7 +4498,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s 			page 1
  2789              	.L207:
  701:SynaptiX_FDK/components/sim76xx/sim76xx.c **** 
  2790              		.loc 1 701 1 is_stmt 0 view .LVU656
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s 			page 76
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cc1fxqS0.s 			page 76
 
 
  2791 004a 02B0     		add	sp, sp, #8
@@ -4558,7 +4558,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s 			page 1
  2837 0088 40000000 		.word	.LC35
  2838 008c 00000000 		.word	s_pub_timeout_ms
  2839 0090 00000000 		.word	cb_pub_payload_prompt
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s 			page 77
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cc1fxqS0.s 			page 77
 
 
  2840 0094 58000000 		.word	.LC36
@@ -4618,7 +4618,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s 			page 1
  2884              		.loc 1 183 5 is_stmt 1 view .LVU676
  2885 001a C4F87C32 		str	r3, [r4, #636]	@ unaligned
  2886 001e C4F88032 		str	r3, [r4, #640]	@ unaligned
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s 			page 78
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cc1fxqS0.s 			page 78
 
 
  2887 0022 C4F88432 		str	r3, [r4, #644]	@ unaligned
@@ -4678,7 +4678,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s 			page 1
  2932 0006 154A     		ldr	r2, .L221+4
  2933 0008 2946     		mov	r1, r5
  2934 000a 0320     		movs	r0, #3
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s 			page 79
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cc1fxqS0.s 			page 79
 
 
  2935              	.LVL317:
@@ -4738,7 +4738,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s 			page 1
  2979              	.LVL327:
  200:SynaptiX_FDK/components/sim76xx/sim76xx.c **** void sim76xx_power_off(sim76xx_t *dce)
  2980              		.loc 1 200 1 is_stmt 0 view .LVU693
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s 			page 80
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cc1fxqS0.s 			page 80
 
 
  2981 0056 38BD     		pop	{r3, r4, r5, pc}
@@ -4798,7 +4798,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s 			page 1
  3028              	.LVL330:
  203:SynaptiX_FDK/components/sim76xx/sim76xx.c ****     sx_gpio_write(&dce->base.pwrPin, 0);
  3029              		.loc 1 203 5 is_stmt 0 view .LVU698
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s 			page 81
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cc1fxqS0.s 			page 81
 
 
  3030 000c FFF7FEFF 		bl	log_func
@@ -4858,7 +4858,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s 			page 1
  3076              	sim76xx_reset:
  3077              	.LVL337:
  3078              	.LFB551:
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s 			page 82
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cc1fxqS0.s 			page 82
 
 
  209:SynaptiX_FDK/components/sim76xx/sim76xx.c ****     log_info(TAG, "SIM Reset — power cycle");
@@ -4918,7 +4918,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s 			page 1
  3125 0000 73746172 		.ascii	"start: modem busy\000"
  3125      743A206D 
  3125      6F64656D 
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s 			page 83
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cc1fxqS0.s 			page 83
 
 
  3125      20627573 
@@ -4978,7 +4978,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s 			page 1
  3166              		.loc 1 223 16 is_stmt 0 view .LVU722
  3167 0014 0123     		movs	r3, #1
  3168 0016 84F87032 		strb	r3, [r4, #624]
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s 			page 84
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cc1fxqS0.s 			page 84
 
 
  224:SynaptiX_FDK/components/sim76xx/sim76xx.c ****     send_cmd(dce, CMD_AT, cb_at, SIM76XX_TIMEOUT_AT);
@@ -5038,7 +5038,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s 			page 1
  3214 0000 41542066 		.ascii	"AT failed (retry %d/%d)\000"
  3214      61696C65 
  3214      64202872 
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s 			page 85
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cc1fxqS0.s 			page 85
 
 
  3214      65747279 
@@ -5098,7 +5098,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s 			page 1
  3258              	.LVL356:
  297:SynaptiX_FDK/components/sim76xx/sim76xx.c ****     if (dce->retry_count >= SIM76XX_MAX_RETRY) {
  3259              		.loc 1 297 5 view .LVU743
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s 			page 86
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cc1fxqS0.s 			page 86
 
 
  3260 001c 0120     		movs	r0, #1
@@ -5158,7 +5158,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s 			page 1
  3301              		.loc 1 292 20 is_stmt 0 view .LVU756
  3302 0048 0223     		movs	r3, #2
  3303 004a 84F87032 		strb	r3, [r4, #624]
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s 			page 87
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cc1fxqS0.s 			page 87
 
 
  293:SynaptiX_FDK/components/sim76xx/sim76xx.c ****         return;
@@ -5218,7 +5218,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s 			page 1
  3343 007a 2046     		mov	r0, r4
  3344 007c FFF7FEFF 		bl	sim76xx_start
  3345              	.LVL368:
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s 			page 88
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cc1fxqS0.s 			page 88
 
 
  304:SynaptiX_FDK/components/sim76xx/sim76xx.c ****     }
@@ -5278,7 +5278,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s 			page 1
  3392 000c 13B1     		cbz	r3, .L248
  233:SynaptiX_FDK/components/sim76xx/sim76xx.c ****         int avail = sx_uart_available(&dce->base.uart);
  3393              		.loc 1 233 34 discriminator 1 view .LVU779
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s 			page 89
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cc1fxqS0.s 			page 89
 
 
  3394 000e 94F86032 		ldrb	r3, [r4, #608]	@ zero_extendqisi2
@@ -5338,7 +5338,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s 			page 1
  3434              		.loc 1 239 21 view .LVU793
  3435 003a 2846     		mov	r0, r5
  3436 003c FFF7FEFF 		bl	sx_uart_read
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s 			page 90
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cc1fxqS0.s 			page 90
 
 
  3437              	.LVL376:
@@ -5398,7 +5398,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s 			page 1
  3475              		.loc 1 248 34 is_stmt 0 view .LVU809
  3476 006a 0021     		movs	r1, #0
  3477 006c 034B     		ldr	r3, .L252
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s 			page 91
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cc1fxqS0.s 			page 91
 
 
  3478 006e 1980     		strh	r1, [r3]	@ movhi
@@ -5458,7 +5458,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s 			page 1
  3522              		.cfi_offset 4, -28
  3523              		.cfi_offset 5, -24
  3524              		.cfi_offset 6, -20
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s 			page 92
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cc1fxqS0.s 			page 92
 
 
  3525              		.cfi_offset 7, -16
@@ -5518,7 +5518,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s 			page 1
  3571              	.LVL387:
  269:SynaptiX_FDK/components/sim76xx/sim76xx.c ****                          NULL, SIM76XX_TIMEOUT_AT);
  3572              		.loc 1 269 5 view .LVU822
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s 			page 93
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cc1fxqS0.s 			page 93
 
 
  269:SynaptiX_FDK/components/sim76xx/sim76xx.c ****                          NULL, SIM76XX_TIMEOUT_AT);
@@ -5578,7 +5578,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s 			page 1
  3622              		.cfi_def_cfa_offset 8
  3623              		.cfi_offset 4, -8
  3624              		.cfi_offset 14, -4
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s 			page 94
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cc1fxqS0.s 			page 94
 
 
  3625 0002 82B0     		sub	sp, sp, #8
@@ -5638,7 +5638,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s 			page 1
  280:SynaptiX_FDK/components/sim76xx/sim76xx.c ****     const uint8_t wake_char = 0xFF;
  3675              		.loc 1 280 34 is_stmt 0 view .LVU834
  3676 0000 10B5     		push	{r4, lr}
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s 			page 95
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cc1fxqS0.s 			page 95
 
 
  3677              	.LCFI65:
@@ -5698,7 +5698,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s 			page 1
  3724              		.align	2
  3725              	.LC49:
  3726 0000 41542B43 		.ascii	"AT+CMQTTSTART\015\000"
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s 			page 96
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cc1fxqS0.s 			page 96
 
 
  3726      4D515454 
@@ -5758,7 +5758,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s 			page 1
  3770              		.loc 1 586 12 is_stmt 0 view .LVU848
  3771 0020 0096     		str	r6, [sp]
  3772 0022 2B46     		mov	r3, r5
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s 			page 97
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cc1fxqS0.s 			page 97
 
 
  3773 0024 054A     		ldr	r2, .L268+8
@@ -5818,7 +5818,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s 			page 1
  3821 0002 82B0     		sub	sp, sp, #8
  3822              	.LCFI72:
  3823              		.cfi_def_cfa_offset 24
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s 			page 98
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cc1fxqS0.s 			page 98
 
 
  3824 0004 0446     		mov	r4, r0
@@ -5878,7 +5878,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s 			page 1
  3868 0034 00000000 		.word	s_mqtt_cmd_buf
  3869 0038 00000000 		.word	.LC51
  3870 003c 00000000 		.word	.LC9
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s 			page 99
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cc1fxqS0.s 			page 99
 
 
  3871              		.cfi_endproc
@@ -5938,7 +5938,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s 			page 1
  3917              		.loc 1 595 5 view .LVU868
  3918 0014 3846     		mov	r0, r7
  3919              	.LVL415:
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s 			page 100
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cc1fxqS0.s 			page 100
 
 
  595:SynaptiX_FDK/components/sim76xx/sim76xx.c ****     return mqtt_send_cmd(dce, s_mqtt_cmd_buf, "\r\nOK\r\n", cb, timeout_ms);
@@ -5998,7 +5998,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s 			page 1
  3966              		@ frame_needed = 0, uses_anonymous_args = 0
  599:SynaptiX_FDK/components/sim76xx/sim76xx.c ****     snprintf(s_mqtt_cmd_buf, sizeof(s_mqtt_cmd_buf), "AT+CMQTTSSLCFG=0,0\r");
  3967              		.loc 1 599 101 is_stmt 0 view .LVU875
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s 			page 101
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cc1fxqS0.s 			page 101
 
 
  3968 0000 F0B5     		push	{r4, r5, r6, r7, lr}
@@ -6058,7 +6058,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s 			page 1
  4016              	.LFE573:
  4018              		.section	.rodata.sim76xx_mqtt_connect.str1.4,"aMS",%progbits,1
  4019              		.align	2
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s 			page 102
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cc1fxqS0.s 			page 102
 
 
  4020              	.LC54:
@@ -6118,7 +6118,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s 			page 1
  4060              		.cfi_offset 8, -16
  4061              		.cfi_offset 9, -12
  4062              		.cfi_offset 10, -8
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s 			page 103
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cc1fxqS0.s 			page 103
 
 
  4063              		.cfi_offset 14, -4
@@ -6178,7 +6178,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s 			page 1
  4103              		.loc 1 628 25 view .LVU897
  4104 002e FFF7FEFF 		bl	strcmp
  4105              	.LVL428:
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s 			page 104
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cc1fxqS0.s 			page 104
 
 
  627:SynaptiX_FDK/components/sim76xx/sim76xx.c ****                         strcmp(username, "null") != 0 &&
@@ -6238,7 +6238,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s 			page 1
  4151              		.loc 1 623 17 discriminator 2 view .LVU906
  4152 0070 0E4E     		ldr	r6, .L289+20
  4153 0072 D2E7     		b	.L283
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s 			page 105
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cc1fxqS0.s 			page 105
 
 
  4154              	.LVL434:
@@ -6298,7 +6298,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s 			page 1
  4201              	.LFB575:
  644:SynaptiX_FDK/components/sim76xx/sim76xx.c ****     snprintf(s_mqtt_cmd_buf, sizeof(s_mqtt_cmd_buf), "AT+CMQTTDISC=0,120\r");
  4202              		.loc 1 644 103 view -0
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s 			page 106
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cc1fxqS0.s 			page 106
 
 
  4203              		.cfi_startproc
@@ -6358,7 +6358,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s 			page 1
  4250              	.L293:
  4251 0030 00000000 		.word	s_mqtt_cmd_buf
  4252 0034 00000000 		.word	.LC60
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s 			page 107
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cc1fxqS0.s 			page 107
 
 
  4253 0038 14000000 		.word	.LC61
@@ -6418,7 +6418,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s 			page 1
  4301              	.LBE24:
  4302              	.LBE23:
  651:SynaptiX_FDK/components/sim76xx/sim76xx.c ****     strncpy(s_sub_topic, topic, sizeof(s_sub_topic) - 1);
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s 			page 108
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cc1fxqS0.s 			page 108
 
 
  4303              		.loc 1 651 8 discriminator 1 view .LVU924
@@ -6478,7 +6478,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s 			page 1
  4344 004a FFF7FEFF 		bl	snprintf
  4345              	.LVL446:
  659:SynaptiX_FDK/components/sim76xx/sim76xx.c **** }
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s 			page 109
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cc1fxqS0.s 			page 109
 
 
  4346              		.loc 1 659 5 is_stmt 1 view .LVU938
@@ -6538,7 +6538,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s 			page 1
  4392      63206C65 
  4392      6E3D2564 
  4392      20746F70 
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s 			page 110
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cc1fxqS0.s 			page 110
 
 
  4392      69633D5B 
@@ -6598,7 +6598,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s 			page 1
  4442 0018 1F4C     		ldr	r4, .L305
  4443 001a 7F22     		movs	r2, #127
  4444              	.LVL453:
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s 			page 111
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cc1fxqS0.s 			page 111
 
 
  4445              		.loc 1 736 5 is_stmt 0 view .LVU952
@@ -6658,7 +6658,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s 			page 1
  4491              	.LVL458:
  4492              		.loc 1 744 5 discriminator 1 view .LVU970
  4493 005c 144A     		ldr	r2, .L305+24
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s 			page 112
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cc1fxqS0.s 			page 112
 
 
  4494 005e 4FF48071 		mov	r1, #256
@@ -6718,7 +6718,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s 			page 1
  4543 00a8 00000000 		.word	s_pub_timeout_ms
  4544 00ac 00000000 		.word	s_mqtt_cmd_buf
  4545 00b0 00000000 		.word	.LC63
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s 			page 113
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cc1fxqS0.s 			page 113
 
 
  4546 00b4 14000000 		.word	.LC64
@@ -6778,7 +6778,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s 			page 1
  4594 000c 1360     		str	r3, [r2]
  752:SynaptiX_FDK/components/sim76xx/sim76xx.c **** 
  753:SynaptiX_FDK/components/sim76xx/sim76xx.c ****     snprintf(s_mqtt_cmd_buf, sizeof(s_mqtt_cmd_buf), "AT+CCERTDOWN=\"%s\",%lu\r", filename, size);
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s 			page 114
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cc1fxqS0.s 			page 114
 
 
  4595              		.loc 1 753 5 is_stmt 1 view .LVU986
@@ -6838,7 +6838,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s 			page 1
  4644              		.global	sim76xx_ssl_set_cert
  4645              		.syntax unified
  4646              		.thumb
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s 			page 115
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cc1fxqS0.s 			page 115
 
 
  4647              		.thumb_func
@@ -6898,7 +6898,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s 			page 1
  4696              		@ sp needed
  4697 0028 30BD     		pop	{r4, r5, pc}
  4698              	.LVL480:
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s 			page 116
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cc1fxqS0.s 			page 116
 
 
  4699              	.L314:
@@ -6958,7 +6958,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s 			page 1
  4750              	.LFE587:
  4752              		.section	.text.sim76xx_mqtt_send_raw_cmd,"ax",%progbits
  4753              		.align	1
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s 			page 117
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cc1fxqS0.s 			page 117
 
 
  4754              		.global	sim76xx_mqtt_send_raw_cmd
@@ -7018,7 +7018,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s 			page 1
  4799              		.align	1
  4800              		.global	sim76xx_mqtt_stop
  4801              		.syntax unified
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s 			page 118
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cc1fxqS0.s 			page 118
 
 
  4802              		.thumb
@@ -7078,7 +7078,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s 			page 1
  4852              		.loc 1 776 1 view .LVU1024
  4853              		.align	2
  4854              	.L321:
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s 			page 119
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cc1fxqS0.s 			page 119
 
 
  4855 002c 00000000 		.word	s_mqtt_cmd_buf
@@ -7138,7 +7138,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s 			page 1
  4903 000c 00F52778 		add	r8, r0, #668
  4904              		.loc 1 779 5 view .LVU1029
  4905 0010 0B46     		mov	r3, r1
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s 			page 120
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cc1fxqS0.s 			page 120
 
 
  4906              	.LVL492:
@@ -7198,7 +7198,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s 			page 1
  785:SynaptiX_FDK/components/sim76xx/sim76xx.c ****     dce->password[sizeof(dce->password)-1] = '\0';
  4955              		.loc 1 785 5 is_stmt 1 view .LVU1047
  4956              		.loc 1 785 44 is_stmt 0 view .LVU1048
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s 			page 121
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cc1fxqS0.s 			page 121
 
 
  4957 0048 84F8FB32 		strb	r3, [r4, #763]
@@ -7258,7 +7258,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s 			page 1
  5002 007a 044D     		ldr	r5, .L336+12
  5003              	.LVL505:
  781:SynaptiX_FDK/components/sim76xx/sim76xx.c ****     strncpy(dce->password, password ? password : "", sizeof(dce->password)-1);
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s 			page 122
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cc1fxqS0.s 			page 122
 
 
  5004              		.loc 1 781 5 discriminator 2 view .LVU1059
@@ -7318,7 +7318,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s 			page 1
  5073      00000000 
  5073      00000000 
  5073      00000000 
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s 			page 123
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cc1fxqS0.s 			page 123
 
 
  5074              		.section	.bss.s_pub_topic,"aw",%nobits
@@ -7378,7 +7378,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s 			page 1
  5114      4F50533F 
  5114      0D0A00
  5115 001f 00       		.align	2
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s 			page 124
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cc1fxqS0.s 			page 124
 
 
  5116              	.LC75:
@@ -7438,7 +7438,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s 			page 1
  5150 000c 00000000 		.space	8
  5150      00000000 
  5151 0014 08000000 		.word	.LC73
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s 			page 125
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cc1fxqS0.s 			page 125
 
 
  5152 0018 00000000 		.word	.LC9
@@ -7498,7 +7498,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s 			page 1
  5193 00f0 00000000 		.word	0
  5194 00f4 00000000 		.space	16
  5194      00000000 
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s 			page 126
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cc1fxqS0.s 			page 126
 
 
  5194      00000000 
@@ -7538,247 +7538,247 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s 			page 1
  5226              		.file 14 "C:\\ST\\STM32CubeCLT_1.20.0\\GNU-tools-for-STM32\\bin/../lib/gcc/arm-none-eabi/13.3.1/..
  5227              		.file 15 "SynaptiX_FDK/utils/delay/sx_delay.h"
  5228              		.file 16 "<built-in>"
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s 			page 127
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cc1fxqS0.s 			page 127
 
 
 DEFINED SYMBOLS
                             *ABS*:00000000 sim76xx.c
-C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s:22     .text.sx_gpio_write:00000000 $t
-C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s:27     .text.sx_gpio_write:00000000 sx_gpio_write
-C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s:90     .text.encode_timer_t3412:00000000 $t
-C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s:95     .text.encode_timer_t3412:00000000 encode_timer_t3412
-C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s:229    .text.encode_timer_t3412:0000009c $d
-C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s:235    .text.encode_timer_t3324:00000000 $t
-C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s:240    .text.encode_timer_t3324:00000000 encode_timer_t3324
-C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s:333    .text.encode_timer_t3324:0000005c $d
-C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s:338    .rodata.cb_sub_done.str1.4:00000000 $d
-C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s:348    .text.cb_sub_done:00000000 $t
-C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s:353    .text.cb_sub_done:00000000 cb_sub_done
-C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s:430    .text.cb_sub_done:0000003c $d
-C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s:5049   .bss.s_sub_topic:00000000 s_sub_topic
-C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s:5038   .bss.s_sub_final_cb:00000000 s_sub_final_cb
-C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s:439    .rodata.cb_pub_done.str1.4:00000000 $d
-C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s:452    .text.cb_pub_done:00000000 $t
-C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s:457    .text.cb_pub_done:00000000 cb_pub_done
-C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s:554    .text.cb_pub_done:00000050 $d
-C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s:5061   .bss.s_pub_final_cb:00000000 s_pub_final_cb
-C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s:564    .rodata.cb_cgdcont_query.str1.4:00000000 $d
-C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s:571    .text.cb_cgdcont_query:00000000 $t
-C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s:576    .text.cb_cgdcont_query:00000000 cb_cgdcont_query
-C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s:726    .text.cb_cgdcont_query:0000007c $d
-C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s:733    .rodata.send_dynamic.str1.4:00000000 $d
-C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s:743    .text.send_dynamic:00000000 $t
-C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s:748    .text.send_dynamic:00000000 send_dynamic
-C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s:827    .text.send_dynamic:00000054 $d
-C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s:5146   .data.command:00000000 command
-C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s:836    .rodata.mqtt_send_cmd.str1.4:00000000 $d
-C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s:840    .text.mqtt_send_cmd:00000000 $t
-C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s:845    .text.mqtt_send_cmd:00000000 mqtt_send_cmd
-C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s:956    .text.mqtt_send_cmd:00000068 $d
-C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s:5090   .bss.s_mqtt_resp_buf:00000000 s_mqtt_resp_buf
-C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s:5084   .bss.s_mqtt_cmd:00000000 s_mqtt_cmd
-C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s:966    .rodata.cb_sub_topic_prompt.str1.4:00000000 $d
-C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s:973    .text.cb_sub_topic_prompt:00000000 $t
-C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s:978    .text.cb_sub_topic_prompt:00000000 cb_sub_topic_prompt
-C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s:1069   .text.cb_sub_topic_prompt:0000004c $d
-C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s:5032   .bss.s_sub_timeout_ms:00000000 s_sub_timeout_ms
-C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s:1080   .rodata.cb_pub_topic_prompt.str1.4:00000000 $d
-C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s:1084   .text.cb_pub_topic_prompt:00000000 $t
-C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s:1089   .text.cb_pub_topic_prompt:00000000 cb_pub_topic_prompt
-C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s:1180   .text.cb_pub_topic_prompt:0000004c $d
-C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s:5055   .bss.s_pub_timeout_ms:00000000 s_pub_timeout_ms
-C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s:2715   .text.cb_pub_topic_sent:00000000 cb_pub_topic_sent
-C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s:5078   .bss.s_pub_topic:00000000 s_pub_topic
-C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s:1191   .rodata.cb_pub_payload_prompt.str1.4:00000000 $d
-C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s:1195   .text.cb_pub_payload_prompt:00000000 $t
-C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s:1200   .text.cb_pub_payload_prompt:00000000 cb_pub_payload_prompt
-C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s:1291   .text.cb_pub_payload_prompt:0000004c $d
-C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s:1317   .text.cb_pub_payload_sent:00000000 cb_pub_payload_sent
-C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s:5072   .bss.s_pub_payload:00000000 s_pub_payload
-C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s:1302   .rodata.cb_pub_payload_sent.str1.4:00000000 $d
-C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s:1312   .text.cb_pub_payload_sent:00000000 $t
-C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s:1420   .text.cb_pub_payload_sent:00000064 $d
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s 			page 128
+C:\Users\LENOVO\AppData\Local\Temp\cc1fxqS0.s:22     .text.sx_gpio_write:00000000 $t
+C:\Users\LENOVO\AppData\Local\Temp\cc1fxqS0.s:27     .text.sx_gpio_write:00000000 sx_gpio_write
+C:\Users\LENOVO\AppData\Local\Temp\cc1fxqS0.s:90     .text.encode_timer_t3412:00000000 $t
+C:\Users\LENOVO\AppData\Local\Temp\cc1fxqS0.s:95     .text.encode_timer_t3412:00000000 encode_timer_t3412
+C:\Users\LENOVO\AppData\Local\Temp\cc1fxqS0.s:229    .text.encode_timer_t3412:0000009c $d
+C:\Users\LENOVO\AppData\Local\Temp\cc1fxqS0.s:235    .text.encode_timer_t3324:00000000 $t
+C:\Users\LENOVO\AppData\Local\Temp\cc1fxqS0.s:240    .text.encode_timer_t3324:00000000 encode_timer_t3324
+C:\Users\LENOVO\AppData\Local\Temp\cc1fxqS0.s:333    .text.encode_timer_t3324:0000005c $d
+C:\Users\LENOVO\AppData\Local\Temp\cc1fxqS0.s:338    .rodata.cb_sub_done.str1.4:00000000 $d
+C:\Users\LENOVO\AppData\Local\Temp\cc1fxqS0.s:348    .text.cb_sub_done:00000000 $t
+C:\Users\LENOVO\AppData\Local\Temp\cc1fxqS0.s:353    .text.cb_sub_done:00000000 cb_sub_done
+C:\Users\LENOVO\AppData\Local\Temp\cc1fxqS0.s:430    .text.cb_sub_done:0000003c $d
+C:\Users\LENOVO\AppData\Local\Temp\cc1fxqS0.s:5049   .bss.s_sub_topic:00000000 s_sub_topic
+C:\Users\LENOVO\AppData\Local\Temp\cc1fxqS0.s:5038   .bss.s_sub_final_cb:00000000 s_sub_final_cb
+C:\Users\LENOVO\AppData\Local\Temp\cc1fxqS0.s:439    .rodata.cb_pub_done.str1.4:00000000 $d
+C:\Users\LENOVO\AppData\Local\Temp\cc1fxqS0.s:452    .text.cb_pub_done:00000000 $t
+C:\Users\LENOVO\AppData\Local\Temp\cc1fxqS0.s:457    .text.cb_pub_done:00000000 cb_pub_done
+C:\Users\LENOVO\AppData\Local\Temp\cc1fxqS0.s:554    .text.cb_pub_done:00000050 $d
+C:\Users\LENOVO\AppData\Local\Temp\cc1fxqS0.s:5061   .bss.s_pub_final_cb:00000000 s_pub_final_cb
+C:\Users\LENOVO\AppData\Local\Temp\cc1fxqS0.s:564    .rodata.cb_cgdcont_query.str1.4:00000000 $d
+C:\Users\LENOVO\AppData\Local\Temp\cc1fxqS0.s:571    .text.cb_cgdcont_query:00000000 $t
+C:\Users\LENOVO\AppData\Local\Temp\cc1fxqS0.s:576    .text.cb_cgdcont_query:00000000 cb_cgdcont_query
+C:\Users\LENOVO\AppData\Local\Temp\cc1fxqS0.s:726    .text.cb_cgdcont_query:0000007c $d
+C:\Users\LENOVO\AppData\Local\Temp\cc1fxqS0.s:733    .rodata.send_dynamic.str1.4:00000000 $d
+C:\Users\LENOVO\AppData\Local\Temp\cc1fxqS0.s:743    .text.send_dynamic:00000000 $t
+C:\Users\LENOVO\AppData\Local\Temp\cc1fxqS0.s:748    .text.send_dynamic:00000000 send_dynamic
+C:\Users\LENOVO\AppData\Local\Temp\cc1fxqS0.s:827    .text.send_dynamic:00000054 $d
+C:\Users\LENOVO\AppData\Local\Temp\cc1fxqS0.s:5146   .data.command:00000000 command
+C:\Users\LENOVO\AppData\Local\Temp\cc1fxqS0.s:836    .rodata.mqtt_send_cmd.str1.4:00000000 $d
+C:\Users\LENOVO\AppData\Local\Temp\cc1fxqS0.s:840    .text.mqtt_send_cmd:00000000 $t
+C:\Users\LENOVO\AppData\Local\Temp\cc1fxqS0.s:845    .text.mqtt_send_cmd:00000000 mqtt_send_cmd
+C:\Users\LENOVO\AppData\Local\Temp\cc1fxqS0.s:956    .text.mqtt_send_cmd:00000068 $d
+C:\Users\LENOVO\AppData\Local\Temp\cc1fxqS0.s:5090   .bss.s_mqtt_resp_buf:00000000 s_mqtt_resp_buf
+C:\Users\LENOVO\AppData\Local\Temp\cc1fxqS0.s:5084   .bss.s_mqtt_cmd:00000000 s_mqtt_cmd
+C:\Users\LENOVO\AppData\Local\Temp\cc1fxqS0.s:966    .rodata.cb_sub_topic_prompt.str1.4:00000000 $d
+C:\Users\LENOVO\AppData\Local\Temp\cc1fxqS0.s:973    .text.cb_sub_topic_prompt:00000000 $t
+C:\Users\LENOVO\AppData\Local\Temp\cc1fxqS0.s:978    .text.cb_sub_topic_prompt:00000000 cb_sub_topic_prompt
+C:\Users\LENOVO\AppData\Local\Temp\cc1fxqS0.s:1069   .text.cb_sub_topic_prompt:0000004c $d
+C:\Users\LENOVO\AppData\Local\Temp\cc1fxqS0.s:5032   .bss.s_sub_timeout_ms:00000000 s_sub_timeout_ms
+C:\Users\LENOVO\AppData\Local\Temp\cc1fxqS0.s:1080   .rodata.cb_pub_topic_prompt.str1.4:00000000 $d
+C:\Users\LENOVO\AppData\Local\Temp\cc1fxqS0.s:1084   .text.cb_pub_topic_prompt:00000000 $t
+C:\Users\LENOVO\AppData\Local\Temp\cc1fxqS0.s:1089   .text.cb_pub_topic_prompt:00000000 cb_pub_topic_prompt
+C:\Users\LENOVO\AppData\Local\Temp\cc1fxqS0.s:1180   .text.cb_pub_topic_prompt:0000004c $d
+C:\Users\LENOVO\AppData\Local\Temp\cc1fxqS0.s:5055   .bss.s_pub_timeout_ms:00000000 s_pub_timeout_ms
+C:\Users\LENOVO\AppData\Local\Temp\cc1fxqS0.s:2715   .text.cb_pub_topic_sent:00000000 cb_pub_topic_sent
+C:\Users\LENOVO\AppData\Local\Temp\cc1fxqS0.s:5078   .bss.s_pub_topic:00000000 s_pub_topic
+C:\Users\LENOVO\AppData\Local\Temp\cc1fxqS0.s:1191   .rodata.cb_pub_payload_prompt.str1.4:00000000 $d
+C:\Users\LENOVO\AppData\Local\Temp\cc1fxqS0.s:1195   .text.cb_pub_payload_prompt:00000000 $t
+C:\Users\LENOVO\AppData\Local\Temp\cc1fxqS0.s:1200   .text.cb_pub_payload_prompt:00000000 cb_pub_payload_prompt
+C:\Users\LENOVO\AppData\Local\Temp\cc1fxqS0.s:1291   .text.cb_pub_payload_prompt:0000004c $d
+C:\Users\LENOVO\AppData\Local\Temp\cc1fxqS0.s:1317   .text.cb_pub_payload_sent:00000000 cb_pub_payload_sent
+C:\Users\LENOVO\AppData\Local\Temp\cc1fxqS0.s:5072   .bss.s_pub_payload:00000000 s_pub_payload
+C:\Users\LENOVO\AppData\Local\Temp\cc1fxqS0.s:1302   .rodata.cb_pub_payload_sent.str1.4:00000000 $d
+C:\Users\LENOVO\AppData\Local\Temp\cc1fxqS0.s:1312   .text.cb_pub_payload_sent:00000000 $t
+C:\Users\LENOVO\AppData\Local\Temp\cc1fxqS0.s:1420   .text.cb_pub_payload_sent:00000064 $d
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cc1fxqS0.s 			page 128
 
 
-C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s:5096   .bss.s_mqtt_cmd_buf:00000000 s_mqtt_cmd_buf
-C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s:5212   .bss.s_pub_retain:00000000 s_pub_retain
-C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s:5066   .bss.s_pub_qos:00000000 s_pub_qos
-C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s:1434   .text.send_cmd:00000000 $t
-C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s:1439   .text.send_cmd:00000000 send_cmd
-C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s:1509   .text.send_cmd:00000058 $d
-C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s:1516   .rodata.cb_ipaddr.str1.4:00000000 $d
-C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s:1523   .text.cb_ipaddr:00000000 $t
-C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s:1528   .text.cb_ipaddr:00000000 cb_ipaddr
-C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s:1654   .text.cb_ipaddr:0000006c $d
-C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s:1662   .text.restart_at:00000000 $t
-C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s:1667   .text.restart_at:00000000 restart_at
-C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s:1695   .text.restart_at:00000018 $d
-C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s:3221   .text.cb_at:00000000 cb_at
-C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s:1700   .rodata.cb_cgatt.str1.4:00000000 $d
-C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s:1704   .text.cb_cgatt:00000000 $t
-C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s:1709   .text.cb_cgatt:00000000 cb_cgatt
-C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s:1784   .text.cb_cgatt:00000040 $d
-C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s:5102   .bss.s_dyn_cmd_buf:00000000 s_dyn_cmd_buf
-C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s:2324   .text.cb_cgdcont:00000000 cb_cgdcont
-C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s:1792   .rodata.cb_cgsn.str1.4:00000000 $d
-C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s:1802   .text.cb_cgsn:00000000 $t
-C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s:1807   .text.cb_cgsn:00000000 cb_cgsn
-C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s:1958   .text.cb_cgsn:0000008c $d
-C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s:1972   .text.cb_cops_q:00000000 cb_cops_q
-C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s:1967   .text.cb_cops_q:00000000 $t
-C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s:2018   .text.cb_cops_q:00000020 $d
-C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s:2028   .text.cb_cops_set:00000000 cb_cops_set
-C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s:2023   .text.cb_cops_set:00000000 $t
-C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s:2074   .text.cb_cops_set:00000020 $d
-C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s:2091   .text.cb_csq:00000000 cb_csq
-C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s:2079   .rodata.cb_csq.str1.4:00000000 $d
-C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s:2086   .text.cb_csq:00000000 $t
-C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s:2247   .text.cb_csq:000000a4 $d
-C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s:2261   .text.cb_cfun:00000000 cb_cfun
-C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s:2256   .text.cb_cfun:00000000 $t
-C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s:2307   .text.cb_cfun:00000020 $d
-C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s:2312   .rodata.cb_cgdcont.str1.4:00000000 $d
-C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s:2319   .text.cb_cgdcont:00000000 $t
-C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s:2464   .text.cb_cgdcont:00000094 $d
-C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s:2629   .text.cb_cgauth:00000000 cb_cgauth
-C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s:2479   .text.cb_cgreg:00000000 cb_cgreg
-C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s:2474   .text.cb_cgreg:00000000 $t
-C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s:2525   .text.cb_cgreg:00000020 $d
-C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s:2542   .text.cb_netopen:00000000 cb_netopen
-C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s:2530   .rodata.cb_netopen.str1.4:00000000 $d
-C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s:2537   .text.cb_netopen:00000000 $t
-C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s:2613   .text.cb_netopen:00000040 $d
-C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s:2620   .rodata.cb_cgauth.str1.4:00000000 $d
-C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s:2624   .text.cb_cgauth:00000000 $t
-C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s:2690   .text.cb_cgauth:00000034 $d
-C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s:2697   .rodata.cb_pub_topic_sent.str1.4:00000000 $d
-C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s:2710   .text.cb_pub_topic_sent:00000000 $t
-C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s:2833   .text.cb_pub_topic_sent:00000078 $d
-C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s:2848   .text.sim76xx_init:00000000 $t
-C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s:2854   .text.sim76xx_init:00000000 sim76xx_init
-C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s:2901   .rodata.sim76xx_power_on.str1.4:00000000 $d
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s 			page 129
+C:\Users\LENOVO\AppData\Local\Temp\cc1fxqS0.s:5096   .bss.s_mqtt_cmd_buf:00000000 s_mqtt_cmd_buf
+C:\Users\LENOVO\AppData\Local\Temp\cc1fxqS0.s:5212   .bss.s_pub_retain:00000000 s_pub_retain
+C:\Users\LENOVO\AppData\Local\Temp\cc1fxqS0.s:5066   .bss.s_pub_qos:00000000 s_pub_qos
+C:\Users\LENOVO\AppData\Local\Temp\cc1fxqS0.s:1434   .text.send_cmd:00000000 $t
+C:\Users\LENOVO\AppData\Local\Temp\cc1fxqS0.s:1439   .text.send_cmd:00000000 send_cmd
+C:\Users\LENOVO\AppData\Local\Temp\cc1fxqS0.s:1509   .text.send_cmd:00000058 $d
+C:\Users\LENOVO\AppData\Local\Temp\cc1fxqS0.s:1516   .rodata.cb_ipaddr.str1.4:00000000 $d
+C:\Users\LENOVO\AppData\Local\Temp\cc1fxqS0.s:1523   .text.cb_ipaddr:00000000 $t
+C:\Users\LENOVO\AppData\Local\Temp\cc1fxqS0.s:1528   .text.cb_ipaddr:00000000 cb_ipaddr
+C:\Users\LENOVO\AppData\Local\Temp\cc1fxqS0.s:1654   .text.cb_ipaddr:0000006c $d
+C:\Users\LENOVO\AppData\Local\Temp\cc1fxqS0.s:1662   .text.restart_at:00000000 $t
+C:\Users\LENOVO\AppData\Local\Temp\cc1fxqS0.s:1667   .text.restart_at:00000000 restart_at
+C:\Users\LENOVO\AppData\Local\Temp\cc1fxqS0.s:1695   .text.restart_at:00000018 $d
+C:\Users\LENOVO\AppData\Local\Temp\cc1fxqS0.s:3221   .text.cb_at:00000000 cb_at
+C:\Users\LENOVO\AppData\Local\Temp\cc1fxqS0.s:1700   .rodata.cb_cgatt.str1.4:00000000 $d
+C:\Users\LENOVO\AppData\Local\Temp\cc1fxqS0.s:1704   .text.cb_cgatt:00000000 $t
+C:\Users\LENOVO\AppData\Local\Temp\cc1fxqS0.s:1709   .text.cb_cgatt:00000000 cb_cgatt
+C:\Users\LENOVO\AppData\Local\Temp\cc1fxqS0.s:1784   .text.cb_cgatt:00000040 $d
+C:\Users\LENOVO\AppData\Local\Temp\cc1fxqS0.s:5102   .bss.s_dyn_cmd_buf:00000000 s_dyn_cmd_buf
+C:\Users\LENOVO\AppData\Local\Temp\cc1fxqS0.s:2324   .text.cb_cgdcont:00000000 cb_cgdcont
+C:\Users\LENOVO\AppData\Local\Temp\cc1fxqS0.s:1792   .rodata.cb_cgsn.str1.4:00000000 $d
+C:\Users\LENOVO\AppData\Local\Temp\cc1fxqS0.s:1802   .text.cb_cgsn:00000000 $t
+C:\Users\LENOVO\AppData\Local\Temp\cc1fxqS0.s:1807   .text.cb_cgsn:00000000 cb_cgsn
+C:\Users\LENOVO\AppData\Local\Temp\cc1fxqS0.s:1958   .text.cb_cgsn:0000008c $d
+C:\Users\LENOVO\AppData\Local\Temp\cc1fxqS0.s:1972   .text.cb_cops_q:00000000 cb_cops_q
+C:\Users\LENOVO\AppData\Local\Temp\cc1fxqS0.s:1967   .text.cb_cops_q:00000000 $t
+C:\Users\LENOVO\AppData\Local\Temp\cc1fxqS0.s:2018   .text.cb_cops_q:00000020 $d
+C:\Users\LENOVO\AppData\Local\Temp\cc1fxqS0.s:2028   .text.cb_cops_set:00000000 cb_cops_set
+C:\Users\LENOVO\AppData\Local\Temp\cc1fxqS0.s:2023   .text.cb_cops_set:00000000 $t
+C:\Users\LENOVO\AppData\Local\Temp\cc1fxqS0.s:2074   .text.cb_cops_set:00000020 $d
+C:\Users\LENOVO\AppData\Local\Temp\cc1fxqS0.s:2091   .text.cb_csq:00000000 cb_csq
+C:\Users\LENOVO\AppData\Local\Temp\cc1fxqS0.s:2079   .rodata.cb_csq.str1.4:00000000 $d
+C:\Users\LENOVO\AppData\Local\Temp\cc1fxqS0.s:2086   .text.cb_csq:00000000 $t
+C:\Users\LENOVO\AppData\Local\Temp\cc1fxqS0.s:2247   .text.cb_csq:000000a4 $d
+C:\Users\LENOVO\AppData\Local\Temp\cc1fxqS0.s:2261   .text.cb_cfun:00000000 cb_cfun
+C:\Users\LENOVO\AppData\Local\Temp\cc1fxqS0.s:2256   .text.cb_cfun:00000000 $t
+C:\Users\LENOVO\AppData\Local\Temp\cc1fxqS0.s:2307   .text.cb_cfun:00000020 $d
+C:\Users\LENOVO\AppData\Local\Temp\cc1fxqS0.s:2312   .rodata.cb_cgdcont.str1.4:00000000 $d
+C:\Users\LENOVO\AppData\Local\Temp\cc1fxqS0.s:2319   .text.cb_cgdcont:00000000 $t
+C:\Users\LENOVO\AppData\Local\Temp\cc1fxqS0.s:2464   .text.cb_cgdcont:00000094 $d
+C:\Users\LENOVO\AppData\Local\Temp\cc1fxqS0.s:2629   .text.cb_cgauth:00000000 cb_cgauth
+C:\Users\LENOVO\AppData\Local\Temp\cc1fxqS0.s:2479   .text.cb_cgreg:00000000 cb_cgreg
+C:\Users\LENOVO\AppData\Local\Temp\cc1fxqS0.s:2474   .text.cb_cgreg:00000000 $t
+C:\Users\LENOVO\AppData\Local\Temp\cc1fxqS0.s:2525   .text.cb_cgreg:00000020 $d
+C:\Users\LENOVO\AppData\Local\Temp\cc1fxqS0.s:2542   .text.cb_netopen:00000000 cb_netopen
+C:\Users\LENOVO\AppData\Local\Temp\cc1fxqS0.s:2530   .rodata.cb_netopen.str1.4:00000000 $d
+C:\Users\LENOVO\AppData\Local\Temp\cc1fxqS0.s:2537   .text.cb_netopen:00000000 $t
+C:\Users\LENOVO\AppData\Local\Temp\cc1fxqS0.s:2613   .text.cb_netopen:00000040 $d
+C:\Users\LENOVO\AppData\Local\Temp\cc1fxqS0.s:2620   .rodata.cb_cgauth.str1.4:00000000 $d
+C:\Users\LENOVO\AppData\Local\Temp\cc1fxqS0.s:2624   .text.cb_cgauth:00000000 $t
+C:\Users\LENOVO\AppData\Local\Temp\cc1fxqS0.s:2690   .text.cb_cgauth:00000034 $d
+C:\Users\LENOVO\AppData\Local\Temp\cc1fxqS0.s:2697   .rodata.cb_pub_topic_sent.str1.4:00000000 $d
+C:\Users\LENOVO\AppData\Local\Temp\cc1fxqS0.s:2710   .text.cb_pub_topic_sent:00000000 $t
+C:\Users\LENOVO\AppData\Local\Temp\cc1fxqS0.s:2833   .text.cb_pub_topic_sent:00000078 $d
+C:\Users\LENOVO\AppData\Local\Temp\cc1fxqS0.s:2848   .text.sim76xx_init:00000000 $t
+C:\Users\LENOVO\AppData\Local\Temp\cc1fxqS0.s:2854   .text.sim76xx_init:00000000 sim76xx_init
+C:\Users\LENOVO\AppData\Local\Temp\cc1fxqS0.s:2901   .rodata.sim76xx_power_on.str1.4:00000000 $d
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cc1fxqS0.s 			page 129
 
 
-C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s:2908   .text.sim76xx_power_on:00000000 $t
-C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s:2914   .text.sim76xx_power_on:00000000 sim76xx_power_on
-C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s:2987   .text.sim76xx_power_on:00000058 $d
-C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s:2994   .rodata.sim76xx_power_off.str1.4:00000000 $d
-C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s:3001   .text.sim76xx_power_off:00000000 $t
-C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s:3007   .text.sim76xx_power_off:00000000 sim76xx_power_off
-C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s:3059   .text.sim76xx_power_off:00000038 $d
-C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s:3066   .rodata.sim76xx_reset.str1.4:00000000 $d
-C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s:3070   .text.sim76xx_reset:00000000 $t
-C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s:3076   .text.sim76xx_reset:00000000 sim76xx_reset
-C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s:3117   .text.sim76xx_reset:00000024 $d
-C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s:3123   .rodata.sim76xx_start.str1.4:00000000 $d
-C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s:3130   .text.sim76xx_start:00000000 $t
-C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s:3136   .text.sim76xx_start:00000000 sim76xx_start
-C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s:3204   .text.sim76xx_start:00000044 $d
-C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s:3212   .rodata.cb_at.str1.4:00000000 $d
-C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s:3216   .text.cb_at:00000000 $t
-C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s:3351   .text.cb_at:00000084 $d
-C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s:3359   .rodata.sim76xx_poll.str1.4:00000000 $d
-C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s:3363   .text.sim76xx_poll:00000000 $t
-C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s:3369   .text.sim76xx_poll:00000000 sim76xx_poll
-C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s:3491   .text.sim76xx_poll:0000007c $d
-C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s:5201   .bss.s_urc_buf_id:00000000 s_urc_buf_id
-C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s:5207   .bss.s_urc_buf:00000000 s_urc_buf
-C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s:3498   .rodata.sim76xx_psm_enable.str1.4:00000000 $d
-C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s:3505   .text.sim76xx_psm_enable:00000000 $t
-C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s:3511   .text.sim76xx_psm_enable:00000000 sim76xx_psm_enable
-C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s:3593   .text.sim76xx_psm_enable:00000064 $d
-C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s:3602   .rodata.sim76xx_psm_disable.str1.4:00000000 $d
-C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s:3606   .text.sim76xx_psm_disable:00000000 $t
-C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s:3612   .text.sim76xx_psm_disable:00000000 sim76xx_psm_disable
-C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s:3655   .text.sim76xx_psm_disable:00000028 $d
-C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s:3662   .text.sim76xx_wake:00000000 $t
-C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s:3668   .text.sim76xx_wake:00000000 sim76xx_wake
-C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s:3719   .text.sim76xx_wake:00000034 $d
-C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s:3724   .rodata.sim76xx_mqtt_start.str1.4:00000000 $d
-C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s:3731   .text.sim76xx_mqtt_start:00000000 $t
-C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s:3737   .text.sim76xx_mqtt_start:00000000 sim76xx_mqtt_start
-C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s:3789   .text.sim76xx_mqtt_start:00000034 $d
-C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s:3796   .rodata.sim76xx_mqtt_accq.str1.4:00000000 $d
-C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s:3800   .text.sim76xx_mqtt_accq:00000000 $t
-C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s:3806   .text.sim76xx_mqtt_accq:00000000 sim76xx_mqtt_accq
-C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s:3868   .text.sim76xx_mqtt_accq:00000034 $d
-C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s:3875   .rodata.sim76xx_mqtt_ssl_cfg.str1.4:00000000 $d
-C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s:3879   .text.sim76xx_mqtt_ssl_cfg:00000000 $t
-C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s:3885   .text.sim76xx_mqtt_ssl_cfg:00000000 sim76xx_mqtt_ssl_cfg
-C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s:3943   .text.sim76xx_mqtt_ssl_cfg:0000002c $d
-C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s:3950   .rodata.sim76xx_mqtt_ssl_bind.str1.4:00000000 $d
-C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s:3954   .text.sim76xx_mqtt_ssl_bind:00000000 $t
-C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s:3960   .text.sim76xx_mqtt_ssl_bind:00000000 sim76xx_mqtt_ssl_bind
-C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s:4012   .text.sim76xx_mqtt_ssl_bind:00000030 $d
-C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s:4019   .rodata.sim76xx_mqtt_connect.str1.4:00000000 $d
-C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s:4039   .text.sim76xx_mqtt_connect:00000000 $t
-C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s:4045   .text.sim76xx_mqtt_connect:00000000 sim76xx_mqtt_connect
-C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s:4175   .text.sim76xx_mqtt_connect:00000098 $d
-C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s:4186   .rodata.sim76xx_mqtt_disconnect.str1.4:00000000 $d
-C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s:4193   .text.sim76xx_mqtt_disconnect:00000000 $t
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s 			page 130
+C:\Users\LENOVO\AppData\Local\Temp\cc1fxqS0.s:2908   .text.sim76xx_power_on:00000000 $t
+C:\Users\LENOVO\AppData\Local\Temp\cc1fxqS0.s:2914   .text.sim76xx_power_on:00000000 sim76xx_power_on
+C:\Users\LENOVO\AppData\Local\Temp\cc1fxqS0.s:2987   .text.sim76xx_power_on:00000058 $d
+C:\Users\LENOVO\AppData\Local\Temp\cc1fxqS0.s:2994   .rodata.sim76xx_power_off.str1.4:00000000 $d
+C:\Users\LENOVO\AppData\Local\Temp\cc1fxqS0.s:3001   .text.sim76xx_power_off:00000000 $t
+C:\Users\LENOVO\AppData\Local\Temp\cc1fxqS0.s:3007   .text.sim76xx_power_off:00000000 sim76xx_power_off
+C:\Users\LENOVO\AppData\Local\Temp\cc1fxqS0.s:3059   .text.sim76xx_power_off:00000038 $d
+C:\Users\LENOVO\AppData\Local\Temp\cc1fxqS0.s:3066   .rodata.sim76xx_reset.str1.4:00000000 $d
+C:\Users\LENOVO\AppData\Local\Temp\cc1fxqS0.s:3070   .text.sim76xx_reset:00000000 $t
+C:\Users\LENOVO\AppData\Local\Temp\cc1fxqS0.s:3076   .text.sim76xx_reset:00000000 sim76xx_reset
+C:\Users\LENOVO\AppData\Local\Temp\cc1fxqS0.s:3117   .text.sim76xx_reset:00000024 $d
+C:\Users\LENOVO\AppData\Local\Temp\cc1fxqS0.s:3123   .rodata.sim76xx_start.str1.4:00000000 $d
+C:\Users\LENOVO\AppData\Local\Temp\cc1fxqS0.s:3130   .text.sim76xx_start:00000000 $t
+C:\Users\LENOVO\AppData\Local\Temp\cc1fxqS0.s:3136   .text.sim76xx_start:00000000 sim76xx_start
+C:\Users\LENOVO\AppData\Local\Temp\cc1fxqS0.s:3204   .text.sim76xx_start:00000044 $d
+C:\Users\LENOVO\AppData\Local\Temp\cc1fxqS0.s:3212   .rodata.cb_at.str1.4:00000000 $d
+C:\Users\LENOVO\AppData\Local\Temp\cc1fxqS0.s:3216   .text.cb_at:00000000 $t
+C:\Users\LENOVO\AppData\Local\Temp\cc1fxqS0.s:3351   .text.cb_at:00000084 $d
+C:\Users\LENOVO\AppData\Local\Temp\cc1fxqS0.s:3359   .rodata.sim76xx_poll.str1.4:00000000 $d
+C:\Users\LENOVO\AppData\Local\Temp\cc1fxqS0.s:3363   .text.sim76xx_poll:00000000 $t
+C:\Users\LENOVO\AppData\Local\Temp\cc1fxqS0.s:3369   .text.sim76xx_poll:00000000 sim76xx_poll
+C:\Users\LENOVO\AppData\Local\Temp\cc1fxqS0.s:3491   .text.sim76xx_poll:0000007c $d
+C:\Users\LENOVO\AppData\Local\Temp\cc1fxqS0.s:5201   .bss.s_urc_buf_id:00000000 s_urc_buf_id
+C:\Users\LENOVO\AppData\Local\Temp\cc1fxqS0.s:5207   .bss.s_urc_buf:00000000 s_urc_buf
+C:\Users\LENOVO\AppData\Local\Temp\cc1fxqS0.s:3498   .rodata.sim76xx_psm_enable.str1.4:00000000 $d
+C:\Users\LENOVO\AppData\Local\Temp\cc1fxqS0.s:3505   .text.sim76xx_psm_enable:00000000 $t
+C:\Users\LENOVO\AppData\Local\Temp\cc1fxqS0.s:3511   .text.sim76xx_psm_enable:00000000 sim76xx_psm_enable
+C:\Users\LENOVO\AppData\Local\Temp\cc1fxqS0.s:3593   .text.sim76xx_psm_enable:00000064 $d
+C:\Users\LENOVO\AppData\Local\Temp\cc1fxqS0.s:3602   .rodata.sim76xx_psm_disable.str1.4:00000000 $d
+C:\Users\LENOVO\AppData\Local\Temp\cc1fxqS0.s:3606   .text.sim76xx_psm_disable:00000000 $t
+C:\Users\LENOVO\AppData\Local\Temp\cc1fxqS0.s:3612   .text.sim76xx_psm_disable:00000000 sim76xx_psm_disable
+C:\Users\LENOVO\AppData\Local\Temp\cc1fxqS0.s:3655   .text.sim76xx_psm_disable:00000028 $d
+C:\Users\LENOVO\AppData\Local\Temp\cc1fxqS0.s:3662   .text.sim76xx_wake:00000000 $t
+C:\Users\LENOVO\AppData\Local\Temp\cc1fxqS0.s:3668   .text.sim76xx_wake:00000000 sim76xx_wake
+C:\Users\LENOVO\AppData\Local\Temp\cc1fxqS0.s:3719   .text.sim76xx_wake:00000034 $d
+C:\Users\LENOVO\AppData\Local\Temp\cc1fxqS0.s:3724   .rodata.sim76xx_mqtt_start.str1.4:00000000 $d
+C:\Users\LENOVO\AppData\Local\Temp\cc1fxqS0.s:3731   .text.sim76xx_mqtt_start:00000000 $t
+C:\Users\LENOVO\AppData\Local\Temp\cc1fxqS0.s:3737   .text.sim76xx_mqtt_start:00000000 sim76xx_mqtt_start
+C:\Users\LENOVO\AppData\Local\Temp\cc1fxqS0.s:3789   .text.sim76xx_mqtt_start:00000034 $d
+C:\Users\LENOVO\AppData\Local\Temp\cc1fxqS0.s:3796   .rodata.sim76xx_mqtt_accq.str1.4:00000000 $d
+C:\Users\LENOVO\AppData\Local\Temp\cc1fxqS0.s:3800   .text.sim76xx_mqtt_accq:00000000 $t
+C:\Users\LENOVO\AppData\Local\Temp\cc1fxqS0.s:3806   .text.sim76xx_mqtt_accq:00000000 sim76xx_mqtt_accq
+C:\Users\LENOVO\AppData\Local\Temp\cc1fxqS0.s:3868   .text.sim76xx_mqtt_accq:00000034 $d
+C:\Users\LENOVO\AppData\Local\Temp\cc1fxqS0.s:3875   .rodata.sim76xx_mqtt_ssl_cfg.str1.4:00000000 $d
+C:\Users\LENOVO\AppData\Local\Temp\cc1fxqS0.s:3879   .text.sim76xx_mqtt_ssl_cfg:00000000 $t
+C:\Users\LENOVO\AppData\Local\Temp\cc1fxqS0.s:3885   .text.sim76xx_mqtt_ssl_cfg:00000000 sim76xx_mqtt_ssl_cfg
+C:\Users\LENOVO\AppData\Local\Temp\cc1fxqS0.s:3943   .text.sim76xx_mqtt_ssl_cfg:0000002c $d
+C:\Users\LENOVO\AppData\Local\Temp\cc1fxqS0.s:3950   .rodata.sim76xx_mqtt_ssl_bind.str1.4:00000000 $d
+C:\Users\LENOVO\AppData\Local\Temp\cc1fxqS0.s:3954   .text.sim76xx_mqtt_ssl_bind:00000000 $t
+C:\Users\LENOVO\AppData\Local\Temp\cc1fxqS0.s:3960   .text.sim76xx_mqtt_ssl_bind:00000000 sim76xx_mqtt_ssl_bind
+C:\Users\LENOVO\AppData\Local\Temp\cc1fxqS0.s:4012   .text.sim76xx_mqtt_ssl_bind:00000030 $d
+C:\Users\LENOVO\AppData\Local\Temp\cc1fxqS0.s:4019   .rodata.sim76xx_mqtt_connect.str1.4:00000000 $d
+C:\Users\LENOVO\AppData\Local\Temp\cc1fxqS0.s:4039   .text.sim76xx_mqtt_connect:00000000 $t
+C:\Users\LENOVO\AppData\Local\Temp\cc1fxqS0.s:4045   .text.sim76xx_mqtt_connect:00000000 sim76xx_mqtt_connect
+C:\Users\LENOVO\AppData\Local\Temp\cc1fxqS0.s:4175   .text.sim76xx_mqtt_connect:00000098 $d
+C:\Users\LENOVO\AppData\Local\Temp\cc1fxqS0.s:4186   .rodata.sim76xx_mqtt_disconnect.str1.4:00000000 $d
+C:\Users\LENOVO\AppData\Local\Temp\cc1fxqS0.s:4193   .text.sim76xx_mqtt_disconnect:00000000 $t
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cc1fxqS0.s 			page 130
 
 
-C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s:4199   .text.sim76xx_mqtt_disconnect:00000000 sim76xx_mqtt_disconnect
-C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s:4251   .text.sim76xx_mqtt_disconnect:00000030 $d
-C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s:4258   .rodata.sim76xx_mqtt_subscribe.str1.4:00000000 $d
-C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s:4262   .text.sim76xx_mqtt_subscribe:00000000 $t
-C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s:4268   .text.sim76xx_mqtt_subscribe:00000000 sim76xx_mqtt_subscribe
-C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s:4375   .text.sim76xx_mqtt_subscribe:0000006c $d
-C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s:5043   .bss.s_sub_qos:00000000 s_sub_qos
-C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s:4387   .rodata.sim76xx_mqtt_publish.str1.4:00000000 $d
-C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s:4394   .text.sim76xx_mqtt_publish:00000000 $t
-C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s:4400   .text.sim76xx_mqtt_publish:00000000 sim76xx_mqtt_publish
-C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s:4539   .text.sim76xx_mqtt_publish:00000098 $d
-C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s:4555   .rodata.sim76xx_cert_download.str1.4:00000000 $d
-C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s:4559   .text.sim76xx_cert_download:00000000 $t
-C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s:4565   .text.sim76xx_cert_download:00000000 sim76xx_cert_download
-C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s:4630   .text.sim76xx_cert_download:00000034 $d
-C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s:5026   .bss.s_cert_content:00000000 s_cert_content
-C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s:5020   .bss.s_cert_size:00000000 s_cert_size
-C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s:4639   .rodata.sim76xx_ssl_set_cert.str1.4:00000000 $d
-C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s:4643   .text.sim76xx_ssl_set_cert:00000000 $t
-C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s:4649   .text.sim76xx_ssl_set_cert:00000000 sim76xx_ssl_set_cert
-C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s:4703   .text.sim76xx_ssl_set_cert:0000002c $d
-C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s:4710   .text.sim76xx_mqtt_raw_send:00000000 $t
-C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s:4716   .text.sim76xx_mqtt_raw_send:00000000 sim76xx_mqtt_raw_send
-C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s:4753   .text.sim76xx_mqtt_send_raw_cmd:00000000 $t
-C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s:4759   .text.sim76xx_mqtt_send_raw_cmd:00000000 sim76xx_mqtt_send_raw_cmd
-C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s:4792   .rodata.sim76xx_mqtt_stop.str1.4:00000000 $d
-C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s:4799   .text.sim76xx_mqtt_stop:00000000 $t
-C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s:4805   .text.sim76xx_mqtt_stop:00000000 sim76xx_mqtt_stop
-C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s:4855   .text.sim76xx_mqtt_stop:0000002c $d
-C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s:4862   .rodata.sim76xx_set_full_apn.str1.4:00000000 $d
-C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s:4872   .text.sim76xx_set_full_apn:00000000 $t
-C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s:4878   .text.sim76xx_set_full_apn:00000000 sim76xx_set_full_apn
-C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s:5009   .text.sim76xx_set_full_apn:00000080 $d
-C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s:5017   .bss.s_cert_size:00000000 $d
-C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s:5023   .bss.s_cert_content:00000000 $d
-C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s:5029   .bss.s_sub_timeout_ms:00000000 $d
-C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s:5035   .bss.s_sub_final_cb:00000000 $d
-C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s:5044   .bss.s_sub_qos:00000000 $d
-C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s:5046   .bss.s_sub_topic:00000000 $d
-C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s:5052   .bss.s_pub_timeout_ms:00000000 $d
-C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s:5058   .bss.s_pub_final_cb:00000000 $d
-C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s:5067   .bss.s_pub_qos:00000000 $d
-C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s:5069   .bss.s_pub_payload:00000000 $d
-C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s:5075   .bss.s_pub_topic:00000000 $d
-C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s:5081   .bss.s_mqtt_cmd:00000000 $d
-C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s:5087   .bss.s_mqtt_resp_buf:00000000 $d
-C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s:5093   .bss.s_mqtt_cmd_buf:00000000 $d
-C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s:5099   .bss.s_dyn_cmd_buf:00000000 $d
-C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s:5106   .rodata.str1.4:00000000 $d
-C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s:5143   .data.command:00000000 $d
-C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s:5198   .bss.s_urc_buf_id:00000000 $d
-C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s:5204   .bss.s_urc_buf:00000000 $d
-C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s:5213   .bss.s_pub_retain:00000000 $d
+C:\Users\LENOVO\AppData\Local\Temp\cc1fxqS0.s:4199   .text.sim76xx_mqtt_disconnect:00000000 sim76xx_mqtt_disconnect
+C:\Users\LENOVO\AppData\Local\Temp\cc1fxqS0.s:4251   .text.sim76xx_mqtt_disconnect:00000030 $d
+C:\Users\LENOVO\AppData\Local\Temp\cc1fxqS0.s:4258   .rodata.sim76xx_mqtt_subscribe.str1.4:00000000 $d
+C:\Users\LENOVO\AppData\Local\Temp\cc1fxqS0.s:4262   .text.sim76xx_mqtt_subscribe:00000000 $t
+C:\Users\LENOVO\AppData\Local\Temp\cc1fxqS0.s:4268   .text.sim76xx_mqtt_subscribe:00000000 sim76xx_mqtt_subscribe
+C:\Users\LENOVO\AppData\Local\Temp\cc1fxqS0.s:4375   .text.sim76xx_mqtt_subscribe:0000006c $d
+C:\Users\LENOVO\AppData\Local\Temp\cc1fxqS0.s:5043   .bss.s_sub_qos:00000000 s_sub_qos
+C:\Users\LENOVO\AppData\Local\Temp\cc1fxqS0.s:4387   .rodata.sim76xx_mqtt_publish.str1.4:00000000 $d
+C:\Users\LENOVO\AppData\Local\Temp\cc1fxqS0.s:4394   .text.sim76xx_mqtt_publish:00000000 $t
+C:\Users\LENOVO\AppData\Local\Temp\cc1fxqS0.s:4400   .text.sim76xx_mqtt_publish:00000000 sim76xx_mqtt_publish
+C:\Users\LENOVO\AppData\Local\Temp\cc1fxqS0.s:4539   .text.sim76xx_mqtt_publish:00000098 $d
+C:\Users\LENOVO\AppData\Local\Temp\cc1fxqS0.s:4555   .rodata.sim76xx_cert_download.str1.4:00000000 $d
+C:\Users\LENOVO\AppData\Local\Temp\cc1fxqS0.s:4559   .text.sim76xx_cert_download:00000000 $t
+C:\Users\LENOVO\AppData\Local\Temp\cc1fxqS0.s:4565   .text.sim76xx_cert_download:00000000 sim76xx_cert_download
+C:\Users\LENOVO\AppData\Local\Temp\cc1fxqS0.s:4630   .text.sim76xx_cert_download:00000034 $d
+C:\Users\LENOVO\AppData\Local\Temp\cc1fxqS0.s:5026   .bss.s_cert_content:00000000 s_cert_content
+C:\Users\LENOVO\AppData\Local\Temp\cc1fxqS0.s:5020   .bss.s_cert_size:00000000 s_cert_size
+C:\Users\LENOVO\AppData\Local\Temp\cc1fxqS0.s:4639   .rodata.sim76xx_ssl_set_cert.str1.4:00000000 $d
+C:\Users\LENOVO\AppData\Local\Temp\cc1fxqS0.s:4643   .text.sim76xx_ssl_set_cert:00000000 $t
+C:\Users\LENOVO\AppData\Local\Temp\cc1fxqS0.s:4649   .text.sim76xx_ssl_set_cert:00000000 sim76xx_ssl_set_cert
+C:\Users\LENOVO\AppData\Local\Temp\cc1fxqS0.s:4703   .text.sim76xx_ssl_set_cert:0000002c $d
+C:\Users\LENOVO\AppData\Local\Temp\cc1fxqS0.s:4710   .text.sim76xx_mqtt_raw_send:00000000 $t
+C:\Users\LENOVO\AppData\Local\Temp\cc1fxqS0.s:4716   .text.sim76xx_mqtt_raw_send:00000000 sim76xx_mqtt_raw_send
+C:\Users\LENOVO\AppData\Local\Temp\cc1fxqS0.s:4753   .text.sim76xx_mqtt_send_raw_cmd:00000000 $t
+C:\Users\LENOVO\AppData\Local\Temp\cc1fxqS0.s:4759   .text.sim76xx_mqtt_send_raw_cmd:00000000 sim76xx_mqtt_send_raw_cmd
+C:\Users\LENOVO\AppData\Local\Temp\cc1fxqS0.s:4792   .rodata.sim76xx_mqtt_stop.str1.4:00000000 $d
+C:\Users\LENOVO\AppData\Local\Temp\cc1fxqS0.s:4799   .text.sim76xx_mqtt_stop:00000000 $t
+C:\Users\LENOVO\AppData\Local\Temp\cc1fxqS0.s:4805   .text.sim76xx_mqtt_stop:00000000 sim76xx_mqtt_stop
+C:\Users\LENOVO\AppData\Local\Temp\cc1fxqS0.s:4855   .text.sim76xx_mqtt_stop:0000002c $d
+C:\Users\LENOVO\AppData\Local\Temp\cc1fxqS0.s:4862   .rodata.sim76xx_set_full_apn.str1.4:00000000 $d
+C:\Users\LENOVO\AppData\Local\Temp\cc1fxqS0.s:4872   .text.sim76xx_set_full_apn:00000000 $t
+C:\Users\LENOVO\AppData\Local\Temp\cc1fxqS0.s:4878   .text.sim76xx_set_full_apn:00000000 sim76xx_set_full_apn
+C:\Users\LENOVO\AppData\Local\Temp\cc1fxqS0.s:5009   .text.sim76xx_set_full_apn:00000080 $d
+C:\Users\LENOVO\AppData\Local\Temp\cc1fxqS0.s:5017   .bss.s_cert_size:00000000 $d
+C:\Users\LENOVO\AppData\Local\Temp\cc1fxqS0.s:5023   .bss.s_cert_content:00000000 $d
+C:\Users\LENOVO\AppData\Local\Temp\cc1fxqS0.s:5029   .bss.s_sub_timeout_ms:00000000 $d
+C:\Users\LENOVO\AppData\Local\Temp\cc1fxqS0.s:5035   .bss.s_sub_final_cb:00000000 $d
+C:\Users\LENOVO\AppData\Local\Temp\cc1fxqS0.s:5044   .bss.s_sub_qos:00000000 $d
+C:\Users\LENOVO\AppData\Local\Temp\cc1fxqS0.s:5046   .bss.s_sub_topic:00000000 $d
+C:\Users\LENOVO\AppData\Local\Temp\cc1fxqS0.s:5052   .bss.s_pub_timeout_ms:00000000 $d
+C:\Users\LENOVO\AppData\Local\Temp\cc1fxqS0.s:5058   .bss.s_pub_final_cb:00000000 $d
+C:\Users\LENOVO\AppData\Local\Temp\cc1fxqS0.s:5067   .bss.s_pub_qos:00000000 $d
+C:\Users\LENOVO\AppData\Local\Temp\cc1fxqS0.s:5069   .bss.s_pub_payload:00000000 $d
+C:\Users\LENOVO\AppData\Local\Temp\cc1fxqS0.s:5075   .bss.s_pub_topic:00000000 $d
+C:\Users\LENOVO\AppData\Local\Temp\cc1fxqS0.s:5081   .bss.s_mqtt_cmd:00000000 $d
+C:\Users\LENOVO\AppData\Local\Temp\cc1fxqS0.s:5087   .bss.s_mqtt_resp_buf:00000000 $d
+C:\Users\LENOVO\AppData\Local\Temp\cc1fxqS0.s:5093   .bss.s_mqtt_cmd_buf:00000000 $d
+C:\Users\LENOVO\AppData\Local\Temp\cc1fxqS0.s:5099   .bss.s_dyn_cmd_buf:00000000 $d
+C:\Users\LENOVO\AppData\Local\Temp\cc1fxqS0.s:5106   .rodata.str1.4:00000000 $d
+C:\Users\LENOVO\AppData\Local\Temp\cc1fxqS0.s:5143   .data.command:00000000 $d
+C:\Users\LENOVO\AppData\Local\Temp\cc1fxqS0.s:5198   .bss.s_urc_buf_id:00000000 $d
+C:\Users\LENOVO\AppData\Local\Temp\cc1fxqS0.s:5204   .bss.s_urc_buf:00000000 $d
+C:\Users\LENOVO\AppData\Local\Temp\cc1fxqS0.s:5213   .bss.s_pub_retain:00000000 $d
 
 UNDEFINED SYMBOLS
 log_func
 strstr
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cch2y34V.s 			page 131
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cc1fxqS0.s 			page 131
 
 
 strchr
