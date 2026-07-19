@@ -825,8 +825,8 @@ void app_init(void)
     read_last_gps();
     gps_it_handle();
 
-    publish_gps("init");
-    publish_gsm("init");
+    // publish_gps("init");
+    // publish_gsm("init");
 
     app_at_init();
     

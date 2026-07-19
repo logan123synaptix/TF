@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cc1F8nP3.s 			page 1
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccq1PXWv.s 			page 1
 
 
    1              		.cpu cortex-m33
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cc1F8nP3.s 			page 1
   27:SynaptiX_FDK/services/logger/logger.c **** static void serial_write_func(const char *s)
   28:SynaptiX_FDK/services/logger/logger.c **** {
   30              		.loc 1 28 1 view -0
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cc1F8nP3.s 			page 2
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccq1PXWv.s 			page 2
 
 
   31              		.cfi_startproc
@@ -118,7 +118,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cc1F8nP3.s 			page 1
   49:SynaptiX_FDK/services/logger/logger.c ****     "\x1B[31m",
   50:SynaptiX_FDK/services/logger/logger.c ****     "\x1B[33m",
   51:SynaptiX_FDK/services/logger/logger.c ****     "\x1B[32m",
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cc1F8nP3.s 			page 3
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccq1PXWv.s 			page 3
 
 
   52:SynaptiX_FDK/services/logger/logger.c ****     "\x1B[34m", 
@@ -178,7 +178,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cc1F8nP3.s 			page 1
   77:SynaptiX_FDK/services/logger/logger.c ****     xSemaphoreTake(logger_mutex, portMAX_DELAY);
   78:SynaptiX_FDK/services/logger/logger.c **** #endif
   79:SynaptiX_FDK/services/logger/logger.c ****     char *format = buff;
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cc1F8nP3.s 			page 4
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccq1PXWv.s 			page 4
 
 
   80:SynaptiX_FDK/services/logger/logger.c ****     sprintf(format, "%s%s%s : ", colors[level], log_level_strings[level], TAG);
@@ -238,7 +238,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cc1F8nP3.s 			page 1
  122 001e 164B     		ldr	r3, .L8+12
  123 0020 53F82030 		ldr	r3, [r3, r0, lsl #2]
  124 0024 55F82020 		ldr	r2, [r5, r0, lsl #2]
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cc1F8nP3.s 			page 5
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccq1PXWv.s 			page 5
 
 
  125 0028 1449     		ldr	r1, .L8+16
@@ -298,7 +298,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cc1F8nP3.s 			page 1
  166              		.loc 1 92 22 is_stmt 0 view .LVU24
  167 005e 094B     		ldr	r3, .L8+24
  168 0060 1B68     		ldr	r3, [r3]
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cc1F8nP3.s 			page 6
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccq1PXWv.s 			page 6
 
 
   92:SynaptiX_FDK/services/logger/logger.c ****     {
@@ -358,7 +358,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cc1F8nP3.s 			page 1
  220              	.LC2:
  221 0000 25303258 		.ascii	"%02X \000"
  221      2000
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cc1F8nP3.s 			page 7
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccq1PXWv.s 			page 7
 
 
  222              		.section	.text.log_print_hex,"ax",%progbits
@@ -418,7 +418,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cc1F8nP3.s 			page 1
  124:SynaptiX_FDK/services/logger/logger.c ****     }
  125:SynaptiX_FDK/services/logger/logger.c ****     strcat(format, "\r\n");
  126:SynaptiX_FDK/services/logger/logger.c ****     if (serial_write == NULL)
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cc1F8nP3.s 			page 8
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccq1PXWv.s 			page 8
 
 
  127:SynaptiX_FDK/services/logger/logger.c ****     {
@@ -478,7 +478,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cc1F8nP3.s 			page 1
  119:SynaptiX_FDK/services/logger/logger.c ****     for (uint16_t i = 0; i < length; i++)
  302              		.loc 1 119 5 view .LVU46
  119:SynaptiX_FDK/services/logger/logger.c ****     for (uint16_t i = 0; i < length; i++)
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cc1F8nP3.s 			page 9
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccq1PXWv.s 			page 9
 
 
  303              		.loc 1 119 12 is_stmt 0 view .LVU47
@@ -538,7 +538,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cc1F8nP3.s 			page 1
  346 0070 1988     		ldrh	r1, [r3]	@ unaligned
  347 0072 9B78     		ldrb	r3, [r3, #2]	@ zero_extendqisi2
  348 0074 2152     		strh	r1, [r4, r0]	@ unaligned
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cc1F8nP3.s 			page 10
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccq1PXWv.s 			page 10
 
 
  349 0076 9370     		strb	r3, [r2, #2]
@@ -598,7 +598,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cc1F8nP3.s 			page 1
  385      20202020 
  385      20202020 
  385      20202020 
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cc1F8nP3.s 			page 11
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccq1PXWv.s 			page 11
 
 
  386 00d0 0D0A2020 		.ascii	"\015\012                                           "
@@ -658,7 +658,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cc1F8nP3.s 			page 1
  396      23232020 
  397 02e0 20202020 		.ascii	"                          ,,,,,,*   (###(\015\012  "
  397      20202020 
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cc1F8nP3.s 			page 12
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccq1PXWv.s 			page 12
 
 
  397      20202020 
@@ -718,7 +718,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cc1F8nP3.s 			page 1
  428 0004 1860     		str	r0, [r3]
  139:SynaptiX_FDK/services/logger/logger.c ****     serial_write = p_func;
  429              		.loc 1 139 5 is_stmt 1 view .LVU67
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cc1F8nP3.s 			page 13
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccq1PXWv.s 			page 13
 
 
  430              		.loc 1 139 18 is_stmt 0 view .LVU68
@@ -778,7 +778,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cc1F8nP3.s 			page 1
  480      00000000 
  480      00000000 
  480      00000000 
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cc1F8nP3.s 			page 14
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccq1PXWv.s 			page 14
 
 
  480      00000000 
@@ -838,7 +838,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cc1F8nP3.s 			page 1
  525              		.align	2
  528              	log_level_strings:
  529 0000 28000000 		.word	.LC10
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cc1F8nP3.s 			page 15
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccq1PXWv.s 			page 15
 
 
  530 0004 30000000 		.word	.LC11
@@ -863,39 +863,39 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cc1F8nP3.s 			page 1
  553              		.file 7 "C:\\ST\\STM32CubeCLT_1.20.0\\GNU-tools-for-STM32\\bin/../lib/gcc/arm-none-eabi/13.3.1/../
  554              		.file 8 "C:\\ST\\STM32CubeCLT_1.20.0\\GNU-tools-for-STM32\\bin/../lib/gcc/arm-none-eabi/13.3.1/../
  555              		.file 9 "<built-in>"
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cc1F8nP3.s 			page 16
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccq1PXWv.s 			page 16
 
 
 DEFINED SYMBOLS
                             *ABS*:00000000 logger.c
-C:\Users\LENOVO\AppData\Local\Temp\cc1F8nP3.s:22     .text.serial_write_func:00000000 $t
-C:\Users\LENOVO\AppData\Local\Temp\cc1F8nP3.s:27     .text.serial_write_func:00000000 serial_write_func
-C:\Users\LENOVO\AppData\Local\Temp\cc1F8nP3.s:49     .rodata.log_func.str1.4:00000000 $d
-C:\Users\LENOVO\AppData\Local\Temp\cc1F8nP3.s:56     .text.log_func:00000000 $t
-C:\Users\LENOVO\AppData\Local\Temp\cc1F8nP3.s:62     .text.log_func:00000000 log_func
-C:\Users\LENOVO\AppData\Local\Temp\cc1F8nP3.s:180    .text.log_func:0000006c $d
-C:\Users\LENOVO\AppData\Local\Temp\cc1F8nP3.s:544    .data.LOG_LEVEL:00000000 LOG_LEVEL
-C:\Users\LENOVO\AppData\Local\Temp\cc1F8nP3.s:502    .data.colors:00000000 colors
-C:\Users\LENOVO\AppData\Local\Temp\cc1F8nP3.s:479    .bss.buff:00000000 buff
-C:\Users\LENOVO\AppData\Local\Temp\cc1F8nP3.s:528    .rodata.log_level_strings:00000000 log_level_strings
-C:\Users\LENOVO\AppData\Local\Temp\cc1F8nP3.s:538    .data.serial_write:00000000 serial_write
-C:\Users\LENOVO\AppData\Local\Temp\cc1F8nP3.s:191    .text.logger_set_level:00000000 $t
-C:\Users\LENOVO\AppData\Local\Temp\cc1F8nP3.s:197    .text.logger_set_level:00000000 logger_set_level
-C:\Users\LENOVO\AppData\Local\Temp\cc1F8nP3.s:214    .text.logger_set_level:00000008 $d
-C:\Users\LENOVO\AppData\Local\Temp\cc1F8nP3.s:219    .rodata.log_print_hex.str1.4:00000000 $d
-C:\Users\LENOVO\AppData\Local\Temp\cc1F8nP3.s:223    .text.log_print_hex:00000000 $t
-C:\Users\LENOVO\AppData\Local\Temp\cc1F8nP3.s:229    .text.log_print_hex:00000000 log_print_hex
-C:\Users\LENOVO\AppData\Local\Temp\cc1F8nP3.s:365    .text.log_print_hex:00000088 $d
-C:\Users\LENOVO\AppData\Local\Temp\cc1F8nP3.s:377    .rodata.logger_init.str1.4:00000000 $d
-C:\Users\LENOVO\AppData\Local\Temp\cc1F8nP3.s:404    .text.logger_init:00000000 $t
-C:\Users\LENOVO\AppData\Local\Temp\cc1F8nP3.s:410    .text.logger_init:00000000 logger_init
-C:\Users\LENOVO\AppData\Local\Temp\cc1F8nP3.s:466    .text.logger_init:0000002c $d
-C:\Users\LENOVO\AppData\Local\Temp\cc1F8nP3.s:476    .bss.buff:00000000 $d
-C:\Users\LENOVO\AppData\Local\Temp\cc1F8nP3.s:483    .rodata.str1.4:00000000 $d
-C:\Users\LENOVO\AppData\Local\Temp\cc1F8nP3.s:499    .data.colors:00000000 $d
-C:\Users\LENOVO\AppData\Local\Temp\cc1F8nP3.s:525    .rodata.log_level_strings:00000000 $d
-C:\Users\LENOVO\AppData\Local\Temp\cc1F8nP3.s:535    .data.serial_write:00000000 $d
-C:\Users\LENOVO\AppData\Local\Temp\cc1F8nP3.s:541    .data.LOG_LEVEL:00000000 $d
+C:\Users\LENOVO\AppData\Local\Temp\ccq1PXWv.s:22     .text.serial_write_func:00000000 $t
+C:\Users\LENOVO\AppData\Local\Temp\ccq1PXWv.s:27     .text.serial_write_func:00000000 serial_write_func
+C:\Users\LENOVO\AppData\Local\Temp\ccq1PXWv.s:49     .rodata.log_func.str1.4:00000000 $d
+C:\Users\LENOVO\AppData\Local\Temp\ccq1PXWv.s:56     .text.log_func:00000000 $t
+C:\Users\LENOVO\AppData\Local\Temp\ccq1PXWv.s:62     .text.log_func:00000000 log_func
+C:\Users\LENOVO\AppData\Local\Temp\ccq1PXWv.s:180    .text.log_func:0000006c $d
+C:\Users\LENOVO\AppData\Local\Temp\ccq1PXWv.s:544    .data.LOG_LEVEL:00000000 LOG_LEVEL
+C:\Users\LENOVO\AppData\Local\Temp\ccq1PXWv.s:502    .data.colors:00000000 colors
+C:\Users\LENOVO\AppData\Local\Temp\ccq1PXWv.s:479    .bss.buff:00000000 buff
+C:\Users\LENOVO\AppData\Local\Temp\ccq1PXWv.s:528    .rodata.log_level_strings:00000000 log_level_strings
+C:\Users\LENOVO\AppData\Local\Temp\ccq1PXWv.s:538    .data.serial_write:00000000 serial_write
+C:\Users\LENOVO\AppData\Local\Temp\ccq1PXWv.s:191    .text.logger_set_level:00000000 $t
+C:\Users\LENOVO\AppData\Local\Temp\ccq1PXWv.s:197    .text.logger_set_level:00000000 logger_set_level
+C:\Users\LENOVO\AppData\Local\Temp\ccq1PXWv.s:214    .text.logger_set_level:00000008 $d
+C:\Users\LENOVO\AppData\Local\Temp\ccq1PXWv.s:219    .rodata.log_print_hex.str1.4:00000000 $d
+C:\Users\LENOVO\AppData\Local\Temp\ccq1PXWv.s:223    .text.log_print_hex:00000000 $t
+C:\Users\LENOVO\AppData\Local\Temp\ccq1PXWv.s:229    .text.log_print_hex:00000000 log_print_hex
+C:\Users\LENOVO\AppData\Local\Temp\ccq1PXWv.s:365    .text.log_print_hex:00000088 $d
+C:\Users\LENOVO\AppData\Local\Temp\ccq1PXWv.s:377    .rodata.logger_init.str1.4:00000000 $d
+C:\Users\LENOVO\AppData\Local\Temp\ccq1PXWv.s:404    .text.logger_init:00000000 $t
+C:\Users\LENOVO\AppData\Local\Temp\ccq1PXWv.s:410    .text.logger_init:00000000 logger_init
+C:\Users\LENOVO\AppData\Local\Temp\ccq1PXWv.s:466    .text.logger_init:0000002c $d
+C:\Users\LENOVO\AppData\Local\Temp\ccq1PXWv.s:476    .bss.buff:00000000 $d
+C:\Users\LENOVO\AppData\Local\Temp\ccq1PXWv.s:483    .rodata.str1.4:00000000 $d
+C:\Users\LENOVO\AppData\Local\Temp\ccq1PXWv.s:499    .data.colors:00000000 $d
+C:\Users\LENOVO\AppData\Local\Temp\ccq1PXWv.s:525    .rodata.log_level_strings:00000000 $d
+C:\Users\LENOVO\AppData\Local\Temp\ccq1PXWv.s:535    .data.serial_write:00000000 $d
+C:\Users\LENOVO\AppData\Local\Temp\ccq1PXWv.s:541    .data.LOG_LEVEL:00000000 $d
 
 UNDEFINED SYMBOLS
 printf

@@ -20,7 +20,6 @@
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
 #include "stm32h5xx_it.h"
-#include "logger.h" // DEBUG: needed for log_error in HardFault_LogAndHang (hang investigation)
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 /* USER CODE END Includes */
@@ -91,68 +90,16 @@ void NMI_Handler(void)
 /**
   * @brief This function handles Hard fault interrupt.
   */
-// DEBUG: added for the "app hangs after bootloader jump" investigation.
-// Handler was previously empty (just while(1)), so a real CPU fault (bad jump,
-// invalid memory access, etc.) would look identical to any other kind of silent
-// hang -- no way to tell them apart from the UART log alone.
-//
-// This C function does the actual logging. It must be called with the MSP value
-// exactly as it was at exception entry, read by the naked asm trampoline below
-// BEFORE any C function prologue gets a chance to touch the stack (reading MSP
-// from inside a normal C function is not reliably safe for this reason).
-void HardFault_LogAndHang(uint32_t msp_at_entry)
+void HardFault_Handler(void)
 {
-    // Exception stack frame layout pushed automatically by the CPU: r0,r1,r2,r3,r12,lr,pc,psr
-    uint32_t *stacked = (uint32_t*)msp_at_entry;
-    uint32_t stacked_r0  = stacked[0];
-    uint32_t stacked_r1  = stacked[1];
-    uint32_t stacked_r2  = stacked[2];
-    uint32_t stacked_r3  = stacked[3];
-    uint32_t stacked_r12 = stacked[4];
-    uint32_t stacked_lr  = stacked[5];
-    uint32_t stacked_pc  = stacked[6];
-    uint32_t stacked_psr = stacked[7];
+  /* USER CODE BEGIN HardFault_IRQn 0 */
 
-    uint32_t cfsr  = SCB->CFSR;
-    uint32_t hfsr  = SCB->HFSR;
-    uint32_t mmfar = SCB->MMFAR;
-    uint32_t bfar  = SCB->BFAR;
-
-    log_error("FAULT", "HardFault! pc=0x%08lX lr=0x%08lX psr=0x%08lX",
-        (unsigned long)stacked_pc, (unsigned long)stacked_lr, (unsigned long)stacked_psr);
-    log_error("FAULT", "  r0=0x%08lX r1=0x%08lX r2=0x%08lX r3=0x%08lX r12=0x%08lX",
-        (unsigned long)stacked_r0, (unsigned long)stacked_r1, (unsigned long)stacked_r2,
-        (unsigned long)stacked_r3, (unsigned long)stacked_r12);
-    log_error("FAULT", "  CFSR=0x%08lX HFSR=0x%08lX MMFAR=0x%08lX BFAR=0x%08lX",
-        (unsigned long)cfsr, (unsigned long)hfsr, (unsigned long)mmfar, (unsigned long)bfar);
-
-    while (1) { }
-}
-
-/**
-  * @brief This function handles Hard fault interrupt.
-  *
-  * DEBUG: naked trampoline for the "app hangs after bootloader jump" investigation.
-  * IMPORTANT: a naked function's body must contain ONLY an asm block -- no comments,
-  * no USER CODE markers, no other C statements. GCC only warns (doesn't error) if this
-  * rule is violated, and may silently inject its own prologue/epilogue in that case,
-  * which would corrupt r0/lr before HardFault_LogAndHang ever runs. That would explain
-  * a FAULT log never appearing even on a genuine fault, so keep this function's body
-  * exactly as minimal as it is below if editing it again.
-  *
-  * On fault entry, LR holds EXC_RETURN, whose bit 2 tells us whether the CPU was using
-  * MSP or PSP at the time of the fault. This project never uses PSP (no RTOS), so this
-  * will always resolve to MSP, but the check is kept in case that ever changes.
-  */
-__attribute__((naked)) void HardFault_Handler(void)
-{
-  __asm volatile (
-      "tst lr, #4              \n"
-      "ite eq                  \n"
-      "mrseq r0, msp            \n"
-      "mrsne r0, psp            \n"
-      "b HardFault_LogAndHang   \n"
-  );
+  /* USER CODE END HardFault_IRQn 0 */
+  while (1)
+  {
+    /* USER CODE BEGIN W1_HardFault_IRQn 0 */
+    /* USER CODE END W1_HardFault_IRQn 0 */
+  }
 }
 
 /**

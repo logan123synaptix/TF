@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccUQXOOg.s 			page 1
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccwZBgwY.s 			page 1
 
 
    1              		.cpu cortex-m33
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccUQXOOg.s 			page 1
   36              		.loc 1 16 1 view -0
   37              		.cfi_startproc
   38              		@ args = 0, pretend = 0, frame = 0
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccUQXOOg.s 			page 2
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccwZBgwY.s 			page 2
 
 
   39              		@ frame_needed = 0, uses_anonymous_args = 0
@@ -118,7 +118,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccUQXOOg.s 			page 1
   83              		.section	.text.sx_user_msc_init,"ax",%progbits
   84              		.align	1
   85              		.global	sx_user_msc_init
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccUQXOOg.s 			page 3
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccwZBgwY.s 			page 3
 
 
   86              		.syntax unified
@@ -178,7 +178,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccUQXOOg.s 			page 1
  132              	.LC3:
  133 0000 66617466 		.ascii	"fatfs mount failed: %d\000"
  133      73206D6F 
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccUQXOOg.s 			page 4
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccwZBgwY.s 			page 4
 
 
  133      756E7420 
@@ -238,7 +238,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccUQXOOg.s 			page 1
  172              		.loc 1 38 8 is_stmt 0 view .LVU22
  173 000c 78B3     		cbz	r0, .L14
   39:SynaptiX_FDK/app/user/sx_msc/sx_user_msc.c **** 
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccUQXOOg.s 			page 5
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccwZBgwY.s 			page 5
 
 
   40:SynaptiX_FDK/app/user/sx_msc/sx_user_msc.c ****     /* Format flash FAT — mỗi lần cắm USB tạo mới hoàn toàn */
@@ -298,7 +298,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccUQXOOg.s 			page 1
  211              		.loc 1 56 5 is_stmt 0 discriminator 1 view .LVU36
  212 0038 0090     		str	r0, [sp]
  213 003a 2346     		mov	r3, r4
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccUQXOOg.s 			page 6
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccwZBgwY.s 			page 6
 
 
  214 003c 0F4A     		ldr	r2, .L21+8
@@ -358,7 +358,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccUQXOOg.s 			page 1
  258 0066 DBE7     		b	.L12
  259              	.LVL23:
  260              	.L13:
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccUQXOOg.s 			page 7
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccwZBgwY.s 			page 7
 
 
  261              	.LCFI6:
@@ -418,7 +418,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccUQXOOg.s 			page 1
  305              		.syntax unified
  306              		.thumb
  307              		.thumb_func
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccUQXOOg.s 			page 8
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccwZBgwY.s 			page 8
 
 
  309              	sx_user_msc_create_file:
@@ -478,7 +478,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccUQXOOg.s 			page 1
  349 001c 02A8     		add	r0, sp, #8
  350              	.LVL30:
  351              		.loc 1 72 5 is_stmt 0 view .LVU65
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccUQXOOg.s 			page 9
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccwZBgwY.s 			page 9
 
 
  352 001e FFF7FEFF 		bl	f_close
@@ -538,7 +538,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccUQXOOg.s 			page 1
  398 004a 4FF0FF30 		mov	r0, #-1
  399              	.LVL38:
  400              		.loc 1 75 1 view .LVU75
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccUQXOOg.s 			page 10
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccwZBgwY.s 			page 10
 
 
  401 004e 7047     		bx	lr
@@ -598,7 +598,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccUQXOOg.s 			page 1
   79:SynaptiX_FDK/app/user/sx_msc/sx_user_msc.c ****     if (!s_initialized)                   return SX_USER_MSC_ERR_INIT;
  444              		.loc 1 79 5 view .LVU79
  445              		.loc 1 79 9 is_stmt 0 view .LVU80
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccUQXOOg.s 			page 11
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccwZBgwY.s 			page 11
 
 
  446 0000 164B     		ldr	r3, .L47
@@ -658,7 +658,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccUQXOOg.s 			page 1
  489 0028 0020     		movs	r0, #0
  490              	.LVL45:
  491              	.L36:
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccUQXOOg.s 			page 12
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccwZBgwY.s 			page 12
 
 
   90:SynaptiX_FDK/app/user/sx_msc/sx_user_msc.c **** }
@@ -718,7 +718,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccUQXOOg.s 			page 1
   80:SynaptiX_FDK/app/user/sx_msc/sx_user_msc.c ****     if (len == 0)                         return SX_USER_MSC_ERR_PARAM;
  539              		.loc 1 80 50 discriminator 3 view .LVU104
  540 004c EDE7     		b	.L36
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccUQXOOg.s 			page 13
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccwZBgwY.s 			page 13
 
 
  541              	.LVL53:
@@ -778,7 +778,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccUQXOOg.s 			page 1
  580              		.thumb_func
  582              	sx_user_msc_append:
  583              	.LVL57:
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccUQXOOg.s 			page 14
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccwZBgwY.s 			page 14
 
 
  584              	.LFB5:
@@ -838,7 +838,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccUQXOOg.s 			page 1
  625              		.loc 1 102 11 is_stmt 0 view .LVU123
  626 0020 3222     		movs	r2, #50
  627              	.LVL58:
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccUQXOOg.s 			page 15
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccwZBgwY.s 			page 15
 
 
  628              		.loc 1 102 11 view .LVU124
@@ -898,7 +898,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccUQXOOg.s 			page 1
  668              		.loc 1 116 5 is_stmt 1 view .LVU138
  669 004e 0094     		str	r4, [sp]
  670 0050 2B46     		mov	r3, r5
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccUQXOOg.s 			page 16
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccwZBgwY.s 			page 16
 
 
  671 0052 154A     		ldr	r2, .L63+4
@@ -958,7 +958,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccUQXOOg.s 			page 1
  114:SynaptiX_FDK/app/user/sx_msc/sx_user_msc.c ****     }
  717              		.loc 1 114 16 is_stmt 0 view .LVU148
  718 0086 6FF00300 		mvn	r0, #3
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccUQXOOg.s 			page 17
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccwZBgwY.s 			page 17
 
 
  719 008a E8E7     		b	.L50
@@ -1018,7 +1018,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccUQXOOg.s 			page 1
  766 00b0 00000000 		.word	.LC10
  767 00b4 1C000000 		.word	.LC11
  768              		.cfi_endproc
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccUQXOOg.s 			page 18
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccwZBgwY.s 			page 18
 
 
  769              	.LFE5:
@@ -1078,7 +1078,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccUQXOOg.s 			page 1
  124:SynaptiX_FDK/app/user/sx_msc/sx_user_msc.c ****     if (filename == NULL || buf == NULL) return SX_USER_MSC_ERR_PARAM;
  812              		.loc 1 124 5 is_stmt 1 view .LVU163
  813              		.loc 1 124 8 is_stmt 0 view .LVU164
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccUQXOOg.s 			page 19
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccwZBgwY.s 			page 19
 
 
  814 000e 00B3     		cbz	r0, .L70
@@ -1138,7 +1138,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccUQXOOg.s 			page 1
  858              		.cfi_restore_state
  129:SynaptiX_FDK/app/user/sx_msc/sx_user_msc.c ****         log_error(TAG, "read(%s) failed: %d", filename, ret);
  859              		.loc 1 129 9 is_stmt 1 view .LVU179
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccUQXOOg.s 			page 20
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccwZBgwY.s 			page 20
 
 
  860 0034 0090     		str	r0, [sp]
@@ -1198,7 +1198,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccUQXOOg.s 			page 1
  903              	.LVL99:
  125:SynaptiX_FDK/app/user/sx_msc/sx_user_msc.c **** 
  904              		.loc 1 125 49 discriminator 1 view .LVU191
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccUQXOOg.s 			page 21
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccwZBgwY.s 			page 21
 
 
  905 0062 E5E7     		b	.L66
@@ -1258,7 +1258,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccUQXOOg.s 			page 1
  952 000e FFF7FEFF 		bl	sx_user_msc_append
  953              	.LVL101:
  144:SynaptiX_FDK/app/user/sx_msc/sx_user_msc.c ****     if (ret != SX_USER_MSC_OK) return ret;
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccUQXOOg.s 			page 22
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccwZBgwY.s 			page 22
 
 
  954              		.loc 1 144 5 is_stmt 1 view .LVU204
@@ -1318,7 +1318,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccUQXOOg.s 			page 1
  141:SynaptiX_FDK/app/user/sx_msc/sx_user_msc.c **** 
  995              		.loc 1 141 50 discriminator 1 view .LVU217
  996 0032 EFE7     		b	.L79
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccUQXOOg.s 			page 23
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccwZBgwY.s 			page 23
 
 
  997              	.L87:
@@ -1378,7 +1378,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccUQXOOg.s 			page 1
  156:SynaptiX_FDK/app/user/sx_msc/sx_user_msc.c ****     sx_usb_tiny_msc_load(&s_msc, sx_fatfs_get_block_count());
  1040              		.loc 1 156 5 is_stmt 1 view .LVU227
  1041 000e FFF7FEFF 		bl	sx_fatfs_get_block_count
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccUQXOOg.s 			page 24
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccwZBgwY.s 			page 24
 
 
  1042              	.LVL114:
@@ -1438,7 +1438,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccUQXOOg.s 			page 1
  1089              	.L96:
  1090 003c 00000000 		.word	s_initialized
  1091 0040 00000000 		.word	s_msc
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccUQXOOg.s 			page 25
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccwZBgwY.s 			page 25
 
 
  1092 0044 00000000 		.word	.LC15
@@ -1463,50 +1463,50 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccUQXOOg.s 			page 1
  1115              		.file 7 "SynaptiX_FDK/services/logger/logger.h"
  1116              		.file 8 "SynaptiX_FDK/services/sx_fatfs/sx_fatfs.h"
  1117              		.file 9 "SynaptiX_FDK/utils/delay/sx_delay.h"
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccUQXOOg.s 			page 26
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccwZBgwY.s 			page 26
 
 
 DEFINED SYMBOLS
                             *ABS*:00000000 sx_user_msc.c
-C:\Users\LENOVO\AppData\Local\Temp\ccUQXOOg.s:22     .rodata._remount.str1.4:00000000 $d
-C:\Users\LENOVO\AppData\Local\Temp\ccUQXOOg.s:29     .text._remount:00000000 $t
-C:\Users\LENOVO\AppData\Local\Temp\ccUQXOOg.s:34     .text._remount:00000000 _remount
-C:\Users\LENOVO\AppData\Local\Temp\ccUQXOOg.s:73     .text._remount:00000028 $d
-C:\Users\LENOVO\AppData\Local\Temp\ccUQXOOg.s:1106   .bss.s_msc:00000000 s_msc
-C:\Users\LENOVO\AppData\Local\Temp\ccUQXOOg.s:80     .rodata.sx_user_msc_init.str1.4:00000000 $d
-C:\Users\LENOVO\AppData\Local\Temp\ccUQXOOg.s:84     .text.sx_user_msc_init:00000000 $t
-C:\Users\LENOVO\AppData\Local\Temp\ccUQXOOg.s:90     .text.sx_user_msc_init:00000000 sx_user_msc_init
-C:\Users\LENOVO\AppData\Local\Temp\ccUQXOOg.s:123    .text.sx_user_msc_init:0000001c $d
-C:\Users\LENOVO\AppData\Local\Temp\ccUQXOOg.s:1100   .bss.s_initialized:00000000 s_initialized
-C:\Users\LENOVO\AppData\Local\Temp\ccUQXOOg.s:131    .rodata.sx_user_msc_create_disk.str1.4:00000000 $d
-C:\Users\LENOVO\AppData\Local\Temp\ccUQXOOg.s:141    .text.sx_user_msc_create_disk:00000000 $t
-C:\Users\LENOVO\AppData\Local\Temp\ccUQXOOg.s:147    .text.sx_user_msc_create_disk:00000000 sx_user_msc_create_disk
-C:\Users\LENOVO\AppData\Local\Temp\ccUQXOOg.s:286    .text.sx_user_msc_create_disk:00000074 $d
-C:\Users\LENOVO\AppData\Local\Temp\ccUQXOOg.s:296    .rodata.sx_user_msc_create_file.str1.4:00000000 $d
-C:\Users\LENOVO\AppData\Local\Temp\ccUQXOOg.s:303    .text.sx_user_msc_create_file:00000000 $t
-C:\Users\LENOVO\AppData\Local\Temp\ccUQXOOg.s:309    .text.sx_user_msc_create_file:00000000 sx_user_msc_create_file
-C:\Users\LENOVO\AppData\Local\Temp\ccUQXOOg.s:416    .text.sx_user_msc_create_file:00000058 $d
-C:\Users\LENOVO\AppData\Local\Temp\ccUQXOOg.s:424    .rodata.sx_user_msc_write.str1.4:00000000 $d
-C:\Users\LENOVO\AppData\Local\Temp\ccUQXOOg.s:431    .text.sx_user_msc_write:00000000 $t
-C:\Users\LENOVO\AppData\Local\Temp\ccUQXOOg.s:437    .text.sx_user_msc_write:00000000 sx_user_msc_write
-C:\Users\LENOVO\AppData\Local\Temp\ccUQXOOg.s:558    .text.sx_user_msc_write:0000005c $d
-C:\Users\LENOVO\AppData\Local\Temp\ccUQXOOg.s:566    .rodata.sx_user_msc_append.str1.4:00000000 $d
-C:\Users\LENOVO\AppData\Local\Temp\ccUQXOOg.s:576    .text.sx_user_msc_append:00000000 $t
-C:\Users\LENOVO\AppData\Local\Temp\ccUQXOOg.s:582    .text.sx_user_msc_append:00000000 sx_user_msc_append
-C:\Users\LENOVO\AppData\Local\Temp\ccUQXOOg.s:763    .text.sx_user_msc_append:000000a4 $d
-C:\Users\LENOVO\AppData\Local\Temp\ccUQXOOg.s:772    .rodata.sx_user_msc_read.str1.4:00000000 $d
-C:\Users\LENOVO\AppData\Local\Temp\ccUQXOOg.s:779    .text.sx_user_msc_read:00000000 $t
-C:\Users\LENOVO\AppData\Local\Temp\ccUQXOOg.s:785    .text.sx_user_msc_read:00000000 sx_user_msc_read
-C:\Users\LENOVO\AppData\Local\Temp\ccUQXOOg.s:909    .text.sx_user_msc_read:00000064 $d
-C:\Users\LENOVO\AppData\Local\Temp\ccUQXOOg.s:917    .text.sx_user_msc_update_file:00000000 $t
-C:\Users\LENOVO\AppData\Local\Temp\ccUQXOOg.s:923    .text.sx_user_msc_update_file:00000000 sx_user_msc_update_file
-C:\Users\LENOVO\AppData\Local\Temp\ccUQXOOg.s:1000   .text.sx_user_msc_update_file:00000034 $d
-C:\Users\LENOVO\AppData\Local\Temp\ccUQXOOg.s:1005   .rodata.sx_user_msc_remount_disk.str1.4:00000000 $d
-C:\Users\LENOVO\AppData\Local\Temp\ccUQXOOg.s:1009   .text.sx_user_msc_remount_disk:00000000 $t
-C:\Users\LENOVO\AppData\Local\Temp\ccUQXOOg.s:1015   .text.sx_user_msc_remount_disk:00000000 sx_user_msc_remount_disk
-C:\Users\LENOVO\AppData\Local\Temp\ccUQXOOg.s:1090   .text.sx_user_msc_remount_disk:0000003c $d
-C:\Users\LENOVO\AppData\Local\Temp\ccUQXOOg.s:1101   .bss.s_initialized:00000000 $d
-C:\Users\LENOVO\AppData\Local\Temp\ccUQXOOg.s:1103   .bss.s_msc:00000000 $d
+C:\Users\LENOVO\AppData\Local\Temp\ccwZBgwY.s:22     .rodata._remount.str1.4:00000000 $d
+C:\Users\LENOVO\AppData\Local\Temp\ccwZBgwY.s:29     .text._remount:00000000 $t
+C:\Users\LENOVO\AppData\Local\Temp\ccwZBgwY.s:34     .text._remount:00000000 _remount
+C:\Users\LENOVO\AppData\Local\Temp\ccwZBgwY.s:73     .text._remount:00000028 $d
+C:\Users\LENOVO\AppData\Local\Temp\ccwZBgwY.s:1106   .bss.s_msc:00000000 s_msc
+C:\Users\LENOVO\AppData\Local\Temp\ccwZBgwY.s:80     .rodata.sx_user_msc_init.str1.4:00000000 $d
+C:\Users\LENOVO\AppData\Local\Temp\ccwZBgwY.s:84     .text.sx_user_msc_init:00000000 $t
+C:\Users\LENOVO\AppData\Local\Temp\ccwZBgwY.s:90     .text.sx_user_msc_init:00000000 sx_user_msc_init
+C:\Users\LENOVO\AppData\Local\Temp\ccwZBgwY.s:123    .text.sx_user_msc_init:0000001c $d
+C:\Users\LENOVO\AppData\Local\Temp\ccwZBgwY.s:1100   .bss.s_initialized:00000000 s_initialized
+C:\Users\LENOVO\AppData\Local\Temp\ccwZBgwY.s:131    .rodata.sx_user_msc_create_disk.str1.4:00000000 $d
+C:\Users\LENOVO\AppData\Local\Temp\ccwZBgwY.s:141    .text.sx_user_msc_create_disk:00000000 $t
+C:\Users\LENOVO\AppData\Local\Temp\ccwZBgwY.s:147    .text.sx_user_msc_create_disk:00000000 sx_user_msc_create_disk
+C:\Users\LENOVO\AppData\Local\Temp\ccwZBgwY.s:286    .text.sx_user_msc_create_disk:00000074 $d
+C:\Users\LENOVO\AppData\Local\Temp\ccwZBgwY.s:296    .rodata.sx_user_msc_create_file.str1.4:00000000 $d
+C:\Users\LENOVO\AppData\Local\Temp\ccwZBgwY.s:303    .text.sx_user_msc_create_file:00000000 $t
+C:\Users\LENOVO\AppData\Local\Temp\ccwZBgwY.s:309    .text.sx_user_msc_create_file:00000000 sx_user_msc_create_file
+C:\Users\LENOVO\AppData\Local\Temp\ccwZBgwY.s:416    .text.sx_user_msc_create_file:00000058 $d
+C:\Users\LENOVO\AppData\Local\Temp\ccwZBgwY.s:424    .rodata.sx_user_msc_write.str1.4:00000000 $d
+C:\Users\LENOVO\AppData\Local\Temp\ccwZBgwY.s:431    .text.sx_user_msc_write:00000000 $t
+C:\Users\LENOVO\AppData\Local\Temp\ccwZBgwY.s:437    .text.sx_user_msc_write:00000000 sx_user_msc_write
+C:\Users\LENOVO\AppData\Local\Temp\ccwZBgwY.s:558    .text.sx_user_msc_write:0000005c $d
+C:\Users\LENOVO\AppData\Local\Temp\ccwZBgwY.s:566    .rodata.sx_user_msc_append.str1.4:00000000 $d
+C:\Users\LENOVO\AppData\Local\Temp\ccwZBgwY.s:576    .text.sx_user_msc_append:00000000 $t
+C:\Users\LENOVO\AppData\Local\Temp\ccwZBgwY.s:582    .text.sx_user_msc_append:00000000 sx_user_msc_append
+C:\Users\LENOVO\AppData\Local\Temp\ccwZBgwY.s:763    .text.sx_user_msc_append:000000a4 $d
+C:\Users\LENOVO\AppData\Local\Temp\ccwZBgwY.s:772    .rodata.sx_user_msc_read.str1.4:00000000 $d
+C:\Users\LENOVO\AppData\Local\Temp\ccwZBgwY.s:779    .text.sx_user_msc_read:00000000 $t
+C:\Users\LENOVO\AppData\Local\Temp\ccwZBgwY.s:785    .text.sx_user_msc_read:00000000 sx_user_msc_read
+C:\Users\LENOVO\AppData\Local\Temp\ccwZBgwY.s:909    .text.sx_user_msc_read:00000064 $d
+C:\Users\LENOVO\AppData\Local\Temp\ccwZBgwY.s:917    .text.sx_user_msc_update_file:00000000 $t
+C:\Users\LENOVO\AppData\Local\Temp\ccwZBgwY.s:923    .text.sx_user_msc_update_file:00000000 sx_user_msc_update_file
+C:\Users\LENOVO\AppData\Local\Temp\ccwZBgwY.s:1000   .text.sx_user_msc_update_file:00000034 $d
+C:\Users\LENOVO\AppData\Local\Temp\ccwZBgwY.s:1005   .rodata.sx_user_msc_remount_disk.str1.4:00000000 $d
+C:\Users\LENOVO\AppData\Local\Temp\ccwZBgwY.s:1009   .text.sx_user_msc_remount_disk:00000000 $t
+C:\Users\LENOVO\AppData\Local\Temp\ccwZBgwY.s:1015   .text.sx_user_msc_remount_disk:00000000 sx_user_msc_remount_disk
+C:\Users\LENOVO\AppData\Local\Temp\ccwZBgwY.s:1090   .text.sx_user_msc_remount_disk:0000003c $d
+C:\Users\LENOVO\AppData\Local\Temp\ccwZBgwY.s:1101   .bss.s_initialized:00000000 $d
+C:\Users\LENOVO\AppData\Local\Temp\ccwZBgwY.s:1103   .bss.s_msc:00000000 $d
 
 UNDEFINED SYMBOLS
 sx_usb_tiny_msc_disconnect
@@ -1523,7 +1523,7 @@ f_open
 f_close
 sx_fatfs_write_file
 f_write
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccUQXOOg.s 			page 27
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\ccwZBgwY.s 			page 27
 
 
 f_sync

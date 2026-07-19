@@ -14,7 +14,6 @@ build/main.o: Core/Src/main.c Core/Inc/main.h \
  Drivers/STM32H5xx_HAL_Driver/Inc/stm32h5xx_hal_gpio.h \
  Drivers/STM32H5xx_HAL_Driver/Inc/stm32h5xx_hal_gpio_ex.h \
  Drivers/STM32H5xx_HAL_Driver/Inc/stm32h5xx_hal_icache.h \
- Drivers/STM32H5xx_HAL_Driver/Inc/stm32h5xx_hal_dcache.h \
  Drivers/STM32H5xx_HAL_Driver/Inc/stm32h5xx_hal_dma.h \
  Drivers/STM32H5xx_HAL_Driver/Inc/stm32h5xx_hal_dma_ex.h \
  Drivers/STM32H5xx_HAL_Driver/Inc/stm32h5xx_hal_cortex.h \
@@ -41,9 +40,9 @@ build/main.o: Core/Src/main.c Core/Inc/main.h \
  Drivers/STM32H5xx_HAL_Driver/Inc/stm32h5xx_ll_usb.h \
  Drivers/STM32H5xx_HAL_Driver/Inc/stm32h5xx_hal_pcd_ex.h \
  Drivers/STM32H5xx_HAL_Driver/Inc/stm32h5xx_hal_exti.h Core/Inc/adc.h \
- Core/Inc/main.h Core/Inc/dcache.h Core/Inc/i2c.h Core/Inc/icache.h \
- Core/Inc/lptim.h Core/Inc/rtc.h Core/Inc/spi.h Core/Inc/tim.h \
- Core/Inc/usart.h Core/Inc/usb.h Core/Inc/gpio.h SynaptiX_FDK/app/app.h \
+ Core/Inc/main.h Core/Inc/i2c.h Core/Inc/icache.h Core/Inc/lptim.h \
+ Core/Inc/rtc.h Core/Inc/spi.h Core/Inc/tim.h Core/Inc/usart.h \
+ Core/Inc/usb.h Core/Inc/gpio.h SynaptiX_FDK/app/app.h \
  SynaptiX_FDK/board/sx_board.h SynaptiX_FDK/components/spi/sx_spi.h \
  SynaptiX_FDK/components/gpio/sx_gpio.h \
  SynaptiX_FDK/components/uart/sx_uart.h SynaptiX_FDK/app/sx_config.h \
@@ -82,7 +81,6 @@ Drivers/STM32H5xx_HAL_Driver/Inc/stm32h5xx_hal_rcc_ex.h:
 Drivers/STM32H5xx_HAL_Driver/Inc/stm32h5xx_hal_gpio.h:
 Drivers/STM32H5xx_HAL_Driver/Inc/stm32h5xx_hal_gpio_ex.h:
 Drivers/STM32H5xx_HAL_Driver/Inc/stm32h5xx_hal_icache.h:
-Drivers/STM32H5xx_HAL_Driver/Inc/stm32h5xx_hal_dcache.h:
 Drivers/STM32H5xx_HAL_Driver/Inc/stm32h5xx_hal_dma.h:
 Drivers/STM32H5xx_HAL_Driver/Inc/stm32h5xx_hal_dma_ex.h:
 Drivers/STM32H5xx_HAL_Driver/Inc/stm32h5xx_hal_cortex.h:
@@ -111,7 +109,6 @@ Drivers/STM32H5xx_HAL_Driver/Inc/stm32h5xx_hal_pcd_ex.h:
 Drivers/STM32H5xx_HAL_Driver/Inc/stm32h5xx_hal_exti.h:
 Core/Inc/adc.h:
 Core/Inc/main.h:
-Core/Inc/dcache.h:
 Core/Inc/i2c.h:
 Core/Inc/icache.h:
 Core/Inc/lptim.h:

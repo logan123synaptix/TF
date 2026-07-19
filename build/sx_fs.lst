@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cc62mgDc.s 			page 1
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cchbM08N.s 			page 1
 
 
    1              		.cpu cortex-m33
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cc62mgDc.s 			page 1
   26:SynaptiX_FDK/components/external_flash/sx_external_flash.h ****     uint32_t page_size;     /* bytes per page   */
   27:SynaptiX_FDK/components/external_flash/sx_external_flash.h ****     uint32_t sector_size;   /* bytes per sector */
   28:SynaptiX_FDK/components/external_flash/sx_external_flash.h ****     uint32_t block_size;    /* bytes per block  */
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cc62mgDc.s 			page 2
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cchbM08N.s 			page 2
 
 
   29:SynaptiX_FDK/components/external_flash/sx_external_flash.h ****     uint32_t total_bytes;   /* total chip size  */
@@ -86,41 +86,60 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cc62mgDc.s 			page 1
   51:SynaptiX_FDK/components/external_flash/sx_external_flash.h ****     // DEBUG: temporary trace to locate the hang after boot-via-bootloader.
   52:SynaptiX_FDK/components/external_flash/sx_external_flash.h ****     // Confirms whether flash->ops / flash->ops->read still look sane right before
   53:SynaptiX_FDK/components/external_flash/sx_external_flash.h ****     // jumping through the function pointer.
-  54:SynaptiX_FDK/components/external_flash/sx_external_flash.h ****     log_error("SX_EXT_FLASH", "read: flash=%p ops=%p read_fn=%p addr=0x%06lX len=%lu",
-  55:SynaptiX_FDK/components/external_flash/sx_external_flash.h ****         (void*)flash, flash ? (void*)flash->ops : (void*)0,
-  56:SynaptiX_FDK/components/external_flash/sx_external_flash.h ****         (flash && flash->ops) ? (void*)flash->ops->read : (void*)0,
-  57:SynaptiX_FDK/components/external_flash/sx_external_flash.h ****         (unsigned long)addr, (unsigned long)len);
-  58:SynaptiX_FDK/components/external_flash/sx_external_flash.h **** 
-  59:SynaptiX_FDK/components/external_flash/sx_external_flash.h ****     // DEBUG: stack-check trace. Measures the real MSP right before the function-pointer
-  60:SynaptiX_FDK/components/external_flash/sx_external_flash.h ****     // call that never seems to land inside sx_W25Q128_read(). Compares against _estack
-  61:SynaptiX_FDK/components/external_flash/sx_external_flash.h ****     // (top of RAM stack) and the reserved _Min_Stack_Size floor, to confirm or rule out
-  62:SynaptiX_FDK/components/external_flash/sx_external_flash.h ****     // stack overflow as the cause of the hang. Read alongside sx_ext_flash.h's other
-  63:SynaptiX_FDK/components/external_flash/sx_external_flash.h ****     // DEBUG logs; remove once root cause is confirmed (see handoff "don't forget to clean up").
-  64:SynaptiX_FDK/components/external_flash/sx_external_flash.h ****     {
-  65:SynaptiX_FDK/components/external_flash/sx_external_flash.h ****         uint32_t sp = __get_MSP();
-  66:SynaptiX_FDK/components/external_flash/sx_external_flash.h ****         uint32_t estack_addr = (uint32_t)&_estack;
-  67:SynaptiX_FDK/components/external_flash/sx_external_flash.h ****         uint32_t min_stack = DEBUG_MIN_STACK_SIZE;
-  68:SynaptiX_FDK/components/external_flash/sx_external_flash.h ****         uint32_t used = estack_addr - sp;
-  69:SynaptiX_FDK/components/external_flash/sx_external_flash.h ****         int32_t margin_to_floor = (int32_t)(sp - (estack_addr - min_stack));
-  70:SynaptiX_FDK/components/external_flash/sx_external_flash.h ****         log_error("SX_EXT_FLASH", "SP_CHECK: sp=0x%08lX estack=0x%08lX min_stack=%lu used=%lu margi
-  71:SynaptiX_FDK/components/external_flash/sx_external_flash.h ****             (unsigned long)sp, (unsigned long)estack_addr, (unsigned long)min_stack,
-  72:SynaptiX_FDK/components/external_flash/sx_external_flash.h ****             (unsigned long)used, (long)margin_to_floor);
-  73:SynaptiX_FDK/components/external_flash/sx_external_flash.h ****     }
-  74:SynaptiX_FDK/components/external_flash/sx_external_flash.h **** 
-  75:SynaptiX_FDK/components/external_flash/sx_external_flash.h ****     if (flash->ops && flash->ops->read)
-  76:SynaptiX_FDK/components/external_flash/sx_external_flash.h ****         return flash->ops->read(addr, buf, len);
-  77:SynaptiX_FDK/components/external_flash/sx_external_flash.h ****     return -1;
-  78:SynaptiX_FDK/components/external_flash/sx_external_flash.h **** }
-  79:SynaptiX_FDK/components/external_flash/sx_external_flash.h **** 
-  80:SynaptiX_FDK/components/external_flash/sx_external_flash.h **** static inline int sx_ext_flash_write(sx_ext_flash_t *flash, uint32_t addr, const uint8_t *buf, uint
-  31              		.loc 2 80 109 view -0
+  54:SynaptiX_FDK/components/external_flash/sx_external_flash.h ****     // DEBUG: raw tick reading BEFORE any log_error call below, to check whether
+  55:SynaptiX_FDK/components/external_flash/sx_external_flash.h ****     // SysTick/HAL_GetTick() is still advancing at the exact moment of the hang.
+  56:SynaptiX_FDK/components/external_flash/sx_external_flash.h ****     // This does not depend on UART at all (just reads a RAM counter), so if this
+  57:SynaptiX_FDK/components/external_flash/sx_external_flash.h ****     // number stops advancing across repeated hangs while the UART log looks fine
+  58:SynaptiX_FDK/components/external_flash/sx_external_flash.h ****     // elsewhere, that points at SysTick/HAL_GetTick() itself being the problem
+  59:SynaptiX_FDK/components/external_flash/sx_external_flash.h ****     // rather than UART. Printed as part of the read log line just below.
+  60:SynaptiX_FDK/components/external_flash/sx_external_flash.h ****     uint32_t dbg_tick_before = HAL_GetTick();
+  61:SynaptiX_FDK/components/external_flash/sx_external_flash.h **** 
+  62:SynaptiX_FDK/components/external_flash/sx_external_flash.h ****     log_error("SX_EXT_FLASH", "read: flash=%p ops=%p read_fn=%p addr=0x%06lX len=%lu tick=%lu",
+  63:SynaptiX_FDK/components/external_flash/sx_external_flash.h ****         (void*)flash, flash ? (void*)flash->ops : (void*)0,
+  64:SynaptiX_FDK/components/external_flash/sx_external_flash.h ****         (flash && flash->ops) ? (void*)flash->ops->read : (void*)0,
+  65:SynaptiX_FDK/components/external_flash/sx_external_flash.h ****         (unsigned long)addr, (unsigned long)len, (unsigned long)dbg_tick_before);
+  66:SynaptiX_FDK/components/external_flash/sx_external_flash.h **** 
+  67:SynaptiX_FDK/components/external_flash/sx_external_flash.h ****     // DEBUG: stack-check trace. Measures the real MSP right before the function-pointer
+  68:SynaptiX_FDK/components/external_flash/sx_external_flash.h ****     // call that never seems to land inside sx_W25Q128_read(). Compares against _estack
+  69:SynaptiX_FDK/components/external_flash/sx_external_flash.h ****     // (top of RAM stack) and the reserved _Min_Stack_Size floor, to confirm or rule out
+  70:SynaptiX_FDK/components/external_flash/sx_external_flash.h ****     // stack overflow as the cause of the hang. Read alongside sx_ext_flash.h's other
+  71:SynaptiX_FDK/components/external_flash/sx_external_flash.h ****     // DEBUG logs; remove once root cause is confirmed (see handoff "don't forget to clean up").
+  72:SynaptiX_FDK/components/external_flash/sx_external_flash.h ****     {
+  73:SynaptiX_FDK/components/external_flash/sx_external_flash.h ****         uint32_t sp = __get_MSP();
+  74:SynaptiX_FDK/components/external_flash/sx_external_flash.h ****         uint32_t estack_addr = (uint32_t)&_estack;
+  75:SynaptiX_FDK/components/external_flash/sx_external_flash.h ****         uint32_t min_stack = DEBUG_MIN_STACK_SIZE;
+  76:SynaptiX_FDK/components/external_flash/sx_external_flash.h ****         uint32_t used = estack_addr - sp;
+  77:SynaptiX_FDK/components/external_flash/sx_external_flash.h ****         int32_t margin_to_floor = (int32_t)(sp - (estack_addr - min_stack));
+  78:SynaptiX_FDK/components/external_flash/sx_external_flash.h ****         log_error("SX_EXT_FLASH", "SP_CHECK: sp=0x%08lX estack=0x%08lX min_stack=%lu used=%lu margi
+  79:SynaptiX_FDK/components/external_flash/sx_external_flash.h ****             (unsigned long)sp, (unsigned long)estack_addr, (unsigned long)min_stack,
+  80:SynaptiX_FDK/components/external_flash/sx_external_flash.h ****             (unsigned long)used, (long)margin_to_floor);
+  81:SynaptiX_FDK/components/external_flash/sx_external_flash.h ****     }
+  82:SynaptiX_FDK/components/external_flash/sx_external_flash.h **** 
+  83:SynaptiX_FDK/components/external_flash/sx_external_flash.h ****     if (flash->ops && flash->ops->read) {
+  84:SynaptiX_FDK/components/external_flash/sx_external_flash.h ****         int ret = flash->ops->read(addr, buf, len);
+  85:SynaptiX_FDK/components/external_flash/sx_external_flash.h ****         // DEBUG: confirms the function-pointer call actually returned. If this
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cchbM08N.s 			page 3
+
+
+  86:SynaptiX_FDK/components/external_flash/sx_external_flash.h ****         // log is missing even though the "read: ..." log above appeared, the
+  87:SynaptiX_FDK/components/external_flash/sx_external_flash.h ****         // call truly never came back (hung inside sx_W25Q128_read or below it).
+  88:SynaptiX_FDK/components/external_flash/sx_external_flash.h ****         // If this DOES appear, the call completed fine and the hang is
+  89:SynaptiX_FDK/components/external_flash/sx_external_flash.h ****         // somewhere else entirely -- redirect investigation to the caller.
+  90:SynaptiX_FDK/components/external_flash/sx_external_flash.h ****         uint32_t dbg_tick_after = HAL_GetTick();
+  91:SynaptiX_FDK/components/external_flash/sx_external_flash.h ****         log_error("SX_EXT_FLASH", "read: RETURNED ret=%d tick=%lu (delta=%lu ms)",
+  92:SynaptiX_FDK/components/external_flash/sx_external_flash.h ****             ret, (unsigned long)dbg_tick_after,
+  93:SynaptiX_FDK/components/external_flash/sx_external_flash.h ****             (unsigned long)(dbg_tick_after - dbg_tick_before));
+  94:SynaptiX_FDK/components/external_flash/sx_external_flash.h ****         return ret;
+  95:SynaptiX_FDK/components/external_flash/sx_external_flash.h ****     }
+  96:SynaptiX_FDK/components/external_flash/sx_external_flash.h ****     return -1;
+  97:SynaptiX_FDK/components/external_flash/sx_external_flash.h **** }
+  98:SynaptiX_FDK/components/external_flash/sx_external_flash.h **** 
+  99:SynaptiX_FDK/components/external_flash/sx_external_flash.h **** static inline int sx_ext_flash_write(sx_ext_flash_t *flash, uint32_t addr, const uint8_t *buf, uint
+  31              		.loc 2 99 109 view -0
   32              		.cfi_startproc
   33              		@ args = 0, pretend = 0, frame = 0
   34              		@ frame_needed = 0, uses_anonymous_args = 0
-  35              		.loc 2 80 109 is_stmt 0 view .LVU1
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cc62mgDc.s 			page 3
-
-
+  35              		.loc 2 99 109 is_stmt 0 view .LVU1
   36 0000 08B5     		push	{r3, lr}
   37              	.LCFI0:
   38              		.cfi_def_cfa_offset 8
@@ -129,120 +148,120 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cc62mgDc.s 			page 1
   41 0002 8446     		mov	ip, r0
   42 0004 0846     		mov	r0, r1
   43              	.LVL1:
-  44              		.loc 2 80 109 view .LVU2
+  44              		.loc 2 99 109 view .LVU2
   45 0006 1146     		mov	r1, r2
   46              	.LVL2:
-  47              		.loc 2 80 109 view .LVU3
+  47              		.loc 2 99 109 view .LVU3
   48 0008 1A46     		mov	r2, r3
   49              	.LVL3:
-  81:SynaptiX_FDK/components/external_flash/sx_external_flash.h ****     if (flash->ops && flash->ops->write)
-  50              		.loc 2 81 5 is_stmt 1 view .LVU4
-  51              		.loc 2 81 14 is_stmt 0 view .LVU5
+ 100:SynaptiX_FDK/components/external_flash/sx_external_flash.h ****     if (flash->ops && flash->ops->write)
+  50              		.loc 2 100 5 is_stmt 1 view .LVU4
+  51              		.loc 2 100 14 is_stmt 0 view .LVU5
   52 000a DCF80030 		ldr	r3, [ip]
   53              	.LVL4:
-  54              		.loc 2 81 8 view .LVU6
+  54              		.loc 2 100 8 view .LVU6
   55 000e 1BB1     		cbz	r3, .L3
-  56              		.loc 2 81 33 discriminator 1 view .LVU7
+  56              		.loc 2 100 33 discriminator 1 view .LVU7
   57 0010 5B68     		ldr	r3, [r3, #4]
-  58              		.loc 2 81 20 discriminator 1 view .LVU8
+  58              		.loc 2 100 20 discriminator 1 view .LVU8
   59 0012 23B1     		cbz	r3, .L4
-  82:SynaptiX_FDK/components/external_flash/sx_external_flash.h ****         return flash->ops->write(addr, buf, len);
-  60              		.loc 2 82 9 is_stmt 1 view .LVU9
-  61              		.loc 2 82 16 is_stmt 0 view .LVU10
+ 101:SynaptiX_FDK/components/external_flash/sx_external_flash.h ****         return flash->ops->write(addr, buf, len);
+  60              		.loc 2 101 9 is_stmt 1 view .LVU9
+  61              		.loc 2 101 16 is_stmt 0 view .LVU10
   62 0014 9847     		blx	r3
   63              	.LVL5:
   64              	.L1:
-  83:SynaptiX_FDK/components/external_flash/sx_external_flash.h ****     return -1;
-  84:SynaptiX_FDK/components/external_flash/sx_external_flash.h **** }
-  65              		.loc 2 84 1 view .LVU11
+ 102:SynaptiX_FDK/components/external_flash/sx_external_flash.h ****     return -1;
+ 103:SynaptiX_FDK/components/external_flash/sx_external_flash.h **** }
+  65              		.loc 2 103 1 view .LVU11
   66 0016 08BD     		pop	{r3, pc}
   67              	.LVL6:
   68              	.L3:
-  83:SynaptiX_FDK/components/external_flash/sx_external_flash.h ****     return -1;
-  69              		.loc 2 83 12 view .LVU12
+ 102:SynaptiX_FDK/components/external_flash/sx_external_flash.h ****     return -1;
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cchbM08N.s 			page 4
+
+
+  69              		.loc 2 102 12 view .LVU12
   70 0018 4FF0FF30 		mov	r0, #-1
   71              	.LVL7:
-  83:SynaptiX_FDK/components/external_flash/sx_external_flash.h ****     return -1;
-  72              		.loc 2 83 12 view .LVU13
+ 102:SynaptiX_FDK/components/external_flash/sx_external_flash.h ****     return -1;
+  72              		.loc 2 102 12 view .LVU13
   73 001c FBE7     		b	.L1
   74              	.LVL8:
   75              	.L4:
-  83:SynaptiX_FDK/components/external_flash/sx_external_flash.h ****     return -1;
-  76              		.loc 2 83 12 view .LVU14
+ 102:SynaptiX_FDK/components/external_flash/sx_external_flash.h ****     return -1;
+  76              		.loc 2 102 12 view .LVU14
   77 001e 4FF0FF30 		mov	r0, #-1
   78              	.LVL9:
-  83:SynaptiX_FDK/components/external_flash/sx_external_flash.h ****     return -1;
-  79              		.loc 2 83 12 view .LVU15
+ 102:SynaptiX_FDK/components/external_flash/sx_external_flash.h ****     return -1;
+  79              		.loc 2 102 12 view .LVU15
   80 0022 F8E7     		b	.L1
   81              		.cfi_endproc
   82              	.LFE521:
   84              		.section	.text.sx_ext_flash_erase_sector,"ax",%progbits
   85              		.align	1
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cc62mgDc.s 			page 4
-
-
   86              		.syntax unified
   87              		.thumb
   88              		.thumb_func
   90              	sx_ext_flash_erase_sector:
   91              	.LVL10:
   92              	.LFB522:
-  85:SynaptiX_FDK/components/external_flash/sx_external_flash.h **** 
-  86:SynaptiX_FDK/components/external_flash/sx_external_flash.h **** static inline int sx_ext_flash_erase_sector(sx_ext_flash_t *flash, uint32_t addr)
-  87:SynaptiX_FDK/components/external_flash/sx_external_flash.h **** {
-  93              		.loc 2 87 1 is_stmt 1 view -0
+ 104:SynaptiX_FDK/components/external_flash/sx_external_flash.h **** 
+ 105:SynaptiX_FDK/components/external_flash/sx_external_flash.h **** static inline int sx_ext_flash_erase_sector(sx_ext_flash_t *flash, uint32_t addr)
+ 106:SynaptiX_FDK/components/external_flash/sx_external_flash.h **** {
+  93              		.loc 2 106 1 is_stmt 1 view -0
   94              		.cfi_startproc
   95              		@ args = 0, pretend = 0, frame = 0
   96              		@ frame_needed = 0, uses_anonymous_args = 0
-  97              		.loc 2 87 1 is_stmt 0 view .LVU17
+  97              		.loc 2 106 1 is_stmt 0 view .LVU17
   98 0000 08B5     		push	{r3, lr}
   99              	.LCFI1:
  100              		.cfi_def_cfa_offset 8
  101              		.cfi_offset 3, -8
  102              		.cfi_offset 14, -4
-  88:SynaptiX_FDK/components/external_flash/sx_external_flash.h ****     if (flash->ops && flash->ops->erase_sector)
- 103              		.loc 2 88 5 is_stmt 1 view .LVU18
- 104              		.loc 2 88 14 is_stmt 0 view .LVU19
+ 107:SynaptiX_FDK/components/external_flash/sx_external_flash.h ****     if (flash->ops && flash->ops->erase_sector)
+ 103              		.loc 2 107 5 is_stmt 1 view .LVU18
+ 104              		.loc 2 107 14 is_stmt 0 view .LVU19
  105 0002 0368     		ldr	r3, [r0]
- 106              		.loc 2 88 8 view .LVU20
+ 106              		.loc 2 107 8 view .LVU20
  107 0004 23B1     		cbz	r3, .L8
- 108              		.loc 2 88 33 discriminator 1 view .LVU21
+ 108              		.loc 2 107 33 discriminator 1 view .LVU21
  109 0006 9B68     		ldr	r3, [r3, #8]
- 110              		.loc 2 88 20 discriminator 1 view .LVU22
+ 110              		.loc 2 107 20 discriminator 1 view .LVU22
  111 0008 2BB1     		cbz	r3, .L9
-  89:SynaptiX_FDK/components/external_flash/sx_external_flash.h ****         return flash->ops->erase_sector(addr);
- 112              		.loc 2 89 9 is_stmt 1 view .LVU23
- 113              		.loc 2 89 16 is_stmt 0 view .LVU24
+ 108:SynaptiX_FDK/components/external_flash/sx_external_flash.h ****         return flash->ops->erase_sector(addr);
+ 112              		.loc 2 108 9 is_stmt 1 view .LVU23
+ 113              		.loc 2 108 16 is_stmt 0 view .LVU24
  114 000a 0846     		mov	r0, r1
  115              	.LVL11:
- 116              		.loc 2 89 16 view .LVU25
+ 116              		.loc 2 108 16 view .LVU25
  117 000c 9847     		blx	r3
  118              	.LVL12:
  119              	.L6:
-  90:SynaptiX_FDK/components/external_flash/sx_external_flash.h ****     return -1;
-  91:SynaptiX_FDK/components/external_flash/sx_external_flash.h **** }
- 120              		.loc 2 91 1 view .LVU26
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cchbM08N.s 			page 5
+
+
+ 109:SynaptiX_FDK/components/external_flash/sx_external_flash.h ****     return -1;
+ 110:SynaptiX_FDK/components/external_flash/sx_external_flash.h **** }
+ 120              		.loc 2 110 1 view .LVU26
  121 000e 08BD     		pop	{r3, pc}
  122              	.LVL13:
  123              	.L8:
-  90:SynaptiX_FDK/components/external_flash/sx_external_flash.h ****     return -1;
- 124              		.loc 2 90 12 view .LVU27
+ 109:SynaptiX_FDK/components/external_flash/sx_external_flash.h ****     return -1;
+ 124              		.loc 2 109 12 view .LVU27
  125 0010 4FF0FF30 		mov	r0, #-1
  126              	.LVL14:
-  90:SynaptiX_FDK/components/external_flash/sx_external_flash.h ****     return -1;
- 127              		.loc 2 90 12 view .LVU28
+ 109:SynaptiX_FDK/components/external_flash/sx_external_flash.h ****     return -1;
+ 127              		.loc 2 109 12 view .LVU28
  128 0014 FBE7     		b	.L6
  129              	.LVL15:
  130              	.L9:
-  90:SynaptiX_FDK/components/external_flash/sx_external_flash.h ****     return -1;
- 131              		.loc 2 90 12 view .LVU29
+ 109:SynaptiX_FDK/components/external_flash/sx_external_flash.h ****     return -1;
+ 131              		.loc 2 109 12 view .LVU29
  132 0016 4FF0FF30 		mov	r0, #-1
  133              	.LVL16:
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cc62mgDc.s 			page 5
-
-
-  90:SynaptiX_FDK/components/external_flash/sx_external_flash.h ****     return -1;
- 134              		.loc 2 90 12 view .LVU30
+ 109:SynaptiX_FDK/components/external_flash/sx_external_flash.h ****     return -1;
+ 134              		.loc 2 109 12 view .LVU30
  135 001a F8E7     		b	.L6
  136              		.cfi_endproc
  137              	.LFE522:
@@ -279,6 +298,9 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cc62mgDc.s 			page 1
   23:SynaptiX_FDK/services/filesystem/sx_fs.c ****                            const void *buf, lfs_size_t size)
   24:SynaptiX_FDK/services/filesystem/sx_fs.c **** {
   25:SynaptiX_FDK/services/filesystem/sx_fs.c ****     // uint32_t addr = block *c->block_size + off;
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cchbM08N.s 			page 6
+
+
   26:SynaptiX_FDK/services/filesystem/sx_fs.c ****     // int ret = sx_ext_flash_write(s_flash, addr, buf, size);
   27:SynaptiX_FDK/services/filesystem/sx_fs.c ****     uint32_t addr = PART_GPS_LOG_OFFSET + block * c->block_size + off;
   28:SynaptiX_FDK/services/filesystem/sx_fs.c ****     int ret = sx_ext_flash_write(s_flash, addr, buf, size);
@@ -298,9 +320,6 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cc62mgDc.s 			page 1
   42:SynaptiX_FDK/services/filesystem/sx_fs.c ****     }
   43:SynaptiX_FDK/services/filesystem/sx_fs.c ****     return ret;
   44:SynaptiX_FDK/services/filesystem/sx_fs.c **** }
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cc62mgDc.s 			page 6
-
-
   45:SynaptiX_FDK/services/filesystem/sx_fs.c **** 
   46:SynaptiX_FDK/services/filesystem/sx_fs.c **** static int lfs_flash_erase(const struct lfs_config *c, lfs_block_t block){
  148              		.loc 1 46 74 is_stmt 1 view -0
@@ -339,6 +358,9 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cc62mgDc.s 			page 1
  177              	.L14:
  178 0016 00BF     		.align	2
  179              	.L13:
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cchbM08N.s 			page 7
+
+
  180 0018 00000000 		.word	s_flash
  181              		.cfi_endproc
  182              	.LFE526:
@@ -350,103 +372,120 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cc62mgDc.s 			page 1
  187      6173683D 
  187      2570206F 
  187      70733D25 
- 188 0033 6C7500   		.ascii	"lu\000"
- 189 0036 0000     		.align	2
+ 188 0033 6C752074 		.ascii	"lu tick=%lu\000"
+ 188      69636B3D 
+ 188      256C7500 
+ 189 003f 00       		.align	2
  190              	.LC1:
- 191 0038 53585F45 		.ascii	"SX_EXT_FLASH\000"
+ 191 0040 53585F45 		.ascii	"SX_EXT_FLASH\000"
  191      58545F46 
  191      4C415348 
  191      00
- 192 0045 000000   		.align	2
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cc62mgDc.s 			page 7
-
-
+ 192 004d 000000   		.align	2
  193              	.LC2:
- 194 0048 53505F43 		.ascii	"SP_CHECK: sp=0x%08lX estack=0x%08lX min_stack=%lu u"
+ 194 0050 53505F43 		.ascii	"SP_CHECK: sp=0x%08lX estack=0x%08lX min_stack=%lu u"
  194      4845434B 
  194      3A207370 
  194      3D307825 
  194      30386C58 
- 195 007b 7365643D 		.ascii	"sed=%lu margin_to_floor=%ld\000"
+ 195 0083 7365643D 		.ascii	"sed=%lu margin_to_floor=%ld\000"
  195      256C7520 
  195      6D617267 
  195      696E5F74 
  195      6F5F666C 
- 196              		.section	.text.sx_ext_flash_read,"ax",%progbits
- 197              		.align	1
- 198              		.syntax unified
- 199              		.thumb
- 200              		.thumb_func
- 202              	sx_ext_flash_read:
- 203              	.LVL22:
- 204              	.LFB520:
+ 196 009f 00       		.align	2
+ 197              	.LC3:
+ 198 00a0 72656164 		.ascii	"read: RETURNED ret=%d tick=%lu (delta=%lu ms)\000"
+ 198      3A205245 
+ 198      5455524E 
+ 198      45442072 
+ 198      65743D25 
+ 199              		.section	.text.sx_ext_flash_read,"ax",%progbits
+ 200              		.align	1
+ 201              		.syntax unified
+ 202              		.thumb
+ 203              		.thumb_func
+ 205              	sx_ext_flash_read:
+ 206              	.LVL22:
+ 207              	.LFB520:
   50:SynaptiX_FDK/components/external_flash/sx_external_flash.h ****     // DEBUG: temporary trace to locate the hang after boot-via-bootloader.
- 205              		.loc 2 50 1 is_stmt 1 view -0
- 206              		.cfi_startproc
- 207              		@ args = 0, pretend = 0, frame = 0
- 208              		@ frame_needed = 0, uses_anonymous_args = 0
+ 208              		.loc 2 50 1 is_stmt 1 view -0
+ 209              		.cfi_startproc
+ 210              		@ args = 0, pretend = 0, frame = 0
+ 211              		@ frame_needed = 0, uses_anonymous_args = 0
   50:SynaptiX_FDK/components/external_flash/sx_external_flash.h ****     // DEBUG: temporary trace to locate the hang after boot-via-bootloader.
- 209              		.loc 2 50 1 is_stmt 0 view .LVU42
- 210 0000 2DE9F043 		push	{r4, r5, r6, r7, r8, r9, lr}
- 211              	.LCFI3:
- 212              		.cfi_def_cfa_offset 28
- 213              		.cfi_offset 4, -28
- 214              		.cfi_offset 5, -24
- 215              		.cfi_offset 6, -20
- 216              		.cfi_offset 7, -16
- 217              		.cfi_offset 8, -12
- 218              		.cfi_offset 9, -8
- 219              		.cfi_offset 14, -4
- 220 0004 85B0     		sub	sp, sp, #20
- 221              	.LCFI4:
- 222              		.cfi_def_cfa_offset 48
- 223 0006 0C46     		mov	r4, r1
- 224 0008 9046     		mov	r8, r2
- 225 000a 1D46     		mov	r5, r3
-  54:SynaptiX_FDK/components/external_flash/sx_external_flash.h ****         (void*)flash, flash ? (void*)flash->ops : (void*)0,
- 226              		.loc 2 54 5 is_stmt 1 view .LVU43
- 227 000c 0646     		mov	r6, r0
- 228 000e 58B3     		cbz	r0, .L18
-  54:SynaptiX_FDK/components/external_flash/sx_external_flash.h ****         (void*)flash, flash ? (void*)flash->ops : (void*)0,
- 229              		.loc 2 54 5 is_stmt 0 discriminator 1 view .LVU44
- 230 0010 0368     		ldr	r3, [r0]
- 231              	.LVL23:
-  54:SynaptiX_FDK/components/external_flash/sx_external_flash.h ****         (void*)flash, flash ? (void*)flash->ops : (void*)0,
- 232              		.loc 2 54 5 discriminator 5 view .LVU45
- 233 0012 63B3     		cbz	r3, .L19
-  54:SynaptiX_FDK/components/external_flash/sx_external_flash.h ****         (void*)flash, flash ? (void*)flash->ops : (void*)0,
- 234              		.loc 2 54 5 discriminator 7 view .LVU46
- 235 0014 1A68     		ldr	r2, [r3]
+ 212              		.loc 2 50 1 is_stmt 0 view .LVU42
+ 213 0000 2DE9F043 		push	{r4, r5, r6, r7, r8, r9, lr}
+ 214              	.LCFI3:
+ 215              		.cfi_def_cfa_offset 28
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cchbM08N.s 			page 8
+
+
+ 216              		.cfi_offset 4, -28
+ 217              		.cfi_offset 5, -24
+ 218              		.cfi_offset 6, -20
+ 219              		.cfi_offset 7, -16
+ 220              		.cfi_offset 8, -12
+ 221              		.cfi_offset 9, -8
+ 222              		.cfi_offset 14, -4
+ 223 0004 87B0     		sub	sp, sp, #28
+ 224              	.LCFI4:
+ 225              		.cfi_def_cfa_offset 56
+ 226 0006 0446     		mov	r4, r0
+ 227 0008 0E46     		mov	r6, r1
+ 228 000a 9046     		mov	r8, r2
+ 229 000c 1F46     		mov	r7, r3
+  60:SynaptiX_FDK/components/external_flash/sx_external_flash.h **** 
+ 230              		.loc 2 60 5 is_stmt 1 view .LVU43
+  60:SynaptiX_FDK/components/external_flash/sx_external_flash.h **** 
+ 231              		.loc 2 60 32 is_stmt 0 view .LVU44
+ 232 000e FFF7FEFF 		bl	HAL_GetTick
+ 233              	.LVL23:
+  60:SynaptiX_FDK/components/external_flash/sx_external_flash.h **** 
+ 234              		.loc 2 60 32 view .LVU45
+ 235 0012 0546     		mov	r5, r0
  236              	.LVL24:
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cc62mgDc.s 			page 8
+  62:SynaptiX_FDK/components/external_flash/sx_external_flash.h ****         (void*)flash, flash ? (void*)flash->ops : (void*)0,
+ 237              		.loc 2 62 5 is_stmt 1 view .LVU46
+ 238 0014 002C     		cmp	r4, #0
+ 239 0016 3AD0     		beq	.L18
+  62:SynaptiX_FDK/components/external_flash/sx_external_flash.h ****         (void*)flash, flash ? (void*)flash->ops : (void*)0,
+ 240              		.loc 2 62 5 is_stmt 0 discriminator 1 view .LVU47
+ 241 0018 2368     		ldr	r3, [r4]
+  62:SynaptiX_FDK/components/external_flash/sx_external_flash.h ****         (void*)flash, flash ? (void*)flash->ops : (void*)0,
+ 242              		.loc 2 62 5 discriminator 5 view .LVU48
+ 243 001a 002B     		cmp	r3, #0
+ 244 001c 3AD0     		beq	.L19
+  62:SynaptiX_FDK/components/external_flash/sx_external_flash.h ****         (void*)flash, flash ? (void*)flash->ops : (void*)0,
+ 245              		.loc 2 62 5 discriminator 7 view .LVU49
+ 246 001e 1A68     		ldr	r2, [r3]
+ 247              	.L16:
+  62:SynaptiX_FDK/components/external_flash/sx_external_flash.h ****         (void*)flash, flash ? (void*)flash->ops : (void*)0,
+ 248              		.loc 2 62 5 discriminator 10 view .LVU50
+ 249 0020 DFF89090 		ldr	r9, .L23+16
+ 250 0024 0495     		str	r5, [sp, #16]
+ 251 0026 0397     		str	r7, [sp, #12]
+ 252 0028 0296     		str	r6, [sp, #8]
+ 253 002a 0192     		str	r2, [sp, #4]
+ 254 002c 0093     		str	r3, [sp]
+ 255 002e 2346     		mov	r3, r4
+ 256 0030 1C4A     		ldr	r2, .L23
+ 257 0032 4946     		mov	r1, r9
+ 258 0034 0120     		movs	r0, #1
+ 259              	.LVL25:
+  62:SynaptiX_FDK/components/external_flash/sx_external_flash.h ****         (void*)flash, flash ? (void*)flash->ops : (void*)0,
+ 260              		.loc 2 62 5 discriminator 10 view .LVU51
+ 261 0036 FFF7FEFF 		bl	log_func
+ 262              	.LVL26:
+ 263              	.LBB6:
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cchbM08N.s 			page 9
 
 
- 237              	.L16:
-  54:SynaptiX_FDK/components/external_flash/sx_external_flash.h ****         (void*)flash, flash ? (void*)flash->ops : (void*)0,
- 238              		.loc 2 54 5 discriminator 10 view .LVU47
- 239 0016 DFF87490 		ldr	r9, .L23+12
- 240 001a 0395     		str	r5, [sp, #12]
- 241 001c 0294     		str	r4, [sp, #8]
- 242 001e 0192     		str	r2, [sp, #4]
- 243 0020 0093     		str	r3, [sp]
- 244 0022 3346     		mov	r3, r6
- 245 0024 164A     		ldr	r2, .L23
- 246 0026 4946     		mov	r1, r9
- 247              	.LVL25:
-  54:SynaptiX_FDK/components/external_flash/sx_external_flash.h ****         (void*)flash, flash ? (void*)flash->ops : (void*)0,
- 248              		.loc 2 54 5 discriminator 10 view .LVU48
- 249 0028 0120     		movs	r0, #1
- 250              	.LVL26:
-  54:SynaptiX_FDK/components/external_flash/sx_external_flash.h ****         (void*)flash, flash ? (void*)flash->ops : (void*)0,
- 251              		.loc 2 54 5 discriminator 10 view .LVU49
- 252 002a FFF7FEFF 		bl	log_func
- 253              	.LVL27:
- 254              	.LBB5:
-  65:SynaptiX_FDK/components/external_flash/sx_external_flash.h ****         uint32_t estack_addr = (uint32_t)&_estack;
- 255              		.loc 2 65 9 is_stmt 1 view .LVU50
- 256              	.LBB6:
- 257              	.LBI6:
- 258              		.file 3 "Drivers/CMSIS/Include/cmsis_gcc.h"
+  73:SynaptiX_FDK/components/external_flash/sx_external_flash.h ****         uint32_t estack_addr = (uint32_t)&_estack;
+ 264              		.loc 2 73 9 is_stmt 1 view .LVU52
+ 265              	.LBB7:
+ 266              	.LBI7:
+ 267              		.file 3 "Drivers/CMSIS/Include/cmsis_gcc.h"
    1:Drivers/CMSIS/Include/cmsis_gcc.h **** /**************************************************************************//**
    2:Drivers/CMSIS/Include/cmsis_gcc.h ****  * @file     cmsis_gcc.h
    3:Drivers/CMSIS/Include/cmsis_gcc.h ****  * @brief    CMSIS compiler GCC header file
@@ -478,9 +517,6 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cc62mgDc.s 			page 1
   29:Drivers/CMSIS/Include/cmsis_gcc.h **** #pragma GCC diagnostic push
   30:Drivers/CMSIS/Include/cmsis_gcc.h **** #pragma GCC diagnostic ignored "-Wsign-conversion"
   31:Drivers/CMSIS/Include/cmsis_gcc.h **** #pragma GCC diagnostic ignored "-Wconversion"
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cc62mgDc.s 			page 9
-
-
   32:Drivers/CMSIS/Include/cmsis_gcc.h **** #pragma GCC diagnostic ignored "-Wunused-parameter"
   33:Drivers/CMSIS/Include/cmsis_gcc.h **** 
   34:Drivers/CMSIS/Include/cmsis_gcc.h **** /* Fallback for __has_builtin */
@@ -502,6 +538,9 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cc62mgDc.s 			page 1
   50:Drivers/CMSIS/Include/cmsis_gcc.h ****   #define __STATIC_FORCEINLINE                   __attribute__((always_inline)) static inline
   51:Drivers/CMSIS/Include/cmsis_gcc.h **** #endif
   52:Drivers/CMSIS/Include/cmsis_gcc.h **** #ifndef   __NO_RETURN
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cchbM08N.s 			page 10
+
+
   53:Drivers/CMSIS/Include/cmsis_gcc.h ****   #define __NO_RETURN                            __attribute__((__noreturn__))
   54:Drivers/CMSIS/Include/cmsis_gcc.h **** #endif
   55:Drivers/CMSIS/Include/cmsis_gcc.h **** #ifndef   __USED
@@ -538,9 +577,6 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cc62mgDc.s 			page 1
   86:Drivers/CMSIS/Include/cmsis_gcc.h **** #ifndef   __UNALIGNED_UINT16_READ
   87:Drivers/CMSIS/Include/cmsis_gcc.h ****   #pragma GCC diagnostic push
   88:Drivers/CMSIS/Include/cmsis_gcc.h ****   #pragma GCC diagnostic ignored "-Wpacked"
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cc62mgDc.s 			page 10
-
-
   89:Drivers/CMSIS/Include/cmsis_gcc.h ****   #pragma GCC diagnostic ignored "-Wattributes"
   90:Drivers/CMSIS/Include/cmsis_gcc.h ****   __PACKED_STRUCT T_UINT16_READ { uint16_t v; };
   91:Drivers/CMSIS/Include/cmsis_gcc.h ****   #pragma GCC diagnostic pop
@@ -562,6 +598,9 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cc62mgDc.s 			page 1
  107:Drivers/CMSIS/Include/cmsis_gcc.h ****   #pragma GCC diagnostic pop
  108:Drivers/CMSIS/Include/cmsis_gcc.h ****   #define __UNALIGNED_UINT32_READ(addr)          (((const struct T_UINT32_READ *)(const void *)(add
  109:Drivers/CMSIS/Include/cmsis_gcc.h **** #endif
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cchbM08N.s 			page 11
+
+
  110:Drivers/CMSIS/Include/cmsis_gcc.h **** #ifndef   __ALIGNED
  111:Drivers/CMSIS/Include/cmsis_gcc.h ****   #define __ALIGNED(x)                           __attribute__((aligned(x)))
  112:Drivers/CMSIS/Include/cmsis_gcc.h **** #endif
@@ -598,9 +637,6 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cc62mgDc.s 			page 1
  143:Drivers/CMSIS/Include/cmsis_gcc.h ****     uint32_t  wlen;
  144:Drivers/CMSIS/Include/cmsis_gcc.h ****   } __zero_table_t;
  145:Drivers/CMSIS/Include/cmsis_gcc.h **** 
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cc62mgDc.s 			page 11
-
-
  146:Drivers/CMSIS/Include/cmsis_gcc.h ****   extern const __copy_table_t __copy_table_start__;
  147:Drivers/CMSIS/Include/cmsis_gcc.h ****   extern const __copy_table_t __copy_table_end__;
  148:Drivers/CMSIS/Include/cmsis_gcc.h ****   extern const __zero_table_t __zero_table_start__;
@@ -622,6 +658,9 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cc62mgDc.s 			page 1
  164:Drivers/CMSIS/Include/cmsis_gcc.h **** }
  165:Drivers/CMSIS/Include/cmsis_gcc.h **** 
  166:Drivers/CMSIS/Include/cmsis_gcc.h **** #define __PROGRAM_START           __cmsis_start
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cchbM08N.s 			page 12
+
+
  167:Drivers/CMSIS/Include/cmsis_gcc.h **** #endif
  168:Drivers/CMSIS/Include/cmsis_gcc.h **** 
  169:Drivers/CMSIS/Include/cmsis_gcc.h **** #ifndef __INITIAL_SP
@@ -658,9 +697,6 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cc62mgDc.s 			page 1
  200:Drivers/CMSIS/Include/cmsis_gcc.h ****   *((uint64_t *)stackTop) = __TZ_STACK_SEAL_VALUE;
  201:Drivers/CMSIS/Include/cmsis_gcc.h **** }
  202:Drivers/CMSIS/Include/cmsis_gcc.h **** #endif
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cc62mgDc.s 			page 12
-
-
  203:Drivers/CMSIS/Include/cmsis_gcc.h **** 
  204:Drivers/CMSIS/Include/cmsis_gcc.h **** 
  205:Drivers/CMSIS/Include/cmsis_gcc.h **** /* ##########################  Core Instruction Access  ######################### */
@@ -682,6 +718,9 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cc62mgDc.s 			page 1
  221:Drivers/CMSIS/Include/cmsis_gcc.h **** #define __CMSIS_GCC_USE_REG(r) "r" (r)
  222:Drivers/CMSIS/Include/cmsis_gcc.h **** #endif
  223:Drivers/CMSIS/Include/cmsis_gcc.h **** 
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cchbM08N.s 			page 13
+
+
  224:Drivers/CMSIS/Include/cmsis_gcc.h **** /**
  225:Drivers/CMSIS/Include/cmsis_gcc.h ****   \brief   No Operation
  226:Drivers/CMSIS/Include/cmsis_gcc.h ****   \details No Operation does nothing. This instruction can be used for code alignment purposes.
@@ -718,9 +757,6 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cc62mgDc.s 			page 1
  257:Drivers/CMSIS/Include/cmsis_gcc.h ****  */
  258:Drivers/CMSIS/Include/cmsis_gcc.h **** __STATIC_FORCEINLINE void __ISB(void)
  259:Drivers/CMSIS/Include/cmsis_gcc.h **** {
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cc62mgDc.s 			page 13
-
-
  260:Drivers/CMSIS/Include/cmsis_gcc.h ****   __ASM volatile ("isb 0xF":::"memory");
  261:Drivers/CMSIS/Include/cmsis_gcc.h **** }
  262:Drivers/CMSIS/Include/cmsis_gcc.h **** 
@@ -742,6 +778,9 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cc62mgDc.s 			page 1
  278:Drivers/CMSIS/Include/cmsis_gcc.h ****            and after the instruction, without ensuring their completion.
  279:Drivers/CMSIS/Include/cmsis_gcc.h ****  */
  280:Drivers/CMSIS/Include/cmsis_gcc.h **** __STATIC_FORCEINLINE void __DMB(void)
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cchbM08N.s 			page 14
+
+
  281:Drivers/CMSIS/Include/cmsis_gcc.h **** {
  282:Drivers/CMSIS/Include/cmsis_gcc.h ****   __ASM volatile ("dmb 0xF":::"memory");
  283:Drivers/CMSIS/Include/cmsis_gcc.h **** }
@@ -778,9 +817,6 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cc62mgDc.s 			page 1
  314:Drivers/CMSIS/Include/cmsis_gcc.h **** 
  315:Drivers/CMSIS/Include/cmsis_gcc.h ****   __ASM ("rev16 %0, %1" : __CMSIS_GCC_OUT_REG (result) : __CMSIS_GCC_USE_REG (value) );
  316:Drivers/CMSIS/Include/cmsis_gcc.h ****   return result;
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cc62mgDc.s 			page 14
-
-
  317:Drivers/CMSIS/Include/cmsis_gcc.h **** }
  318:Drivers/CMSIS/Include/cmsis_gcc.h **** 
  319:Drivers/CMSIS/Include/cmsis_gcc.h **** 
@@ -802,6 +838,9 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cc62mgDc.s 			page 1
  335:Drivers/CMSIS/Include/cmsis_gcc.h **** #endif
  336:Drivers/CMSIS/Include/cmsis_gcc.h **** }
  337:Drivers/CMSIS/Include/cmsis_gcc.h **** 
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cchbM08N.s 			page 15
+
+
  338:Drivers/CMSIS/Include/cmsis_gcc.h **** 
  339:Drivers/CMSIS/Include/cmsis_gcc.h **** /**
  340:Drivers/CMSIS/Include/cmsis_gcc.h ****   \brief   Rotate Right in unsigned value (32 bit)
@@ -838,9 +877,6 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cc62mgDc.s 			page 1
  371:Drivers/CMSIS/Include/cmsis_gcc.h ****   \return               Reversed value
  372:Drivers/CMSIS/Include/cmsis_gcc.h ****  */
  373:Drivers/CMSIS/Include/cmsis_gcc.h **** __STATIC_FORCEINLINE uint32_t __RBIT(uint32_t value)
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cc62mgDc.s 			page 15
-
-
  374:Drivers/CMSIS/Include/cmsis_gcc.h **** {
  375:Drivers/CMSIS/Include/cmsis_gcc.h ****   uint32_t result;
  376:Drivers/CMSIS/Include/cmsis_gcc.h **** 
@@ -862,6 +898,9 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cc62mgDc.s 			page 1
  392:Drivers/CMSIS/Include/cmsis_gcc.h **** #endif
  393:Drivers/CMSIS/Include/cmsis_gcc.h ****   return result;
  394:Drivers/CMSIS/Include/cmsis_gcc.h **** }
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cchbM08N.s 			page 16
+
+
  395:Drivers/CMSIS/Include/cmsis_gcc.h **** 
  396:Drivers/CMSIS/Include/cmsis_gcc.h **** 
  397:Drivers/CMSIS/Include/cmsis_gcc.h **** /**
@@ -898,9 +937,6 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cc62mgDc.s 			page 1
  428:Drivers/CMSIS/Include/cmsis_gcc.h ****   \details Executes a exclusive LDR instruction for 8 bit value.
  429:Drivers/CMSIS/Include/cmsis_gcc.h ****   \param [in]    ptr  Pointer to data
  430:Drivers/CMSIS/Include/cmsis_gcc.h ****   \return             value of type uint8_t at (*ptr)
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cc62mgDc.s 			page 16
-
-
  431:Drivers/CMSIS/Include/cmsis_gcc.h ****  */
  432:Drivers/CMSIS/Include/cmsis_gcc.h **** __STATIC_FORCEINLINE uint8_t __LDREXB(volatile uint8_t *addr)
  433:Drivers/CMSIS/Include/cmsis_gcc.h **** {
@@ -922,6 +958,9 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cc62mgDc.s 			page 1
  449:Drivers/CMSIS/Include/cmsis_gcc.h ****   \brief   LDR Exclusive (16 bit)
  450:Drivers/CMSIS/Include/cmsis_gcc.h ****   \details Executes a exclusive LDR instruction for 16 bit values.
  451:Drivers/CMSIS/Include/cmsis_gcc.h ****   \param [in]    ptr  Pointer to data
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cchbM08N.s 			page 17
+
+
  452:Drivers/CMSIS/Include/cmsis_gcc.h ****   \return        value of type uint16_t at (*ptr)
  453:Drivers/CMSIS/Include/cmsis_gcc.h ****  */
  454:Drivers/CMSIS/Include/cmsis_gcc.h **** __STATIC_FORCEINLINE uint16_t __LDREXH(volatile uint16_t *addr)
@@ -958,9 +997,6 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cc62mgDc.s 			page 1
  485:Drivers/CMSIS/Include/cmsis_gcc.h **** /**
  486:Drivers/CMSIS/Include/cmsis_gcc.h ****   \brief   STR Exclusive (8 bit)
  487:Drivers/CMSIS/Include/cmsis_gcc.h ****   \details Executes a exclusive STR instruction for 8 bit values.
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cc62mgDc.s 			page 17
-
-
  488:Drivers/CMSIS/Include/cmsis_gcc.h ****   \param [in]  value  Value to store
  489:Drivers/CMSIS/Include/cmsis_gcc.h ****   \param [in]    ptr  Pointer to location
  490:Drivers/CMSIS/Include/cmsis_gcc.h ****   \return          0  Function succeeded
@@ -982,6 +1018,9 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cc62mgDc.s 			page 1
  506:Drivers/CMSIS/Include/cmsis_gcc.h ****   \param [in]    ptr  Pointer to location
  507:Drivers/CMSIS/Include/cmsis_gcc.h ****   \return          0  Function succeeded
  508:Drivers/CMSIS/Include/cmsis_gcc.h ****   \return          1  Function failed
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cchbM08N.s 			page 18
+
+
  509:Drivers/CMSIS/Include/cmsis_gcc.h ****  */
  510:Drivers/CMSIS/Include/cmsis_gcc.h **** __STATIC_FORCEINLINE uint32_t __STREXH(uint16_t value, volatile uint16_t *addr)
  511:Drivers/CMSIS/Include/cmsis_gcc.h **** {
@@ -1018,9 +1057,6 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cc62mgDc.s 			page 1
  542:Drivers/CMSIS/Include/cmsis_gcc.h ****   __ASM volatile ("clrex" ::: "memory");
  543:Drivers/CMSIS/Include/cmsis_gcc.h **** }
  544:Drivers/CMSIS/Include/cmsis_gcc.h **** 
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cc62mgDc.s 			page 18
-
-
  545:Drivers/CMSIS/Include/cmsis_gcc.h **** #endif /* ((defined (__ARM_ARCH_7M__      ) && (__ARM_ARCH_7M__      == 1)) || \
  546:Drivers/CMSIS/Include/cmsis_gcc.h ****            (defined (__ARM_ARCH_7EM__     ) && (__ARM_ARCH_7EM__     == 1)) || \
  547:Drivers/CMSIS/Include/cmsis_gcc.h ****            (defined (__ARM_ARCH_8M_MAIN__ ) && (__ARM_ARCH_8M_MAIN__ == 1)) || \
@@ -1042,6 +1078,9 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cc62mgDc.s 			page 1
  563:Drivers/CMSIS/Include/cmsis_gcc.h **** ({                          \
  564:Drivers/CMSIS/Include/cmsis_gcc.h ****   int32_t __RES, __ARG1 = (ARG1); \
  565:Drivers/CMSIS/Include/cmsis_gcc.h ****   __ASM volatile ("ssat %0, %1, %2" : "=r" (__RES) :  "I" (ARG2), "r" (__ARG1) : "cc" ); \
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cchbM08N.s 			page 19
+
+
  566:Drivers/CMSIS/Include/cmsis_gcc.h ****   __RES; \
  567:Drivers/CMSIS/Include/cmsis_gcc.h ****  })
  568:Drivers/CMSIS/Include/cmsis_gcc.h **** 
@@ -1078,9 +1117,6 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cc62mgDc.s 			page 1
  599:Drivers/CMSIS/Include/cmsis_gcc.h **** }
  600:Drivers/CMSIS/Include/cmsis_gcc.h **** 
  601:Drivers/CMSIS/Include/cmsis_gcc.h **** 
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cc62mgDc.s 			page 19
-
-
  602:Drivers/CMSIS/Include/cmsis_gcc.h **** /**
  603:Drivers/CMSIS/Include/cmsis_gcc.h ****   \brief   LDRT Unprivileged (8 bit)
  604:Drivers/CMSIS/Include/cmsis_gcc.h ****   \details Executes a Unprivileged LDRT instruction for 8 bit value.
@@ -1102,6 +1138,9 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cc62mgDc.s 			page 1
  620:Drivers/CMSIS/Include/cmsis_gcc.h ****    return ((uint8_t) result);    /* Add explicit type cast here */
  621:Drivers/CMSIS/Include/cmsis_gcc.h **** }
  622:Drivers/CMSIS/Include/cmsis_gcc.h **** 
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cchbM08N.s 			page 20
+
+
  623:Drivers/CMSIS/Include/cmsis_gcc.h **** 
  624:Drivers/CMSIS/Include/cmsis_gcc.h **** /**
  625:Drivers/CMSIS/Include/cmsis_gcc.h ****   \brief   LDRT Unprivileged (16 bit)
@@ -1138,9 +1177,6 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cc62mgDc.s 			page 1
  656:Drivers/CMSIS/Include/cmsis_gcc.h ****    __ASM volatile ("ldrt %0, %1" : "=r" (result) : "Q" (*ptr) );
  657:Drivers/CMSIS/Include/cmsis_gcc.h ****    return(result);
  658:Drivers/CMSIS/Include/cmsis_gcc.h **** }
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cc62mgDc.s 			page 20
-
-
  659:Drivers/CMSIS/Include/cmsis_gcc.h **** 
  660:Drivers/CMSIS/Include/cmsis_gcc.h **** 
  661:Drivers/CMSIS/Include/cmsis_gcc.h **** /**
@@ -1162,6 +1198,9 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cc62mgDc.s 			page 1
  677:Drivers/CMSIS/Include/cmsis_gcc.h ****   \param [in]    ptr  Pointer to location
  678:Drivers/CMSIS/Include/cmsis_gcc.h ****  */
  679:Drivers/CMSIS/Include/cmsis_gcc.h **** __STATIC_FORCEINLINE void __STRHT(uint16_t value, volatile uint16_t *ptr)
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cchbM08N.s 			page 21
+
+
  680:Drivers/CMSIS/Include/cmsis_gcc.h **** {
  681:Drivers/CMSIS/Include/cmsis_gcc.h ****    __ASM volatile ("strht %1, %0" : "=Q" (*ptr) : "r" ((uint32_t)value) );
  682:Drivers/CMSIS/Include/cmsis_gcc.h **** }
@@ -1198,9 +1237,6 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cc62mgDc.s 			page 1
  713:Drivers/CMSIS/Include/cmsis_gcc.h ****     if (val > max)
  714:Drivers/CMSIS/Include/cmsis_gcc.h ****     {
  715:Drivers/CMSIS/Include/cmsis_gcc.h ****       return max;
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cc62mgDc.s 			page 21
-
-
  716:Drivers/CMSIS/Include/cmsis_gcc.h ****     }
  717:Drivers/CMSIS/Include/cmsis_gcc.h ****     else if (val < min)
  718:Drivers/CMSIS/Include/cmsis_gcc.h ****     {
@@ -1222,6 +1258,9 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cc62mgDc.s 			page 1
  734:Drivers/CMSIS/Include/cmsis_gcc.h ****   if (sat <= 31U)
  735:Drivers/CMSIS/Include/cmsis_gcc.h ****   {
  736:Drivers/CMSIS/Include/cmsis_gcc.h ****     const uint32_t max = ((1U << sat) - 1U);
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cchbM08N.s 			page 22
+
+
  737:Drivers/CMSIS/Include/cmsis_gcc.h ****     if (val > (int32_t)max)
  738:Drivers/CMSIS/Include/cmsis_gcc.h ****     {
  739:Drivers/CMSIS/Include/cmsis_gcc.h ****       return max;
@@ -1258,9 +1297,6 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cc62mgDc.s 			page 1
  770:Drivers/CMSIS/Include/cmsis_gcc.h **** 
  771:Drivers/CMSIS/Include/cmsis_gcc.h **** /**
  772:Drivers/CMSIS/Include/cmsis_gcc.h ****   \brief   Load-Acquire (16 bit)
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cc62mgDc.s 			page 22
-
-
  773:Drivers/CMSIS/Include/cmsis_gcc.h ****   \details Executes a LDAH instruction for 16 bit values.
  774:Drivers/CMSIS/Include/cmsis_gcc.h ****   \param [in]    ptr  Pointer to data
  775:Drivers/CMSIS/Include/cmsis_gcc.h ****   \return        value of type uint16_t at (*ptr)
@@ -1282,6 +1318,9 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cc62mgDc.s 			page 1
  791:Drivers/CMSIS/Include/cmsis_gcc.h ****  */
  792:Drivers/CMSIS/Include/cmsis_gcc.h **** __STATIC_FORCEINLINE uint32_t __LDA(volatile uint32_t *ptr)
  793:Drivers/CMSIS/Include/cmsis_gcc.h **** {
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cchbM08N.s 			page 23
+
+
  794:Drivers/CMSIS/Include/cmsis_gcc.h ****     uint32_t result;
  795:Drivers/CMSIS/Include/cmsis_gcc.h **** 
  796:Drivers/CMSIS/Include/cmsis_gcc.h ****    __ASM volatile ("lda %0, %1" : "=r" (result) : "Q" (*ptr) : "memory" );
@@ -1318,9 +1357,6 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cc62mgDc.s 			page 1
  827:Drivers/CMSIS/Include/cmsis_gcc.h ****   \details Executes a STL instruction for 32 bit values.
  828:Drivers/CMSIS/Include/cmsis_gcc.h ****   \param [in]  value  Value to store
  829:Drivers/CMSIS/Include/cmsis_gcc.h ****   \param [in]    ptr  Pointer to location
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cc62mgDc.s 			page 23
-
-
  830:Drivers/CMSIS/Include/cmsis_gcc.h ****  */
  831:Drivers/CMSIS/Include/cmsis_gcc.h **** __STATIC_FORCEINLINE void __STL(uint32_t value, volatile uint32_t *ptr)
  832:Drivers/CMSIS/Include/cmsis_gcc.h **** {
@@ -1342,6 +1378,9 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cc62mgDc.s 			page 1
  848:Drivers/CMSIS/Include/cmsis_gcc.h ****    return ((uint8_t) result);
  849:Drivers/CMSIS/Include/cmsis_gcc.h **** }
  850:Drivers/CMSIS/Include/cmsis_gcc.h **** 
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cchbM08N.s 			page 24
+
+
  851:Drivers/CMSIS/Include/cmsis_gcc.h **** 
  852:Drivers/CMSIS/Include/cmsis_gcc.h **** /**
  853:Drivers/CMSIS/Include/cmsis_gcc.h ****   \brief   Load-Acquire Exclusive (16 bit)
@@ -1378,9 +1417,6 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cc62mgDc.s 			page 1
  884:Drivers/CMSIS/Include/cmsis_gcc.h ****   \details Executes a STLB exclusive instruction for 8 bit values.
  885:Drivers/CMSIS/Include/cmsis_gcc.h ****   \param [in]  value  Value to store
  886:Drivers/CMSIS/Include/cmsis_gcc.h ****   \param [in]    ptr  Pointer to location
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cc62mgDc.s 			page 24
-
-
  887:Drivers/CMSIS/Include/cmsis_gcc.h ****   \return          0  Function succeeded
  888:Drivers/CMSIS/Include/cmsis_gcc.h ****   \return          1  Function failed
  889:Drivers/CMSIS/Include/cmsis_gcc.h ****  */
@@ -1402,6 +1438,9 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cc62mgDc.s 			page 1
  905:Drivers/CMSIS/Include/cmsis_gcc.h ****   \return          1  Function failed
  906:Drivers/CMSIS/Include/cmsis_gcc.h ****  */
  907:Drivers/CMSIS/Include/cmsis_gcc.h **** __STATIC_FORCEINLINE uint32_t __STLEXH(uint16_t value, volatile uint16_t *ptr)
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cchbM08N.s 			page 25
+
+
  908:Drivers/CMSIS/Include/cmsis_gcc.h **** {
  909:Drivers/CMSIS/Include/cmsis_gcc.h ****    uint32_t result;
  910:Drivers/CMSIS/Include/cmsis_gcc.h **** 
@@ -1438,9 +1477,6 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cc62mgDc.s 			page 1
  941:Drivers/CMSIS/Include/cmsis_gcc.h ****   @{
  942:Drivers/CMSIS/Include/cmsis_gcc.h ****  */
  943:Drivers/CMSIS/Include/cmsis_gcc.h **** 
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cc62mgDc.s 			page 25
-
-
  944:Drivers/CMSIS/Include/cmsis_gcc.h **** /**
  945:Drivers/CMSIS/Include/cmsis_gcc.h ****   \brief   Enable IRQ Interrupts
  946:Drivers/CMSIS/Include/cmsis_gcc.h ****   \details Enables IRQ interrupts by clearing special-purpose register PRIMASK.
@@ -1462,6 +1498,9 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cc62mgDc.s 			page 1
  962:Drivers/CMSIS/Include/cmsis_gcc.h ****   __ASM volatile ("cpsid i" : : : "memory");
  963:Drivers/CMSIS/Include/cmsis_gcc.h **** }
  964:Drivers/CMSIS/Include/cmsis_gcc.h **** 
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cchbM08N.s 			page 26
+
+
  965:Drivers/CMSIS/Include/cmsis_gcc.h **** 
  966:Drivers/CMSIS/Include/cmsis_gcc.h **** /**
  967:Drivers/CMSIS/Include/cmsis_gcc.h ****   \brief   Get Control Register
@@ -1498,9 +1537,6 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cc62mgDc.s 			page 1
  998:Drivers/CMSIS/Include/cmsis_gcc.h ****   \details Writes the given value to the Control Register.
  999:Drivers/CMSIS/Include/cmsis_gcc.h ****   \param [in]    control  Control Register value to set
 1000:Drivers/CMSIS/Include/cmsis_gcc.h ****  */
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cc62mgDc.s 			page 26
-
-
 1001:Drivers/CMSIS/Include/cmsis_gcc.h **** __STATIC_FORCEINLINE void __set_CONTROL(uint32_t control)
 1002:Drivers/CMSIS/Include/cmsis_gcc.h **** {
 1003:Drivers/CMSIS/Include/cmsis_gcc.h ****   __ASM volatile ("MSR control, %0" : : "r" (control) : "memory");
@@ -1522,6 +1558,9 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cc62mgDc.s 			page 1
 1019:Drivers/CMSIS/Include/cmsis_gcc.h **** #endif
 1020:Drivers/CMSIS/Include/cmsis_gcc.h **** 
 1021:Drivers/CMSIS/Include/cmsis_gcc.h **** 
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cchbM08N.s 			page 27
+
+
 1022:Drivers/CMSIS/Include/cmsis_gcc.h **** /**
 1023:Drivers/CMSIS/Include/cmsis_gcc.h ****   \brief   Get IPSR Register
 1024:Drivers/CMSIS/Include/cmsis_gcc.h ****   \details Returns the content of the IPSR Register.
@@ -1558,9 +1597,6 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cc62mgDc.s 			page 1
 1055:Drivers/CMSIS/Include/cmsis_gcc.h **** __STATIC_FORCEINLINE uint32_t __get_xPSR(void)
 1056:Drivers/CMSIS/Include/cmsis_gcc.h **** {
 1057:Drivers/CMSIS/Include/cmsis_gcc.h ****   uint32_t result;
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cc62mgDc.s 			page 27
-
-
 1058:Drivers/CMSIS/Include/cmsis_gcc.h **** 
 1059:Drivers/CMSIS/Include/cmsis_gcc.h ****   __ASM volatile ("MRS %0, xpsr" : "=r" (result) );
 1060:Drivers/CMSIS/Include/cmsis_gcc.h ****   return(result);
@@ -1582,6 +1618,9 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cc62mgDc.s 			page 1
 1076:Drivers/CMSIS/Include/cmsis_gcc.h **** 
 1077:Drivers/CMSIS/Include/cmsis_gcc.h **** 
 1078:Drivers/CMSIS/Include/cmsis_gcc.h **** #if (defined (__ARM_FEATURE_CMSE ) && (__ARM_FEATURE_CMSE == 3))
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cchbM08N.s 			page 28
+
+
 1079:Drivers/CMSIS/Include/cmsis_gcc.h **** /**
 1080:Drivers/CMSIS/Include/cmsis_gcc.h ****   \brief   Get Process Stack Pointer (non-secure)
 1081:Drivers/CMSIS/Include/cmsis_gcc.h ****   \details Returns the current value of the non-secure Process Stack Pointer (PSP) when in secure s
@@ -1618,9 +1657,6 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cc62mgDc.s 			page 1
 1112:Drivers/CMSIS/Include/cmsis_gcc.h **** {
 1113:Drivers/CMSIS/Include/cmsis_gcc.h ****   __ASM volatile ("MSR psp_ns, %0" : : "r" (topOfProcStack) : );
 1114:Drivers/CMSIS/Include/cmsis_gcc.h **** }
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cc62mgDc.s 			page 28
-
-
 1115:Drivers/CMSIS/Include/cmsis_gcc.h **** #endif
 1116:Drivers/CMSIS/Include/cmsis_gcc.h **** 
 1117:Drivers/CMSIS/Include/cmsis_gcc.h **** 
@@ -1630,665 +1666,707 @@ ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cc62mgDc.s 			page 1
 1121:Drivers/CMSIS/Include/cmsis_gcc.h ****   \return               MSP Register value
 1122:Drivers/CMSIS/Include/cmsis_gcc.h ****  */
 1123:Drivers/CMSIS/Include/cmsis_gcc.h **** __STATIC_FORCEINLINE uint32_t __get_MSP(void)
- 259              		.loc 3 1123 31 view .LVU51
- 260              	.LBB7:
+ 268              		.loc 3 1123 31 view .LVU53
+ 269              	.LBB8:
 1124:Drivers/CMSIS/Include/cmsis_gcc.h **** {
 1125:Drivers/CMSIS/Include/cmsis_gcc.h ****   uint32_t result;
- 261              		.loc 3 1125 3 view .LVU52
+ 270              		.loc 3 1125 3 view .LVU54
 1126:Drivers/CMSIS/Include/cmsis_gcc.h **** 
 1127:Drivers/CMSIS/Include/cmsis_gcc.h ****   __ASM volatile ("MRS %0, msp" : "=r" (result) );
- 262              		.loc 3 1127 3 view .LVU53
- 263              		.syntax unified
- 264              	@ 1127 "Drivers/CMSIS/Include/cmsis_gcc.h" 1
- 265 002e EFF30883 		MRS r3, msp
- 266              	@ 0 "" 2
- 267              	.LVL28:
+ 271              		.loc 3 1127 3 view .LVU55
+ 272              		.syntax unified
+ 273              	@ 1127 "Drivers/CMSIS/Include/cmsis_gcc.h" 1
+ 274 003a EFF30883 		MRS r3, msp
+ 275              	@ 0 "" 2
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cchbM08N.s 			page 29
+
+
+ 276              	.LVL27:
 1128:Drivers/CMSIS/Include/cmsis_gcc.h ****   return(result);
- 268              		.loc 3 1128 3 view .LVU54
- 269              		.loc 3 1128 3 is_stmt 0 view .LVU55
- 270              		.thumb
- 271              		.syntax unified
- 272              	.LBE7:
- 273              	.LBE6:
-  66:SynaptiX_FDK/components/external_flash/sx_external_flash.h ****         uint32_t min_stack = DEBUG_MIN_STACK_SIZE;
- 274              		.loc 2 66 9 is_stmt 1 view .LVU56
-  66:SynaptiX_FDK/components/external_flash/sx_external_flash.h ****         uint32_t min_stack = DEBUG_MIN_STACK_SIZE;
- 275              		.loc 2 66 18 is_stmt 0 view .LVU57
- 276 0032 1448     		ldr	r0, .L23+4
- 277              	.LVL29:
-  67:SynaptiX_FDK/components/external_flash/sx_external_flash.h ****         uint32_t used = estack_addr - sp;
- 278              		.loc 2 67 9 is_stmt 1 view .LVU58
-  68:SynaptiX_FDK/components/external_flash/sx_external_flash.h ****         int32_t margin_to_floor = (int32_t)(sp - (estack_addr - min_stack));
- 279              		.loc 2 68 9 view .LVU59
-  68:SynaptiX_FDK/components/external_flash/sx_external_flash.h ****         int32_t margin_to_floor = (int32_t)(sp - (estack_addr - min_stack));
- 280              		.loc 2 68 18 is_stmt 0 view .LVU60
- 281 0034 C21A     		subs	r2, r0, r3
- 282              	.LVL30:
-  69:SynaptiX_FDK/components/external_flash/sx_external_flash.h ****         log_error("SX_EXT_FLASH", "SP_CHECK: sp=0x%08lX estack=0x%08lX min_stack=%lu used=%lu margi
- 283              		.loc 2 69 9 is_stmt 1 view .LVU61
-  69:SynaptiX_FDK/components/external_flash/sx_external_flash.h ****         log_error("SX_EXT_FLASH", "SP_CHECK: sp=0x%08lX estack=0x%08lX min_stack=%lu used=%lu margi
- 284              		.loc 2 69 48 is_stmt 0 view .LVU62
- 285 0036 C0F58057 		rsb	r7, r0, #4096
- 286 003a 1F44     		add	r7, r7, r3
- 287              	.LVL31:
-  70:SynaptiX_FDK/components/external_flash/sx_external_flash.h ****             (unsigned long)sp, (unsigned long)estack_addr, (unsigned long)min_stack,
- 288              		.loc 2 70 9 is_stmt 1 view .LVU63
- 289 003c 0397     		str	r7, [sp, #12]
- 290 003e 0292     		str	r2, [sp, #8]
- 291 0040 4FF48052 		mov	r2, #4096
- 292              	.LVL32:
-  70:SynaptiX_FDK/components/external_flash/sx_external_flash.h ****             (unsigned long)sp, (unsigned long)estack_addr, (unsigned long)min_stack,
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cc62mgDc.s 			page 29
+ 277              		.loc 3 1128 3 view .LVU56
+ 278              		.loc 3 1128 3 is_stmt 0 view .LVU57
+ 279              		.thumb
+ 280              		.syntax unified
+ 281              	.LBE8:
+ 282              	.LBE7:
+  74:SynaptiX_FDK/components/external_flash/sx_external_flash.h ****         uint32_t min_stack = DEBUG_MIN_STACK_SIZE;
+ 283              		.loc 2 74 9 is_stmt 1 view .LVU58
+  74:SynaptiX_FDK/components/external_flash/sx_external_flash.h ****         uint32_t min_stack = DEBUG_MIN_STACK_SIZE;
+ 284              		.loc 2 74 18 is_stmt 0 view .LVU59
+ 285 003e 1A48     		ldr	r0, .L23+4
+ 286              	.LVL28:
+  75:SynaptiX_FDK/components/external_flash/sx_external_flash.h ****         uint32_t used = estack_addr - sp;
+ 287              		.loc 2 75 9 is_stmt 1 view .LVU60
+  76:SynaptiX_FDK/components/external_flash/sx_external_flash.h ****         int32_t margin_to_floor = (int32_t)(sp - (estack_addr - min_stack));
+ 288              		.loc 2 76 9 view .LVU61
+  76:SynaptiX_FDK/components/external_flash/sx_external_flash.h ****         int32_t margin_to_floor = (int32_t)(sp - (estack_addr - min_stack));
+ 289              		.loc 2 76 18 is_stmt 0 view .LVU62
+ 290 0040 C11A     		subs	r1, r0, r3
+ 291              	.LVL29:
+  77:SynaptiX_FDK/components/external_flash/sx_external_flash.h ****         log_error("SX_EXT_FLASH", "SP_CHECK: sp=0x%08lX estack=0x%08lX min_stack=%lu used=%lu margi
+ 292              		.loc 2 77 9 is_stmt 1 view .LVU63
+  77:SynaptiX_FDK/components/external_flash/sx_external_flash.h ****         log_error("SX_EXT_FLASH", "SP_CHECK: sp=0x%08lX estack=0x%08lX min_stack=%lu used=%lu margi
+ 293              		.loc 2 77 48 is_stmt 0 view .LVU64
+ 294 0042 C0F58052 		rsb	r2, r0, #4096
+ 295 0046 1A44     		add	r2, r2, r3
+ 296              	.LVL30:
+  78:SynaptiX_FDK/components/external_flash/sx_external_flash.h ****             (unsigned long)sp, (unsigned long)estack_addr, (unsigned long)min_stack,
+ 297              		.loc 2 78 9 is_stmt 1 view .LVU65
+ 298 0048 0392     		str	r2, [sp, #12]
+ 299 004a 0291     		str	r1, [sp, #8]
+ 300 004c 4FF48052 		mov	r2, #4096
+ 301              	.LVL31:
+  78:SynaptiX_FDK/components/external_flash/sx_external_flash.h ****             (unsigned long)sp, (unsigned long)estack_addr, (unsigned long)min_stack,
+ 302              		.loc 2 78 9 is_stmt 0 view .LVU66
+ 303 0050 0192     		str	r2, [sp, #4]
+ 304 0052 0090     		str	r0, [sp]
+ 305 0054 154A     		ldr	r2, .L23+8
+ 306 0056 4946     		mov	r1, r9
+ 307              	.LVL32:
+  78:SynaptiX_FDK/components/external_flash/sx_external_flash.h ****             (unsigned long)sp, (unsigned long)estack_addr, (unsigned long)min_stack,
+ 308              		.loc 2 78 9 view .LVU67
+ 309 0058 0120     		movs	r0, #1
+ 310 005a FFF7FEFF 		bl	log_func
+ 311              	.LVL33:
+  78:SynaptiX_FDK/components/external_flash/sx_external_flash.h ****             (unsigned long)sp, (unsigned long)estack_addr, (unsigned long)min_stack,
+ 312              		.loc 2 78 9 view .LVU68
+ 313              	.LBE6:
+  83:SynaptiX_FDK/components/external_flash/sx_external_flash.h ****         int ret = flash->ops->read(addr, buf, len);
+ 314              		.loc 2 83 5 is_stmt 1 view .LVU69
+  83:SynaptiX_FDK/components/external_flash/sx_external_flash.h ****         int ret = flash->ops->read(addr, buf, len);
+ 315              		.loc 2 83 14 is_stmt 0 view .LVU70
+ 316 005e 2368     		ldr	r3, [r4]
+  83:SynaptiX_FDK/components/external_flash/sx_external_flash.h ****         int ret = flash->ops->read(addr, buf, len);
+ 317              		.loc 2 83 8 view .LVU71
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cchbM08N.s 			page 30
 
 
- 293              		.loc 2 70 9 is_stmt 0 view .LVU64
- 294 0044 0192     		str	r2, [sp, #4]
- 295 0046 0090     		str	r0, [sp]
- 296 0048 0F4A     		ldr	r2, .L23+8
- 297 004a 4946     		mov	r1, r9
- 298 004c 0120     		movs	r0, #1
- 299 004e FFF7FEFF 		bl	log_func
- 300              	.LVL33:
-  70:SynaptiX_FDK/components/external_flash/sx_external_flash.h ****             (unsigned long)sp, (unsigned long)estack_addr, (unsigned long)min_stack,
- 301              		.loc 2 70 9 view .LVU65
- 302              	.LBE5:
-  75:SynaptiX_FDK/components/external_flash/sx_external_flash.h ****         return flash->ops->read(addr, buf, len);
- 303              		.loc 2 75 5 is_stmt 1 view .LVU66
-  75:SynaptiX_FDK/components/external_flash/sx_external_flash.h ****         return flash->ops->read(addr, buf, len);
- 304              		.loc 2 75 14 is_stmt 0 view .LVU67
- 305 0052 3368     		ldr	r3, [r6]
-  75:SynaptiX_FDK/components/external_flash/sx_external_flash.h ****         return flash->ops->read(addr, buf, len);
- 306              		.loc 2 75 8 view .LVU68
- 307 0054 6BB1     		cbz	r3, .L20
-  75:SynaptiX_FDK/components/external_flash/sx_external_flash.h ****         return flash->ops->read(addr, buf, len);
- 308              		.loc 2 75 33 discriminator 1 view .LVU69
- 309 0056 1B68     		ldr	r3, [r3]
-  75:SynaptiX_FDK/components/external_flash/sx_external_flash.h ****         return flash->ops->read(addr, buf, len);
- 310              		.loc 2 75 20 discriminator 1 view .LVU70
- 311 0058 73B1     		cbz	r3, .L21
-  76:SynaptiX_FDK/components/external_flash/sx_external_flash.h ****     return -1;
- 312              		.loc 2 76 9 is_stmt 1 view .LVU71
-  76:SynaptiX_FDK/components/external_flash/sx_external_flash.h ****     return -1;
- 313              		.loc 2 76 16 is_stmt 0 view .LVU72
- 314 005a 2A46     		mov	r2, r5
- 315 005c 4146     		mov	r1, r8
- 316 005e 2046     		mov	r0, r4
- 317 0060 9847     		blx	r3
- 318              	.LVL34:
- 319              	.L15:
-  78:SynaptiX_FDK/components/external_flash/sx_external_flash.h **** 
- 320              		.loc 2 78 1 view .LVU73
- 321 0062 05B0     		add	sp, sp, #20
- 322              	.LCFI5:
- 323              		.cfi_remember_state
- 324              		.cfi_def_cfa_offset 28
- 325              		@ sp needed
- 326 0064 BDE8F083 		pop	{r4, r5, r6, r7, r8, r9, pc}
- 327              	.LVL35:
- 328              	.L18:
- 329              	.LCFI6:
- 330              		.cfi_restore_state
-  54:SynaptiX_FDK/components/external_flash/sx_external_flash.h ****         (void*)flash, flash ? (void*)flash->ops : (void*)0,
- 331              		.loc 2 54 5 discriminator 2 view .LVU74
- 332 0068 0346     		mov	r3, r0
- 333              	.LVL36:
-  54:SynaptiX_FDK/components/external_flash/sx_external_flash.h ****         (void*)flash, flash ? (void*)flash->ops : (void*)0,
- 334              		.loc 2 54 5 discriminator 8 view .LVU75
- 335 006a 0246     		mov	r2, r0
- 336              	.LVL37:
-  54:SynaptiX_FDK/components/external_flash/sx_external_flash.h ****         (void*)flash, flash ? (void*)flash->ops : (void*)0,
- 337              		.loc 2 54 5 discriminator 8 view .LVU76
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cc62mgDc.s 			page 30
+ 318 0060 D3B1     		cbz	r3, .L20
+  83:SynaptiX_FDK/components/external_flash/sx_external_flash.h ****         int ret = flash->ops->read(addr, buf, len);
+ 319              		.loc 2 83 33 discriminator 1 view .LVU72
+ 320 0062 1B68     		ldr	r3, [r3]
+  83:SynaptiX_FDK/components/external_flash/sx_external_flash.h ****         int ret = flash->ops->read(addr, buf, len);
+ 321              		.loc 2 83 20 discriminator 1 view .LVU73
+ 322 0064 DBB1     		cbz	r3, .L21
+ 323              	.LBB9:
+  84:SynaptiX_FDK/components/external_flash/sx_external_flash.h ****         // DEBUG: confirms the function-pointer call actually returned. If this
+ 324              		.loc 2 84 9 is_stmt 1 view .LVU74
+  84:SynaptiX_FDK/components/external_flash/sx_external_flash.h ****         // DEBUG: confirms the function-pointer call actually returned. If this
+ 325              		.loc 2 84 19 is_stmt 0 view .LVU75
+ 326 0066 3A46     		mov	r2, r7
+ 327 0068 4146     		mov	r1, r8
+ 328 006a 3046     		mov	r0, r6
+ 329 006c 9847     		blx	r3
+ 330              	.LVL34:
+ 331 006e 0446     		mov	r4, r0
+ 332              	.LVL35:
+  90:SynaptiX_FDK/components/external_flash/sx_external_flash.h ****         log_error("SX_EXT_FLASH", "read: RETURNED ret=%d tick=%lu (delta=%lu ms)",
+ 333              		.loc 2 90 9 is_stmt 1 view .LVU76
+  90:SynaptiX_FDK/components/external_flash/sx_external_flash.h ****         log_error("SX_EXT_FLASH", "read: RETURNED ret=%d tick=%lu (delta=%lu ms)",
+ 334              		.loc 2 90 35 is_stmt 0 view .LVU77
+ 335 0070 FFF7FEFF 		bl	HAL_GetTick
+ 336              	.LVL36:
+  91:SynaptiX_FDK/components/external_flash/sx_external_flash.h ****             ret, (unsigned long)dbg_tick_after,
+ 337              		.loc 2 91 9 is_stmt 1 view .LVU78
+ 338 0074 451B     		subs	r5, r0, r5
+ 339              	.LVL37:
+  91:SynaptiX_FDK/components/external_flash/sx_external_flash.h ****             ret, (unsigned long)dbg_tick_after,
+ 340              		.loc 2 91 9 is_stmt 0 view .LVU79
+ 341 0076 0195     		str	r5, [sp, #4]
+ 342 0078 0090     		str	r0, [sp]
+ 343 007a 2346     		mov	r3, r4
+ 344 007c 0C4A     		ldr	r2, .L23+12
+ 345 007e 4946     		mov	r1, r9
+ 346 0080 0120     		movs	r0, #1
+ 347              	.LVL38:
+  91:SynaptiX_FDK/components/external_flash/sx_external_flash.h ****             ret, (unsigned long)dbg_tick_after,
+ 348              		.loc 2 91 9 view .LVU80
+ 349 0082 FFF7FEFF 		bl	log_func
+ 350              	.LVL39:
+  94:SynaptiX_FDK/components/external_flash/sx_external_flash.h ****     }
+ 351              		.loc 2 94 9 is_stmt 1 view .LVU81
+ 352              	.L15:
+  94:SynaptiX_FDK/components/external_flash/sx_external_flash.h ****     }
+ 353              		.loc 2 94 9 is_stmt 0 view .LVU82
+ 354              	.LBE9:
+  97:SynaptiX_FDK/components/external_flash/sx_external_flash.h **** 
+ 355              		.loc 2 97 1 view .LVU83
+ 356 0086 2046     		mov	r0, r4
+ 357 0088 07B0     		add	sp, sp, #28
+ 358              	.LCFI5:
+ 359              		.cfi_remember_state
+ 360              		.cfi_def_cfa_offset 28
+ 361              		@ sp needed
+ 362 008a BDE8F083 		pop	{r4, r5, r6, r7, r8, r9, pc}
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cchbM08N.s 			page 31
 
 
- 338 006c D3E7     		b	.L16
- 339              	.LVL38:
- 340              	.L19:
-  54:SynaptiX_FDK/components/external_flash/sx_external_flash.h ****         (void*)flash, flash ? (void*)flash->ops : (void*)0,
- 341              		.loc 2 54 5 discriminator 8 view .LVU77
- 342 006e 1A46     		mov	r2, r3
- 343              	.LVL39:
-  54:SynaptiX_FDK/components/external_flash/sx_external_flash.h ****         (void*)flash, flash ? (void*)flash->ops : (void*)0,
- 344              		.loc 2 54 5 discriminator 8 view .LVU78
- 345 0070 D1E7     		b	.L16
- 346              	.LVL40:
- 347              	.L20:
-  77:SynaptiX_FDK/components/external_flash/sx_external_flash.h **** }
- 348              		.loc 2 77 12 view .LVU79
- 349 0072 4FF0FF30 		mov	r0, #-1
- 350 0076 F4E7     		b	.L15
- 351              	.L21:
- 352 0078 4FF0FF30 		mov	r0, #-1
- 353 007c F1E7     		b	.L15
- 354              	.L24:
- 355 007e 00BF     		.align	2
- 356              	.L23:
- 357 0080 00000000 		.word	.LC0
- 358 0084 00000000 		.word	_estack
- 359 0088 48000000 		.word	.LC2
- 360 008c 38000000 		.word	.LC1
- 361              		.cfi_endproc
- 362              	.LFE520:
- 364              		.section	.rodata.lfs_flash_read.str1.4,"aMS",%progbits,1
- 365              		.align	2
- 366              	.LC3:
- 367 0000 666C6173 		.ascii	"flash_read: enter addr=0x%06lX size=%lu s_flash=%p\000"
- 367      685F7265 
- 367      61643A20 
- 367      656E7465 
- 367      72206164 
- 368 0033 00       		.align	2
- 369              	.LC4:
- 370 0034 53585F46 		.ascii	"SX_FS\000"
- 370      5300
- 371 003a 0000     		.align	2
- 372              	.LC5:
- 373 003c 666C6173 		.ascii	"flash_read: returned %d\000"
- 373      685F7265 
- 373      61643A20 
- 373      72657475 
- 373      726E6564 
- 374              		.section	.text.lfs_flash_read,"ax",%progbits
- 375              		.align	1
- 376              		.syntax unified
- 377              		.thumb
- 378              		.thumb_func
- 380              	lfs_flash_read:
- 381              	.LVL41:
- 382              	.LFB524:
-  11:SynaptiX_FDK/services/filesystem/sx_fs.c ****     uint32_t addr = PART_GPS_LOG_OFFSET + block * c->block_size + off;
- 383              		.loc 1 11 1 is_stmt 1 view -0
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cc62mgDc.s 			page 31
+ 363              	.LVL40:
+ 364              	.L18:
+ 365              	.LCFI6:
+ 366              		.cfi_restore_state
+  62:SynaptiX_FDK/components/external_flash/sx_external_flash.h ****         (void*)flash, flash ? (void*)flash->ops : (void*)0,
+ 367              		.loc 2 62 5 discriminator 2 view .LVU84
+ 368 008e 2346     		mov	r3, r4
+  62:SynaptiX_FDK/components/external_flash/sx_external_flash.h ****         (void*)flash, flash ? (void*)flash->ops : (void*)0,
+ 369              		.loc 2 62 5 discriminator 8 view .LVU85
+ 370 0090 2246     		mov	r2, r4
+ 371 0092 C5E7     		b	.L16
+ 372              	.L19:
+  62:SynaptiX_FDK/components/external_flash/sx_external_flash.h ****         (void*)flash, flash ? (void*)flash->ops : (void*)0,
+ 373              		.loc 2 62 5 discriminator 8 view .LVU86
+ 374 0094 1A46     		mov	r2, r3
+ 375 0096 C3E7     		b	.L16
+ 376              	.LVL41:
+ 377              	.L20:
+  96:SynaptiX_FDK/components/external_flash/sx_external_flash.h **** }
+ 378              		.loc 2 96 12 view .LVU87
+ 379 0098 4FF0FF34 		mov	r4, #-1
+ 380              	.LVL42:
+  96:SynaptiX_FDK/components/external_flash/sx_external_flash.h **** }
+ 381              		.loc 2 96 12 view .LVU88
+ 382 009c F3E7     		b	.L15
+ 383              	.LVL43:
+ 384              	.L21:
+  96:SynaptiX_FDK/components/external_flash/sx_external_flash.h **** }
+ 385              		.loc 2 96 12 view .LVU89
+ 386 009e 4FF0FF34 		mov	r4, #-1
+ 387              	.LVL44:
+  96:SynaptiX_FDK/components/external_flash/sx_external_flash.h **** }
+ 388              		.loc 2 96 12 view .LVU90
+ 389 00a2 F0E7     		b	.L15
+ 390              	.L24:
+ 391              		.align	2
+ 392              	.L23:
+ 393 00a4 00000000 		.word	.LC0
+ 394 00a8 00000000 		.word	_estack
+ 395 00ac 50000000 		.word	.LC2
+ 396 00b0 A0000000 		.word	.LC3
+ 397 00b4 40000000 		.word	.LC1
+ 398              		.cfi_endproc
+ 399              	.LFE520:
+ 401              		.section	.rodata.lfs_flash_write.str1.4,"aMS",%progbits,1
+ 402              		.align	2
+ 403              	.LC4:
+ 404 0000 77726974 		.ascii	"write FAILED ret=%d\000"
+ 404      65204641 
+ 404      494C4544 
+ 404      20726574 
+ 404      3D256400 
+ 405              		.align	2
+ 406              	.LC5:
+ 407 0014 53585F46 		.ascii	"SX_FS\000"
+ 407      5300
+ 408 001a 0000     		.align	2
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cchbM08N.s 			page 32
 
 
- 384              		.cfi_startproc
- 385              		@ args = 4, pretend = 0, frame = 0
- 386              		@ frame_needed = 0, uses_anonymous_args = 0
-  11:SynaptiX_FDK/services/filesystem/sx_fs.c ****     uint32_t addr = PART_GPS_LOG_OFFSET + block * c->block_size + off;
- 387              		.loc 1 11 1 is_stmt 0 view .LVU81
- 388 0000 2DE9F041 		push	{r4, r5, r6, r7, r8, lr}
- 389              	.LCFI7:
- 390              		.cfi_def_cfa_offset 24
- 391              		.cfi_offset 4, -24
- 392              		.cfi_offset 5, -20
- 393              		.cfi_offset 6, -16
- 394              		.cfi_offset 7, -12
- 395              		.cfi_offset 8, -8
- 396              		.cfi_offset 14, -4
- 397 0004 82B0     		sub	sp, sp, #8
- 398              	.LCFI8:
- 399              		.cfi_def_cfa_offset 32
- 400 0006 1D46     		mov	r5, r3
- 401 0008 DDF82080 		ldr	r8, [sp, #32]
-  12:SynaptiX_FDK/services/filesystem/sx_fs.c ****     // DEBUG: temporary trace to locate the hang after boot-via-bootloader.
- 402              		.loc 1 12 5 is_stmt 1 view .LVU82
-  12:SynaptiX_FDK/services/filesystem/sx_fs.c ****     // DEBUG: temporary trace to locate the hang after boot-via-bootloader.
- 403              		.loc 1 12 52 is_stmt 0 view .LVU83
- 404 000c C469     		ldr	r4, [r0, #28]
-  12:SynaptiX_FDK/services/filesystem/sx_fs.c ****     // DEBUG: temporary trace to locate the hang after boot-via-bootloader.
- 405              		.loc 1 12 65 view .LVU84
- 406 000e 01FB0424 		mla	r4, r1, r4, r2
-  12:SynaptiX_FDK/services/filesystem/sx_fs.c ****     // DEBUG: temporary trace to locate the hang after boot-via-bootloader.
- 407              		.loc 1 12 14 view .LVU85
- 408 0012 04F5E004 		add	r4, r4, #7340032
- 409              	.LVL42:
-  14:SynaptiX_FDK/services/filesystem/sx_fs.c ****         (unsigned long)addr, (unsigned long)size, (void*)s_flash);
- 410              		.loc 1 14 5 is_stmt 1 view .LVU86
- 411 0016 0E4E     		ldr	r6, .L27
- 412 0018 0E4F     		ldr	r7, .L27+4
- 413 001a 3B68     		ldr	r3, [r7]
- 414              	.LVL43:
-  14:SynaptiX_FDK/services/filesystem/sx_fs.c ****         (unsigned long)addr, (unsigned long)size, (void*)s_flash);
- 415              		.loc 1 14 5 is_stmt 0 view .LVU87
- 416 001c 0193     		str	r3, [sp, #4]
- 417 001e CDF80080 		str	r8, [sp]
- 418 0022 2346     		mov	r3, r4
- 419 0024 0C4A     		ldr	r2, .L27+8
- 420              	.LVL44:
-  14:SynaptiX_FDK/services/filesystem/sx_fs.c ****         (unsigned long)addr, (unsigned long)size, (void*)s_flash);
- 421              		.loc 1 14 5 view .LVU88
- 422 0026 3146     		mov	r1, r6
- 423              	.LVL45:
-  14:SynaptiX_FDK/services/filesystem/sx_fs.c ****         (unsigned long)addr, (unsigned long)size, (void*)s_flash);
- 424              		.loc 1 14 5 view .LVU89
- 425 0028 0320     		movs	r0, #3
- 426              	.LVL46:
-  14:SynaptiX_FDK/services/filesystem/sx_fs.c ****         (unsigned long)addr, (unsigned long)size, (void*)s_flash);
- 427              		.loc 1 14 5 view .LVU90
- 428 002a FFF7FEFF 		bl	log_func
- 429              	.LVL47:
-  16:SynaptiX_FDK/services/filesystem/sx_fs.c ****     log_info("SX_FS", "flash_read: returned %d", ret);
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cc62mgDc.s 			page 32
-
-
- 430              		.loc 1 16 5 is_stmt 1 view .LVU91
-  16:SynaptiX_FDK/services/filesystem/sx_fs.c ****     log_info("SX_FS", "flash_read: returned %d", ret);
- 431              		.loc 1 16 15 is_stmt 0 view .LVU92
- 432 002e 4346     		mov	r3, r8
- 433 0030 2A46     		mov	r2, r5
- 434 0032 2146     		mov	r1, r4
- 435 0034 3868     		ldr	r0, [r7]
- 436 0036 FFF7FEFF 		bl	sx_ext_flash_read
- 437              	.LVL48:
- 438 003a 0446     		mov	r4, r0
- 439              	.LVL49:
-  17:SynaptiX_FDK/services/filesystem/sx_fs.c ****     return ret;
- 440              		.loc 1 17 5 is_stmt 1 view .LVU93
- 441 003c 0346     		mov	r3, r0
- 442 003e 074A     		ldr	r2, .L27+12
- 443 0040 3146     		mov	r1, r6
- 444 0042 0320     		movs	r0, #3
- 445              	.LVL50:
-  17:SynaptiX_FDK/services/filesystem/sx_fs.c ****     return ret;
- 446              		.loc 1 17 5 is_stmt 0 view .LVU94
- 447 0044 FFF7FEFF 		bl	log_func
- 448              	.LVL51:
-  18:SynaptiX_FDK/services/filesystem/sx_fs.c **** }
- 449              		.loc 1 18 5 is_stmt 1 view .LVU95
-  19:SynaptiX_FDK/services/filesystem/sx_fs.c **** 
- 450              		.loc 1 19 1 is_stmt 0 view .LVU96
- 451 0048 2046     		mov	r0, r4
- 452 004a 02B0     		add	sp, sp, #8
- 453              	.LCFI9:
- 454              		.cfi_def_cfa_offset 24
- 455              		@ sp needed
- 456 004c BDE8F081 		pop	{r4, r5, r6, r7, r8, pc}
- 457              	.LVL52:
- 458              	.L28:
-  19:SynaptiX_FDK/services/filesystem/sx_fs.c **** 
- 459              		.loc 1 19 1 view .LVU97
- 460              		.align	2
- 461              	.L27:
- 462 0050 34000000 		.word	.LC4
- 463 0054 00000000 		.word	s_flash
- 464 0058 00000000 		.word	.LC3
- 465 005c 3C000000 		.word	.LC5
- 466              		.cfi_endproc
- 467              	.LFE524:
- 469              		.section	.rodata.lfs_flash_write.str1.4,"aMS",%progbits,1
- 470              		.align	2
- 471              	.LC6:
- 472 0000 77726974 		.ascii	"write FAILED ret=%d\000"
- 472      65204641 
- 472      494C4544 
- 472      20726574 
- 472      3D256400 
- 473              		.align	2
- 474              	.LC7:
- 475 0014 56455249 		.ascii	"VERIFY FAILED at addr=0x%06lX\000"
- 475      46592046 
- 475      41494C45 
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cc62mgDc.s 			page 33
-
-
- 475      44206174 
- 475      20616464 
- 476 0032 0000     		.align	2
- 477              	.LC8:
- 478 0034 77726F74 		.ascii	"wrote: %02X %02X %02X %02X ...\000"
- 478      653A2025 
- 478      30325820 
- 478      25303258 
- 478      20253032 
- 479 0053 00       		.align	2
- 480              	.LC9:
- 481 0054 72656164 		.ascii	"read : %02X %02X %02X %02X ...\000"
- 481      203A2025 
- 481      30325820 
- 481      25303258 
- 481      20253032 
- 482 0073 00       		.align	2
- 483              	.LC10:
- 484 0074 76657269 		.ascii	"verify OK at addr=0x%06lX\000"
- 484      6679204F 
- 484      4B206174 
- 484      20616464 
- 484      723D3078 
- 485              		.section	.text.lfs_flash_write,"ax",%progbits
- 486              		.align	1
- 487              		.syntax unified
- 488              		.thumb
- 489              		.thumb_func
- 491              	lfs_flash_write:
- 492              	.LVL53:
- 493              	.LFB525:
+ 409              	.LC6:
+ 410 001c 56455249 		.ascii	"VERIFY FAILED at addr=0x%06lX\000"
+ 410      46592046 
+ 410      41494C45 
+ 410      44206174 
+ 410      20616464 
+ 411 003a 0000     		.align	2
+ 412              	.LC7:
+ 413 003c 77726F74 		.ascii	"wrote: %02X %02X %02X %02X ...\000"
+ 413      653A2025 
+ 413      30325820 
+ 413      25303258 
+ 413      20253032 
+ 414 005b 00       		.align	2
+ 415              	.LC8:
+ 416 005c 72656164 		.ascii	"read : %02X %02X %02X %02X ...\000"
+ 416      203A2025 
+ 416      30325820 
+ 416      25303258 
+ 416      20253032 
+ 417 007b 00       		.align	2
+ 418              	.LC9:
+ 419 007c 76657269 		.ascii	"verify OK at addr=0x%06lX\000"
+ 419      6679204F 
+ 419      4B206174 
+ 419      20616464 
+ 419      723D3078 
+ 420              		.section	.text.lfs_flash_write,"ax",%progbits
+ 421              		.align	1
+ 422              		.syntax unified
+ 423              		.thumb
+ 424              		.thumb_func
+ 426              	lfs_flash_write:
+ 427              	.LVL45:
+ 428              	.LFB525:
   24:SynaptiX_FDK/services/filesystem/sx_fs.c ****     // uint32_t addr = block *c->block_size + off;
- 494              		.loc 1 24 1 is_stmt 1 view -0
- 495              		.cfi_startproc
- 496              		@ args = 4, pretend = 0, frame = 0
- 497              		@ frame_needed = 0, uses_anonymous_args = 0
+ 429              		.loc 1 24 1 is_stmt 1 view -0
+ 430              		.cfi_startproc
+ 431              		@ args = 4, pretend = 0, frame = 0
+ 432              		@ frame_needed = 0, uses_anonymous_args = 0
   24:SynaptiX_FDK/services/filesystem/sx_fs.c ****     // uint32_t addr = block *c->block_size + off;
- 498              		.loc 1 24 1 is_stmt 0 view .LVU99
- 499 0000 2DE9F041 		push	{r4, r5, r6, r7, r8, lr}
- 500              	.LCFI10:
- 501              		.cfi_def_cfa_offset 24
- 502              		.cfi_offset 4, -24
- 503              		.cfi_offset 5, -20
- 504              		.cfi_offset 6, -16
- 505              		.cfi_offset 7, -12
- 506              		.cfi_offset 8, -8
- 507              		.cfi_offset 14, -4
- 508 0004 84B0     		sub	sp, sp, #16
- 509              	.LCFI11:
- 510              		.cfi_def_cfa_offset 40
- 511 0006 1D46     		mov	r5, r3
- 512 0008 0A9E     		ldr	r6, [sp, #40]
+ 433              		.loc 1 24 1 is_stmt 0 view .LVU92
+ 434 0000 2DE9F041 		push	{r4, r5, r6, r7, r8, lr}
+ 435              	.LCFI7:
+ 436              		.cfi_def_cfa_offset 24
+ 437              		.cfi_offset 4, -24
+ 438              		.cfi_offset 5, -20
+ 439              		.cfi_offset 6, -16
+ 440              		.cfi_offset 7, -12
+ 441              		.cfi_offset 8, -8
+ 442              		.cfi_offset 14, -4
+ 443 0004 84B0     		sub	sp, sp, #16
+ 444              	.LCFI8:
+ 445              		.cfi_def_cfa_offset 40
+ 446 0006 1D46     		mov	r5, r3
+ 447 0008 0A9E     		ldr	r6, [sp, #40]
   27:SynaptiX_FDK/services/filesystem/sx_fs.c ****     int ret = sx_ext_flash_write(s_flash, addr, buf, size);
- 513              		.loc 1 27 5 is_stmt 1 view .LVU100
-  27:SynaptiX_FDK/services/filesystem/sx_fs.c ****     int ret = sx_ext_flash_write(s_flash, addr, buf, size);
- 514              		.loc 1 27 52 is_stmt 0 view .LVU101
- 515 000a C469     		ldr	r4, [r0, #28]
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cc62mgDc.s 			page 34
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cchbM08N.s 			page 33
 
 
+ 448              		.loc 1 27 5 is_stmt 1 view .LVU93
   27:SynaptiX_FDK/services/filesystem/sx_fs.c ****     int ret = sx_ext_flash_write(s_flash, addr, buf, size);
- 516              		.loc 1 27 65 view .LVU102
- 517 000c 01FB0424 		mla	r4, r1, r4, r2
+ 449              		.loc 1 27 52 is_stmt 0 view .LVU94
+ 450 000a C469     		ldr	r4, [r0, #28]
   27:SynaptiX_FDK/services/filesystem/sx_fs.c ****     int ret = sx_ext_flash_write(s_flash, addr, buf, size);
- 518              		.loc 1 27 14 view .LVU103
- 519 0010 04F5E004 		add	r4, r4, #7340032
- 520              	.LVL54:
+ 451              		.loc 1 27 65 view .LVU95
+ 452 000c 01FB0424 		mla	r4, r1, r4, r2
+  27:SynaptiX_FDK/services/filesystem/sx_fs.c ****     int ret = sx_ext_flash_write(s_flash, addr, buf, size);
+ 453              		.loc 1 27 14 view .LVU96
+ 454 0010 04F5E004 		add	r4, r4, #7340032
+ 455              	.LVL46:
   28:SynaptiX_FDK/services/filesystem/sx_fs.c ****     if (ret != 0) {
- 521              		.loc 1 28 5 is_stmt 1 view .LVU104
+ 456              		.loc 1 28 5 is_stmt 1 view .LVU97
   28:SynaptiX_FDK/services/filesystem/sx_fs.c ****     if (ret != 0) {
- 522              		.loc 1 28 15 is_stmt 0 view .LVU105
- 523 0014 3346     		mov	r3, r6
- 524              	.LVL55:
+ 457              		.loc 1 28 15 is_stmt 0 view .LVU98
+ 458 0014 3346     		mov	r3, r6
+ 459              	.LVL47:
   28:SynaptiX_FDK/services/filesystem/sx_fs.c ****     if (ret != 0) {
- 525              		.loc 1 28 15 view .LVU106
- 526 0016 2A46     		mov	r2, r5
- 527              	.LVL56:
+ 460              		.loc 1 28 15 view .LVU99
+ 461 0016 2A46     		mov	r2, r5
+ 462              	.LVL48:
   28:SynaptiX_FDK/services/filesystem/sx_fs.c ****     if (ret != 0) {
- 528              		.loc 1 28 15 view .LVU107
- 529 0018 2146     		mov	r1, r4
- 530              	.LVL57:
+ 463              		.loc 1 28 15 view .LVU100
+ 464 0018 2146     		mov	r1, r4
+ 465              	.LVL49:
   28:SynaptiX_FDK/services/filesystem/sx_fs.c ****     if (ret != 0) {
- 531              		.loc 1 28 15 view .LVU108
- 532 001a 2548     		ldr	r0, .L35
- 533              	.LVL58:
+ 466              		.loc 1 28 15 view .LVU101
+ 467 001a 2548     		ldr	r0, .L31
+ 468              	.LVL50:
   28:SynaptiX_FDK/services/filesystem/sx_fs.c ****     if (ret != 0) {
- 534              		.loc 1 28 15 view .LVU109
- 535 001c 0068     		ldr	r0, [r0]
- 536 001e FFF7FEFF 		bl	sx_ext_flash_write
- 537              	.LVL59:
+ 469              		.loc 1 28 15 view .LVU102
+ 470 001c 0068     		ldr	r0, [r0]
+ 471 001e FFF7FEFF 		bl	sx_ext_flash_write
+ 472              	.LVL51:
   29:SynaptiX_FDK/services/filesystem/sx_fs.c ****         log_error("SX_FS", "write FAILED ret=%d", ret);
- 538              		.loc 1 29 5 is_stmt 1 view .LVU110
+ 473              		.loc 1 29 5 is_stmt 1 view .LVU103
   29:SynaptiX_FDK/services/filesystem/sx_fs.c ****         log_error("SX_FS", "write FAILED ret=%d", ret);
- 539              		.loc 1 29 8 is_stmt 0 view .LVU111
- 540 0022 0746     		mov	r7, r0
- 541 0024 0028     		cmp	r0, #0
- 542 0026 32D1     		bne	.L34
+ 474              		.loc 1 29 8 is_stmt 0 view .LVU104
+ 475 0022 0746     		mov	r7, r0
+ 476 0024 0028     		cmp	r0, #0
+ 477 0026 32D1     		bne	.L30
   34:SynaptiX_FDK/services/filesystem/sx_fs.c ****     sx_ext_flash_read(s_flash, addr, verify_buf, size);
- 543              		.loc 1 34 5 is_stmt 1 view .LVU112
+ 478              		.loc 1 34 5 is_stmt 1 view .LVU105
   35:SynaptiX_FDK/services/filesystem/sx_fs.c ****     if (memcmp(buf, verify_buf, size) != 0) {
- 544              		.loc 1 35 5 view .LVU113
- 545 0028 DFF8A080 		ldr	r8, .L35+28
- 546 002c 3346     		mov	r3, r6
- 547 002e 4246     		mov	r2, r8
- 548 0030 2146     		mov	r1, r4
- 549 0032 1F48     		ldr	r0, .L35
- 550              	.LVL60:
+ 479              		.loc 1 35 5 view .LVU106
+ 480 0028 DFF8A080 		ldr	r8, .L31+28
+ 481 002c 3346     		mov	r3, r6
+ 482 002e 4246     		mov	r2, r8
+ 483 0030 2146     		mov	r1, r4
+ 484 0032 1F48     		ldr	r0, .L31
+ 485              	.LVL52:
   35:SynaptiX_FDK/services/filesystem/sx_fs.c ****     if (memcmp(buf, verify_buf, size) != 0) {
- 551              		.loc 1 35 5 is_stmt 0 view .LVU114
- 552 0034 0068     		ldr	r0, [r0]
- 553 0036 FFF7FEFF 		bl	sx_ext_flash_read
- 554              	.LVL61:
+ 486              		.loc 1 35 5 is_stmt 0 view .LVU107
+ 487 0034 0068     		ldr	r0, [r0]
+ 488 0036 FFF7FEFF 		bl	sx_ext_flash_read
+ 489              	.LVL53:
   36:SynaptiX_FDK/services/filesystem/sx_fs.c ****         log_error("SX_FS", "VERIFY FAILED at addr=0x%06lX", (unsigned long)addr);
- 555              		.loc 1 36 5 is_stmt 1 view .LVU115
-  36:SynaptiX_FDK/services/filesystem/sx_fs.c ****         log_error("SX_FS", "VERIFY FAILED at addr=0x%06lX", (unsigned long)addr);
- 556              		.loc 1 36 9 is_stmt 0 view .LVU116
- 557 003a 3246     		mov	r2, r6
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cc62mgDc.s 			page 35
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cchbM08N.s 			page 34
 
 
- 558 003c 4146     		mov	r1, r8
- 559 003e 2846     		mov	r0, r5
- 560 0040 FFF7FEFF 		bl	memcmp
- 561              	.LVL62:
+ 490              		.loc 1 36 5 is_stmt 1 view .LVU108
   36:SynaptiX_FDK/services/filesystem/sx_fs.c ****         log_error("SX_FS", "VERIFY FAILED at addr=0x%06lX", (unsigned long)addr);
- 562              		.loc 1 36 8 discriminator 1 view .LVU117
- 563 0044 68B3     		cbz	r0, .L32
+ 491              		.loc 1 36 9 is_stmt 0 view .LVU109
+ 492 003a 3246     		mov	r2, r6
+ 493 003c 4146     		mov	r1, r8
+ 494 003e 2846     		mov	r0, r5
+ 495 0040 FFF7FEFF 		bl	memcmp
+ 496              	.LVL54:
+  36:SynaptiX_FDK/services/filesystem/sx_fs.c ****         log_error("SX_FS", "VERIFY FAILED at addr=0x%06lX", (unsigned long)addr);
+ 497              		.loc 1 36 8 discriminator 1 view .LVU110
+ 498 0044 68B3     		cbz	r0, .L28
   37:SynaptiX_FDK/services/filesystem/sx_fs.c ****         log_error("SX_FS", "wrote: %02X %02X %02X %02X ...", ((uint8_t*)buf)[0], ((uint8_t*)buf)[1]
- 564              		.loc 1 37 9 is_stmt 1 view .LVU118
- 565 0046 1B4E     		ldr	r6, .L35+4
- 566 0048 2346     		mov	r3, r4
- 567 004a 1B4A     		ldr	r2, .L35+8
- 568 004c 3146     		mov	r1, r6
- 569 004e 0120     		movs	r0, #1
- 570 0050 FFF7FEFF 		bl	log_func
- 571              	.LVL63:
+ 499              		.loc 1 37 9 is_stmt 1 view .LVU111
+ 500 0046 1B4E     		ldr	r6, .L31+4
+ 501 0048 2346     		mov	r3, r4
+ 502 004a 1B4A     		ldr	r2, .L31+8
+ 503 004c 3146     		mov	r1, r6
+ 504 004e 0120     		movs	r0, #1
+ 505 0050 FFF7FEFF 		bl	log_func
+ 506              	.LVL55:
   38:SynaptiX_FDK/services/filesystem/sx_fs.c ****         log_error("SX_FS", "read : %02X %02X %02X %02X ...", verify_buf[0], verify_buf[1], verify_b
- 572              		.loc 1 38 9 view .LVU119
- 573 0054 6B78     		ldrb	r3, [r5, #1]	@ zero_extendqisi2
- 574 0056 AA78     		ldrb	r2, [r5, #2]	@ zero_extendqisi2
- 575 0058 E978     		ldrb	r1, [r5, #3]	@ zero_extendqisi2
- 576 005a 0291     		str	r1, [sp, #8]
- 577 005c 0192     		str	r2, [sp, #4]
- 578 005e 0093     		str	r3, [sp]
- 579 0060 2B78     		ldrb	r3, [r5]	@ zero_extendqisi2
- 580 0062 164A     		ldr	r2, .L35+12
- 581 0064 3146     		mov	r1, r6
- 582 0066 0120     		movs	r0, #1
- 583 0068 FFF7FEFF 		bl	log_func
- 584              	.LVL64:
+ 507              		.loc 1 38 9 view .LVU112
+ 508 0054 6B78     		ldrb	r3, [r5, #1]	@ zero_extendqisi2
+ 509 0056 AA78     		ldrb	r2, [r5, #2]	@ zero_extendqisi2
+ 510 0058 E978     		ldrb	r1, [r5, #3]	@ zero_extendqisi2
+ 511 005a 0291     		str	r1, [sp, #8]
+ 512 005c 0192     		str	r2, [sp, #4]
+ 513 005e 0093     		str	r3, [sp]
+ 514 0060 2B78     		ldrb	r3, [r5]	@ zero_extendqisi2
+ 515 0062 164A     		ldr	r2, .L31+12
+ 516 0064 3146     		mov	r1, r6
+ 517 0066 0120     		movs	r0, #1
+ 518 0068 FFF7FEFF 		bl	log_func
+ 519              	.LVL56:
   39:SynaptiX_FDK/services/filesystem/sx_fs.c ****     } else {
- 585              		.loc 1 39 9 view .LVU120
- 586 006c 98F80120 		ldrb	r2, [r8, #1]	@ zero_extendqisi2
- 587 0070 98F80210 		ldrb	r1, [r8, #2]	@ zero_extendqisi2
- 588 0074 98F80300 		ldrb	r0, [r8, #3]	@ zero_extendqisi2
- 589 0078 0290     		str	r0, [sp, #8]
- 590 007a 0191     		str	r1, [sp, #4]
- 591 007c 0092     		str	r2, [sp]
- 592 007e 98F80030 		ldrb	r3, [r8]	@ zero_extendqisi2
- 593 0082 0F4A     		ldr	r2, .L35+16
- 594 0084 3146     		mov	r1, r6
- 595 0086 0120     		movs	r0, #1
- 596 0088 FFF7FEFF 		bl	log_func
- 597              	.LVL65:
- 598 008c 05E0     		b	.L29
- 599              	.LVL66:
- 600              	.L34:
+ 520              		.loc 1 39 9 view .LVU113
+ 521 006c 98F80120 		ldrb	r2, [r8, #1]	@ zero_extendqisi2
+ 522 0070 98F80210 		ldrb	r1, [r8, #2]	@ zero_extendqisi2
+ 523 0074 98F80300 		ldrb	r0, [r8, #3]	@ zero_extendqisi2
+ 524 0078 0290     		str	r0, [sp, #8]
+ 525 007a 0191     		str	r1, [sp, #4]
+ 526 007c 0092     		str	r2, [sp]
+ 527 007e 98F80030 		ldrb	r3, [r8]	@ zero_extendqisi2
+ 528 0082 0F4A     		ldr	r2, .L31+16
+ 529 0084 3146     		mov	r1, r6
+ 530 0086 0120     		movs	r0, #1
+ 531 0088 FFF7FEFF 		bl	log_func
+ 532              	.LVL57:
+ 533 008c 05E0     		b	.L25
+ 534              	.LVL58:
+ 535              	.L30:
   30:SynaptiX_FDK/services/filesystem/sx_fs.c ****         return ret;
- 601              		.loc 1 30 9 view .LVU121
- 602 008e 0346     		mov	r3, r0
- 603 0090 0C4A     		ldr	r2, .L35+20
- 604 0092 0849     		ldr	r1, .L35+4
- 605 0094 0120     		movs	r0, #1
- 606              	.LVL67:
-  30:SynaptiX_FDK/services/filesystem/sx_fs.c ****         return ret;
- 607              		.loc 1 30 9 is_stmt 0 view .LVU122
- 608 0096 FFF7FEFF 		bl	log_func
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cc62mgDc.s 			page 36
+ 536              		.loc 1 30 9 view .LVU114
+ 537 008e 0346     		mov	r3, r0
+ 538 0090 0C4A     		ldr	r2, .L31+20
+ 539 0092 0849     		ldr	r1, .L31+4
+ 540 0094 0120     		movs	r0, #1
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cchbM08N.s 			page 35
 
 
- 609              	.LVL68:
+ 541              	.LVL59:
+  30:SynaptiX_FDK/services/filesystem/sx_fs.c ****         return ret;
+ 542              		.loc 1 30 9 is_stmt 0 view .LVU115
+ 543 0096 FFF7FEFF 		bl	log_func
+ 544              	.LVL60:
   31:SynaptiX_FDK/services/filesystem/sx_fs.c ****     }
- 610              		.loc 1 31 9 is_stmt 1 view .LVU123
- 611              	.L29:
+ 545              		.loc 1 31 9 is_stmt 1 view .LVU116
+ 546              	.L25:
   44:SynaptiX_FDK/services/filesystem/sx_fs.c **** 
- 612              		.loc 1 44 1 is_stmt 0 view .LVU124
- 613 009a 3846     		mov	r0, r7
- 614 009c 04B0     		add	sp, sp, #16
- 615              	.LCFI12:
- 616              		.cfi_remember_state
- 617              		.cfi_def_cfa_offset 24
- 618              		@ sp needed
- 619 009e BDE8F081 		pop	{r4, r5, r6, r7, r8, pc}
- 620              	.LVL69:
- 621              	.L32:
- 622              	.LCFI13:
- 623              		.cfi_restore_state
+ 547              		.loc 1 44 1 is_stmt 0 view .LVU117
+ 548 009a 3846     		mov	r0, r7
+ 549 009c 04B0     		add	sp, sp, #16
+ 550              	.LCFI9:
+ 551              		.cfi_remember_state
+ 552              		.cfi_def_cfa_offset 24
+ 553              		@ sp needed
+ 554 009e BDE8F081 		pop	{r4, r5, r6, r7, r8, pc}
+ 555              	.LVL61:
+ 556              	.L28:
+ 557              	.LCFI10:
+ 558              		.cfi_restore_state
   41:SynaptiX_FDK/services/filesystem/sx_fs.c ****     }
- 624              		.loc 1 41 9 is_stmt 1 view .LVU125
- 625 00a2 2346     		mov	r3, r4
- 626 00a4 084A     		ldr	r2, .L35+24
- 627 00a6 0349     		ldr	r1, .L35+4
- 628 00a8 0320     		movs	r0, #3
- 629 00aa FFF7FEFF 		bl	log_func
- 630              	.LVL70:
- 631 00ae F4E7     		b	.L29
- 632              	.L36:
- 633              		.align	2
- 634              	.L35:
- 635 00b0 00000000 		.word	s_flash
- 636 00b4 34000000 		.word	.LC4
- 637 00b8 14000000 		.word	.LC7
- 638 00bc 34000000 		.word	.LC8
- 639 00c0 54000000 		.word	.LC9
- 640 00c4 00000000 		.word	.LC6
- 641 00c8 74000000 		.word	.LC10
- 642 00cc 00000000 		.word	verify_buf.0
- 643              		.cfi_endproc
- 644              	.LFE525:
- 646              		.section	.text.sx_fs_init,"ax",%progbits
- 647              		.align	1
- 648              		.global	sx_fs_init
- 649              		.syntax unified
- 650              		.thumb
- 651              		.thumb_func
- 653              	sx_fs_init:
- 654              	.LVL71:
- 655              	.LFB527:
+ 559              		.loc 1 41 9 is_stmt 1 view .LVU118
+ 560 00a2 2346     		mov	r3, r4
+ 561 00a4 084A     		ldr	r2, .L31+24
+ 562 00a6 0349     		ldr	r1, .L31+4
+ 563 00a8 0320     		movs	r0, #3
+ 564 00aa FFF7FEFF 		bl	log_func
+ 565              	.LVL62:
+ 566 00ae F4E7     		b	.L25
+ 567              	.L32:
+ 568              		.align	2
+ 569              	.L31:
+ 570 00b0 00000000 		.word	s_flash
+ 571 00b4 14000000 		.word	.LC5
+ 572 00b8 1C000000 		.word	.LC6
+ 573 00bc 3C000000 		.word	.LC7
+ 574 00c0 5C000000 		.word	.LC8
+ 575 00c4 00000000 		.word	.LC4
+ 576 00c8 7C000000 		.word	.LC9
+ 577 00cc 00000000 		.word	verify_buf.0
+ 578              		.cfi_endproc
+ 579              	.LFE525:
+ 581              		.section	.rodata.lfs_flash_read.str1.4,"aMS",%progbits,1
+ 582              		.align	2
+ 583              	.LC10:
+ 584 0000 666C6173 		.ascii	"flash_read: enter addr=0x%06lX size=%lu s_flash=%p\000"
+ 584      685F7265 
+ 584      61643A20 
+ 584      656E7465 
+ 584      72206164 
+ 585 0033 00       		.align	2
+ 586              	.LC11:
+ 587 0034 666C6173 		.ascii	"flash_read: returned %d\000"
+ 587      685F7265 
+ 587      61643A20 
+ 587      72657475 
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cchbM08N.s 			page 36
+
+
+ 587      726E6564 
+ 588              		.section	.text.lfs_flash_read,"ax",%progbits
+ 589              		.align	1
+ 590              		.syntax unified
+ 591              		.thumb
+ 592              		.thumb_func
+ 594              	lfs_flash_read:
+ 595              	.LVL63:
+ 596              	.LFB524:
+  11:SynaptiX_FDK/services/filesystem/sx_fs.c ****     uint32_t addr = PART_GPS_LOG_OFFSET + block * c->block_size + off;
+ 597              		.loc 1 11 1 view -0
+ 598              		.cfi_startproc
+ 599              		@ args = 4, pretend = 0, frame = 0
+ 600              		@ frame_needed = 0, uses_anonymous_args = 0
+  11:SynaptiX_FDK/services/filesystem/sx_fs.c ****     uint32_t addr = PART_GPS_LOG_OFFSET + block * c->block_size + off;
+ 601              		.loc 1 11 1 is_stmt 0 view .LVU120
+ 602 0000 2DE9F041 		push	{r4, r5, r6, r7, r8, lr}
+ 603              	.LCFI11:
+ 604              		.cfi_def_cfa_offset 24
+ 605              		.cfi_offset 4, -24
+ 606              		.cfi_offset 5, -20
+ 607              		.cfi_offset 6, -16
+ 608              		.cfi_offset 7, -12
+ 609              		.cfi_offset 8, -8
+ 610              		.cfi_offset 14, -4
+ 611 0004 82B0     		sub	sp, sp, #8
+ 612              	.LCFI12:
+ 613              		.cfi_def_cfa_offset 32
+ 614 0006 1D46     		mov	r5, r3
+ 615 0008 DDF82080 		ldr	r8, [sp, #32]
+  12:SynaptiX_FDK/services/filesystem/sx_fs.c ****     // DEBUG: temporary trace to locate the hang after boot-via-bootloader.
+ 616              		.loc 1 12 5 is_stmt 1 view .LVU121
+  12:SynaptiX_FDK/services/filesystem/sx_fs.c ****     // DEBUG: temporary trace to locate the hang after boot-via-bootloader.
+ 617              		.loc 1 12 52 is_stmt 0 view .LVU122
+ 618 000c C469     		ldr	r4, [r0, #28]
+  12:SynaptiX_FDK/services/filesystem/sx_fs.c ****     // DEBUG: temporary trace to locate the hang after boot-via-bootloader.
+ 619              		.loc 1 12 65 view .LVU123
+ 620 000e 01FB0424 		mla	r4, r1, r4, r2
+  12:SynaptiX_FDK/services/filesystem/sx_fs.c ****     // DEBUG: temporary trace to locate the hang after boot-via-bootloader.
+ 621              		.loc 1 12 14 view .LVU124
+ 622 0012 04F5E004 		add	r4, r4, #7340032
+ 623              	.LVL64:
+  14:SynaptiX_FDK/services/filesystem/sx_fs.c ****         (unsigned long)addr, (unsigned long)size, (void*)s_flash);
+ 624              		.loc 1 14 5 is_stmt 1 view .LVU125
+ 625 0016 0E4E     		ldr	r6, .L35
+ 626 0018 0E4F     		ldr	r7, .L35+4
+ 627 001a 3B68     		ldr	r3, [r7]
+ 628              	.LVL65:
+  14:SynaptiX_FDK/services/filesystem/sx_fs.c ****         (unsigned long)addr, (unsigned long)size, (void*)s_flash);
+ 629              		.loc 1 14 5 is_stmt 0 view .LVU126
+ 630 001c 0193     		str	r3, [sp, #4]
+ 631 001e CDF80080 		str	r8, [sp]
+ 632 0022 2346     		mov	r3, r4
+ 633 0024 0C4A     		ldr	r2, .L35+8
+ 634              	.LVL66:
+  14:SynaptiX_FDK/services/filesystem/sx_fs.c ****         (unsigned long)addr, (unsigned long)size, (void*)s_flash);
+ 635              		.loc 1 14 5 view .LVU127
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cchbM08N.s 			page 37
+
+
+ 636 0026 3146     		mov	r1, r6
+ 637              	.LVL67:
+  14:SynaptiX_FDK/services/filesystem/sx_fs.c ****         (unsigned long)addr, (unsigned long)size, (void*)s_flash);
+ 638              		.loc 1 14 5 view .LVU128
+ 639 0028 0320     		movs	r0, #3
+ 640              	.LVL68:
+  14:SynaptiX_FDK/services/filesystem/sx_fs.c ****         (unsigned long)addr, (unsigned long)size, (void*)s_flash);
+ 641              		.loc 1 14 5 view .LVU129
+ 642 002a FFF7FEFF 		bl	log_func
+ 643              	.LVL69:
+  16:SynaptiX_FDK/services/filesystem/sx_fs.c ****     log_info("SX_FS", "flash_read: returned %d", ret);
+ 644              		.loc 1 16 5 is_stmt 1 view .LVU130
+  16:SynaptiX_FDK/services/filesystem/sx_fs.c ****     log_info("SX_FS", "flash_read: returned %d", ret);
+ 645              		.loc 1 16 15 is_stmt 0 view .LVU131
+ 646 002e 4346     		mov	r3, r8
+ 647 0030 2A46     		mov	r2, r5
+ 648 0032 2146     		mov	r1, r4
+ 649 0034 3868     		ldr	r0, [r7]
+ 650 0036 FFF7FEFF 		bl	sx_ext_flash_read
+ 651              	.LVL70:
+ 652 003a 0446     		mov	r4, r0
+ 653              	.LVL71:
+  17:SynaptiX_FDK/services/filesystem/sx_fs.c ****     return ret;
+ 654              		.loc 1 17 5 is_stmt 1 view .LVU132
+ 655 003c 0346     		mov	r3, r0
+ 656 003e 074A     		ldr	r2, .L35+12
+ 657 0040 3146     		mov	r1, r6
+ 658 0042 0320     		movs	r0, #3
+ 659              	.LVL72:
+  17:SynaptiX_FDK/services/filesystem/sx_fs.c ****     return ret;
+ 660              		.loc 1 17 5 is_stmt 0 view .LVU133
+ 661 0044 FFF7FEFF 		bl	log_func
+ 662              	.LVL73:
+  18:SynaptiX_FDK/services/filesystem/sx_fs.c **** }
+ 663              		.loc 1 18 5 is_stmt 1 view .LVU134
+  19:SynaptiX_FDK/services/filesystem/sx_fs.c **** 
+ 664              		.loc 1 19 1 is_stmt 0 view .LVU135
+ 665 0048 2046     		mov	r0, r4
+ 666 004a 02B0     		add	sp, sp, #8
+ 667              	.LCFI13:
+ 668              		.cfi_def_cfa_offset 24
+ 669              		@ sp needed
+ 670 004c BDE8F081 		pop	{r4, r5, r6, r7, r8, pc}
+ 671              	.LVL74:
+ 672              	.L36:
+  19:SynaptiX_FDK/services/filesystem/sx_fs.c **** 
+ 673              		.loc 1 19 1 view .LVU136
+ 674              		.align	2
+ 675              	.L35:
+ 676 0050 14000000 		.word	.LC5
+ 677 0054 00000000 		.word	s_flash
+ 678 0058 00000000 		.word	.LC10
+ 679 005c 34000000 		.word	.LC11
+ 680              		.cfi_endproc
+ 681              	.LFE524:
+ 683              		.section	.text.sx_fs_init,"ax",%progbits
+ 684              		.align	1
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cchbM08N.s 			page 38
+
+
+ 685              		.global	sx_fs_init
+ 686              		.syntax unified
+ 687              		.thumb
+ 688              		.thumb_func
+ 690              	sx_fs_init:
+ 691              	.LVL75:
+ 692              	.LFB527:
   51:SynaptiX_FDK/services/filesystem/sx_fs.c **** 
   52:SynaptiX_FDK/services/filesystem/sx_fs.c **** 
   53:SynaptiX_FDK/services/filesystem/sx_fs.c **** int sx_fs_init(sx_ext_flash_t *flash){
- 656              		.loc 1 53 38 view -0
- 657              		.cfi_startproc
- 658              		@ args = 0, pretend = 0, frame = 0
- 659              		@ frame_needed = 0, uses_anonymous_args = 0
- 660              		.loc 1 53 38 is_stmt 0 view .LVU127
- 661 0000 08B5     		push	{r3, lr}
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cc62mgDc.s 			page 37
-
-
- 662              	.LCFI14:
- 663              		.cfi_def_cfa_offset 8
- 664              		.cfi_offset 3, -8
- 665              		.cfi_offset 14, -4
+ 693              		.loc 1 53 38 is_stmt 1 view -0
+ 694              		.cfi_startproc
+ 695              		@ args = 0, pretend = 0, frame = 0
+ 696              		@ frame_needed = 0, uses_anonymous_args = 0
+ 697              		.loc 1 53 38 is_stmt 0 view .LVU138
+ 698 0000 08B5     		push	{r3, lr}
+ 699              	.LCFI14:
+ 700              		.cfi_def_cfa_offset 8
+ 701              		.cfi_offset 3, -8
+ 702              		.cfi_offset 14, -4
   54:SynaptiX_FDK/services/filesystem/sx_fs.c ****     s_flash = flash;
- 666              		.loc 1 54 5 is_stmt 1 view .LVU128
- 667              		.loc 1 54 13 is_stmt 0 view .LVU129
- 668 0002 094B     		ldr	r3, .L39
- 669 0004 1860     		str	r0, [r3]
+ 703              		.loc 1 54 5 is_stmt 1 view .LVU139
+ 704              		.loc 1 54 13 is_stmt 0 view .LVU140
+ 705 0002 094B     		ldr	r3, .L39
+ 706 0004 1860     		str	r0, [r3]
   55:SynaptiX_FDK/services/filesystem/sx_fs.c ****     s_config.block_size  = flash->info.sector_size;
- 670              		.loc 1 55 5 is_stmt 1 view .LVU130
- 671              		.loc 1 55 39 is_stmt 0 view .LVU131
- 672 0006 8268     		ldr	r2, [r0, #8]
- 673              		.loc 1 55 26 view .LVU132
- 674 0008 0848     		ldr	r0, .L39+4
- 675              	.LVL72:
- 676              		.loc 1 55 26 view .LVU133
- 677 000a 8265     		str	r2, [r0, #88]
+ 707              		.loc 1 55 5 is_stmt 1 view .LVU141
+ 708              		.loc 1 55 39 is_stmt 0 view .LVU142
+ 709 0006 8268     		ldr	r2, [r0, #8]
+ 710              		.loc 1 55 26 view .LVU143
+ 711 0008 0848     		ldr	r0, .L39+4
+ 712              	.LVL76:
+ 713              		.loc 1 55 26 view .LVU144
+ 714 000a 8265     		str	r2, [r0, #88]
   56:SynaptiX_FDK/services/filesystem/sx_fs.c ****     
   57:SynaptiX_FDK/services/filesystem/sx_fs.c ****     s_config.block_count = PART_GPS_LOG_SIZE / flash->info.sector_size;
- 678              		.loc 1 57 5 is_stmt 1 view .LVU134
- 679              		.loc 1 57 46 is_stmt 0 view .LVU135
- 680 000c 4FF41003 		mov	r3, #9437184
- 681              		.loc 1 57 46 view .LVU136
- 682 0010 B3FBF2F3 		udiv	r3, r3, r2
- 683              		.loc 1 57 26 view .LVU137
- 684 0014 C365     		str	r3, [r0, #92]
+ 715              		.loc 1 57 5 is_stmt 1 view .LVU145
+ 716              		.loc 1 57 46 is_stmt 0 view .LVU146
+ 717 000c 4FF41003 		mov	r3, #9437184
+ 718              		.loc 1 57 46 view .LVU147
+ 719 0010 B3FBF2F3 		udiv	r3, r3, r2
+ 720              		.loc 1 57 26 view .LVU148
+ 721 0014 C365     		str	r3, [r0, #92]
   58:SynaptiX_FDK/services/filesystem/sx_fs.c ****     
   59:SynaptiX_FDK/services/filesystem/sx_fs.c ****     s_config.file_function.read  = lfs_flash_read;
- 685              		.loc 1 59 5 is_stmt 1 view .LVU138
- 686              		.loc 1 59 34 is_stmt 0 view .LVU139
- 687 0016 064B     		ldr	r3, .L39+8
- 688 0018 4366     		str	r3, [r0, #100]
+ 722              		.loc 1 59 5 is_stmt 1 view .LVU149
+ 723              		.loc 1 59 34 is_stmt 0 view .LVU150
+ 724 0016 064B     		ldr	r3, .L39+8
+ 725 0018 4366     		str	r3, [r0, #100]
   60:SynaptiX_FDK/services/filesystem/sx_fs.c ****     s_config.file_function.write = lfs_flash_write;
- 689              		.loc 1 60 5 is_stmt 1 view .LVU140
- 690              		.loc 1 60 34 is_stmt 0 view .LVU141
- 691 001a 064B     		ldr	r3, .L39+12
- 692 001c 8366     		str	r3, [r0, #104]
+ 726              		.loc 1 60 5 is_stmt 1 view .LVU151
+ 727              		.loc 1 60 34 is_stmt 0 view .LVU152
+ 728 001a 064B     		ldr	r3, .L39+12
+ 729 001c 8366     		str	r3, [r0, #104]
   61:SynaptiX_FDK/services/filesystem/sx_fs.c ****     s_config.file_function.erase = lfs_flash_erase;
- 693              		.loc 1 61 5 is_stmt 1 view .LVU142
- 694              		.loc 1 61 34 is_stmt 0 view .LVU143
- 695 001e 064B     		ldr	r3, .L39+16
- 696 0020 0366     		str	r3, [r0, #96]
+ 730              		.loc 1 61 5 is_stmt 1 view .LVU153
+ 731              		.loc 1 61 34 is_stmt 0 view .LVU154
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cchbM08N.s 			page 39
+
+
+ 732 001e 064B     		ldr	r3, .L39+16
+ 733 0020 0366     		str	r3, [r0, #96]
   62:SynaptiX_FDK/services/filesystem/sx_fs.c ****     return file_system_init(&s_config);
- 697              		.loc 1 62 5 is_stmt 1 view .LVU144
- 698              		.loc 1 62 12 is_stmt 0 view .LVU145
- 699 0022 FFF7FEFF 		bl	file_system_init
- 700              	.LVL73:
+ 734              		.loc 1 62 5 is_stmt 1 view .LVU155
+ 735              		.loc 1 62 12 is_stmt 0 view .LVU156
+ 736 0022 FFF7FEFF 		bl	file_system_init
+ 737              	.LVL77:
   63:SynaptiX_FDK/services/filesystem/sx_fs.c **** }...
- 701              		.loc 1 63 1 view .LVU146
- 702 0026 08BD     		pop	{r3, pc}
- 703              	.L40:
- 704              		.align	2
- 705              	.L39:
- 706 0028 00000000 		.word	s_flash
- 707 002c 00000000 		.word	s_config
- 708 0030 00000000 		.word	lfs_flash_read
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cc62mgDc.s 			page 38
-
-
- 709 0034 00000000 		.word	lfs_flash_write
- 710 0038 00000000 		.word	lfs_flash_erase
- 711              		.cfi_endproc
- 712              	.LFE527:
- 714              		.section	.bss.verify_buf.0,"aw",%nobits
- 715              		.align	2
- 718              	verify_buf.0:
- 719 0000 00000000 		.space	16
- 719      00000000 
- 719      00000000 
- 719      00000000 
- 720              		.section	.bss.s_config,"aw",%nobits
- 721              		.align	2
- 724              	s_config:
- 725 0000 00000000 		.space	108
- 725      00000000 
- 725      00000000 
- 725      00000000 
- 725      00000000 
- 726              		.section	.bss.s_flash,"aw",%nobits
- 727              		.align	2
- 730              	s_flash:
- 731 0000 00000000 		.space	4
- 732              		.text
- 733              	.Letext0:
- 734              		.file 4 "C:\\ST\\STM32CubeCLT_1.20.0\\GNU-tools-for-STM32\\bin/../lib/gcc/arm-none-eabi/13.3.1/../
- 735              		.file 5 "C:\\ST\\STM32CubeCLT_1.20.0\\GNU-tools-for-STM32\\bin/../lib/gcc/arm-none-eabi/13.3.1/inc
- 736              		.file 6 "C:\\ST\\STM32CubeCLT_1.20.0\\GNU-tools-for-STM32\\bin/../lib/gcc/arm-none-eabi/13.3.1/../
- 737              		.file 7 "SynaptiX_FDK/services/littlefs/lfs.h"
- 738              		.file 8 "SynaptiX_FDK/services/logger/logger.h"
- 739              		.file 9 "SynaptiX_FDK/services/filesystem/file_io.h"
- 740              		.file 10 "Drivers/STM32H5xx_HAL_Driver/Inc/stm32h5xx_ll_lptim.h"
- 741              		.file 11 "C:\\ST\\STM32CubeCLT_1.20.0\\GNU-tools-for-STM32\\bin/../lib/gcc/arm-none-eabi/13.3.1/..
-ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cc62mgDc.s 			page 39
+ 738              		.loc 1 63 1 view .LVU157
+ 739 0026 08BD     		pop	{r3, pc}
+ 740              	.L40:
+ 741              		.align	2
+ 742              	.L39:
+ 743 0028 00000000 		.word	s_flash
+ 744 002c 00000000 		.word	s_config
+ 745 0030 00000000 		.word	lfs_flash_read
+ 746 0034 00000000 		.word	lfs_flash_write
+ 747 0038 00000000 		.word	lfs_flash_erase
+ 748              		.cfi_endproc
+ 749              	.LFE527:
+ 751              		.section	.bss.verify_buf.0,"aw",%nobits
+ 752              		.align	2
+ 755              	verify_buf.0:
+ 756 0000 00000000 		.space	16
+ 756      00000000 
+ 756      00000000 
+ 756      00000000 
+ 757              		.section	.bss.s_config,"aw",%nobits
+ 758              		.align	2
+ 761              	s_config:
+ 762 0000 00000000 		.space	108
+ 762      00000000 
+ 762      00000000 
+ 762      00000000 
+ 762      00000000 
+ 763              		.section	.bss.s_flash,"aw",%nobits
+ 764              		.align	2
+ 767              	s_flash:
+ 768 0000 00000000 		.space	4
+ 769              		.text
+ 770              	.Letext0:
+ 771              		.file 4 "C:\\ST\\STM32CubeCLT_1.20.0\\GNU-tools-for-STM32\\bin/../lib/gcc/arm-none-eabi/13.3.1/../
+ 772              		.file 5 "C:\\ST\\STM32CubeCLT_1.20.0\\GNU-tools-for-STM32\\bin/../lib/gcc/arm-none-eabi/13.3.1/inc
+ 773              		.file 6 "C:\\ST\\STM32CubeCLT_1.20.0\\GNU-tools-for-STM32\\bin/../lib/gcc/arm-none-eabi/13.3.1/../
+ 774              		.file 7 "SynaptiX_FDK/services/littlefs/lfs.h"
+ 775              		.file 8 "SynaptiX_FDK/services/logger/logger.h"
+ 776              		.file 9 "SynaptiX_FDK/services/filesystem/file_io.h"
+ 777              		.file 10 "Drivers/STM32H5xx_HAL_Driver/Inc/stm32h5xx_ll_lptim.h"
+ 778              		.file 11 "C:\\ST\\STM32CubeCLT_1.20.0\\GNU-tools-for-STM32\\bin/../lib/gcc/arm-none-eabi/13.3.1/..
+ 779              		.file 12 "Drivers/STM32H5xx_HAL_Driver/Inc/stm32h5xx_hal.h"
+ARM GAS  C:\Users\LENOVO\AppData\Local\Temp\cchbM08N.s 			page 40
 
 
 DEFINED SYMBOLS
                             *ABS*:00000000 sx_fs.c
-C:\Users\LENOVO\AppData\Local\Temp\cc62mgDc.s:22     .text.sx_ext_flash_write:00000000 $t
-C:\Users\LENOVO\AppData\Local\Temp\cc62mgDc.s:27     .text.sx_ext_flash_write:00000000 sx_ext_flash_write
-C:\Users\LENOVO\AppData\Local\Temp\cc62mgDc.s:85     .text.sx_ext_flash_erase_sector:00000000 $t
-C:\Users\LENOVO\AppData\Local\Temp\cc62mgDc.s:90     .text.sx_ext_flash_erase_sector:00000000 sx_ext_flash_erase_sector
-C:\Users\LENOVO\AppData\Local\Temp\cc62mgDc.s:140    .text.lfs_flash_erase:00000000 $t
-C:\Users\LENOVO\AppData\Local\Temp\cc62mgDc.s:145    .text.lfs_flash_erase:00000000 lfs_flash_erase
-C:\Users\LENOVO\AppData\Local\Temp\cc62mgDc.s:180    .text.lfs_flash_erase:00000018 $d
-C:\Users\LENOVO\AppData\Local\Temp\cc62mgDc.s:730    .bss.s_flash:00000000 s_flash
-C:\Users\LENOVO\AppData\Local\Temp\cc62mgDc.s:185    .rodata.sx_ext_flash_read.str1.4:00000000 $d
-C:\Users\LENOVO\AppData\Local\Temp\cc62mgDc.s:197    .text.sx_ext_flash_read:00000000 $t
-C:\Users\LENOVO\AppData\Local\Temp\cc62mgDc.s:202    .text.sx_ext_flash_read:00000000 sx_ext_flash_read
-C:\Users\LENOVO\AppData\Local\Temp\cc62mgDc.s:357    .text.sx_ext_flash_read:00000080 $d
-C:\Users\LENOVO\AppData\Local\Temp\cc62mgDc.s:365    .rodata.lfs_flash_read.str1.4:00000000 $d
-C:\Users\LENOVO\AppData\Local\Temp\cc62mgDc.s:375    .text.lfs_flash_read:00000000 $t
-C:\Users\LENOVO\AppData\Local\Temp\cc62mgDc.s:380    .text.lfs_flash_read:00000000 lfs_flash_read
-C:\Users\LENOVO\AppData\Local\Temp\cc62mgDc.s:462    .text.lfs_flash_read:00000050 $d
-C:\Users\LENOVO\AppData\Local\Temp\cc62mgDc.s:470    .rodata.lfs_flash_write.str1.4:00000000 $d
-C:\Users\LENOVO\AppData\Local\Temp\cc62mgDc.s:486    .text.lfs_flash_write:00000000 $t
-C:\Users\LENOVO\AppData\Local\Temp\cc62mgDc.s:491    .text.lfs_flash_write:00000000 lfs_flash_write
-C:\Users\LENOVO\AppData\Local\Temp\cc62mgDc.s:635    .text.lfs_flash_write:000000b0 $d
-C:\Users\LENOVO\AppData\Local\Temp\cc62mgDc.s:718    .bss.verify_buf.0:00000000 verify_buf.0
-C:\Users\LENOVO\AppData\Local\Temp\cc62mgDc.s:647    .text.sx_fs_init:00000000 $t
-C:\Users\LENOVO\AppData\Local\Temp\cc62mgDc.s:653    .text.sx_fs_init:00000000 sx_fs_init
-C:\Users\LENOVO\AppData\Local\Temp\cc62mgDc.s:706    .text.sx_fs_init:00000028 $d
-C:\Users\LENOVO\AppData\Local\Temp\cc62mgDc.s:724    .bss.s_config:00000000 s_config
-C:\Users\LENOVO\AppData\Local\Temp\cc62mgDc.s:715    .bss.verify_buf.0:00000000 $d
-C:\Users\LENOVO\AppData\Local\Temp\cc62mgDc.s:721    .bss.s_config:00000000 $d
-C:\Users\LENOVO\AppData\Local\Temp\cc62mgDc.s:727    .bss.s_flash:00000000 $d
+C:\Users\LENOVO\AppData\Local\Temp\cchbM08N.s:22     .text.sx_ext_flash_write:00000000 $t
+C:\Users\LENOVO\AppData\Local\Temp\cchbM08N.s:27     .text.sx_ext_flash_write:00000000 sx_ext_flash_write
+C:\Users\LENOVO\AppData\Local\Temp\cchbM08N.s:85     .text.sx_ext_flash_erase_sector:00000000 $t
+C:\Users\LENOVO\AppData\Local\Temp\cchbM08N.s:90     .text.sx_ext_flash_erase_sector:00000000 sx_ext_flash_erase_sector
+C:\Users\LENOVO\AppData\Local\Temp\cchbM08N.s:140    .text.lfs_flash_erase:00000000 $t
+C:\Users\LENOVO\AppData\Local\Temp\cchbM08N.s:145    .text.lfs_flash_erase:00000000 lfs_flash_erase
+C:\Users\LENOVO\AppData\Local\Temp\cchbM08N.s:180    .text.lfs_flash_erase:00000018 $d
+C:\Users\LENOVO\AppData\Local\Temp\cchbM08N.s:767    .bss.s_flash:00000000 s_flash
+C:\Users\LENOVO\AppData\Local\Temp\cchbM08N.s:185    .rodata.sx_ext_flash_read.str1.4:00000000 $d
+C:\Users\LENOVO\AppData\Local\Temp\cchbM08N.s:200    .text.sx_ext_flash_read:00000000 $t
+C:\Users\LENOVO\AppData\Local\Temp\cchbM08N.s:205    .text.sx_ext_flash_read:00000000 sx_ext_flash_read
+C:\Users\LENOVO\AppData\Local\Temp\cchbM08N.s:393    .text.sx_ext_flash_read:000000a4 $d
+C:\Users\LENOVO\AppData\Local\Temp\cchbM08N.s:402    .rodata.lfs_flash_write.str1.4:00000000 $d
+C:\Users\LENOVO\AppData\Local\Temp\cchbM08N.s:421    .text.lfs_flash_write:00000000 $t
+C:\Users\LENOVO\AppData\Local\Temp\cchbM08N.s:426    .text.lfs_flash_write:00000000 lfs_flash_write
+C:\Users\LENOVO\AppData\Local\Temp\cchbM08N.s:570    .text.lfs_flash_write:000000b0 $d
+C:\Users\LENOVO\AppData\Local\Temp\cchbM08N.s:755    .bss.verify_buf.0:00000000 verify_buf.0
+C:\Users\LENOVO\AppData\Local\Temp\cchbM08N.s:582    .rodata.lfs_flash_read.str1.4:00000000 $d
+C:\Users\LENOVO\AppData\Local\Temp\cchbM08N.s:589    .text.lfs_flash_read:00000000 $t
+C:\Users\LENOVO\AppData\Local\Temp\cchbM08N.s:594    .text.lfs_flash_read:00000000 lfs_flash_read
+C:\Users\LENOVO\AppData\Local\Temp\cchbM08N.s:676    .text.lfs_flash_read:00000050 $d
+C:\Users\LENOVO\AppData\Local\Temp\cchbM08N.s:684    .text.sx_fs_init:00000000 $t
+C:\Users\LENOVO\AppData\Local\Temp\cchbM08N.s:690    .text.sx_fs_init:00000000 sx_fs_init
+C:\Users\LENOVO\AppData\Local\Temp\cchbM08N.s:743    .text.sx_fs_init:00000028 $d
+C:\Users\LENOVO\AppData\Local\Temp\cchbM08N.s:761    .bss.s_config:00000000 s_config
+C:\Users\LENOVO\AppData\Local\Temp\cchbM08N.s:752    .bss.verify_buf.0:00000000 $d
+C:\Users\LENOVO\AppData\Local\Temp\cchbM08N.s:758    .bss.s_config:00000000 $d
+C:\Users\LENOVO\AppData\Local\Temp\cchbM08N.s:764    .bss.s_flash:00000000 $d
 
 UNDEFINED SYMBOLS
+HAL_GetTick
 log_func
 _estack
 memcmp

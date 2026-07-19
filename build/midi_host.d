@@ -18,7 +18,6 @@ build/midi_host.o: SynaptiX_FDK/lib/tinyusb/src/class/midi/midi_host.c \
  Drivers/STM32H5xx_HAL_Driver/Inc/stm32h5xx_hal_gpio.h \
  Drivers/STM32H5xx_HAL_Driver/Inc/stm32h5xx_hal_gpio_ex.h \
  Drivers/STM32H5xx_HAL_Driver/Inc/stm32h5xx_hal_icache.h \
- Drivers/STM32H5xx_HAL_Driver/Inc/stm32h5xx_hal_dcache.h \
  Drivers/STM32H5xx_HAL_Driver/Inc/stm32h5xx_hal_dma.h \
  Drivers/STM32H5xx_HAL_Driver/Inc/stm32h5xx_hal_dma_ex.h \
  Drivers/STM32H5xx_HAL_Driver/Inc/stm32h5xx_hal_cortex.h \
@@ -87,7 +86,6 @@ Drivers/STM32H5xx_HAL_Driver/Inc/stm32h5xx_hal_rcc_ex.h:
 Drivers/STM32H5xx_HAL_Driver/Inc/stm32h5xx_hal_gpio.h:
 Drivers/STM32H5xx_HAL_Driver/Inc/stm32h5xx_hal_gpio_ex.h:
 Drivers/STM32H5xx_HAL_Driver/Inc/stm32h5xx_hal_icache.h:
-Drivers/STM32H5xx_HAL_Driver/Inc/stm32h5xx_hal_dcache.h:
 Drivers/STM32H5xx_HAL_Driver/Inc/stm32h5xx_hal_dma.h:
 Drivers/STM32H5xx_HAL_Driver/Inc/stm32h5xx_hal_dma_ex.h:
 Drivers/STM32H5xx_HAL_Driver/Inc/stm32h5xx_hal_cortex.h:
