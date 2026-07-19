@@ -41,7 +41,8 @@ build/stm32h5xx_it.o: Core/Src/stm32h5xx_it.c Core/Inc/main.h \
  Drivers/STM32H5xx_HAL_Driver/Inc/stm32h5xx_ll_usb.h \
  Drivers/STM32H5xx_HAL_Driver/Inc/stm32h5xx_hal_pcd_ex.h \
  Drivers/STM32H5xx_HAL_Driver/Inc/stm32h5xx_hal_exti.h \
- Core/Inc/stm32h5xx_it.h
+ Core/Inc/stm32h5xx_it.h SynaptiX_FDK/services/logger/logger.h \
+ SynaptiX_FDK/app/app_config.h
 Core/Inc/main.h:
 Drivers/STM32H5xx_HAL_Driver/Inc/stm32h5xx_hal.h:
 Core/Inc/stm32h5xx_hal_conf.h:
@@ -88,3 +89,5 @@ Drivers/STM32H5xx_HAL_Driver/Inc/stm32h5xx_ll_usb.h:
 Drivers/STM32H5xx_HAL_Driver/Inc/stm32h5xx_hal_pcd_ex.h:
 Drivers/STM32H5xx_HAL_Driver/Inc/stm32h5xx_hal_exti.h:
 Core/Inc/stm32h5xx_it.h:
+SynaptiX_FDK/services/logger/logger.h:
+SynaptiX_FDK/app/app_config.h:

@@ -131,14 +131,21 @@ void HardFault_LogAndHang(uint32_t msp_at_entry)
 
 /**
   * @brief This function handles Hard fault interrupt.
+  *
+  * DEBUG: naked trampoline for the "app hangs after bootloader jump" investigation.
+  * IMPORTANT: a naked function's body must contain ONLY an asm block -- no comments,
+  * no USER CODE markers, no other C statements. GCC only warns (doesn't error) if this
+  * rule is violated, and may silently inject its own prologue/epilogue in that case,
+  * which would corrupt r0/lr before HardFault_LogAndHang ever runs. That would explain
+  * a FAULT log never appearing even on a genuine fault, so keep this function's body
+  * exactly as minimal as it is below if editing it again.
+  *
+  * On fault entry, LR holds EXC_RETURN, whose bit 2 tells us whether the CPU was using
+  * MSP or PSP at the time of the fault. This project never uses PSP (no RTOS), so this
+  * will always resolve to MSP, but the check is kept in case that ever changes.
   */
 __attribute__((naked)) void HardFault_Handler(void)
 {
-  /* USER CODE BEGIN HardFault_IRQn 0 */
-  // DEBUG: naked trampoline. On fault entry, LR holds EXC_RETURN, whose bit 2
-  // tells us whether the CPU was using MSP or PSP at the time of the fault.
-  // This project never uses PSP (no RTOS), so this will always resolve to MSP,
-  // but the check is kept in case that ever changes.
   __asm volatile (
       "tst lr, #4              \n"
       "ite eq                  \n"
@@ -146,7 +153,6 @@ __attribute__((naked)) void HardFault_Handler(void)
       "mrsne r0, psp            \n"
       "b HardFault_LogAndHang   \n"
   );
-  /* USER CODE END HardFault_IRQn 0 */
 }
 
 /**
