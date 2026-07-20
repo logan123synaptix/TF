@@ -462,130 +462,6 @@ static void read_last_gps(void)
     }
 }
 
-// static void _sync_gps_log_to_disk(void)
-// {
-//     log_info(TAG, "Syncing last GPS log entry to disk...");
-
-//     if (!sx_storage_exists(GPS_LOG_FILE_PATH))
-//     {
-//         log_warn(TAG, "No GPS log on flash");
-//         sx_user_msc_write(GPS_CSV_FILE_PATH,
-//                           (const uint8_t *)"no data\n",
-//                           strlen("no data\n"));
-//         sx_user_msc_remount_disk();
-//         return;
-//     }
-
-//     int32_t file_size = sx_storage_size(GPS_LOG_FILE_PATH);
-//     if (file_size <= 0)
-//     {
-//         log_warn(TAG, "GPS log empty");
-//         sx_user_msc_write(GPS_CSV_FILE_PATH,
-//                           (const uint8_t *)"no data\n",
-//                           strlen("no data\n"));
-//         sx_user_msc_remount_disk();
-//         return;
-//     }
-
-//     static uint8_t s_tail_buf[256];
-//     uint32_t read_len = (file_size < (int32_t)sizeof(s_tail_buf))
-//                             ? (uint32_t)file_size
-//                             : (uint32_t)sizeof(s_tail_buf) - 1;
-//     uint32_t offset = (uint32_t)file_size - read_len;
-
-//     sx_storage_err_t err = sx_storage_read_partial(
-//         GPS_LOG_FILE_PATH,
-//         s_tail_buf,
-//         offset,
-//         read_len);
-//     if (err != SX_STORAGE_OK)
-//     {
-//         log_error(TAG, "Flash read failed");
-//         sx_user_msc_write(GPS_CSV_FILE_PATH,
-//                           (const uint8_t *)"no data\n",
-//                           strlen("no data\n"));
-//         sx_user_msc_remount_disk();
-//         return;
-//     }
-
-//     s_tail_buf[read_len] = '\0';
-
-//     int32_t end = (int32_t)read_len - 1;
-//     while (end >= 0 && (s_tail_buf[end] == '\n' || s_tail_buf[end] == '\r'))
-//         end--;
-
-//     int32_t start = end;
-//     while (start > 0 && s_tail_buf[start - 1] != '\n')
-//         start--;
-
-//     if (start > end)
-//     {
-//         log_warn(TAG, "Cannot find last line");
-//         sx_user_msc_write(GPS_CSV_FILE_PATH,
-//                           (const uint8_t *)"no data\n",
-//                           strlen("no data\n"));
-//         sx_user_msc_remount_disk();
-//         return;
-//     }
-
-//     s_tail_buf[end + 1] = '\0';
-//     char *last_line = (char *)(s_tail_buf + start);
-//     log_info(TAG, "Last log line: %s", last_line);
-
-//     /* --- Parse --- */
-//     int  fix  = 0;
-//     int  rssi = 0;
-//     char lat_str[16]  = {0};
-//     char lon_str[16]  = {0};
-//     char time_str[12] = {0};
-//     char date_str[12] = {0};
-
-//     static char s_csv_line[128];
-
-//     int parsed = sscanf(last_line,
-//                         "%*s fix=%d lat=%15s lon=%15s rssi=%d time=%11s date=%11s",
-//                         &fix, lat_str, lon_str, &rssi, time_str, date_str);
-
-//     log_info(TAG, "parsed=%d fix=%d lat=%s lon=%s rssi=%d t=%s d=%s",
-//              parsed, fix, lat_str, lon_str, rssi, time_str, date_str);
-
-//     if (parsed == 6 && fix == 1)
-//     {
-//         snprintf(s_csv_line, sizeof(s_csv_line),
-//                  "%s1,%s,%s,%d,%s,%s",
-//                  GPS_CSV_HEADER, lat_str, lon_str, rssi, time_str, date_str);
-//     }
-//     else
-//     {
-//         fix = 0; rssi = 0;
-//         memset(time_str, 0, sizeof(time_str));
-//         memset(date_str, 0, sizeof(date_str));
-
-//         parsed = sscanf(last_line,
-//                         "%*s fix=%d rssi=%d time=%11s date=%11s",
-//                         &fix, &rssi, time_str, date_str);
-
-//         log_info(TAG, "fix=0 parsed=%d rssi=%d t=%s d=%s",
-//                  parsed, rssi, time_str, date_str);
-
-//         snprintf(s_csv_line, sizeof(s_csv_line),
-//                  "%s0,0.000000,0.000000,%d,%s,%s",
-//                  GPS_CSV_HEADER,
-//                  rssi,
-//                  time_str[0] ? time_str : "N/A",
-//                  date_str[0] ? date_str : "N/A");
-//     }
-
-//     sx_user_msc_write(GPS_CSV_FILE_PATH,
-//                       (const uint8_t *)s_csv_line,
-//                       strlen(s_csv_line));
-
-//     snprintf(lat_str, sizeof(lat_str), "%.6f", g_app.last_lat);
-//     snprintf(lon_str, sizeof(lon_str), "%.6f", g_app.last_lon);
-//     sx_user_msc_remount_disk();
-//     log_info(TAG, "GPS CSV written: %s", s_csv_line);
-// }
-
 static void _sync_gps_log_to_disk(void)
 {
     log_info(TAG, "Syncing last GPS log entry to disk...");
@@ -887,8 +763,8 @@ void app_process(uint32_t timestamp)
         if (g_app.publish_elapsed >= config_json.s_time_publish && !sx_user_mqtt_is_publishing())
         {
             g_app.publish_elapsed = 0;  // reset 
-            publish_gsm("full pw");
-            publish_gps("full pw");    
+            publish_gps("full pw");
+            publish_gsm("full pw");    
         }
         break;
 

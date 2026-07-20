@@ -124,9 +124,18 @@ bool sx_W25Q128_is_busy(void)
 int sx_W25Q128_read(uint32_t addr, uint8_t *buf, uint32_t len)
 {
     // DEBUG: temporary trace to confirm we reach this function and don't bail out silently.
+    // NOTE: s_dev must be null-checked BEFORE it is dereferenced anywhere, including
+    // inside a log call's argument list. The previous version read s_dev->initialized
+    // as part of building the log_info() varargs even when s_dev was NULL/invalid,
+    // which caused a BusFault (root cause of the long-standing hang under investigation).
+    if (!s_dev) {
+        log_info(TAG, "read: enter addr=0x%06lX len=%lu s_dev=NULL",
+          (unsigned long)addr, (unsigned long)len);
+        return -1;
+    }
     log_info(TAG, "read: enter addr=0x%06lX len=%lu s_dev=%p initialized=%d",
-      (unsigned long)addr, (unsigned long)len, (void*)s_dev, s_dev ? (int)s_dev->initialized : -1);
-    if (!s_dev || !s_dev->initialized) return -1;
+      (unsigned long)addr, (unsigned long)len, (void*)s_dev, (int)s_dev->initialized);
+    if (!s_dev->initialized) return -1;
     if (buf == NULL || len == 0)        return -1;
 
     uint32_t offset = 0;
