@@ -1,22 +1,25 @@
 #include "test_at.h"
 #include "logger.h"
 #include "sx_board.h"
+#include "ota_trigger.h"
 
 static const char *TAG = "TEST_AT_USB";
 
-#define NUMBER_COMMAND  4
+#define NUMBER_COMMAND  5
 
 #define AT              0
 #define AT_VPN          1
 #define AT_MQTTCONNECT  2
 #define AT_TIMESLEEP    3
+#define AT_OTA          4
 
-// const char* at_usb_command[NUMBER_COMMAND] = {"AT", "AT+VPN", "AT+MQTTCONNECT", "AT+TIMESLEEP"};
+// const char* at_usb_command[NUMBER_COMMAND] = {"AT", "AT+VPN", "AT+MQTTCONNECT", "AT+TIMESLEEP", "AT+OTA"};
 
 #define CMD_AT              "AT"
 #define CMD_AT_VPN          "AT+VPN"
 #define CMD_AT_MQTT         "AT+MQTTCONNECT"
 #define CMD_AT_TIMESLEEP    "AT+TIMESLEEP"
+#define CMD_AT_OTA          "AT+OTA"
 
 #define AT_RESP_OK      "\r\nOK\r\n"
 #define AT_RESP_ERROR   "\r\nERROR\r\n"
@@ -67,6 +70,21 @@ static int _at_timesleep_set(AT_Command_t *cmd, const char *param)
     return 0;
 }
 
+/* AT+OTA: reboot into BOOTLOADER_WS's DFU/update mode. See ota_trigger.h
+ * for the full contract — this only responds OK/ERROR based on whether the
+ * flash write+verify succeeded; on success ota_trigger_enter_dfu() resets
+ * the MCU itself and this function never returns to send the response. */
+static int _at_ota_execute(AT_Command_t *cmd)
+{
+    log_info(TAG, "OTA: entering DFU/update mode");
+    int rc = ota_trigger_enter_dfu();
+    /* Only reached if ota_trigger_enter_dfu() failed (rc < 0) — on success
+     * it resets the MCU before returning. */
+    log_error(TAG, "OTA: ota_trigger_enter_dfu failed, rc=%d", rc);
+    _respond(AT_RESP_ERROR);
+    return rc;
+}
+
 static AT_Command_t s_commands[NUMBER_COMMAND] = {
     [AT] = {
     .command = CMD_AT,
@@ -100,6 +118,14 @@ static AT_Command_t s_commands[NUMBER_COMMAND] = {
             .execute_handler  = NULL,
         }
     },
+    [AT_OTA] = {
+        .command = CMD_AT_OTA,
+        .handler = {
+            .execute_handler  = _at_ota_execute,
+            .question_handler = NULL,
+            .set_handler      = NULL,
+        }
+    },
 };
 
 static AT_Implementation_t s_at_impl;
@@ -112,4 +138,3 @@ void app_at_init(void) {
 void app_at_process(const char *data, size_t len) {
     at_process_input(&s_at_impl, data, len);
 }
-

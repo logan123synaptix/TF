@@ -670,6 +670,7 @@ void app_init(void)
     log_info(TAG, "App init");
     config_json.time_sleep_ms = SX_TIME_IN_SLEEP;
     config_json.time_wake_ms  = SX_TIME_IN_WAKE;
+    config_json.s_time_publish = 20000;
     // application_init:
     g_app.board = &board;
     g_app.app_mode = APP_MODE_FULL_POWER;

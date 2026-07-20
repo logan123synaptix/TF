@@ -63,11 +63,7 @@ static int lfs_bd_read(lfs_t *lfs,
         // flooding UART and to make sure the log right before a real hang isn't lost.
         dbg_bd_read_iters++;
         if (dbg_bd_read_iters == 6 || dbg_bd_read_iters % 50 == 0) {
-            log_error("LFS_DBG",
-                "bd_read: SUSPICIOUS iter=%lu block=%lu off=%lu size=%lu | rcache.block=%lu rcache.off=%lu rcache.size=%lu | pcache=%p",
-                (unsigned long)dbg_bd_read_iters, (unsigned long)block, (unsigned long)off, (unsigned long)size,
-                (unsigned long)rcache->block, (unsigned long)rcache->off, (unsigned long)rcache->size,
-                (void*)pcache);
+
         }
 
         if (pcache && block == pcache->block &&

@@ -32,10 +32,8 @@ extern lfs_t lfs;
 
 static inline FILE *file_open(const char *path, const char *mode) {
     // DEBUG: temporary trace to locate the hang after boot-via-bootloader.
-    log_info("FILE_IO", "file_open: enter path=%s mode=%s", path, mode);
     // Use LittleFS to open a file
     lfs_file_t *file = malloc(sizeof(lfs_file_t));
-    log_info("FILE_IO", "file_open: malloc done, file=%p", (void *)file);
     int lfs_status;
     if(file == NULL) {
         return NULL; // Memory allocation failed
@@ -58,9 +56,7 @@ static inline FILE *file_open(const char *path, const char *mode) {
         free(file);
         return NULL;
     }
-    log_info("FILE_IO", "file_open: calling lfs_file_open, flags=%d", flags);
     lfs_status = lfs_file_open(CONFIG_LITTLEFS,file, path, flags);
-    log_info("FILE_IO", "file_open: lfs_file_open returned %d", lfs_status);
     if (lfs_status != LFS_ERR_OK) {
         free(file);
         return NULL; // Error opening file

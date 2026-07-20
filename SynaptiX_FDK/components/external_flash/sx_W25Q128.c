@@ -129,12 +129,8 @@ int sx_W25Q128_read(uint32_t addr, uint8_t *buf, uint32_t len)
     // as part of building the log_info() varargs even when s_dev was NULL/invalid,
     // which caused a BusFault (root cause of the long-standing hang under investigation).
     if (!s_dev) {
-        log_info(TAG, "read: enter addr=0x%06lX len=%lu s_dev=NULL",
-          (unsigned long)addr, (unsigned long)len);
         return -1;
     }
-    log_info(TAG, "read: enter addr=0x%06lX len=%lu s_dev=%p initialized=%d",
-      (unsigned long)addr, (unsigned long)len, (void*)s_dev, (int)s_dev->initialized);
     if (!s_dev->initialized) return -1;
     if (buf == NULL || len == 0)        return -1;
 

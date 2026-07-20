@@ -11,10 +11,7 @@ static int lfs_flash_read(const struct lfs_config *c,
 {
     uint32_t addr = PART_GPS_LOG_OFFSET + block * c->block_size + off;
     // DEBUG: temporary trace to locate the hang after boot-via-bootloader.
-    log_info("SX_FS", "flash_read: enter addr=0x%06lX size=%lu s_flash=%p",
-        (unsigned long)addr, (unsigned long)size, (void*)s_flash);
     int ret = sx_ext_flash_read(s_flash, addr, buf, size);
-    log_info("SX_FS", "flash_read: returned %d", ret);
     return ret;
 }
 
