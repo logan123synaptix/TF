@@ -79,6 +79,7 @@ int main(void)
   /* USER CODE BEGIN 1 */
   __enable_irq();
   SCB->SHCSR |= SCB_SHCSR_BUSFAULTENA_Msk;
+  SCB->ACTLR |= SCB_ACTLR_DISDEFWBUF_Msk;
   /* USER CODE END 1 */
 
   /* MCU Configuration--------------------------------------------------------*/

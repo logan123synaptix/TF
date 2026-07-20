@@ -822,7 +822,7 @@ void app_init(void)
 
 
     sx_user_mqtt_nontls_init(&s_mqtt_cfg);
-    read_last_gps();
+    // read_last_gps();
     gps_it_handle();
 
     // publish_gps("init");
