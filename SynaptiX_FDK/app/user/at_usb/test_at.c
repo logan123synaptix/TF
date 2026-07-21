@@ -7,28 +7,30 @@
 
 static const char *TAG = "TEST_AT_USB";
 
-#define NUMBER_COMMAND  7
+#define NUMBER_COMMAND          8
 
-#define AT              0
-#define AT_VPN          1
-#define AT_MQTTCONNECT  2
-#define AT_TIMESLEEP    3
-#define AT_OTA          4
-#define AT_ROLLBACK_PREV     5
-#define AT_ROLLBACK_FACTORY  6
+#define AT                      0
+#define AT_VPN                  1
+#define AT_MQTTCONNECT          2
+#define AT_TIMESLEEP            3
+#define AT_OTA                  4
+#define AT_ROLLBACK_PREV        5
+#define AT_ROLLBACK_FACTORY     6
+#define AT_FLASH_FACTORY_APP    7
 
 // const char* at_usb_command[NUMBER_COMMAND] = {"AT", "AT+VPN", "AT+MQTTCONNECT", "AT+TIMESLEEP", "AT+OTA", "AT+ROLLBACK_PREV", "AT+ROLLBACK_FACTORY"};
 
-#define CMD_AT              "AT"
-#define CMD_AT_VPN          "AT+VPN"
-#define CMD_AT_MQTT         "AT+MQTTCONNECT"
-#define CMD_AT_TIMESLEEP    "AT+TIMESLEEP"
-#define CMD_AT_OTA          "AT+OTA"
-#define CMD_AT_ROLLBACK_PREV     "AT+ROLLBACK_PREV"
-#define CMD_AT_ROLLBACK_FACTORY  "AT+ROLLBACK_FACTORY"
+#define CMD_AT                      "AT"
+#define CMD_AT_VPN                  "AT+VPN"
+#define CMD_AT_MQTT                 "AT+MQTTCONNECT"
+#define CMD_AT_TIMESLEEP            "AT+TIMESLEEP"
+#define CMD_AT_OTA                  "AT+OTA"
+#define CMD_AT_ROLLBACK_PREV        "AT+ROLLBACK_PREV"
+#define CMD_AT_ROLLBACK_FACTORY     "AT+ROLLBACK_FACTORY"
+#define CMD_AT_FLASH_FACTORY_APP    "ADMIN+AT+FACTORY"
 
-#define AT_RESP_OK      "\r\nOK\r\n"
-#define AT_RESP_ERROR   "\r\nERROR\r\n"
+#define AT_RESP_OK                  "\r\nOK\r\n"
+#define AT_RESP_ERROR               "\r\nERROR\r\n"
 
 static void _respond(const char *resp)
 {
@@ -82,7 +84,7 @@ static int _at_timesleep_set(AT_Command_t *cmd, const char *param)
  * the MCU itself and this function never returns to send the response. */
 static int _at_ota_execute(AT_Command_t *cmd)
 {
-    log_info(TAG, "OTA: entering DFU/update mode");
+    _respond(AT_RESP_OK);
     int rc = ota_trigger_enter_dfu();
     /* Only reached if ota_trigger_enter_dfu() failed (rc < 0) — on success
      * it resets the MCU before returning. */
@@ -118,6 +120,15 @@ static int _at_rollback_factory_execute(AT_Command_t *cmd)
     boot_backup_reg_write(BOOT_BACKUP_REG_ROLLBACK_FACTORY, BOOT_MAGIC_ROLLBACK_FACTORY);
     NVIC_SystemReset();
     return 0; /* unreachable */
+}
+
+static int _at_flash_factory_execute(AT_Command_t *cmd){
+    log_info(TAG, "ADMIN: FLASH FACTORY APP");
+    /*Code Execute here*/
+
+    /*Code Execute here*/
+    NVIC_SystemReset();
+    return 0;
 }
 
 static AT_Command_t s_commands[NUMBER_COMMAND] = {
