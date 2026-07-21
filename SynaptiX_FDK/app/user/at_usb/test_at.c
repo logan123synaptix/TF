@@ -194,6 +194,14 @@ static AT_Command_t s_commands[NUMBER_COMMAND] = {
             .set_handler      = NULL,
         }
     },
+    [AT_FLASH_FACTORY_APP] = {
+        .command =  CMD_AT_FLASH_FACTORY_APP,
+        .handler = {
+            .execute_handler = _at_flash_factory_execute,
+            .question_handler = NULL,
+            .set_handler = NULL,
+        }
+    }
 };
 
 static AT_Implementation_t s_at_impl;
