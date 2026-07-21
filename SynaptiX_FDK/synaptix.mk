@@ -5,7 +5,8 @@ APP_FILES = ${SYNAPTIX_DIR}/app/app.c \
 			${SYNAPTIX_DIR}/app/user/sx_ex_storage/sx_ex_storage.c \
 			${SYNAPTIX_DIR}/app/user/at_usb/test_at.c \
 			${SYNAPTIX_DIR}/app/user/at_usb/at_command.c \
-			${SYNAPTIX_DIR}/app/user/ota_trigger/ota_trigger.c
+			${SYNAPTIX_DIR}/app/user/ota_trigger/ota_trigger.c \
+			${SYNAPTIX_DIR}/app/user/ota_trigger/new_boot_backup_reg.c
 			
 
 BOARD_FILES = ${SYNAPTIX_DIR}/board/sx_board.c

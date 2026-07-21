@@ -381,7 +381,7 @@ static void publish_gps(char *mode)
     // Build inner JSON string (escaped) - thêm \"fix\"
     snprintf(v_str, sizeof(v_str),
              "{\\\"lat\\\":%.6f,\\\"lon\\\":%.6f,\\\"alt\\\":%.6f,\\\"spd\\\":%.6f,\\\"sat\\\":%d,\\\"fix\\\":%d}",
-             lat, lon, alt, spd, sat, fix); // <-- thêm fix vào cuối
+             lat, lon, alt, spd, sat, fix); 
 
     // Build outer JSON
     snprintf(msg, sizeof(msg),
