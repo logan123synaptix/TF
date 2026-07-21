@@ -2,24 +2,30 @@
 #include "logger.h"
 #include "sx_board.h"
 #include "ota_trigger.h"
+#include "new_boot_backup_reg.h"
+#include "new_magic_flash.h"
 
 static const char *TAG = "TEST_AT_USB";
 
-#define NUMBER_COMMAND  5
+#define NUMBER_COMMAND  7
 
 #define AT              0
 #define AT_VPN          1
 #define AT_MQTTCONNECT  2
 #define AT_TIMESLEEP    3
 #define AT_OTA          4
+#define AT_ROLLBACK_PREV     5
+#define AT_ROLLBACK_FACTORY  6
 
-// const char* at_usb_command[NUMBER_COMMAND] = {"AT", "AT+VPN", "AT+MQTTCONNECT", "AT+TIMESLEEP", "AT+OTA"};
+// const char* at_usb_command[NUMBER_COMMAND] = {"AT", "AT+VPN", "AT+MQTTCONNECT", "AT+TIMESLEEP", "AT+OTA", "AT+ROLLBACK_PREV", "AT+ROLLBACK_FACTORY"};
 
 #define CMD_AT              "AT"
 #define CMD_AT_VPN          "AT+VPN"
 #define CMD_AT_MQTT         "AT+MQTTCONNECT"
 #define CMD_AT_TIMESLEEP    "AT+TIMESLEEP"
 #define CMD_AT_OTA          "AT+OTA"
+#define CMD_AT_ROLLBACK_PREV     "AT+ROLLBACK_PREV"
+#define CMD_AT_ROLLBACK_FACTORY  "AT+ROLLBACK_FACTORY"
 
 #define AT_RESP_OK      "\r\nOK\r\n"
 #define AT_RESP_ERROR   "\r\nERROR\r\n"
@@ -85,6 +91,35 @@ static int _at_ota_execute(AT_Command_t *cmd)
     return rc;
 }
 
+/* AT+ROLLBACK_PREV / AT+ROLLBACK_FACTORY: write a one-shot command flag
+ * into a TAMP backup register (survives NVIC_SystemReset(), see
+ * new_boot_backup_reg.h) and reset. new_bootloader_check_commands(), run
+ * early in the bootloader's bootloader_init(), reads the flag, clears it,
+ * performs the swap (rollback-prev: Primary<->Secondary) or one-way copy
+ * (rollback-factory: Factory->Primary), then jumps straight to the
+ * application -- no DFU wait, no host tool involved.
+ * Both always reset the MCU on this path, so neither ever returns to send
+ * an AT response; the "OK"-then-reset ordering mirrors AT+OTA above. */
+static int _at_rollback_prev_execute(AT_Command_t *cmd)
+{
+    log_info(TAG, "ROLLBACK_PREV: rolling back to previous (Secondary) app");
+    _respond(AT_RESP_OK);
+    boot_backup_reg_init();
+    boot_backup_reg_write(BOOT_BACKUP_REG_ROLLBACK_PREV, BOOT_MAGIC_ROLLBACK_PREV);
+    NVIC_SystemReset();
+    return 0; /* unreachable */
+}
+
+static int _at_rollback_factory_execute(AT_Command_t *cmd)
+{
+    log_info(TAG, "ROLLBACK_FACTORY: restoring factory app image");
+    _respond(AT_RESP_OK);
+    boot_backup_reg_init();
+    boot_backup_reg_write(BOOT_BACKUP_REG_ROLLBACK_FACTORY, BOOT_MAGIC_ROLLBACK_FACTORY);
+    NVIC_SystemReset();
+    return 0; /* unreachable */
+}
+
 static AT_Command_t s_commands[NUMBER_COMMAND] = {
     [AT] = {
     .command = CMD_AT,
@@ -122,6 +157,22 @@ static AT_Command_t s_commands[NUMBER_COMMAND] = {
         .command = CMD_AT_OTA,
         .handler = {
             .execute_handler  = _at_ota_execute,
+            .question_handler = NULL,
+            .set_handler      = NULL,
+        }
+    },
+    [AT_ROLLBACK_PREV] = {
+        .command = CMD_AT_ROLLBACK_PREV,
+        .handler = {
+            .execute_handler  = _at_rollback_prev_execute,
+            .question_handler = NULL,
+            .set_handler      = NULL,
+        }
+    },
+    [AT_ROLLBACK_FACTORY] = {
+        .command = CMD_AT_ROLLBACK_FACTORY,
+        .handler = {
+            .execute_handler  = _at_rollback_factory_execute,
             .question_handler = NULL,
             .set_handler      = NULL,
         }
