@@ -107,7 +107,7 @@ void sx_board_init(void)
     sx_uart_init(&board.log_uart, &uart_config[UART_LOG], 512, 512);
     logger_init(LOGGER_INFO, log_print);
     log_info(TAG, "Board init start");
-
+    log_info(TAG, "Version FACTORY");
     sx_gpio_init(&s_charge, &sx_gpio_ops, &s_charge_pin);
     sx_gpio_init(&s_dis_charge, &sx_gpio_ops, &s_dis_charge_pin);
     
