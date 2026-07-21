@@ -123,12 +123,18 @@ static int _at_rollback_factory_execute(AT_Command_t *cmd)
 }
 
 static int _at_flash_factory_execute(AT_Command_t *cmd){
-    log_info(TAG, "ADMIN: FLASH FACTORY APP");
-    /*Code Execute here*/
-
-    /*Code Execute here*/
+    log_info(TAG, "ADMIN: FLASH FACTORY APP - entering DFU/update mode (target: Factory)");
+    _respond(AT_RESP_OK);
+    boot_backup_reg_init();
+    /* Same backup register (BKP2R) as AT+ROLLBACK_FACTORY, but a different
+     * magic value: this one tells the bootloader to enter DFU-wait mode
+     * with the write target redirected to Factory, instead of copying the
+     * existing Factory image to Primary right away. See
+     * new_bootloader_check_commands() in WS_v1/BOOTLOADER_WS for the
+     * bootloader-side handling. */
+    boot_backup_reg_write(BOOT_BACKUP_REG_ROLLBACK_FACTORY, BOOT_MAGIC_UPDATE_FACTORY);
     NVIC_SystemReset();
-    return 0;
+    return 0; /* unreachable */
 }
 
 static AT_Command_t s_commands[NUMBER_COMMAND] = {
